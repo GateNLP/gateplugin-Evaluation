@@ -1,0 +1,41 @@
+Initial development notes.
+
+*) allow to compare two completely different set/type/feature triples. Or rather,
+  two sets of such triples, where each pair corresponds to one analysis 
+*) consider parallel computation on large corpora
+*) consider storing intermediate results in document features, then calculating the final numbers
+*) consider using arbitrary loss functions instead of 0-1 loss for the numbers
+*) consider using a different scoring function for the alignment decision. For alignment 
+  allow approaches where we limit to coextensive/overalpping for strict and lenient and where
+  we consider all pairs and use the scoring function?
+
+Literature, maybe relevant:
+  = http://demonstrations.wolfram.com/ThePrecisionRecallCurveInInformationRetrievalEvaluation/
+  = http://www.nr.com/CS395T/lectures2008/17-ROCPrecisionRecall.pdf
+  = http://clair.eecs.umich.edu/aan/paper.php?paper_id=M98-1030
+  = http://www.itl.nist.gov/iaui/894.02/related_projects/muc/muc_sw/muc_sw_manual.html
+  = http://en.wikipedia.org/wiki/Named-entity_recognition
+  = http://www.cicling.org/2009/RCS-41/047-058.pdf
+  = http://alias-i.com/lingpipe/docs/api/com/aliasi/classify/PrecisionRecallEvaluation.html
+  = http://alias-i.com/lingpipe/docs/api/com/aliasi/classify/ScoredPrecisionRecallEvaluation.html
+  = http://alias-i.com/lingpipe/demos/tutorial/ne/read-me.html
+  = http://www.itl.nist.gov/iad/mig/publications/proceedings/darpa99/html/dir10/dir10.htm
+  = http://en.wikipedia.org/wiki/Sensitivity_and_specificity
+  = http://repository.dlsi.ua.es/251/1/pdf/869_paper.pdf
+    bibliography?
+  = http://www.researchgate.net/publication/8048485_Agreement_the_f-measure_and_reliability_in_information_retrieval
+  = http://nlp.stanford.edu/IR-book/pdf/08eval.pdf
+  = http://www.cnts.ua.ac.be/~vincent/pdf/microaverage.pdf
+  = http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1090460/
+  = http://blogs.sas.com/content/iml/2011/07/29/computing-an-roc-curve-from-basic-principles/
+  = http://gim.unmc.edu/dxtests/ROC1.htm
+  = http://www.r-bloggers.com/roc-curves-and-classification/
+  = http://weka.wikispaces.com/ROC+curves
+  = http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0092209
+  = http://www.vlfeat.org/overview/plots-rank.html
+  = https://www.creighton.edu/fileadmin/user/HSL/docs/ref/Searching_-_Recall_Precision.pdf
+  = http://scikit-learn.org/stable/auto_examples/plot_precision_recall.html
+  = http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html
+  = http://machinelearning.wustl.edu/mlpapers/paper_files/icml2006_DavisG06.pdf
+  = http://en.wikipedia.org/wiki/Precision_and_recall
+  
