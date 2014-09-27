@@ -5,6 +5,8 @@
 
 # generated jar file
 Evaluation.jar
+# local properties file
+build.properties
 
 # Package Files #
 *.war
