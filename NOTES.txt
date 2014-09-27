@@ -1,9 +1,21 @@
 Initial development notes.
 
 *) allow to compare two completely different set/type/feature triples. Or rather,
-  two sets of such triples, where each pair corresponds to one analysis 
+  two sets of such triples, where each pair corresponds to one analysis which could the
+  get macro or micro averaged.
 *) consider parallel computation on large corpora
 *) consider storing intermediate results in document features, then calculating the final numbers
+*) consider evaluation on parallel corpora, instead of annotation sets or have a separate
+  PR for creating a corpus with parallel sets from parallel documents. This is related to the
+  idea of having GATE "documents" which only reference the document and really only consist of
+  annotation sets.
+  For this we need to define what makes corpora "parallel" and how the unique id of documents
+  are established: name (file name, file path portion, stored document name) or id (index number
+  in corpus, md5 content hash - not so good because we could have separate documents with the 
+  same content?)
+  This is also related to the way we model input sources: if we have the concept of parallel
+  streams, we do not really have to care and what parallel means is up to the implementation
+  for the input source.
 *) consider using arbitrary loss functions instead of 0-1 loss for the numbers
 *) consider using a different scoring function for the alignment decision. For alignment 
   allow approaches where we limit to coextensive/overalpping for strict and lenient and where
