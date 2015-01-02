@@ -22,6 +22,19 @@ Initial development notes.
   we consider all pairs and use the scoring function?
 
 Literature, maybe relevant:
+  = Mallet pages:
+    http://mallet.cs.umass.edu/api/cc/mallet/classify/Trial.html
+    http://mallet.cs.umass.edu/api/cc/mallet/classify/evaluate/ConfusionMatrix.html
+  = LingPipe:
+    http://alias-i.com/lingpipe/docs/api/com/aliasi/tag/TaggerEvaluator.html
+    http://alias-i.com/lingpipe/docs/api/com/aliasi/classify/ScoredPrecisionRecallEvaluation.html
+    http://alias-i.com/lingpipe/docs/api/com/aliasi/classify/ScoredClassification.html
+    http://alias-i.com/lingpipe/docs/api/com/aliasi/classify/ScoredClassifierEvaluator.html
+    http://alias-i.com/lingpipe/docs/api/com/aliasi/classify/PrecisionRecallEvaluation.html
+    http://alias-i.com/lingpipe/docs/api/com/aliasi/classify/JointClassifierEvaluator.html
+    http://alias-i.com/lingpipe/docs/api/com/aliasi/classify/ConditionalClassifierEvaluator.html
+    http://alias-i.com/lingpipe/docs/api/com/aliasi/classify/RankedClassification.html
+    http://alias-i.com/lingpipe/docs/api/com/aliasi/classify/RankedClassifierEvaluator.html
   = http://demonstrations.wolfram.com/ThePrecisionRecallCurveInInformationRetrievalEvaluation/
   = http://www.nr.com/CS395T/lectures2008/17-ROCPrecisionRecall.pdf
   = http://clair.eecs.umich.edu/aan/paper.php?paper_id=M98-1030
