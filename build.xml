@@ -62,7 +62,7 @@
       <include name="**/*.jar" />
       <include name="**/*.zip" />
     </fileset>
-    <fileset dir="${lib.dir}" includes="**/*.jar" />
+    <!-- <fileset dir="${lib.dir}" includes="**/*.jar" /> -->
   </path>
   
   <!--====================== Targets ============================-->
