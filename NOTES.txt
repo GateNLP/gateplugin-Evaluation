@@ -1,3 +1,61 @@
+Papers:
+- Luo etal 2014: An Extension of BLANC to System Mentions. ACL2014
+  (applies to co-reference evaluation)
+- Hovy etal 2014: Scoring Coreference Partitions of Predicted Mentions: A Reference Implementation. ACL2104
+  (applies to co-reference evaluation)
+
+Other Software:
+- https://code.google.com/p/reference-coreference-scorers/ (coreference evaluation, perl)
+
+
+Notes about parameters and functionality:
+
+= name/title: to make it easier to identify an evaluation when we run several in a one pipeline
+  maybe also: description
+= target set name
+= response set name
+= types and features: a list of type+features specifications. For each type
+  the comparison will be made using the given features (if any). In addition,
+  an overal micro average will be made and over all types, a macro average. 
+= response diff set name: the name of the set that contains annotations which 
+  identify missing/spurious etc. 
+= reference set name: if given then everything is also done for the pair  
+  reference set / target set and the differences between the two are 
+  calculated (e.g. 23 more missing).
+= referemce diff set name: tje mame of the set that contains annotations which
+  represent missing/spurious etc for the reference set
+= response vs. reference set name: a set that has annotations the represent
+  changes between the response and reference sets with regard to the target,
+  This uses the reference set as the "starting point" and creates annotations 
+  which represent how the starting point has changed, e.g. was correct now missing. 
+= Zero to N "by" features: if this is given than each evaluation will be further
+  broken down by each of the values of that feature. 
+
+Calculate P/R/F versus accuracy:
+= Accuracy: we count by target, and for each target there is either a correct
+  or an incorrect response. We have the following possible situations:
+  - there is exactly one response and it matches: correct response
+  - there is exactly one response and it does not match: incorrect response
+  - there is more than one response: incorrect (also counted separately)
+  - there is no response: incorrect (also counted separately) 
+  - responses elsewhere are ignored for the accuracy (but counted)
+  - we calculate numbers for exact matches and overlaps:
+    - for exact matches, only other exact matches are considered 
+    - if there is a response that overlaps and another that is strict, the 
+      strict one is used for strict accuracy but the lenient accuracy is 
+      counted as false (because two overlaps exist). 
+  - Q: what if we have coextensive/overlapping targets? 
+= P/R/F: we process by target, for each target with find the best coextensive
+  or overlapping match.
+  - if there is a coextensive match then we count strict correct and use up the match
+  - else if there is an overlappign match then we count lenient correct and strict missing and use up the match
+  - else if no correct match has been found and we have a coextensive response: count as strict incorrect and strict spurious and strict missing and use up
+  - if not correct or coextensive incorrect match has been found and we have an
+    overlapping response: count as lenient incorrect and spurious and use up
+  - all remaining responses are spurious. 
+  
+  
+
 Initial development notes.
 
 *) allow to compare two completely different set/type/feature triples. Or rather,
@@ -63,4 +121,13 @@ Literature, maybe relevant:
   = http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html
   = http://machinelearning.wustl.edu/mlpapers/paper_files/icml2006_DavisG06.pdf
   = http://en.wikipedia.org/wiki/Precision_and_recall
-  
+ 
+
+MISC NOTES:
+= algorithm for minimum cost assignment, useful for minimum loss coreference cluster 
+  assignments: Munkres/Hungarian algorithm, see http://en.wikipedia.org/wiki/Hungarian_algorithm
+  for perl: https://metacpan.org/pod/Algorithm::Munkres 
+  explanation and c code: http://csclab.murraystate.edu/bob.pilgrim/445/munkres.html
+  explanation/tutorial: http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=hungarianAlgorithm
+  implementation/java: https://github.com/KevinStern/software-and-algorithms/blob/master/src/main/java/blogspot/software_and_algorithms/stern_library/optimization/HungarianAlgorithm.java
+  implementation/java: https://code.google.com/p/robotutils/source/browse/trunk/src/robotutils/planning/KuhnMunkres.java
