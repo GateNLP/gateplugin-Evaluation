@@ -3,8 +3,18 @@ Papers:
   (applies to co-reference evaluation)
 - Hovy etal 2014: Scoring Coreference Partitions of Predicted Mentions: A Reference Implementation. ACL2104
   (applies to co-reference evaluation)
+- Davison&Hinkley 1997: Bootstap methods and their applications. No download/ebook -> Library!
+- Lin 2004: Looking for a few good metrics: ROUGE and its evaluation
+- Noreen 1989: Computer intensive methods for testing hypotheses -> library
+- Tjong Kim Sang & De Meulder 2003: Introduction to the CoNLL-2003 shared task: Language independent named entity recognition.
+
+Slides:
+- TAC2014 Entity Linking Scorer: http://nlp.cs.rpi.edu/kbp/2014/edlscorer-apr22.pptx
 
 Other Software:
+- TAC2014 measures: https://github.com/wikilinks/neleval/wiki/Evaluation and 
+  https://github.com/wikilinks/neleval/wiki/Significance
+- TAC EL evaluation and analysis scripts: https://github.com/wikilinks/neleval
 - https://code.google.com/p/reference-coreference-scorers/ (coreference evaluation, perl)
 
 

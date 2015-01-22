@@ -1,4 +1,4 @@
-<project name="Evaluation" basedir="." default="all">
+<project name="Evaluation" basedir="." default="jar">
 
   <property file="build.properties" />
 
@@ -41,6 +41,9 @@
   <!-- documentation directory -->
   <property name="doc.dir" location="doc" />
 
+  <!-- output of junit tests -->
+  <property name="testsout.dir" location="testsout" />
+
   <!-- JavaDoc documentation directory -->
   <property name="javadoc.dir" location="${doc.dir}/javadoc" />
 
@@ -63,6 +66,17 @@
       <include name="**/*.zip" />
     </fileset>
     <!-- <fileset dir="${lib.dir}" includes="**/*.jar" /> -->
+  </path>
+
+  <path id="run.classpath">
+    <pathelement location="${jar.location}" />
+    <pathelement location="${gate.jar}" />
+    <fileset dir="${gate.lib}">
+      <include name="**/*.jar" />
+      <include name="**/*.zip" />
+    </fileset>
+    <!-- <fileset dir="${lib.dir}" includes="**/*.jar" /> -->
+
   </path>
   
   <!--====================== Targets ============================-->
@@ -100,6 +114,25 @@
     <jar destfile="${jar.location}"
          update="false"
          basedir="${classes.dir}" />
+  </target>
+
+  <target name="test" depends="jar">
+    <mkdir dir="${testsout.dir}" />
+    <junit fork="true" showoutput="true" printsummary="yes" maxmemory="1G" > 
+      <classpath refid="run.classpath" />
+      <sysproperty key="some.property" value="${classes.dir}" />
+      <formatter type="xml" />
+      <formatter type="plain" usefile="false" />
+      <formatter type="plain" />
+      <test name="gate.plugin.evaluation.tests.TestAll" outfile="junittests" todir="${testsout.dir}" />
+    </junit>
+    <junitreport>
+      <fileset dir="${testsout.dir}">
+        <include name="TEST-*.xml" />
+      </fileset>
+      <report todir="${testsout.dir}" format="noframes" />
+    </junitreport>
+
   </target>
 
   <!-- remove the generated .class files -->
@@ -157,7 +190,6 @@
                          distribution
   -->
   <target name="build" depends="jar" />
-  <target name="test" />
   <target name="distro.prepare" depends="clean.classes, clean.tests" />
 
 </project>

@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="3">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">created from String</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes><Node id="0"/>This<Node id="4"/> <Node id="5"/>is<Node id="7"/> <Node id="8"/>the<Node id="11"/> first<Node id="17"/> test <Node id="23"/>document<Node id="31"/> doc1. It contains a Key annotation set with annotation targets
+for P/R/F evaluation and it contains the <Node id="136"/>annotation<Node id="146"/> sets Resp1 and Resp2 with responses.
+All sets contain annotations <Node id="213"/>of <Node id="216"/>type<Node id="220"/> mention<Node id="228"/> with a single feature "id" which contains some 
+string<Node id="283"/> that <Node id="289"/>identifies<Node id="299"/> <Node id="300"/>the<Node id="303"/> "value" of the target <Node id="326"/>or <Node id="329"/>response.
+</TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Resp2">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Resp1">
+<Annotation Id="11" Type="Mention" StartNode="0" EndNode="4">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">correct</Value>
+</Feature>
+</Annotation>
+<Annotation Id="12" Type="Mention" StartNode="5" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">spurious</Value>
+</Feature>
+</Annotation>
+<Annotation Id="13" Type="Mention" StartNode="11" EndNode="17">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">partial correct</Value>
+</Feature>
+</Annotation>
+<Annotation Id="14" Type="Mention" StartNode="23" EndNode="31">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">b</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">incorrect</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Key">
+<Annotation Id="0" Type="Mention" StartNode="23" EndNode="31">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1" Type="Mention" StartNode="136" EndNode="146">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2" Type="Mention" StartNode="0" EndNode="4">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="3" Type="Mention" StartNode="8" EndNode="17">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4" Type="Mention" StartNode="216" EndNode="220">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5" Type="Mention" StartNode="213" EndNode="220">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">b</Value>
+</Feature>
+</Annotation>
+<Annotation Id="6" Type="Mention" StartNode="216" EndNode="228">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">c</Value>
+</Feature>
+</Annotation>
+<Annotation Id="7" Type="Mention" StartNode="289" EndNode="300">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="8" Type="Mention" StartNode="283" EndNode="299">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="9" Type="Mention" StartNode="289" EndNode="303">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10" Type="Mention" StartNode="326" EndNode="329">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+</GateDocument>
