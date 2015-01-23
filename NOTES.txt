@@ -1,3 +1,137 @@
+DEFINITIONS:
+============
+
+For P/R/F:
+----------
+
+An annotation is either consumed or not-consumed: if we found some response
+annotation that was the best match for that target then both the target and response
+annotations are consumed. A not-consumed annotation is an available annotation. 
+
+In the following, if the response annotation is compared to a target annotation,
+then both the target and response annotations must be uncomsumed and consumed
+by the match, i.e. neither the target nor the response are used for any other match. 
+
+A correctStrict annotation is a response  that is coextensive and equal.
+A correctPartial annotation is a response that is overlapping but not coexgensive and equal.
+A correctLenient annotation is one that is overlapping and equal. The set of 
+  these annotations is the union of correctStrict and correctPartial.
+
+An incorrectStrict annotation is a response that is coextensive and not equal.
+An incorrectPartial annotation is one that is overlapping but not coextensive and not equal.
+An incorrectLenient annotation is one that is overlapping but tno equal. The set of 
+  these is the union of incorrectStrict and incorrectPartial
+
+A missing annotation is a target anotation for which no correct response annotation
+exists. 
+A missingStrict annotation is a target annotation for which no correctStrict response exists.
+A missingLenient annotation is a target annotation for which no correctStrict or correctPartial response
+exists. 
+[correctPartial does not make sense]
+
+A spurious annotation is a response annotation for which no correct target annotation exists.
+A spuriousStrict is a response annotation which is not correctStrict
+A spuriousLenient is a response annotation which is not correctLenient
+[spuriousPartial does not make sense]
+
+A "trueMissing" annotation is a key annotation for which there is not even an
+incorrect response (and obviously no correct response either).
+A trueMissingStrict annotation is a key annotation for which there is no 
+correctStrict and no incorrectStrict annotation
+A trueMissingLenient annotation is a key annotation for which there is no 
+correctLenient and no incorrectLenient annotation.
+
+A "trueSpurious" annotation is a response annotation which is not 
+incorrect or correct.  
+A trueSpuriousStrict annotation is a response annotation which is neither correctStrict 
+nor incorrectStrict.
+A trueSpuriousLenient annotation is a response annotation which is neither 
+correctLenient nor incorrectLenient. 
+
+The following should hold
+
+responses = correctStrict + spuriousStrict
+responses = correctLenient + spuriousLenient
+responses = correctStrict + incorrectStrict + trueSpuriousStrict
+responses = correctLenient + incorrectLenient + trueSpuriousLenient
+
+targets = correctStrict + missingStrict
+targets = correctLenient + missingLenient
+targets = correctStrict + incorrectStrict + trueMissingStrict
+targets = correctLenient + incorrectLenient + trueMissingLenient
+
+
+Precision measures the proportion of correct responses among all responses. 
+precisionStrict = correctStrict/responses
+precisionLenient = correctLenient/responses
+
+Recall measures the proportion of correct responses amont all targets.
+recallStrict =  correctStrict / targets
+recallLenient = correctLenient / targets 
+
+Error rate measures the proportion of incorrect responses among all responses
+errorRateStrict = incorrectStrict/responses
+errorRateLenient = incorrectLenient/responses
+
+FalsePositives (as in AnnDiff) is the number of all responses that are not 
+correct:
+n_falsePositiveStrict = responses - n_correctStrict
+n_falsePositiveLenient = responses - n_correctStrict - n_correctPartial = responses - n_correctLenient
+
+
+Strategy for finding the counts:
+--------------------------------
+
+initialize the sets missingStrict, missingPartial, trueMissingStrict and trueMissingPartial
+with all the targets. 
+
+For each response we have one of the following situations:
+= if we use the score and there is a new score, add a new stat object for that score
+= there is no overlapping target: this is a trueSpuriousStrict response and a trueSpuriousLenient response
+= there are overlappign targets:
+  go through all overlapping targets and assign the first target which matches
+  the conditions below, then after all targets have been processed, check 
+  which is the first which we can process:
+  - the response strictly matches and equals one or more of the targets
+    pick one it matches and remove from available targets, count as correctStrict
+    remove from missingStrict
+    remove from trueMissingStrict
+  - the response leniently matches and equals one or more of the targets
+    pick one it matches (maybe longest overlap!) and remove from available targets, count as correctLenient
+    remove from missingPartial
+    remove from trueMissingPartial
+  - the response strictly matches and does not equal one or more targets
+    pick one it is coextensive with and remove from available targets, count as incorrectStrict
+    remove from trueMissingStrict
+  - the response leniently matches and does not equal one ore more targets
+    pick one (maybe the one with longest overlap) and remove from targets, count as incorrectLenient
+    remove from trueMissingPartial
+  - no other options exist
+
+  
+  
+  
+  
+Note: is it faster to just process for each response all targets (resonse x targets comparisons, no 
+building of additional data structures) or to find the overlapping ones for each response
+(on average much less than |targets| per response, but we need to find the overlaps first which
+may be much more inefficient.
+  
+  
+  
+if a response has score s then we also have to count the response individually
+for all the stats with thresholds t_i
+
+if s < t_i we ignore the response, it is the same as if it was not here. 
+if s >= t_i then we count the response as above for the stat obj with threshold t_i
+  
+  
+=====================
+
+
+
+
+
 Papers:
 - Luo etal 2014: An Extension of BLANC to System Mentions. ACL2014
   (applies to co-reference evaluation)

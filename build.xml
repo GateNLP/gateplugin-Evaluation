@@ -122,7 +122,7 @@
       <classpath refid="run.classpath" />
       <sysproperty key="some.property" value="${classes.dir}" />
       <formatter type="xml" />
-      <formatter type="plain" usefile="false" />
+      <!-- <formatter type="plain" usefile="false" />-->
       <formatter type="plain" />
       <test name="gate.plugin.evaluation.tests.TestAll" outfile="junittests" todir="${testsout.dir}" />
     </junit>

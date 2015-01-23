@@ -14,12 +14,10 @@ import java.util.Locale;
 import java.util.Set;
 
 /**
- * Old AnnotationDiffer class.
- * This is a copy of the old AnnotationDiffer as implemented in gate.util.AnnotationDiffer.
- * It is copied over here so we can add debug code and compare the new implementation
- * with the old one.
+ * New modified AnnotationDiffer class.
+ * This is the code that got modified.
  */
-public class AnnotationDifferOld {
+public class AnnotationDiffer {
   
   
   /**
@@ -28,14 +26,14 @@ public class AnnotationDifferOld {
    * Then you can only use the methods getPrecision/Recall/FMeasure...().
    * @param differs collection to be regrouped in one AnnotationDiffer
    */
-  public AnnotationDifferOld(Collection<AnnotationDifferOld> differs) {
+  public AnnotationDiffer(Collection<AnnotationDiffer> differs) {
     correctMatches = 0;
     partiallyCorrectMatches = 0;
     missing = 0;
     spurious = 0;
     int keyCount = 0;
     int responseCount = 0;
-    for (AnnotationDifferOld differ : differs) {
+    for (AnnotationDiffer differ : differs) {
       // set the correct, partial, spurious and missing values to be
       // the sum of those in the collection
       correctMatches += differ.getCorrectMatches();
@@ -49,7 +47,7 @@ public class AnnotationDifferOld {
     responseList = new ArrayList<Annotation>(Collections.nCopies(responseCount, (Annotation) null));    
   }
 
-  public AnnotationDifferOld() {
+  public AnnotationDiffer() {
     // empty constructor
   }
 
@@ -95,7 +93,13 @@ public class AnnotationDifferOld {
    * @return a list of {@link Pairing} objects representing the pairing set
    * that results in the best score.
    */
-  public List<Pairing> calculateDiff(Collection<Annotation> key, Collection<Annotation> response){
+  public List<Pairing> calculateDiff(
+          Collection<Annotation> key, 
+          Collection<Annotation> response,
+          List<String> features, // this can be null or an empty list to indicate no features
+          String scoreFeature  // if not null, the name of a score feature
+          )
+  {
     
     //initialise data structures
     if(key == null || key.size() == 0)

@@ -8,7 +8,7 @@ import gate.Gate;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import gate.util.AnnotationDiffer;
+import gate.plugin.evaluation.api.AnnotationDifferOld;
 import gate.plugin.evaluation.api.*;
 import gate.util.GateException;
 import java.io.File;
@@ -62,7 +62,7 @@ public class TestDiffer1 {
   public void testFindPairings01() {
     System.out.println("Running test testFindPairings01");
     // Get the differences, using the old method
-    AnnotationDiffer annDiffer = new AnnotationDiffer();
+    AnnotationDifferOld annDiffer = new AnnotationDifferOld();
     Set<String> features = new HashSet<String>();
     features.add("id");
     annDiffer.setSignificantFeaturesSet(features);
@@ -70,7 +70,7 @@ public class TestDiffer1 {
     System.out.println("testFindPairings01 doc1 anns from Key: "+doc1KeyAnns);
     AnnotationSet doc1Resp1Anns = doc1.getAnnotations("Resp1");    
     System.out.println("testFindPairings01 doc1 anns from Resp1: "+doc1Resp1Anns);
-    List<AnnotationDiffer.Pairing> pairings = annDiffer.calculateDiff(doc1KeyAnns, doc1Resp1Anns);
+    List<AnnotationDifferOld.Pairing> pairings = annDiffer.calculateDiff(doc1KeyAnns, doc1Resp1Anns);
     System.out.println("testFindPairings01 doc1 keys: "+annDiffer.getKeysCount());
     System.out.println("testFindPairings01 doc1 resp: "+annDiffer.getResponsesCount());
     System.out.println("testFindPairings01 doc1 features: "+annDiffer.getSignificantFeaturesSet());
@@ -78,6 +78,11 @@ public class TestDiffer1 {
     System.out.println("testFindPairings01 doc1 partially correct: "+annDiffer.getPartiallyCorrectMatches());
     System.out.println("testFindPairings01 doc1 spurious: "+annDiffer.getSpurious());
     System.out.println("testFindPairings01 doc1 missing: "+annDiffer.getMissing());
+    System.out.println("testFindPairings01 doc1 true missing: "+annDiffer.getTrueMissing());
+    System.out.println("testFindPairings01 doc1 true spurious: "+annDiffer.getTrueSpurious());
+    System.out.println("testFindPairings01 doc1 incorrect strict: "+annDiffer.getIncorrectStrict());
+    System.out.println("testFindPairings01 doc1 incorrect partial: "+annDiffer.getIncorrectPartial());
+    System.out.println("testFindPairings01 doc1 incorrect lenient: "+annDiffer.getIncorrectLenient());
     System.out.println("testFindPairings01 doc1 FP strict: "+annDiffer.getFalsePositivesStrict());
     System.out.println("testFindPairings01 doc1 FP lenient: "+annDiffer.getFalsePositivesLenient());
     System.out.println("testFindPairings01 doc1 precision strict: "+annDiffer.getPrecisionStrict());
@@ -90,6 +95,8 @@ public class TestDiffer1 {
     System.out.println("testFindPairings01 doc1 partial anns: "+annDiffer.partiallyCorrectAnnotations);
     System.out.println("testFindPairings01 doc1 missing anns: "+annDiffer.missingAnnotations);
     System.out.println("testFindPairings01 doc1 spurious anns: "+annDiffer.spuriousAnnotations);
+    System.out.println("testFindPairings01 doc1 incorrect strict anns: "+annDiffer.incorrectStrictAnnotations);
+    
   }
   
   
@@ -99,9 +106,9 @@ public class TestDiffer1 {
   
   
   // so we can run this test from the command line 
-  public static void main(String args[]) {
-    org.junit.runner.JUnitCore.main(TestDiffer1.class.getCanonicalName());
-  }  
+  //public static void main(String args[]) {
+  //  org.junit.runner.JUnitCore.main(TestDiffer1.class.getCanonicalName());
+  //}  
   
   
 }
