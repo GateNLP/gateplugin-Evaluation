@@ -30,5 +30,5 @@ public class EvalStats {
   
   // responses that are coextensive but not equal 
   protected int nIncorrectStrict;
-  protected 
+  
 }

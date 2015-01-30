@@ -265,7 +265,11 @@ Literature, maybe relevant:
   = http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html
   = http://machinelearning.wustl.edu/mlpapers/paper_files/icml2006_DavisG06.pdf
   = http://en.wikipedia.org/wiki/Precision_and_recall
- 
+  = http://scikit-learn.org/stable/auto_examples/plot_precision_recall.html
+  = http://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html#sklearn.metrics.precision_recall_curve
+  = http://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html#sklearn.metrics.average_precision_score
+  = http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html
+  = https://gate.ac.uk/sale/tao/splitch10.html#x14-27200010 
 
 MISC NOTES:
 = algorithm for minimum cost assignment, useful for minimum loss coreference cluster 
