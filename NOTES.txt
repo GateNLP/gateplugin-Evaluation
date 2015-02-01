@@ -27,7 +27,7 @@ exists.
 A missingStrict annotation is a target annotation for which no correctStrict response exists.
 A missingLenient annotation is a target annotation for which no correctStrict or correctPartial response
 exists. 
-[correctPartial does not make sense]
+[missingPartial does not make sense]
 
 A spurious annotation is a response annotation for which no correct target annotation exists.
 A spuriousStrict is a response annotation which is not correctStrict

@@ -13,6 +13,7 @@ import gate.creole.metadata.CreoleParameter;
 import gate.creole.metadata.CreoleResource;
 import gate.creole.metadata.Optional;
 import gate.creole.metadata.RunTime;
+import gate.plugin.evaluation.api.AnnotationDiffer;
 import gate.util.GateRuntimeException;
 import java.util.HashSet;
 import java.util.List;
@@ -58,6 +59,12 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
   public void setContainingASNameAndType(String name) { containingASNameAndType = name; }
   public String getContainingASNameAndType() { return containingASNameAndType; }
   
+  private ContainmentType containmentType;
+  @CreoleParameter (comment="How the responses are restricted to the annotations of the containingASNameAndType")
+  @Optional
+  @RunTime
+  public void setContainmentType(ContainmentType ct) { ct = containmentType; }
+  public ContainmentType getContainmentType() { return containmentType; }
   
   private String annotationType;
   @CreoleParameter (comment="The annotation type to use for evaluations",defaultValue="Mention")
@@ -92,6 +99,28 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
   @RunTime
   public void setOutputASName(String name) { outputASName = name; }
   public String getOutputASName() { return outputASName; }
+  
+  public String featureNameNilCluster;
+  @CreoleParameter(comment = "", defaultValue = "")
+  @RunTime
+  @Optional  
+  public void setFeatureNameNilCluster(String value) { featureNameNilCluster = value; }
+  public String getFeatureNameNilCluster() { return featureNameNilCluster; }
+  
+  public NilTreatment nilTreatment;
+  @CreoleParameter(comment="",defaultValue="")
+  @RunTime
+  @Optional  
+  public void setNilTreatMent(NilTreatment value) { nilTreatment = value; }
+  public NilTreatment getNilTreatMent() { return nilTreatment; }
+     
+  public String nilValue;
+  @CreoleParameter(comment="",defaultValue="")
+  @RunTime
+  @Optional  
+  public void setNilValue(String value) { nilValue = value; }
+  public String getNilValue() { return nilValue; }
+     
   
   
   //////////////////// 
@@ -139,10 +168,41 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
       containingSet = document.getAnnotations(setAndType[0]).get(setAndType[1]);
       // now filter the keys and responses. If the containing set/type is the same as the key set/type,
       // do not filter the keys.
-      responseSet = selectOverlappingBy(responseSet,containingSet);
+      ContainmentType ct = containmentType;
+      if(ct == null) ct = ContainmentType.OVERLAPPING;
+      responseSet = selectOverlappingBy(responseSet,containingSet,ct);
+      if(containingSetName.equals(keyASName) && containingType.equals(annotationType)) {
+        // no need to do anything for the key set
+      } else {
+        keySet = selectOverlappingBy(keySet,containingSet,ct);
+      }
+      // if we have a reference set, we need to apply the same filtering to that one too
+      if(referenceSet != null) {
+        referenceSet = selectOverlappingBy(referenceSet,containingSet,ct);
+      }
     } // have a containing set and type
     
+    // Now depending on the NIL processing strategy, do something with those annotations which 
+    // are identified as nil in the key and response sets.
+    // NO_NILS: do nothing, all keys and responses are taken as is. If there are special NIL
+    //   values in the key set, the responses must match them like any other value. Parameter nilValue
+    //   is ignored here.
+    // NIL_IS_ABSENT:
+    //   In this case a missing response for a NIL key is treated as a correct match. 
+    //   A NIL response that is not coextensive is treated as a partial correct match.
+    //   A response that is not a nil is treated as a spurious response. Parameter nilValue is 
+    //   used to know which keys and responses are nils. 
+    // NIL_CLUSTERS: 
+    //   In this case, a missing response does not equal a key nil, because we need to provide
+    //   a label to be correct. Parameter nilValue is used so we know which keys and responses 
+    //   are nils.
+    //   We match all non-NILs in the usual way, ignoring all the NILS both in the key and 
+    //   response sets. We accumulate all the NIL annotations over all documents and after all 
+    //   documents have been processed, we try to find an optimal assignment between them, based
+    //   on the NIL labels. 
+    // TODO TODO TODO!!!!
     
+    AnnotationDiffer docDiffer = new AnnotationDiffer();
     
   }
   
@@ -168,12 +228,21 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
    * @param by
    * @return 
    */
-  private AnnotationSet selectOverlappingBy(AnnotationSet toFilterSet, AnnotationSet bySet) {
+  private AnnotationSet selectOverlappingBy(AnnotationSet toFilterSet, AnnotationSet bySet, ContainmentType how) {
     if(toFilterSet.isEmpty()) return toFilterSet;
     if(bySet.isEmpty()) return AnnotationSetImpl.emptyAnnotationSet;
     Set<Annotation> selected = new HashSet<Annotation>();
     for(Annotation byAnn : bySet) {
-      AnnotationSet tmp = gate.Utils.getOverlappingAnnotations(toFilterSet, byAnn);
+      AnnotationSet tmp = null;
+      if(how == ContainmentType.OVERLAPPING) {
+        tmp = gate.Utils.getOverlappingAnnotations(toFilterSet, byAnn);
+      } else if(how == ContainmentType.CONTAINING) {
+        tmp = gate.Utils.getContainedAnnotations(toFilterSet, byAnn);          
+      } else if(how == ContainmentType.COEXTENSIVE) {
+        tmp = gate.Utils.getCoextensiveAnnotations(toFilterSet, byAnn);        
+      } else {
+        throw new GateRuntimeException("Odd ContainmentType parameter value: "+how);
+      }
       selected.addAll(tmp);
     }
     return new ImmutableAnnotationSetImpl(document, selected);    
@@ -197,5 +266,19 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
   public void controllerExecutionAborted(Controller cntrlr, Throwable thrwbl) throws ExecutionException {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
+  
+  
+  public static enum ContainmentType {
+      COEXTENSIVE,
+      CONTAINING,
+      OVERLAPPING
+  }
+
+  public static enum NilTreatment {
+    NO_NILS,
+    NIL_IS_ABSENT,
+    NIL_CLUSTERS
+  }
+  
   
 }

@@ -13,6 +13,20 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
+// TODO: make this classe use the EvalStats internally and just make the old method names
+// to get delegated to the stats methods; Add a method to retrieve the stats object.
+// Also, if there is a threshold feature, automatically create an ordered map of 
+// stat objects by threshold and add a method to retrieve them.
+// add constructors for making this class immutable and to avoid the set methods for features 
+// and thresholds. 
+// Deprecate the constructor for generating an overal differ from all differs, instead do
+// something similar in the evalStats (we do not keep the annotations themselves there). 
+
+// CHECK: should we directly support the reference set here or do the reference set processing
+// outside of the differ??
+
+
+
 /**
  * New modified AnnotationDiffer class.
  * This is the code that got modified.
@@ -572,7 +586,7 @@ public class AnnotationDiffer {
    * Gets the set of features considered significant for the matching algorithm.
    * @return a Set.
    */
-  public java.util.Set<?> getSignificantFeaturesSet() {
+  public Set<?> getSignificantFeaturesSet() {
     return significantFeaturesSet;
   }
 
@@ -951,7 +965,7 @@ public class AnnotationDiffer {
   /**
    * The set of significant features used for matching.
    */
-  private java.util.Set<?> significantFeaturesSet;
+  private Set<?> significantFeaturesSet;
 
   /**
    * The number of correct matches.
