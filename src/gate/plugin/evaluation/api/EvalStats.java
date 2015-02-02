@@ -16,81 +16,109 @@ package gate.plugin.evaluation.api;
 public class EvalStats {
   
   protected double threshold = Double.NaN;
-  public double getThreshold() { return threshold; }
-  public void setThreshold(double value) { threshold = value; }
   
+  public EvalStats() {
+    
+  }
+  public EvalStats(double threshold) {
+    this.threshold = threshold;
+  }
+  
+  public double getThreshold() { return threshold; }
+  
+  // increment this EvalStats object with the counts from another one
+  public void add(EvalStats other) {
+    nTargets += other.nTargets;
+    nResponses += other.nResponses;
+    nCorrectStrict += other.nCorrectStrict;
+    nCorrectPartial += other.nCorrectPartial;
+    nIncorrectStrict += other.nIncorrectStrict;
+    nIncorrectPartial += other.nIncorrectPartial;
+  }
+  
+  public void addTargets(int n) { nTargets += n; }
+  public void addResponses(int n) { nResponses += n; }
+  public void addCorrectStrict(int n) { nCorrectStrict += n; }
+  public void addCorrectPartial(int n) { nCorrectPartial += n; }
+  public void addIncorrectStrict(int n) { nIncorrectStrict += n; }
+  public void addIncorrectPartial(int n) {nIncorrectPartial += n; }
   
   // TARGETS the "gold" or "key" annotations.
   protected int nTargets;
-  public int getNTargets() { return nTargets; }
+  public int getTargets() { return nTargets; }
   
   // RESPONSES: the annotations that should match the targets a perfectly as possible
   protected int nResponses;
-  public int getNResponses() { return nResponses; }
+  public int getResponses() { return nResponses; }
   
   // CORRECT
   // responses that are coextensive and equal
   protected int nCorrectStrict;  
-  public int getNCorrectStrict() { return nCorrectStrict; }
+  public int getCorrectStrict() { return nCorrectStrict; }
   // responses that are overlapping but not coextensive and that equal
   protected int nCorrectPartial;
-  public int getNCorrectPartial() { return nCorrectPartial; }
-  public int getNCorrectLenient() { return nCorrectStrict + nCorrectPartial; }
+  public int getCorrectPartial() { return nCorrectPartial; }
+  public int getCorrectLenient() { return nCorrectStrict + nCorrectPartial; }
   
   // INCORRECT
   // responses that are coextensive but not equal (this is only possible if there is at least
   // one feature used for comparison.
   protected int nIncorrectStrict;
-  public int getNIncorrectStrict() { return nIncorrectStrict; }
+  public int getIncorrectStrict() { return nIncorrectStrict; }
   protected int nIncorrectPartial;
-  public int getNIncorrectPartial() { return nIncorrectPartial; }
-  protected int nIncorrectLenient;
-  public int getNIncorrectLenient() { return nIncorrectStrict + nIncorrectPartial; }
+  public int getIncorrectPartial() { return nIncorrectPartial; }
+  public int getIncorrectLenient() { return nIncorrectStrict + nIncorrectPartial; }
   
   // MISSING
   // A missing is a target for which no correct response is found.
   // (This is the OLD definition where an incorrect response is also a missing and spurious response)
   // A missing strict is a target annotation for which no correct strict annotation exists.
-  protected int nMissingStrict; 
-  public int getNMissingStrict() { return nMissingStrict; }
+  // nMissingStrict = nTarget - nCorrectStrict 
+  public int getMissingStrict() { return nTargets - nCorrectStrict; }
   // A missing lenient is a target for which no correct strict or correct partial exists. In other 
   // words, it is a target which does not even partly overlap a correct response. Every missing 
   // lenient is also a missing strict, but some missing stricts still have a partial overlapping
   // correct response. So missing strict - correctPartial = missingLenient (?)
-  protected int nMissingLenient;
-  public int getNMissingLenient() { return nMissingLenient; }
+  public int getMissingLenient() { return nTargets - nCorrectStrict - nCorrectPartial; }
   // NOTE: missingPartial does not make sense, since this essentially equals correctPartial
   
   // SPURIOUS  
   // A spurious annotation is a response for which  no correct target annotation exists.
   // (This is the OLD definition where an incorrect response is also a missing and spurious response)
   // A spurious strict is a response which is not correctStrict 
-  protected int nSpuriousStrict;
-  public int getNSpuriousStrict() { return nSpuriousStrict; }
-  protected int nSpuriousLenient;
-  public int getNSpuriousLenient() { return nSpuriousLenient; }
+  public int getSpuriousStrict() { return nResponses - nCorrectStrict; }
+  public int getSpuriousLenient() { return nResponses - nCorrectStrict - nCorrectPartial; }
   // NOTE: spurious partial does not make sense, since this essentially equals correct Partial#
   
   // TRUE MISSING: we define this to be a target for which not even an incorrect response exists
+  // (and obviously no correct response either).
   // A true missing strict is a target for which no correct strict or incorrect strict response
   // exists;
-  protected int nTrueMissingStrict;
-  public int getNTrueMissignStrict() { return nTrueMissingStrict; }
+  public int getTrueMissingStrict() { return nTargets - nCorrectStrict - nIncorrectStrict; }
   // A true missing lenient is a target for which no strict or partial incorrect or correct 
   // response exists;
-  protected int nTrueMissingLenient;
-  public int getNTrueMissingLenient() { return nTrueMissingLenient; }
+  public int getTrueMissingLenient() { return getTrueMissingStrict() - nCorrectPartial - nIncorrectPartial;  }
   // NOTE: a true missing partial does not make sense since it would essentially equal a correct partial
   
   // TRUE SPURIOUS: we define this to be a response for which not even an incorrect target exists.
-  protected int nTrueSpuriousStrict;
-  public int getNTrueSpuriousStrict() { return nTrueSpuriousStrict; }
-  protected int nTrueSpuriousLenient;
-  public int getNTrueSpuriousLenient() { return nTrueSpuriousLenient; }
+  public int getTrueSpuriousStrict() { return nResponses - nCorrectStrict - nIncorrectStrict; }
+  public int getTrueSpuriousLenient() { return getTrueSpuriousStrict() - nCorrectPartial - nIncorrectPartial; }
   
   // this will make sure that constraints between the counts are all met
   public void sanityCheck() {
-    // TODO!!!
+    assert getMissingStrict() == nIncorrectStrict + getTrueMissingStrict();
+    assert getMissingLenient() == nIncorrectStrict + nIncorrectPartial + getTrueMissingLenient();
+    assert nTargets == nCorrectStrict + nIncorrectStrict + getTrueMissingStrict();
+    assert nTargets == nCorrectPartial + nIncorrectStrict + nIncorrectPartial + getTrueMissingLenient();
+    
+    assert getSpuriousStrict() == nIncorrectStrict + getTrueSpuriousStrict();
+    assert getSpuriousLenient() == nIncorrectStrict + nIncorrectPartial + getTrueSpuriousLenient();
+    assert nResponses == nIncorrectStrict + nCorrectStrict + getTrueSpuriousStrict();
+    assert nResponses == nIncorrectPartial + nIncorrectStrict + nIncorrectPartial + getSpuriousLenient();
+
+    assert nTargets == getMissingStrict() + nCorrectStrict;
+    assert nResponses == getSpuriousStrict() + nCorrectStrict;
+    
   }
   
   // PRECISION
@@ -108,7 +136,7 @@ public class EvalStats {
     if(nResponses == 0) {
       return 0.0;
     } else {
-      return getNCorrectLenient()/(double)nResponses;
+      return getCorrectLenient()/(double)nResponses;
     }    
   }
   
@@ -118,7 +146,7 @@ public class EvalStats {
     if(nResponses == 0) {
       return 0.0;
     } else {
-      return nCorrectStrict/(double)nResponses;
+      return nCorrectStrict/(double)nTargets;
     }
   }
   
@@ -126,7 +154,7 @@ public class EvalStats {
     if(nResponses == 0) {
       return 0.0;
     } else {
-      return getNCorrectLenient()/(double)nResponses;
+      return getCorrectLenient()/(double)nTargets;
     }    
   }
   

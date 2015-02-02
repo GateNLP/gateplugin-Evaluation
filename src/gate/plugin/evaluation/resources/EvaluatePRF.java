@@ -14,10 +14,14 @@ import gate.creole.metadata.CreoleResource;
 import gate.creole.metadata.Optional;
 import gate.creole.metadata.RunTime;
 import gate.plugin.evaluation.api.AnnotationDiffer;
+import gate.plugin.evaluation.api.EvalStats;
 import gate.util.GateRuntimeException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.NavigableMap;
 import java.util.Set;
+import java.util.TreeMap;
 
 /**
  *
@@ -143,10 +147,19 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     //
   }
   
+  // fields shared between the execute method and the methods for initializing and finalization
+  EvalStats allDocumentsStats = new EvalStats();
+  EvalStats allDocumentsReferenceStats = null;
+  
+  // This will be initialized at the start of the run and be incremented in the AnnotationDiffer
+  // for each document.
+  NavigableMap<Double,EvalStats> evalStatsByThreshold;
+  
+  
   @Override
   public void execute() {
-    // Check if all required parameters have been set
-    checkRequiredArguments();
+    
+    // Per document initialization
     
     // Prepare the annotation sets
     AnnotationSet keySet = document.getAnnotations(getStringOrElse(getKeyASName(), "")).get(getAnnotationType());
@@ -202,9 +215,46 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     //   on the NIL labels. 
     // TODO TODO TODO!!!!
     
-    AnnotationDiffer docDiffer = new AnnotationDiffer();
+    AnnotationDiffer docDiffer = new AnnotationDiffer(
+            keySet,
+            responseSet,
+            featureNames,
+            scoreFeatureName,
+            evalStatsByThreshold           
+    );
+    allDocumentsStats.add(docDiffer.getEvalStats());
+    
+    // Now if we have parameters to record the matchings, get the information from the docDiffer
+    // and create the apropriate annotations.
+    AnnotationSet outputAnnotationSet = null;
+    if(getOutputASName() != null && !getOutputASName().isEmpty()) {
+      outputAnnotationSet = document.getAnnotations(getOutputASName());
+      //docDiffer.getCorrectResponses()
+    }
+    
+    // If we have a reference set, also calculate the stats for the reference set
+    if(referenceSet != null) {
+      AnnotationDiffer docRefDiffer = new AnnotationDiffer(
+              keySet,
+              referenceSet,
+              featureNames,
+              scoreFeatureName,
+              evalStatsByThreshold
+      );
+      allDocumentsReferenceStats.add(docDiffer.getEvalStats());
+      // if we need to record the matchings, also add the annotations for how things changed
+      // between the reference set and the response set.
+      if(outputAnnotationSet != null) {
+        
+      }
+      
+      // TODO: increment the overall count of how things changed
+    }
+    
     
   }
+  
+  
   
   ////////////////////////////////////////////
   /// HELPER METHODS
@@ -214,6 +264,32 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     if(getAnnotationType() == null || getAnnotationType().isEmpty()) {
       throw new GateRuntimeException("Runtime parameter annotationType must not be empty");
     }
+  }
+  private void initializeForRunning() {
+    // Check if all required parameters have been set
+    checkRequiredArguments();
+    
+    // avoid NPEs later
+    if(featureNames == null) {
+      featureNames = new ArrayList<String>();
+    }
+    // convert the feature list into a set
+    Set<String> featureNameSet = new HashSet<String>();
+    featureNameSet.addAll(featureNames);
+    
+    // check if we have duplicate entries in the featureNames
+    if(featureNameSet.size() != featureNames.size()) {
+      throw new GateRuntimeException("Duplicate feature in the feature name list");
+    }
+    
+    if(getScoreFeatureName() != null && !getScoreFeatureName().isEmpty()) {
+      evalStatsByThreshold = new TreeMap<Double,EvalStats>();
+    }
+    
+    if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
+      allDocumentsReferenceStats = new EvalStats();
+    }
+
   }
   
   private String getStringOrElse(String value, String elseValue) {
@@ -254,17 +330,17 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
   
   @Override
   public void controllerExecutionStarted(Controller cntrlr) throws ExecutionException {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
   }
 
   @Override
   public void controllerExecutionFinished(Controller cntrlr) throws ExecutionException {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
   }
 
   @Override
   public void controllerExecutionAborted(Controller cntrlr, Throwable thrwbl) throws ExecutionException {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
   }
   
   

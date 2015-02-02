@@ -1,17 +1,18 @@
 package gate.plugin.evaluation.api;
 
 import gate.Annotation;
+import gate.FeatureMap;
 import gate.util.GateRuntimeException;
-import java.math.RoundingMode;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
+import java.util.NavigableMap;
+import java.util.NavigableSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 // TODO: make this classe use the EvalStats internally and just make the old method names
 // to get delegated to the stats methods; Add a method to retrieve the stats object.
@@ -33,6 +34,91 @@ import java.util.Set;
  */
 public class AnnotationDiffer {
   
+  protected EvalStats evalStats = new EvalStats();
+  public EvalStats getEvalStats() { return evalStats; }
+
+  // This is only used if we have a threshold feature;
+  protected NavigableMap<Double,EvalStats> evalStatsByThreshold;
+  public NavigableMap<Double,EvalStats> getEvalStatsByThreshold() { return evalStatsByThreshold; }
+  
+  
+  
+  // For now we make the main parts of or own AnnotationDiffer object immutable: all the necessary
+  // data has to be specified at creation time. Also, the sets for which to calculate the diffs
+  // have to be specified at creation time.
+  private AnnotationDiffer() {}
+  public AnnotationDiffer(
+          Collection<Annotation> targets, 
+          Collection<Annotation> responses,
+          List<String> features,
+          String thresholdFeature,
+          NavigableMap<Double,EvalStats> byThresholdEvalStats
+                  ) {
+    this.targets = targets;
+    this.responses = responses;
+    this.thresholdFeature = thresholdFeature;
+    this.byThresholdEvalStats = byThresholdEvalStats;
+    this.features = features;
+    if(features != null && !features.isEmpty()) {
+      significantFeaturesSet = new HashSet<String>(features);      
+    }
+    evalStats = calculateDiff(targets, responses, features, thresholdFeature, Double.NaN);
+    // if we have a threshold feature, get all the thresholds and re-runn the calculateDiff 
+    // method for each threshold. Add the per-threshold evalstats to the byThresholdEvalStats object.
+    if(thresholdFeature != null && !thresholdFeature.isEmpty()) {
+      System.out.println("DEBUG Calculating for the thresholds....");
+      NavigableSet<Double> thresholds = new TreeSet<Double>();
+      for(Annotation res : responses) {
+        double score = getFeatureDouble(res.getFeatures(),thresholdFeature,Double.NaN);
+        if(Double.isNaN(score)) {
+          throw new GateRuntimeException("Response does not have a score: "+res);
+        }
+        thresholds.add(score);
+      }
+      // Now calculate the EvalStats(threshold) for each threshold we found in decreasing order.
+      // The counts we get will need to get added to all existing EvalStats which are already
+      // in the byThresholdEvalStats map. To simplify this, we accumulate the stats for each 
+      // of our own thresholds and then use the accumulated stats for incrementing (this avoids
+      // going through the map O(n^2) times)
+      
+      // Initialize the accumulating evalstats
+      EvalStats accum = new EvalStats();
+      // start with the highest threshold
+      Double th = thresholds.last();
+      while(th != null) {
+        EvalStats es = calculateDiff(targets,responses,features,thresholdFeature,th);
+        accum.add(es);
+        Double nextTh = thresholds.lower(th);
+        // now add the accum to all entries in the byThresholdEvalStats for which the threshold
+        // is less than or equal than our current threshold and and larger than our next 
+        // threshold
+        boolean found = false;
+        for(Double oth = byThresholdEvalStats.floorKey(th); oth != null && oth <= th && oth > nextTh; oth = byThresholdEvalStats.lowerKey(oth)) {
+          if(oth == th) {
+            found = true;
+          }
+          EvalStats oes = byThresholdEvalStats.get(oth);
+          oes.add(accum);
+        }
+        // if the entry was not already in the byThresholdEvalStats, we need to add it, but this
+        // entry also needs to count all the entries from the next higher one, of there is one
+        if(!found) {
+          EvalStats nextHigher = byThresholdEvalStats.higherEntry(th).getValue();
+          if(nextHigher != null) {
+            es.add(nextHigher);
+          }
+          byThresholdEvalStats.put(th, es);
+        }
+      }
+    }
+  }
+  
+  protected Set<?> significantFeaturesSet;  
+  protected Collection<Annotation> targets;
+  protected Collection<Annotation> responses;
+  protected String thresholdFeature;
+  protected NavigableMap<Double,EvalStats> byThresholdEvalStats;
+  protected List<String> features;
   
   /**
    * Constructor to be used when you have a collection of AnnotationDiffer
@@ -40,6 +126,7 @@ public class AnnotationDiffer {
    * Then you can only use the methods getPrecision/Recall/FMeasure...().
    * @param differs collection to be regrouped in one AnnotationDiffer
    */
+  /*
   public AnnotationDiffer(Collection<AnnotationDiffer> differs) {
     correctMatches = 0;
     partiallyCorrectMatches = 0;
@@ -60,10 +147,7 @@ public class AnnotationDiffer {
     keyList = new ArrayList<Annotation>(Collections.nCopies(keyCount, (Annotation) null));
     responseList = new ArrayList<Annotation>(Collections.nCopies(responseCount, (Annotation) null));    
   }
-
-  public AnnotationDiffer() {
-    // empty constructor
-  }
+  */
 
   /**
    * Interface representing a pairing between a key annotation and a response 
@@ -100,6 +184,24 @@ public class AnnotationDiffer {
     public int getType();
   }
 
+  // the sets we record in case the threshold is NaN
+  public Set<Annotation> 
+          correctStrictAnns, 
+          correctPartialAnns,
+          incorrectStrictAnns,
+          incorrectPartialAnns,
+          trueMissingLenientAnns,
+          trueSpuriousLenientAnns;
+  
+  public Set<Annotation> getCorrectStrictAnnotations() { return correctStrictAnns; }
+  public Set<Annotation> getCorrectPartialAnnotations() { return correctPartialAnns; }
+  public Set<Annotation> getIncorrectStrictAnnotations() { return incorrectStrictAnns; }
+  public Set<Annotation> getIncorrectPartialAnnotations() { return incorrectPartialAnns; }
+  public Set<Annotation> getTrueMissingLenientAnnotations() { return trueMissingLenientAnns; }
+  public Set<Annotation> getTrueSpuriousLenientAnnotations() { return trueSpuriousLenientAnns; }
+  
+  
+  
   /**
    * Computes a diff between two collections of annotations.
    * @param key the collection of key annotations.
@@ -107,61 +209,29 @@ public class AnnotationDiffer {
    * @return a list of {@link Pairing} objects representing the pairing set
    * that results in the best score.
    */
-  public List<Pairing> calculateDiff(
+  private EvalStats calculateDiff(
           Collection<Annotation> key, 
           Collection<Annotation> response,
-          List<String> features, // this can be null or an empty list to indicate no features
-          String scoreFeature  // if not null, the name of a score feature
+          List<String> features,
+          String thresholdFeature,  // if not null, the name of a score feature
+          double threshold  // if not NaN, we will calculate the stats only for responses with score > threshold
           )
   {
+    System.out.println("DEBUG: calculating the differences for threshold "+threshold);
+    EvalStats es = new EvalStats(threshold);
+    // If the threshold is not NaN, then we will calculate a temporary EvalStats object with that
+    // threshold and then insert or update such an EvalStats object in the global evalStatsByThreshold object. 
     
-    //initialise data structures
-    if(key == null || key.size() == 0)
-      keyList = new ArrayList<Annotation>();
-    else
-      keyList = new ArrayList<Annotation>(key);
-
-    if(response == null || response.size() == 0)
-      responseList = new ArrayList<Annotation>();
-    else
-      responseList = new ArrayList<Annotation>(response);
-
-    if(correctAnnotations != null) {
-      correctAnnotations.clear();
+    if(Double.isNaN(threshold)) {
+      correctStrictAnns = new HashSet<Annotation>();
+      correctPartialAnns = new HashSet<Annotation>();
+      incorrectStrictAnns = new HashSet<Annotation>();
+      incorrectPartialAnns = new HashSet<Annotation>();
+      trueMissingLenientAnns = new HashSet<Annotation>();
+      trueSpuriousLenientAnns = new HashSet<Annotation>();
     }
-    else {
-      correctAnnotations = new HashSet<Annotation>();
-    }
-    if(partiallyCorrectAnnotations != null) {
-      partiallyCorrectAnnotations.clear();
-    }
-    else {
-      partiallyCorrectAnnotations = new HashSet<Annotation>();
-    }
-    if(missingAnnotations != null) {
-      missingAnnotations.clear();
-    }
-    else {
-      missingAnnotations = new HashSet<Annotation>();
-    }
-    if(spuriousAnnotations != null) {
-      spuriousAnnotations.clear();
-    }
-    else {
-      spuriousAnnotations = new HashSet<Annotation>();
-    }
-    if(incorrectStrictAnnotations != null) { 
-      incorrectStrictAnnotations.clear(); 
-    } else {
-      incorrectStrictAnnotations = new HashSet<Annotation>();
-    }
-    if(incorrectPartialAnnotations != null) { 
-      incorrectPartialAnnotations.clear(); 
-    } else {
-      incorrectPartialAnnotations = new HashSet<Annotation>();
-    }
-    incorrectStrict = 0;
-    incorrectPartial = 0;
+    keyList = new ArrayList<Annotation>(key);
+    responseList = new ArrayList<Annotation>(response);
     
     keyChoices = new ArrayList<List<Pairing>>(keyList.size());
     // initialize by nr_keys nulls
@@ -172,11 +242,25 @@ public class AnnotationDiffer {
 
     possibleChoices = new ArrayList<Pairing>();
 
+    es.addTargets(key.size());
+    es.addResponses(response.size());
+    
     //1) try all possible pairings
     for(int i = 0; i < keyList.size(); i++){
       for(int j =0; j < responseList.size(); j++){
         Annotation keyAnn = keyList.get(i);
         Annotation resAnn = responseList.get(j);
+        if(!Double.isNaN(threshold)) {
+          // try to get the score for the response
+          double score = getFeatureDouble(resAnn.getFeatures(),thresholdFeature,Double.NaN);
+          if(Double.isNaN(score)) {
+            throw new GateRuntimeException("Response without a score feature: "+resAnn);
+          }
+          // We are only interested in responses which have a score >= the threshold
+          if(score < threshold) {
+            continue; // check the next response
+          }
+        }
         PairingImpl choice = null;
         if(keyAnn.coextensive(resAnn)){
           //we have full overlap -> CORRECT or WRONG
@@ -211,12 +295,6 @@ public class AnnotationDiffer {
     Collections.sort(possibleChoices, new PairingScoreComparator());
     Collections.reverse(possibleChoices);
     finalChoices = new ArrayList<Pairing>();
-    correctMatches = 0;
-    partiallyCorrectMatches = 0;
-    missing = 0;
-    spurious = 0;
-    truemissing = 0;
-    truespurious = 0;
 
     while(!possibleChoices.isEmpty()){
       PairingImpl bestChoice = (PairingImpl)possibleChoices.remove(0);
@@ -224,47 +302,38 @@ public class AnnotationDiffer {
       finalChoices.add(bestChoice);
       switch(bestChoice.value){
         case CORRECT_VALUE:{
-          correctAnnotations.add(bestChoice.getResponse());
-          correctMatches++;
+          if(Double.isNaN(threshold)) { correctStrictAnns.add(bestChoice.getResponse()); }
+          es.addCorrectStrict(1);
           bestChoice.setType(CORRECT_TYPE);
           break;
         }
         case PARTIALLY_CORRECT_VALUE:{  // correct but only opverlap, not coextensive
-          partiallyCorrectAnnotations.add(bestChoice.getResponse());
-          partiallyCorrectMatches++;
+          if(Double.isNaN(threshold)) { correctPartialAnns.add(bestChoice.getResponse()); }
+          es.addCorrectPartial(1);
           bestChoice.setType(PARTIALLY_CORRECT_TYPE);
           break;
         }
         case MISMATCH_VALUE:{ // coextensive and not correct
-          //this is a missing and a spurious annotations together
-          // JP: why does this not check if the key/response is null? 
-          missingAnnotations.add(bestChoice.getKey());
-          missing ++;
-          spuriousAnnotations.add(bestChoice.getResponse());
-          spurious ++;
-          bestChoice.setType(MISMATCH_TYPE);
-          incorrectStrict++;
-          incorrectStrictAnnotations.add(bestChoice.getResponse());
+          if(bestChoice.getKey() != null && bestChoice.getResponse() != null) {
+            es.addIncorrectStrict(1);
+            bestChoice.setType(MISMATCH_TYPE);
+            if(Double.isNaN(threshold)) { incorrectStrictAnns.add(bestChoice.getResponse()); }
+          } else if(bestChoice.getKey() != null) {
+            System.out.println("DEBUG: GOT a MISMATCH_VALUE (coext and not correct) with no key "+bestChoice);
+          } else if(bestChoice.getResponse() != null) {
+            System.out.println("DEBUG: GOT a MISMATCH_VALUE (coext and not correct) with no response "+bestChoice);
+          }
           break;
         }
         case WRONG_VALUE:{ // overlapping and not correct
-          if(bestChoice.getKey() != null){
-            //we have a missed key
-            if(missingAnnotations == null) missingAnnotations = new HashSet<Annotation>();
-            missingAnnotations.add(bestChoice.getKey());
-            missing ++;
-            bestChoice.setType(MISSING_TYPE);
-          } 
-          if(bestChoice.getResponse() != null){
-            //we have a spurious response
-            if(spuriousAnnotations == null) spuriousAnnotations = new HashSet<Annotation>();
-            spuriousAnnotations.add(bestChoice.getResponse());
-            spurious ++;
-            bestChoice.setType(SPURIOUS_TYPE);
-          } 
           if(bestChoice.getKey() != null && bestChoice.getResponse() != null) {
-            incorrectPartial++;
-            incorrectPartialAnnotations.add(bestChoice.getResponse());
+            es.addIncorrectPartial(1);
+            if(Double.isNaN(threshold)) { incorrectPartialAnns.add(bestChoice.getResponse()); }
+          } else if(bestChoice.getKey() == null){            
+            // this is a response which overlaps with a key but does not have a key??
+            System.out.println("DEBUG: GOT a WRONG_VALUE (overlapping and not correct) with no key "+bestChoice);
+          } else if(bestChoice.getResponse() == null) {
+            System.out.println("DEBUG: GOT a WRONG_VALUE (overlapping and not correct) with no response "+bestChoice);
           }
           break;
         }
@@ -279,13 +348,11 @@ public class AnnotationDiffer {
     for(int i = 0; i < keyChoices.size(); i++){
       List<Pairing> aList = keyChoices.get(i);
       if(aList == null || aList.isEmpty()){
-        if(missingAnnotations == null) missingAnnotations = new HashSet<Annotation>();
-        missingAnnotations.add((keyList.get(i)));
+        trueMissingLenientAnns.add((keyList.get(i)));
         Pairing choice = new PairingImpl(i, -1, WRONG_VALUE);
         choice.setType(MISSING_TYPE);
         finalChoices.add(choice);
-        missing ++;
-        truemissing++;
+        //es.addTrueMissingLenient(1);
       }
     }
 
@@ -293,17 +360,15 @@ public class AnnotationDiffer {
     for(int i = 0; i < responseChoices.size(); i++){
       List<Pairing> aList = responseChoices.get(i);
       if(aList == null || aList.isEmpty()){
-        if(spuriousAnnotations == null) spuriousAnnotations = new HashSet<Annotation>();
-        spuriousAnnotations.add((responseList.get(i)));
+        trueSpuriousLenientAnns.add((responseList.get(i)));
         PairingImpl choice = new PairingImpl(-1, i, WRONG_VALUE);
         choice.setType(SPURIOUS_TYPE);
         finalChoices.add(choice);
-        spurious ++;
-        truespurious++;
+        //es.addTrueSpurious(1);
       }
     }
 
-    return finalChoices;
+    return es;
   }
 
   /**
@@ -312,10 +377,7 @@ public class AnnotationDiffer {
    * @return a <tt>double</tt> value.
    */
   public double getPrecisionStrict(){
-    if(responseList.size() == 0) {
-      return 1.0;
-    }
-    return correctMatches/(double)responseList.size();
+    return evalStats.getPrecisionStrict();
   }
 
   /**
@@ -324,10 +386,7 @@ public class AnnotationDiffer {
    * @return a <tt>double</tt> value.
    */  
   public double getRecallStrict(){
-    if(keyList.size() == 0) {
-      return 1.0;
-    }
-    return correctMatches/(double)keyList.size();
+    return evalStats.getRecallStrict();
   }
 
   /**
@@ -336,10 +395,7 @@ public class AnnotationDiffer {
    * @return a <tt>double</tt> value.
    */
   public double getPrecisionLenient(){
-    if(responseList.size() == 0) {
-      return 1.0;
-    }
-    return ((double)correctMatches + partiallyCorrectMatches) / responseList.size();
+    return evalStats.getPrecisionLenient();
   }
 
   /**
@@ -356,10 +412,7 @@ public class AnnotationDiffer {
    * @return a <tt>double</tt> value.
    */
   public double getRecallLenient(){
-    if(keyList.size() == 0) {
-      return 1.0;
-    }
-    return ((double)correctMatches + partiallyCorrectMatches) / keyList.size();
+    return evalStats.getRecallLenient();
   }
 
   /**
@@ -380,12 +433,7 @@ public class AnnotationDiffer {
    * @return a <tt>double</tt>value.
    */
   public double getFMeasureStrict(double beta){
-    double precision = getPrecisionStrict();
-    double recall = getRecallStrict();
-    double betaSq = beta * beta;
-    double answer = (((betaSq + 1) * precision * recall ) / (betaSq * precision + recall));
-    if(Double.isNaN(answer)) answer = 0.0;
-    return answer;
+    return evalStats.getFMeasureStrict(beta);
   }
 
   /**
@@ -397,12 +445,7 @@ public class AnnotationDiffer {
    * @return a <tt>double</tt>value.
    */
   public double getFMeasureLenient(double beta){
-    double precision = getPrecisionLenient();
-    double recall = getRecallLenient();
-    double betaSq = beta * beta;
-    double answer = (((betaSq + 1) * precision * recall) / (betaSq * precision + recall));
-    if(Double.isNaN(answer)) answer = 0.0;
-    return answer;
+    return evalStats.getFMeasureLenient(beta);
   }
 
   /**
@@ -422,7 +465,7 @@ public class AnnotationDiffer {
    * @return an <tt>int<tt> value.
    */
   public int getCorrectMatches(){
-    return correctMatches;
+    return evalStats.getCorrectStrict();
   }
 
   /**
@@ -430,7 +473,7 @@ public class AnnotationDiffer {
    * @return an <tt>int<tt> value.
    */
   public int getPartiallyCorrectMatches(){
-    return partiallyCorrectMatches;
+    return evalStats.getCorrectPartial();
   }
 
   /**
@@ -438,7 +481,7 @@ public class AnnotationDiffer {
    * @return an <tt>int<tt> value.
    */
   public int getMissing(){
-    return missing;
+    return evalStats.getMissingLenient();
   }
 
   /**
@@ -446,7 +489,7 @@ public class AnnotationDiffer {
    * @return an <tt>int<tt> value.
    */
   public int getSpurious(){
-    return spurious;
+    return evalStats.getSpuriousLenient();
   }
 
   /**
@@ -455,7 +498,7 @@ public class AnnotationDiffer {
    * @return an <tt>int<tt> value.
    */
   public int getFalsePositivesStrict(){
-    return responseList.size() - correctMatches;
+    return responseList.size() - getCorrectMatches();
   }
 
   /**
@@ -464,7 +507,7 @@ public class AnnotationDiffer {
    * @return an <tt>int<tt> value.
    */
   public int getFalsePositivesLenient(){
-    return responseList.size() - correctMatches - partiallyCorrectMatches;
+    return responseList.size() - getCorrectMatches() - getPartiallyCorrectMatches();
   }
 
   /**
@@ -745,6 +788,29 @@ public class AnnotationDiffer {
   }
 
    /**
+    * Return the value of a FeatureMap entry as a double.
+    * If the entry is not found, the defaultValue is returned. If the entry cannot be converted
+    * to a double, an exception is thrown (depending on what kind of conversion was attempted, e.g.
+    * when converting from a string, it could be a NumberFormatException).
+    * @param fm
+    * @param key
+    * @param defaultValue
+    * @return 
+    */
+   public double getFeatureDouble(FeatureMap fm, String key, double defaultValue) {
+     Object value = fm.get(key);
+     if(value == null) return defaultValue;
+     double ret = defaultValue;
+     if(value instanceof String) {
+       ret = Double.valueOf((String)value);
+     } else if(value instanceof Number) {
+       ret = ((Number)value).doubleValue();
+     } 
+     return ret;
+   }
+   
+   
+   /**
     * Compares two pairings:
     * the better score is preferred;
     * for the same score the better type is preferred (exact matches are
@@ -843,75 +909,7 @@ public class AnnotationDiffer {
 
 	}
 
-  /**
-   * A method that returns specific type of annotations
-   * @param type
-   * @return a {@link Set} of {@link Annotation}s.
-   */
-  public Set<Annotation> getAnnotationsOfType(int type) {
-    switch(type) {
-      case CORRECT_TYPE:
-        return (correctAnnotations == null)? new HashSet<Annotation>() : correctAnnotations;
-      case PARTIALLY_CORRECT_TYPE:
-        return (partiallyCorrectAnnotations == null) ? new HashSet<Annotation>() : partiallyCorrectAnnotations;
-      case SPURIOUS_TYPE:
-        return (spuriousAnnotations == null) ? new HashSet<Annotation>() : spuriousAnnotations;
-      case MISSING_TYPE:
-        return (missingAnnotations == null) ? new HashSet<Annotation>() : missingAnnotations;
-      default:
-        return new HashSet<Annotation>();
-    }
-  }
-
-  /**
-   * @return annotation type for all the annotations
-   */
-  public String getAnnotationType() {
-    if (!keyList.isEmpty()) {
-      return keyList.iterator().next().getType();
-    } else if (!responseList.isEmpty()) {
-      return responseList.iterator().next().getType();
-    } else {
-      return "";
-    }
-  }
-
-  public List<String> getMeasuresRow(Object[] measures, String title) {
-    NumberFormat f = NumberFormat.getInstance(Locale.ENGLISH);
-    f.setMaximumFractionDigits(4);
-    f.setMinimumFractionDigits(4);
-    f.setRoundingMode(RoundingMode.HALF_UP);
-    
-    List<String> row = new ArrayList<String>();
-    row.add(title);
-    row.add(Integer.toString(getCorrectMatches()));
-    row.add(Integer.toString(getMissing()));
-    row.add(Integer.toString(getSpurious()));
-    row.add(Integer.toString(getPartiallyCorrectMatches()));
-    for (Object object : measures) {
-      String measure = (String) object;
-      double beta = Double.valueOf(
-        measure.substring(1,measure.indexOf('-')));
-      if (measure.endsWith("strict")) {
-        row.add(f.format(getPrecisionStrict()));
-        row.add(f.format(getRecallStrict()));
-        row.add(f.format(getFMeasureStrict(beta)));
-      } else if (measure.endsWith("lenient")) {
-        row.add(f.format(getPrecisionLenient()));
-        row.add(f.format(getRecallLenient()));
-        row.add(f.format(getFMeasureLenient(beta)));
-      } else if (measure.endsWith("average")) {
-        row.add(f.format(getPrecisionAverage()));
-        row.add(f.format(getRecallAverage()));
-        row.add(f.format(getFMeasureAverage(beta)));
-      }
-    }
-    return row;
-  }
-
-  public Set<Annotation> correctAnnotations, partiallyCorrectAnnotations,
-    missingAnnotations, spuriousAnnotations,
-    incorrectStrictAnnotations, incorrectPartialAnnotations;      
+        
 
 
   /** Type for correct pairings (when the key and response match completely)*/
@@ -962,30 +960,26 @@ public class AnnotationDiffer {
    */  
   private static final int WRONG_VALUE = 0;
 
-  /**
-   * The set of significant features used for matching.
-   */
-  private Set<?> significantFeaturesSet;
 
   /**
    * The number of correct matches.
    */
-  protected int correctMatches;
+  //protected int correctMatches;
 
   /**
    * The number of partially correct matches.
    */
-  protected int partiallyCorrectMatches;
+  //protected int partiallyCorrectMatches;
   
   /**
    * The number of missing matches.
    */
-  protected int missing;
+  //protected int missing;
   
   /**
    * The number of spurious matches.
    */  
-  protected int spurious;
+  //protected int spurious;
 
   /**
    * A list with all the key annotations
@@ -1017,23 +1011,20 @@ public class AnnotationDiffer {
    */
   protected List<Pairing> finalChoices;
 
-  protected int incorrectStrict = 0;
-  protected int incorrectPartial = 0;
-  protected int truemissing = 0;
-  protected int truespurious = 0;
+  //protected int incorrectStrict = 0;
+  //protected int incorrectPartial = 0;
+  //protected int truemissing = 0;
+  //protected int truespurious = 0;
   
   public int getIncorrectStrict() {
-    return incorrectStrict;
+    return evalStats.getIncorrectStrict();
   }
   public int getIncorrectLenient() {
-    return incorrectStrict + incorrectPartial;
+    return evalStats.getIncorrectLenient();
   }
   public int getIncorrectPartial() {
-    return incorrectPartial;
+    return evalStats.getIncorrectLenient();
   }
-  
-  public int getTrueMissing() { return truemissing; }
-  public int getTrueSpurious() { return truespurious; }
   
   
 }
