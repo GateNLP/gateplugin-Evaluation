@@ -34,54 +34,54 @@ import java.util.TreeSet;
  */
 public class AnnotationDiffer {
 
-  private static final String SUFFIX_ANN_CS = "_CS"; // this is correct strict
-  private static final String SUFFIX_ANN_CP = "_CP"; // This is a partially correct
-  private static final String SUFFIX_ANN_IS = "_IS"; // This is an incorrect strict
-  private static final String SUFFIX_ANN_IP = "_IP"; // This is an incorrect partial 
+  public static final String SUFFIX_ANN_CS = "_CS"; // this is correct strict
+  public static final String SUFFIX_ANN_CP = "_CP"; // This is a partially correct
+  public static final String SUFFIX_ANN_IS = "_IS"; // This is an incorrect strict
+  public static final String SUFFIX_ANN_IP = "_IP"; // This is an incorrect partial 
   // Correct lenient = CS plus CP
   // Incorrect lenient = IS plus IP
-  private static final String SUFFIX_ANN_TMISSING = "_TM";  // this is true missing!
-  private static final String SUFFIX_ANN_TSPURIOUS = "_TS"; // this is a true spurious
+  public static final String SUFFIX_ANN_ML = "_ML";  // this is true missing lenient!
+  public static final String SUFFIX_ANN_SL = "_SL"; // this is a true spurious lenient
   
   // The following changes are, in theory possible:
-  // CS -> CP, IS, IP, TM
-  // CP -> CS, IS, IP, TM
-  // IS -> IP, CS, CP, TM
-  // IP -> IS, CS, CP, TM
-  // TM -> CS, CP, IS, IP
-  // TS -> A (absent)
-  // A (absent) -> TS
+  // CS -> CP, IS, IP, ML
+  // CP -> CS, IS, IP, ML
+  // IS -> IP, CS, CP, ML
+  // IP -> IS, CS, CP, ML
+  // ML -> CS, CP, IS, IP
+  // SL -> A (absent)
+  // A (absent) -> SL
   // This would amount to 22 different pairings of which the following 9 are good:
   // CP -> CS
   // IS -> CS, CP
   // IP -> IS, CS, CP
-  // TM -> CS, CP
-  // TS -> A
+  // ML -> CS, CP
+  // SL -> A
   // The following 9 are bad
-  // CS -> CP, IS, IP, TM
-  // CP -> IS, IP, TM
+  // CS -> CP, IS, IP, ML
+  // CP -> IS, IP, ML
   // IS -> IP
-  // A - TS
+  // A - SL
   // and the following 4 are indifferent
-  // IS -> TM
-  // IP -> TM
-  // TM -> IS, IP
+  // IS -> ML
+  // IP -> ML
+  // ML -> IS, IP
   // If we ignore the span, we get:
-  // Good: IL->CL, TM -> CL, TS -> A
-  // Bad:  CL->IL, CL->TM, A -> TS
-  // Indifferent: IL -> TM, TM -> IL
+  // Good: IL->CL, ML -> CL, SL -> A
+  // Bad:  CL->IL, CL->ML, A -> SL
+  // Indifferent: IL -> ML, ML -> IL
   // Span only changes:
   // good: CP -> CS, IP -> IS
   // bad:  CS -> CP, IS -> IP
   
   private static final String SUFFIX_ANN_IL_CL = "_IL_CL";
-  private static final String SUFFIX_ANN_TM_CL = "_TM_CL";
-  private static final String SUFFIX_ANN_TS_A = "_TS_A";
+  private static final String SUFFIX_ANN_TM_CL = "_ML_CL";
+  private static final String SUFFIX_ANN_TS_A = "_SL_A";
   private static final String SUFFIX_ANN_CL_IL = "_CL_IL";
-  private static final String SUFFIX_ANN_CL_TM = "_CL_TM";
-  private static final String SUFFIX_ANN_A_TS = "_A_TS";
-  private static final String SUFFIX_ANN_IL_TM = "_IL_TM";
-  private static final String SUFFIX_ANN_TM_IL = "_TM_IL";
+  private static final String SUFFIX_ANN_CL_TM = "_CL_ML";
+  private static final String SUFFIX_ANN_A_TS = "_A_SL";
+  private static final String SUFFIX_ANN_IL_TM = "_IL_ML";
+  private static final String SUFFIX_ANN_TM_IL = "_ML_IL";
 
   
   protected EvalStats evalStats = new EvalStats();

@@ -17,6 +17,7 @@ import gate.plugin.evaluation.api.AnnotationDiffer;
 import gate.plugin.evaluation.api.EvalStats;
 import gate.util.GateRuntimeException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.NavigableMap;
@@ -229,7 +230,13 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     AnnotationSet outputAnnotationSet = null;
     if(getOutputASName() != null && !getOutputASName().isEmpty()) {
       outputAnnotationSet = document.getAnnotations(getOutputASName());
-      //docDiffer.getCorrectResponses()
+      addAnnsWithSuffix(outputAnnotationSet,docDiffer.getCorrectStrictAnnotations(),AnnotationDiffer.SUFFIX_ANN_CS);
+      addAnnsWithSuffix(outputAnnotationSet,docDiffer.getCorrectPartialAnnotations(),AnnotationDiffer.SUFFIX_ANN_CP);
+      addAnnsWithSuffix(outputAnnotationSet,docDiffer.getIncorrectStrictAnnotations(),AnnotationDiffer.SUFFIX_ANN_IS);
+      addAnnsWithSuffix(outputAnnotationSet,docDiffer.getIncorrectPartialAnnotations(),AnnotationDiffer.SUFFIX_ANN_IP);
+      addAnnsWithSuffix(outputAnnotationSet,docDiffer.getTrueMissingLenientAnnotations(),AnnotationDiffer.SUFFIX_ANN_ML);
+      addAnnsWithSuffix(outputAnnotationSet,docDiffer.getTrueSpuriousLenientAnnotations(),AnnotationDiffer.SUFFIX_ANN_SL);
+      docDiffer.getCorrectPartialAnnotations();
     }
     
     // If we have a reference set, also calculate the stats for the reference set
@@ -245,7 +252,7 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
       // if we need to record the matchings, also add the annotations for how things changed
       // between the reference set and the response set.
       if(outputAnnotationSet != null) {
-        
+        // TODO!!!
       }
       
       // TODO: increment the overall count of how things changed
@@ -290,6 +297,12 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
       allDocumentsReferenceStats = new EvalStats();
     }
 
+  }
+  
+  private void addAnnsWithSuffix(AnnotationSet outSet, Collection<Annotation> inAnns, String suffix) {
+    for(Annotation ann : inAnns) {
+      gate.Utils.addAnn(outSet, ann, ann.getType()+suffix, gate.Utils.toFeatureMap(features));
+    }
   }
   
   private String getStringOrElse(String value, String elseValue) {
