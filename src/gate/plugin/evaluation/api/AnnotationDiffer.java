@@ -1,3 +1,13 @@
+/*
+ *  Copyright (c) 1995-2015, The University of Sheffield. See the file
+ *  COPYRIGHT.txt in the software or at http://gate.ac.uk/gate/COPYRIGHT.txt
+ *
+ *  This file is part of GATE (see http://gate.ac.uk/), and is free
+ *  software, licenced under the GNU Library General Public License,
+ *  Version 2, June 1991 (in the distribution as file licence.html,
+ *  and also available at http://gate.ac.uk/gate/licence.html).
+ *
+ */
 package gate.plugin.evaluation.api;
 
 import gate.Annotation;
@@ -16,23 +26,27 @@ import java.util.NavigableSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-// TODO: make this classe use the EvalPRFStats internally and just make the old method names
-// to get delegated to the stats methods; Add a method to retrieve the stats object.
-// Also, if there is a threshold feature, automatically create an ordered map of 
-// stat objects by threshold and add a method to retrieve them.
-// add constructors for making this class immutable and to avoid the set methods for features 
-// and thresholds. 
-// Deprecate the constructor for generating an overal differ from all differs, instead do
-// something similar in the evalStats (we do not keep the annotations themselves there). 
-
-// CHECK: should we directly support the reference set here or do the reference set processing
-// outside of the differ??
-
-
 
 /**
- * New modified AnnotationDiffer class.
- * This is the code that got modified.
+ * A class for analyzing the differences between two annotation sets and calculating the counts
+ * needed to obtain precision, recall, f-measure and other statistics. 
+ * 
+ * This is based on the gate.util.AnnotationDiffer class but has been heavily modified. One important
+ * change is that all the counts and the methods for calculating measures from the counts are
+ * kept in a separate object of type EvalPRFStats. This class is mainly for finding the optimal
+ * matchings between the target and response sets and for storing the response and target annotations
+ * that correspond to correct, incorrect, missing or spurious matches. 
+ * <P>
+ * TODO: we still need to implement threshold-based diffing for P/R curves and document this here!
+ * <p>
+ * TODO: we still need to document the different way how this class needs to get used (everything
+ * done at construction time, essentially)
+ * <p> 
+ * TODO: we still need to decide if we should remove the methods that just wrap the contained 
+ * EvalPRFStats methods. 
+ * 
+ * @author Valentin Tablan
+ * @author Johann Petrak
  */
 public class AnnotationDiffer {
 
@@ -87,11 +101,11 @@ public class AnnotationDiffer {
 
   
   protected EvalPRFStats evalStats = new EvalPRFStats();
-  public EvalPRFStats getEvalStats() { return evalStats; }
+  public EvalPRFStats getEvalPRFStats() { return evalStats; }
 
   // This is only used if we have a threshold feature;
   protected NavigableMap<Double,EvalPRFStats> evalStatsByThreshold;
-  public NavigableMap<Double,EvalPRFStats> getEvalStatsByThreshold() { return evalStatsByThreshold; }
+  public NavigableMap<Double,EvalPRFStats> getEvalPRFStatsByThreshold() { return evalStatsByThreshold; }
   
   
   
@@ -99,6 +113,13 @@ public class AnnotationDiffer {
   // data has to be specified at creation time. Also, the sets for which to calculate the diffs
   // have to be specified at creation time.
   private AnnotationDiffer() {}
+  public AnnotationDiffer(
+          AnnotationSet targets,
+          AnnotationSet responses,
+          List<String> features
+  ) {
+    this(targets,responses,features,null,null);
+  }
   public AnnotationDiffer(
           AnnotationSet targets, 
           AnnotationSet responses,

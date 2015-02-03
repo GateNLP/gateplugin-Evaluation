@@ -8,7 +8,6 @@ import gate.Gate;
 import gate.plugin.evaluation.api.AnnotationDiffer;
 import org.junit.Test;
 
-import gate.plugin.evaluation.api.AnnotationDifferOld;
 import gate.util.GateException;
 import java.io.File;
 import java.io.IOException;
@@ -90,18 +89,18 @@ public class TestDiffer1 {
     System.out.println("OLD testFindPairings01 doc1 partial anns: "+annDiffer.partiallyCorrectAnnotations.size());
     System.out.println("OLD testFindPairings01 doc1 spurious: "+annDiffer.getSpurious());
     System.out.println("NEW testFindPairings01 doc1 spurious: "+newDiffer.getSpurious());
-    System.out.println("NEW testFindPairings01 doc1 spurious strict: "+newDiffer.getEvalStats().getSpuriousStrict());
-    System.out.println("NEW testFindPairings01 doc1 spurious lenient: "+newDiffer.getEvalStats().getSpuriousLenient());
-    System.out.println("NEW testFindPairings01 doc1 true spurious strict: "+newDiffer.getEvalStats().getTrueSpuriousStrict());
-    System.out.println("NEW testFindPairings01 doc1 true spurious lenient: "+newDiffer.getEvalStats().getTrueSpuriousLenient());
+    System.out.println("NEW testFindPairings01 doc1 spurious strict: "+newDiffer.getEvalPRFStats().getSpuriousStrict());
+    System.out.println("NEW testFindPairings01 doc1 spurious lenient: "+newDiffer.getEvalPRFStats().getSpuriousLenient());
+    System.out.println("NEW testFindPairings01 doc1 true spurious strict: "+newDiffer.getEvalPRFStats().getTrueSpuriousStrict());
+    System.out.println("NEW testFindPairings01 doc1 true spurious lenient: "+newDiffer.getEvalPRFStats().getTrueSpuriousLenient());
     System.out.println("OLD testFindPairings01 doc1 missing: "+annDiffer.getMissing());
     System.out.println("NEW testFindPairings01 doc1 missing: "+newDiffer.getMissing());
-    System.out.println("NEW testFindPairings01 doc1 missing strict: "+newDiffer.getEvalStats().getMissingStrict());
-    System.out.println("NEW testFindPairings01 doc1 missing lenient: "+newDiffer.getEvalStats().getMissingLenient());
-    System.out.println("NEW testFindPairings01 doc1 true missing strict: "+newDiffer.getEvalStats().getTrueMissingStrict());
-    System.out.println("NEW testFindPairings01 doc1 true missing lenient: "+newDiffer.getEvalStats().getTrueMissingLenient());
-    System.out.println("NEW testFindPairings01 doc1 incorrect strict: "+newDiffer.getEvalStats().getIncorrectStrict());
-    System.out.println("NEW testFindPairings01 doc1 incorrect lenient: "+newDiffer.getEvalStats().getIncorrectLenient());
+    System.out.println("NEW testFindPairings01 doc1 missing strict: "+newDiffer.getEvalPRFStats().getMissingStrict());
+    System.out.println("NEW testFindPairings01 doc1 missing lenient: "+newDiffer.getEvalPRFStats().getMissingLenient());
+    System.out.println("NEW testFindPairings01 doc1 true missing strict: "+newDiffer.getEvalPRFStats().getTrueMissingStrict());
+    System.out.println("NEW testFindPairings01 doc1 true missing lenient: "+newDiffer.getEvalPRFStats().getTrueMissingLenient());
+    System.out.println("NEW testFindPairings01 doc1 incorrect strict: "+newDiffer.getEvalPRFStats().getIncorrectStrict());
+    System.out.println("NEW testFindPairings01 doc1 incorrect lenient: "+newDiffer.getEvalPRFStats().getIncorrectLenient());
     System.out.println("OLD testFindPairings01 doc1 precision strict: "+annDiffer.getPrecisionStrict());
     System.out.println("NEW testFindPairings01 doc1 precision strict: "+newDiffer.getPrecisionStrict());
     System.out.println("OLD testFindPairings01 doc1 recall strict: "+annDiffer.getRecallStrict());
@@ -120,7 +119,7 @@ public class TestDiffer1 {
     System.out.println("NEW testFindPairings01 doc1 true spurious lenient anns: "+newDiffer.getTrueSpuriousLenientAnnotations().size());
     
     System.out.println("NEW Stats object");
-    System.out.println(newDiffer.getEvalStats());
+    System.out.println(newDiffer.getEvalPRFStats());
     
   }
   

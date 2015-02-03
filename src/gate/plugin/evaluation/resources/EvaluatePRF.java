@@ -226,7 +226,7 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
             scoreFeatureName,
             evalStatsByThreshold           
     );
-    allDocumentsStats.add(docDiffer.getEvalStats());
+    allDocumentsStats.add(docDiffer.getEvalPRFStats());
     
     // Now if we have parameters to record the matchings, get the information from the docDiffer
     // and create the apropriate annotations.
@@ -245,7 +245,7 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
               scoreFeatureName,
               evalStatsByThreshold
       );
-      allDocumentsReferenceStats.add(docDiffer.getEvalStats());
+      allDocumentsReferenceStats.add(docDiffer.getEvalPRFStats());
       // if we need to record the matchings, also add the annotations for how things changed
       // between the reference set and the response set.
       if(outputAnnotationSet != null) {
