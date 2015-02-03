@@ -11,7 +11,7 @@
 <!-- The document content area with serialized nodes -->
 
 <TextWithNodes><Node id="0"/>This<Node id="4"/> <Node id="5"/>is<Node id="7"/> <Node id="8"/>the<Node id="11"/> first<Node id="17"/> test <Node id="23"/>document<Node id="31"/> doc1. It contains a Key annotation set with annotation targets
-for P/R/F evaluation and it contains the <Node id="136"/>annotation<Node id="146"/> sets Resp1 and Resp2 with responses.
+for P/R/F <Node id="105"/>e<Node id="106"/>valuati<Node id="113"/>on<Node id="115"/> and it contains the <Node id="136"/>annotation<Node id="146"/> sets Resp1 and Resp2 with responses.
 All sets contain annotations <Node id="213"/>of <Node id="216"/>type<Node id="220"/> mention<Node id="228"/> with a single feature "id" which contains some 
 string<Node id="283"/> that <Node id="289"/>identifies<Node id="299"/> <Node id="300"/>the<Node id="303"/> "value" of the<Node id="318"/> t<Node id="320"/>arge<Node id="324"/>t <Node id="326"/>or <Node id="329"/>response.
 </TextWithNodes>
@@ -32,6 +32,18 @@ string<Node id="283"/> that <Node id="289"/>identifies<Node id="299"/> <Node id=
 <Feature>
   <Name className="java.lang.String">id</Name>
   <Value className="java.lang.String">b</Value>
+</Feature>
+</Annotation>
+<Annotation Id="19" Type="Mention" StartNode="105" EndNode="115">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">x</Value>
+</Feature>
+</Annotation>
+<Annotation Id="20" Type="Mention" StartNode="106" EndNode="113">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">spurious</Value>
 </Feature>
 </Annotation>
 <Annotation Id="11" Type="Mention" StartNode="0" EndNode="4">
@@ -80,12 +92,6 @@ string<Node id="283"/> that <Node id="289"/>identifies<Node id="299"/> <Node id=
 
 <AnnotationSet Name="Key">
 <Annotation Id="0" Type="Mention" StartNode="23" EndNode="31">
-<Feature>
-  <Name className="java.lang.String">id</Name>
-  <Value className="java.lang.String">a</Value>
-</Feature>
-</Annotation>
-<Annotation Id="16" Type="Mention" StartNode="318" EndNode="326">
 <Feature>
   <Name className="java.lang.String">id</Name>
   <Value className="java.lang.String">a</Value>
@@ -149,6 +155,18 @@ string<Node id="283"/> that <Node id="289"/>identifies<Node id="299"/> <Node id=
 <Feature>
   <Name className="java.lang.String">id</Name>
   <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="16" Type="Mention" StartNode="318" EndNode="326">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="18" Type="Mention" StartNode="105" EndNode="115">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">x</Value>
 </Feature>
 </Annotation>
 </AnnotationSet>

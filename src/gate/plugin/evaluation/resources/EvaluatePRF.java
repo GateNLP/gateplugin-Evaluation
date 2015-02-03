@@ -14,15 +14,18 @@ import gate.creole.metadata.CreoleResource;
 import gate.creole.metadata.Optional;
 import gate.creole.metadata.RunTime;
 import gate.plugin.evaluation.api.AnnotationDiffer;
-import gate.plugin.evaluation.api.EvalStats;
+import gate.plugin.evaluation.api.EvalPRFStats;
 import gate.util.GateRuntimeException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.NavigableMap;
 import java.util.Set;
 import java.util.TreeMap;
+
+// TODO(!!!): Add a java class for holding counts or instances of pairings between the reference set
+// and the response set so we can calculate p-values for the SingleResponse accuracy analysis. 
+// This could be used to get p-values for the McNemar test and the paired t-test.
 
 /**
  *
@@ -65,7 +68,7 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
   public String getContainingASNameAndType() { return containingASNameAndType; }
   
   private ContainmentType containmentType;
-  @CreoleParameter (comment="How the responses are restricted to the annotations of the containingASNameAndType")
+  @CreoleParameter (comment="How the responses are restricted to the annotations of the containingASNameAndType",defaultValue="OVERLAPPING")
   @Optional
   @RunTime
   public void setContainmentType(ContainmentType ct) { ct = containmentType; }
@@ -113,7 +116,7 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
   public String getFeatureNameNilCluster() { return featureNameNilCluster; }
   
   public NilTreatment nilTreatment;
-  @CreoleParameter(comment="",defaultValue="")
+  @CreoleParameter(comment="",defaultValue="NO_NILS")
   @RunTime
   @Optional  
   public void setNilTreatMent(NilTreatment value) { nilTreatment = value; }
@@ -149,12 +152,12 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
   }
   
   // fields shared between the execute method and the methods for initializing and finalization
-  EvalStats allDocumentsStats = new EvalStats();
-  EvalStats allDocumentsReferenceStats = null;
+  EvalPRFStats allDocumentsStats;
+  EvalPRFStats allDocumentsReferenceStats = null;
   
   // This will be initialized at the start of the run and be incremented in the AnnotationDiffer
   // for each document.
-  NavigableMap<Double,EvalStats> evalStatsByThreshold;
+  NavigableMap<Double,EvalPRFStats> evalStatsByThreshold;
   
   
   @Override
@@ -230,13 +233,7 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     AnnotationSet outputAnnotationSet = null;
     if(getOutputASName() != null && !getOutputASName().isEmpty()) {
       outputAnnotationSet = document.getAnnotations(getOutputASName());
-      addAnnsWithSuffix(outputAnnotationSet,docDiffer.getCorrectStrictAnnotations(),AnnotationDiffer.SUFFIX_ANN_CS);
-      addAnnsWithSuffix(outputAnnotationSet,docDiffer.getCorrectPartialAnnotations(),AnnotationDiffer.SUFFIX_ANN_CP);
-      addAnnsWithSuffix(outputAnnotationSet,docDiffer.getIncorrectStrictAnnotations(),AnnotationDiffer.SUFFIX_ANN_IS);
-      addAnnsWithSuffix(outputAnnotationSet,docDiffer.getIncorrectPartialAnnotations(),AnnotationDiffer.SUFFIX_ANN_IP);
-      addAnnsWithSuffix(outputAnnotationSet,docDiffer.getTrueMissingLenientAnnotations(),AnnotationDiffer.SUFFIX_ANN_ML);
-      addAnnsWithSuffix(outputAnnotationSet,docDiffer.getTrueSpuriousLenientAnnotations(),AnnotationDiffer.SUFFIX_ANN_SL);
-      docDiffer.getCorrectPartialAnnotations();
+      docDiffer.addIndicatorAnnotations(outputAnnotationSet);
     }
     
     // If we have a reference set, also calculate the stats for the reference set
@@ -252,7 +249,10 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
       // if we need to record the matchings, also add the annotations for how things changed
       // between the reference set and the response set.
       if(outputAnnotationSet != null) {
-        // TODO!!!
+        docRefDiffer.addIndicatorAnnotations(outputAnnotationSet);
+        // Now add also the annotations that indicate the changes between the reference set and
+        // the response set
+        AnnotationDiffer.addChangeIndicatorAnnotations(outputAnnotationSet, docDiffer, docRefDiffer);
       }
       
       // TODO: increment the overall count of how things changed
@@ -276,6 +276,9 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     // Check if all required parameters have been set
     checkRequiredArguments();
     
+    allDocumentsStats = new EvalPRFStats();
+    allDocumentsReferenceStats = new EvalPRFStats();
+    
     // avoid NPEs later
     if(featureNames == null) {
       featureNames = new ArrayList<String>();
@@ -290,20 +293,22 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     }
     
     if(getScoreFeatureName() != null && !getScoreFeatureName().isEmpty()) {
-      evalStatsByThreshold = new TreeMap<Double,EvalStats>();
+      evalStatsByThreshold = new TreeMap<Double,EvalPRFStats>();
     }
     
     if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
-      allDocumentsReferenceStats = new EvalStats();
+      allDocumentsReferenceStats = new EvalPRFStats();
+    }
+    
+    if(getContainmentType() == null) {
+      containmentType = ContainmentType.OVERLAPPING;
+    }
+    if(getNilTreatMent() == null) {
+      nilTreatment = NilTreatment.NO_NILS;
     }
 
   }
   
-  private void addAnnsWithSuffix(AnnotationSet outSet, Collection<Annotation> inAnns, String suffix) {
-    for(Annotation ann : inAnns) {
-      gate.Utils.addAnn(outSet, ann, ann.getType()+suffix, gate.Utils.toFeatureMap(features));
-    }
-  }
   
   private String getStringOrElse(String value, String elseValue) {
     if(value == null) return elseValue; else return value;
@@ -337,23 +342,35 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     return new ImmutableAnnotationSetImpl(document, selected);    
   }
   
+  public void outputDefaultResults() {
+    System.out.println(allDocumentsStats);
+    if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
+      System.out.println(allDocumentsReferenceStats);
+    }
+
+  }
+  
+  
   ////////////////////////////////////////////
   /// CONTROLLER AWARE PR methods
   ////////////////////////////////////////////
   
   @Override
   public void controllerExecutionStarted(Controller cntrlr) throws ExecutionException {
-    
+    initializeForRunning();
   }
 
   @Override
   public void controllerExecutionFinished(Controller cntrlr) throws ExecutionException {
-    
+    outputDefaultResults();
   }
 
   @Override
   public void controllerExecutionAborted(Controller cntrlr, Throwable thrwbl) throws ExecutionException {
-    
+    System.err.println("Processing was aborted: "+thrwbl.getMessage());
+    thrwbl.printStackTrace(System.err);
+    System.err.println("Here are the summary stats for what was processed: ");
+    outputDefaultResults();
   }
   
   

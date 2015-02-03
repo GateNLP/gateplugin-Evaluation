@@ -133,6 +133,9 @@ if s >= t_i then we count the response as above for the stat obj with threshold 
 
 
 Papers:
+- !!! Cyril Goutte and Eric Gaussier: A Probabilistic Interpretation of Precision, Recall and F-Score, with Implication for Evaluation
+  (Goutte2005)
+
 - Luo etal 2014: An Extension of BLANC to System Mentions. ACL2014
   (applies to co-reference evaluation)
 - Hovy etal 2014: Scoring Coreference Partitions of Predicted Mentions: A Reference Implementation. ACL2104

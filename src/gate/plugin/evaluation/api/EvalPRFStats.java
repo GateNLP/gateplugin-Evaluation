@@ -3,43 +3,47 @@ package gate.plugin.evaluation.api;
 /**
  * A class to hold all the numbers for an evaluation and for calculating
  * various measures from the numbers.
- * In addition to the numbers, a EvalStats object also contains a confidence
- * or score threshold. This is a double value such the the stats object
- * represents the numbers if the evaluation was carried out with that 
- * threshold, i.e. a response is only considered if the score of the response
- * is >= the threshold. If the threshold is NaN then the stats object is not
+ * In addition to the numbers, a EvalPRFStats object also contains a confidence
+ or score threshold. This is a double value such the the stats object
+ represents the numbers if the evaluation was carried out with that 
+ threshold, i.e. a response is only considered if the score of the response
+ is >= the threshold. If the threshold is NaN then the stats object is not
  * associated with a threshold (usually that means it is a stats object that
  * represents all responses found).
  * 
  * @author Johann Petrak
  */
-public class EvalStats {
+public class EvalPRFStats {
   
   protected double threshold = Double.NaN;
   
-  public EvalStats() {
+  public EvalPRFStats() {
     
   }
-  public EvalStats(double threshold) {
+  public EvalPRFStats(double threshold) {
     this.threshold = threshold;
   }
   
   public double getThreshold() { return threshold; }
   
-  // increment this EvalStats object with the counts from another one
-  public void add(EvalStats other) {
+  // increment this EvalPRFStats object with the counts from another one
+  public void add(EvalPRFStats other) {
     nTargets += other.nTargets;
     nResponses += other.nResponses;
     nCorrectStrict += other.nCorrectStrict;
     nCorrectPartial += other.nCorrectPartial;
     nIncorrectStrict += other.nIncorrectStrict;
     nIncorrectPartial += other.nIncorrectPartial;
+    nSingleCorrectStrict += other.nSingleCorrectStrict;
+    nSingleCorrectPartial += other.nSingleCorrectPartial;
   }
   
   public void addTargets(int n) { nTargets += n; }
   public void addResponses(int n) { nResponses += n; }
   public void addCorrectStrict(int n) { nCorrectStrict += n; }
   public void addCorrectPartial(int n) { nCorrectPartial += n; }
+  public void addSingleCorrectStrict(int n) { nSingleCorrectStrict += n; }
+  public void addSingleCorrectPartial(int n) { nSingleCorrectPartial += n; }
   public void addIncorrectStrict(int n) { nIncorrectStrict += n; }
   public void addIncorrectPartial(int n) {nIncorrectPartial += n; }
   
@@ -59,6 +63,15 @@ public class EvalStats {
   protected int nCorrectPartial;
   public int getCorrectPartial() { return nCorrectPartial; }
   public int getCorrectLenient() { return nCorrectStrict + nCorrectPartial; }
+  
+  // SINGLE CORRECT: this is the number of targets which have correct response but do not overlap
+  // with a spurious response. This is used to calculate an accuracy measure which cannot get
+  // increased by simply adding all possibilities to the response set.
+  protected int nSingleCorrectStrict;
+  protected int nSingleCorrectPartial;
+  public int getSingleCorrectStrict() { return nSingleCorrectStrict; }
+  public int getSingleCorrectPartial() { return nSingleCorrectPartial; }
+  public int getSingleCorrectLenient() { return nSingleCorrectStrict + nSingleCorrectPartial; }
   
   // INCORRECT
   // responses that are coextensive but not equal (this is only possible if there is at least
@@ -177,6 +190,48 @@ public class EvalStats {
     if(Double.isNaN(answer)) answer = 0.0;
     return answer;
   }
+  
+  public double getSingleCorrectAccuracyStrict() {
+    return getSingleCorrectStrict() / (double)getTargets();
+  }
+  
+  public double getSingleCorrectAccuracyLenient() {
+    return getSingleCorrectLenient() / (double) getTargets();
+  }
+  
+  // Default conversion to String simply prints all the counts and measures.
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("Threshold: "+threshold);
+    sb.append("Precision Strict: "); sb.append(getPrecisionStrict()); sb.append("\n");
+    sb.append("Recall Strict: "); sb.append(getRecallStrict()); sb.append("\n");
+    sb.append("F1.0 Strict: "); sb.append(getFMeasureStrict(1.0)); sb.append("\n");
+    sb.append("Accuracy Strict: "); sb.append(getSingleCorrectAccuracyStrict()); sb.append("\n");
+    sb.append("Precision Lenient: "); sb.append(getPrecisionLenient()); sb.append("\n");
+    sb.append("Recall Lenient: "); sb.append(getRecallLenient()); sb.append("\n");
+    sb.append("F1.0 Lenient: "); sb.append(getFMeasureLenient(1.0)); sb.append("\n");
+    sb.append("Accuracy Lenient: "); sb.append(getSingleCorrectAccuracyLenient()); sb.append("\n");
+    sb.append("Targets: "); sb.append(getTargets()); sb.append("\n");
+    sb.append("Responses: "); sb.append(getResponses()); sb.append("\n");
+    sb.append("Correct Strict: "); sb.append(getCorrectStrict()); sb.append("\n");
+    sb.append("Single Correct Strict: "); sb.append(getSingleCorrectStrict()); sb.append("\n");
+    sb.append("Incorrect Strict: "); sb.append(getIncorrectStrict()); sb.append("\n");
+    sb.append("Missing Strict: "); sb.append(getMissingStrict()); sb.append("\n");
+    sb.append("True Missing Strict: "); sb.append(getTrueMissingStrict()); sb.append("\n");
+    sb.append("Spurious Strict: "); sb.append(getSpuriousStrict()); sb.append("\n");
+    sb.append("True Spurious Strict: "); sb.append(getTrueSpuriousStrict()); sb.append("\n");
+    sb.append("Correct Partial: "); sb.append(getCorrectPartial()); sb.append("\n");
+    sb.append("Single Correct Partial: "); sb.append(getSingleCorrectPartial()); sb.append("\n");
+    sb.append("Incorrect Partial: "); sb.append(getIncorrectPartial()); sb.append("\n");
+    sb.append("Missing Lenient: "); sb.append(getMissingLenient()); sb.append("\n");
+    sb.append("True Missing Lenient: "); sb.append(getTrueMissingLenient()); sb.append("\n");
+    sb.append("Spurious Lenient: "); sb.append(getSpuriousLenient()); sb.append("\n");
+    sb.append("True Spurious Lenient: "); sb.append(getTrueSpuriousLenient()); sb.append("\n");
+    // TODO
+    return sb.toString();
+  }
+  
+  // TODO: can we add agreement measures based on SingleCorrectAccuracy?
   
   
 }

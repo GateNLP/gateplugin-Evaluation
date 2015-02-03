@@ -119,6 +119,9 @@ public class TestDiffer1 {
     System.out.println("NEW testFindPairings01 doc1 true missing lenient anns: "+newDiffer.getTrueMissingLenientAnnotations().size());
     System.out.println("NEW testFindPairings01 doc1 true spurious lenient anns: "+newDiffer.getTrueSpuriousLenientAnnotations().size());
     
+    System.out.println("NEW Stats object");
+    System.out.println(newDiffer.getEvalStats());
+    
   }
   
   

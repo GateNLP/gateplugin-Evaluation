@@ -1,7 +1,9 @@
 package gate.plugin.evaluation.api;
 
 import gate.Annotation;
+import gate.AnnotationSet;
 import gate.FeatureMap;
+import gate.annotation.AnnotationSetImpl;
 import gate.util.GateRuntimeException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,7 +16,7 @@ import java.util.NavigableSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-// TODO: make this classe use the EvalStats internally and just make the old method names
+// TODO: make this classe use the EvalPRFStats internally and just make the old method names
 // to get delegated to the stats methods; Add a method to retrieve the stats object.
 // Also, if there is a threshold feature, automatically create an ordered map of 
 // stat objects by threshold and add a method to retrieve them.
@@ -84,12 +86,12 @@ public class AnnotationDiffer {
   private static final String SUFFIX_ANN_TM_IL = "_ML_IL";
 
   
-  protected EvalStats evalStats = new EvalStats();
-  public EvalStats getEvalStats() { return evalStats; }
+  protected EvalPRFStats evalStats = new EvalPRFStats();
+  public EvalPRFStats getEvalStats() { return evalStats; }
 
   // This is only used if we have a threshold feature;
-  protected NavigableMap<Double,EvalStats> evalStatsByThreshold;
-  public NavigableMap<Double,EvalStats> getEvalStatsByThreshold() { return evalStatsByThreshold; }
+  protected NavigableMap<Double,EvalPRFStats> evalStatsByThreshold;
+  public NavigableMap<Double,EvalPRFStats> getEvalStatsByThreshold() { return evalStatsByThreshold; }
   
   
   
@@ -98,11 +100,11 @@ public class AnnotationDiffer {
   // have to be specified at creation time.
   private AnnotationDiffer() {}
   public AnnotationDiffer(
-          Collection<Annotation> targets, 
-          Collection<Annotation> responses,
+          AnnotationSet targets, 
+          AnnotationSet responses,
           List<String> features,
           String thresholdFeature,
-          NavigableMap<Double,EvalStats> byThresholdEvalStats
+          NavigableMap<Double,EvalPRFStats> byThresholdEvalStats
                   ) {
     this.targets = targets;
     this.responses = responses;
@@ -125,18 +127,18 @@ public class AnnotationDiffer {
         }
         thresholds.add(score);
       }
-      // Now calculate the EvalStats(threshold) for each threshold we found in decreasing order.
-      // The counts we get will need to get added to all existing EvalStats which are already
+      // Now calculate the EvalPRFStats(threshold) for each threshold we found in decreasing order.
+      // The counts we get will need to get added to all existing EvalPRFStats which are already
       // in the byThresholdEvalStats map. To simplify this, we accumulate the stats for each 
       // of our own thresholds and then use the accumulated stats for incrementing (this avoids
       // going through the map O(n^2) times)
       
       // Initialize the accumulating evalstats
-      EvalStats accum = new EvalStats();
+      EvalPRFStats accum = new EvalPRFStats();
       // start with the highest threshold
       Double th = thresholds.last();
       while(th != null) {
-        EvalStats es = calculateDiff(targets,responses,features,thresholdFeature,th);
+        EvalPRFStats es = calculateDiff(targets,responses,features,thresholdFeature,th);
         accum.add(es);
         Double nextTh = thresholds.lower(th);
         // now add the accum to all entries in the byThresholdEvalStats for which the threshold
@@ -147,13 +149,13 @@ public class AnnotationDiffer {
           if(oth == th) {
             found = true;
           }
-          EvalStats oes = byThresholdEvalStats.get(oth);
+          EvalPRFStats oes = byThresholdEvalStats.get(oth);
           oes.add(accum);
         }
         // if the entry was not already in the byThresholdEvalStats, we need to add it, but this
         // entry also needs to count all the entries from the next higher one, of there is one
         if(!found) {
-          EvalStats nextHigher = byThresholdEvalStats.higherEntry(th).getValue();
+          EvalPRFStats nextHigher = byThresholdEvalStats.higherEntry(th).getValue();
           if(nextHigher != null) {
             es.add(nextHigher);
           }
@@ -167,43 +169,15 @@ public class AnnotationDiffer {
   protected Collection<Annotation> targets;
   protected Collection<Annotation> responses;
   protected String thresholdFeature;
-  protected NavigableMap<Double,EvalStats> byThresholdEvalStats;
+  protected NavigableMap<Double,EvalPRFStats> byThresholdEvalStats;
   protected List<String> features;
   
-  /**
-   * Constructor to be used when you have a collection of AnnotationDiffer
-   * and want to consider it as only one AnnotationDiffer.
-   * Then you can only use the methods getPrecision/Recall/FMeasure...().
-   * @param differs collection to be regrouped in one AnnotationDiffer
-   */
-  /*
-  public AnnotationDiffer(Collection<AnnotationDiffer> differs) {
-    correctMatches = 0;
-    partiallyCorrectMatches = 0;
-    missing = 0;
-    spurious = 0;
-    int keyCount = 0;
-    int responseCount = 0;
-    for (AnnotationDiffer differ : differs) {
-      // set the correct, partial, spurious and missing values to be
-      // the sum of those in the collection
-      correctMatches += differ.getCorrectMatches();
-      partiallyCorrectMatches += differ.getPartiallyCorrectMatches();
-      missing += differ.getMissing();
-      spurious += differ.getSpurious();
-      keyCount += differ.getKeysCount();
-      responseCount += differ.getResponsesCount();
-    }
-    keyList = new ArrayList<Annotation>(Collections.nCopies(keyCount, (Annotation) null));
-    responseList = new ArrayList<Annotation>(Collections.nCopies(responseCount, (Annotation) null));    
-  }
-  */
 
   /**
    * Interface representing a pairing between a key annotation and a response 
    * one.
    */
-  public static interface Pairing{
+  protected static interface Pairing{
     /**
      * Gets the key annotation of the pairing. Can be <tt>null</tt> (for 
      * spurious matches).
@@ -235,7 +209,7 @@ public class AnnotationDiffer {
   }
 
   // the sets we record in case the threshold is NaN
-  public Set<Annotation> 
+  private Set<Annotation> 
           correctStrictAnns, 
           correctPartialAnns,
           incorrectStrictAnns,
@@ -250,27 +224,65 @@ public class AnnotationDiffer {
   public Set<Annotation> getTrueMissingLenientAnnotations() { return trueMissingLenientAnns; }
   public Set<Annotation> getTrueSpuriousLenientAnnotations() { return trueSpuriousLenientAnns; }
   
+  /**
+   * Add the annotations that indicate correct/incorrect etc to the output set.
+   * This will create one annotation in the outSet for each annotation returned by getXXXAnnotations()
+   * but will change the type to have a suffix that indicates if this was an incorrect or correct
+   * response, a missed target etc. 
+   * If the reference annotation is not null, this will also add additional annotations with 
+   * suffixes that indicate how the assignment changed between the reference set and the response 
+   * set. The indicator annotations for the reference set will have the suffix _R so e.g. a 
+   * strictly correct response for the annotation type Mention will get annotated as Mention_CS_R
+   * 
+   * @param outSet 
+   */
+  public void addIndicatorAnnotations(AnnotationSet outSet) {
+    addAnnsWithTypeSuffix(outSet,getCorrectStrictAnnotations(),AnnotationDiffer.SUFFIX_ANN_CS);
+    addAnnsWithTypeSuffix(outSet,getCorrectPartialAnnotations(),AnnotationDiffer.SUFFIX_ANN_CP);
+    addAnnsWithTypeSuffix(outSet,getIncorrectStrictAnnotations(),AnnotationDiffer.SUFFIX_ANN_IS);
+    addAnnsWithTypeSuffix(outSet,getIncorrectPartialAnnotations(),AnnotationDiffer.SUFFIX_ANN_IP);
+    addAnnsWithTypeSuffix(outSet,getTrueMissingLenientAnnotations(),AnnotationDiffer.SUFFIX_ANN_ML);
+    addAnnsWithTypeSuffix(outSet,getTrueSpuriousLenientAnnotations(),AnnotationDiffer.SUFFIX_ANN_SL);    
+  }
+
+  /**
+   * Add the annotations that indicate changes between responses.
+  * 
+   * @param outSet 
+   * @param responses 
+   * @param reference 
+   */
+  public static void addChangeIndicatorAnnotations(AnnotationSet outSet, AnnotationDiffer responses, AnnotationDiffer reference) {
+    // TODO
+  }
+  
+  
+  private void addAnnsWithTypeSuffix(AnnotationSet outSet, Collection<Annotation> inAnns, String suffix) {
+    for(Annotation ann : inAnns) {
+      gate.Utils.addAnn(outSet, ann, ann.getType()+suffix, gate.Utils.toFeatureMap(ann.getFeatures()));
+    }
+  }
   
   
   /**
    * Computes a diff between two collections of annotations.
-   * @param key the collection of key annotations.
-   * @param response the collection of response annotations.
+   * @param keyAnns the collection of keyAnns annotations.
+   * @param responseAnns the collection of responseAnns annotations.
    * @return a list of {@link Pairing} objects representing the pairing set
    * that results in the best score.
    */
-  private EvalStats calculateDiff(
-          Collection<Annotation> key, 
-          Collection<Annotation> response,
+  private EvalPRFStats calculateDiff(
+          AnnotationSet keyAnns, 
+          AnnotationSet responseAnns,
           List<String> features,
           String thresholdFeature,  // if not null, the name of a score feature
           double threshold  // if not NaN, we will calculate the stats only for responses with score > threshold
           )
   {
     System.out.println("DEBUG: calculating the differences for threshold "+threshold);
-    EvalStats es = new EvalStats(threshold);
-    // If the threshold is not NaN, then we will calculate a temporary EvalStats object with that
-    // threshold and then insert or update such an EvalStats object in the global evalStatsByThreshold object. 
+    EvalPRFStats es = new EvalPRFStats(threshold);
+    // If the threshold is not NaN, then we will calculate a temporary EvalPRFStats object with that
+    // threshold and then insert or update such an EvalPRFStats object in the global evalStatsByThreshold object. 
     
     if(Double.isNaN(threshold)) {
       correctStrictAnns = new HashSet<Annotation>();
@@ -280,8 +292,8 @@ public class AnnotationDiffer {
       trueMissingLenientAnns = new HashSet<Annotation>();
       trueSpuriousLenientAnns = new HashSet<Annotation>();
     }
-    keyList = new ArrayList<Annotation>(key);
-    responseList = new ArrayList<Annotation>(response);
+    keyList = new ArrayList<Annotation>(keyAnns);
+    responseList = new ArrayList<Annotation>(responseAnns);
     
     keyChoices = new ArrayList<List<Pairing>>(keyList.size());
     // initialize by nr_keys nulls
@@ -292,8 +304,8 @@ public class AnnotationDiffer {
 
     possibleChoices = new ArrayList<Pairing>();
 
-    es.addTargets(key.size());
-    es.addResponses(response.size());
+    es.addTargets(keyAnns.size());
+    es.addResponses(responseAnns.size());
     
     //1) try all possible pairings
     for(int i = 0; i < keyList.size(); i++){
@@ -301,14 +313,14 @@ public class AnnotationDiffer {
         Annotation keyAnn = keyList.get(i);
         Annotation resAnn = responseList.get(j);
         if(!Double.isNaN(threshold)) {
-          // try to get the score for the response
+          // try to get the score for the responseAnns
           double score = getFeatureDouble(resAnn.getFeatures(),thresholdFeature,Double.NaN);
           if(Double.isNaN(score)) {
             throw new GateRuntimeException("Response without a score feature: "+resAnn);
           }
           // We are only interested in responses which have a score >= the threshold
           if(score < threshold) {
-            continue; // check the next response
+            continue; // check the next responseAnns
           }
         }
         PairingImpl choice = null;
@@ -352,12 +364,14 @@ public class AnnotationDiffer {
       finalChoices.add(bestChoice);
       switch(bestChoice.value){
         case CORRECT_VALUE:{
+          //System.out.println("DEBUG: add a correct strict one: "+bestChoice.getKey());
           if(Double.isNaN(threshold)) { correctStrictAnns.add(bestChoice.getResponse()); }
           es.addCorrectStrict(1);
           bestChoice.setType(CORRECT_TYPE);
           break;
         }
         case PARTIALLY_CORRECT_VALUE:{  // correct but only opverlap, not coextensive
+          //System.out.println("DEBUG: add a correct partial one: "+bestChoice.getKey());
           if(Double.isNaN(threshold)) { correctPartialAnns.add(bestChoice.getResponse()); }
           es.addCorrectPartial(1);
           bestChoice.setType(PARTIALLY_CORRECT_TYPE);
@@ -379,8 +393,9 @@ public class AnnotationDiffer {
           if(bestChoice.getKey() != null && bestChoice.getResponse() != null) {
             es.addIncorrectPartial(1);
             if(Double.isNaN(threshold)) { incorrectPartialAnns.add(bestChoice.getResponse()); }
+            bestChoice.setType(MISMATCH_TYPE);
           } else if(bestChoice.getKey() == null){            
-            // this is a response which overlaps with a key but does not have a key??
+            // this is a responseAnns which overlaps with a keyAnns but does not have a keyAnns??
             System.out.println("DEBUG: GOT a WRONG_VALUE (overlapping and not correct) with no key "+bestChoice);
           } else if(bestChoice.getResponse() == null) {
             System.out.println("DEBUG: GOT a WRONG_VALUE (overlapping and not correct) with no response "+bestChoice);
@@ -407,17 +422,44 @@ public class AnnotationDiffer {
     }
 
     //get the unmatched responses
+    // In order to find overlaps between targets(keys) and spurious annotations, we need
+    // to store the spurious annotations in an actual annotation set
+    AnnotationSetImpl spuriousAnnSet = new AnnotationSetImpl(responseAnns);
+    spuriousAnnSet.clear();
     for(int i = 0; i < responseChoices.size(); i++){
       List<Pairing> aList = responseChoices.get(i);
       if(aList == null || aList.isEmpty()){
-        trueSpuriousLenientAnns.add((responseList.get(i)));
+        trueSpuriousLenientAnns.add(responseList.get(i));
+        spuriousAnnSet.add(responseList.get(i));
         PairingImpl choice = new PairingImpl(-1, i, WRONG_VALUE);
         choice.setType(SPURIOUS_TYPE);
         finalChoices.add(choice);
         //es.addTrueSpurious(1);
       }
     }
-
+    
+    // To count the single correct anntations, go through the correct annotations and find the
+    // target they have been matched to, then see if that target overlaps with a spurious annotation.
+    // If not we can count it as a single correct annotation. This is done for correct strict and
+    // correct lenient.
+    // We can only do this if we have the sets which will only happen if there is no threshold
+    if(Double.isNaN(threshold)) {
+    for(Pairing p : finalChoices) {
+      if(p.getType() == CORRECT_TYPE) {
+        Annotation t = p.getKey();
+        AnnotationSet ol = gate.Utils.getOverlappingAnnotations(spuriousAnnSet, t);
+        if(ol.size() == 0) { es.addSingleCorrectStrict(1); }
+        //System.out.println("DEBUG have a correct strict choice, overlapping: "+ol.size()+" key is "+t);
+      } else if(p.getType() == PARTIALLY_CORRECT_TYPE) {
+        Annotation t = p.getKey();
+        AnnotationSet ol = gate.Utils.getOverlappingAnnotations(spuriousAnnSet, t);
+        if(ol.size() == 0) { es.addSingleCorrectPartial(1); }        
+        //System.out.println("DEBUG have a correct partial choice, overlapping: "+ol.size()+" key is "+t);
+      }
+    }
+    }
+    
+    
     return es;
   }
 
