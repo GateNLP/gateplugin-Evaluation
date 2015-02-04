@@ -101,18 +101,46 @@ public class AnnotationDiffer {
 
   
   protected EvalPRFStats evalStats = new EvalPRFStats();
+  /**
+   * Access the counts and evaluation measures calculated by this AnnotationDiffer.
+   * 
+   * 
+   * @return an EvalPRFStats object with the counts for the annotation differences.
+   */
   public EvalPRFStats getEvalPRFStats() { return evalStats; }
 
   // This is only used if we have a threshold feature;
   protected NavigableMap<Double,EvalPRFStats> evalStatsByThreshold;
+  /**
+   * Get counters by thresholds for all the scores we have seen. 
+   * 
+   * This will only return non-null if a score feature  was specified when the AnnotationDiffer
+   * object was created. 
+   * @return The map with all seen scores mapped to their EvalPRFStats.
+   */
   public NavigableMap<Double,EvalPRFStats> getEvalPRFStatsByThreshold() { return evalStatsByThreshold; }
   
   
   
-  // For now we make the main parts of or own AnnotationDiffer object immutable: all the necessary
-  // data has to be specified at creation time. Also, the sets for which to calculate the diffs
-  // have to be specified at creation time.
   private AnnotationDiffer() {}
+  
+  /**
+   * Create a differ for the two sets and the given, potentially empty/null list of features.
+   * 
+   * Create a differ and calculate the differences between the targets set - the set with the
+   * annotations which are assumed to be correct - and the responses set - the set e.g. created by
+   * an algorithm which should get evaluated against the targets set. The features list is a list
+   * of features which need to have equal values for a target and a response annotation to be 
+   * considered identical. If the feature list is empty or null, then no features are compared and
+   * a target is identical to a response if the offsets match (and it is partial identical if the
+   * spans overlap). Note that the type of the annotations in the targets and responses sets 
+   * are not used at all: usually this class will be used with sets where the annotations are
+   * already filtered by type, but this is not enforced by this class. 
+   * 
+   * @param targets
+   * @param responses
+   * @param features 
+   */
   public AnnotationDiffer(
           AnnotationSet targets,
           AnnotationSet responses,
@@ -120,6 +148,29 @@ public class AnnotationDiffer {
   ) {
     this(targets,responses,features,null,null);
   }
+  /**
+   * Create a differ that will also calculate the stats by score thresholds. 
+   * This does the same as the constructor AnnotationDiffer(targets,responses,features) but 
+   * will in addition also expect every response to have a feature with the name given by the
+   * thresholdFeature parameter. This feature is expected to contain a value that can be converted
+   * to a double and which will be interpreted as a score or confidence. This score can then be
+   * used to perform the evaluation such that only responses with a score higher than a certain
+   * threshold will be considered. The differ will update the NavigableMap passed to the constructor
+   * to add an EvalPRFStats object for each score that is encountered in the responses set.
+   * <p>
+   * In order to create the statistics for several documents a single NavigableMap has to be 
+   * used for every AnnotationDiffer that is used for each document. Every time a new AnnotationDiffer
+   * compares a new pair of sets, that NavigableMap will incrementally get updated with the new 
+   * counts. 
+   * If either the thresholdFeature is empty or null or the byThresholdEvalStats object is null,
+   * no statistics by thresholds will be calculated. If the thresholdFeature is empty or null but
+   * a map is passed to the AnnotationDiffer, the map will remain unchanged.
+   * @param targets
+   * @param responses
+   * @param features
+   * @param thresholdFeature
+   * @param byThresholdEvalStats 
+   */
   public AnnotationDiffer(
           AnnotationSet targets, 
           AnnotationSet responses,
@@ -140,6 +191,9 @@ public class AnnotationDiffer {
     // method for each threshold. Add the per-threshold evalstats to the byThresholdEvalStats object.
     if(thresholdFeature != null && !thresholdFeature.isEmpty()) {
       System.out.println("DEBUG Calculating for the thresholds....");
+      if(byThresholdEvalStats == null) {
+        throw new GateRuntimeException("thresholdFeature is specified but byThresholdEvalStats object is null!");
+      }
       NavigableSet<Double> thresholds = new TreeSet<Double>();
       for(Annotation res : responses) {
         double score = getFeatureDouble(res.getFeatures(),thresholdFeature,Double.NaN);

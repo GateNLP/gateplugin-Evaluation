@@ -16,12 +16,18 @@ import gate.creole.metadata.RunTime;
 import gate.plugin.evaluation.api.AnnotationDiffer;
 import gate.plugin.evaluation.api.EvalPRFStats;
 import gate.util.GateRuntimeException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.NavigableMap;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 // TODO(!!!): Add a java class for holding counts or instances of pairings between the reference set
 // and the response set so we can calculate p-values for the SingleResponse accuracy analysis. 
@@ -129,7 +135,20 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
   public void setNilValue(String value) { nilValue = value; }
   public String getNilValue() { return nilValue; }
      
-  
+  public URL outputDirectoryUrl;
+  @CreoleParameter(comment="",defaultValue="")
+  @RunTime
+  @Optional  
+  public void setOutputDirectoryUrl(URL value) { outputDirectoryUrl = value; }
+  public URL getOutputDirectoryUrl() { return outputDirectoryUrl; }
+     
+  public String evaluationId;
+  @CreoleParameter(comment="",defaultValue="")
+  @RunTime
+  @Optional  
+  public void setEvaluationId(String value) { evaluationId = value; }
+  public String getEvaluationId() { return evaluationId == null ? "" : evaluationId; }
+     
   
   //////////////////// 
   // PR METHODS 
@@ -209,6 +228,8 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     //   A NIL response that is not coextensive is treated as a partial correct match.
     //   A response that is not a nil is treated as a spurious response. Parameter nilValue is 
     //   used to know which keys and responses are nils. 
+    //   NOTE: this needs special processing in the annotation differ, so we need to adapt/change the
+    //   annotation differ for that!
     // NIL_CLUSTERS: 
     //   In this case, a missing response does not equal a key nil, because we need to provide
     //   a label to be correct. Parameter nilValue is used so we know which keys and responses 
@@ -217,7 +238,7 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     //   response sets. We accumulate all the NIL annotations over all documents and after all 
     //   documents have been processed, we try to find an optimal assignment between them, based
     //   on the NIL labels. 
-    // TODO TODO TODO!!!!
+    // TODO!!!
     
     AnnotationDiffer docDiffer = new AnnotationDiffer(
             keySet,
@@ -346,6 +367,40 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     System.out.println(allDocumentsStats);
     if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
       System.out.println(allDocumentsReferenceStats);
+    }
+    
+    // TODO: refactor this code into a method that returns a handle for writing to some file e.g. "byThresholds"
+    // FileOutputStream os = getOutputStream("byThresholds") // no exception but may log an error and return null
+    FileOutputStream os = null;
+    if(outputDirectoryUrl != null) {
+      File outFile = new File(gate.util.Files.fileFromURL(outputDirectoryUrl),getEvaluationId()+"byThresholds.tsv");
+      try {
+        os = new FileOutputStream(gate.util.Files.fileFromURL(outputDirectoryUrl));
+      } catch (FileNotFoundException ex) {
+        System.err.println("Could not open output file "+outFile+" for writing, writing to the log only");
+      }
+    }
+    if(evalStatsByThreshold != null) {
+      Double th = evalStatsByThreshold.firstKey();
+      double highestPrecisionSoFarStrict = 0.0; // used for "interpolated precision"      
+      double highestPrecisionSoFarLenient = 0.0; // used for "interpolated precision"      
+      // TODO: output the header row
+      System.out.println(EvalPRFStats.getTSVHeaders());
+      while(th != null) {
+        // get the stats for that th
+        EvalPRFStats es = evalStatsByThreshold.get(th);
+        // calculate the interpolated precision values for this row
+        highestPrecisionSoFarStrict = Math.max(highestPrecisionSoFarStrict, es.getPrecisionStrict());
+        highestPrecisionSoFarLenient = Math.max(highestPrecisionSoFarLenient, es.getPrecisionLenient());
+        String line = es.getTSVLine();
+        // TODO: output a row of data
+        // get the next higher threshold
+        th = evalStatsByThreshold.lowerKey(th);
+      }
+      // TODO: output a row for everything above the highest seen score, which mean:
+      // precision = 1.0, recall = 0.0, responses = 0, correct = 0 and incorrect = 0
+      
+      // TODO: consider additional measure to calculate, e.g. area under the PRC (APRC)
     }
 
   }

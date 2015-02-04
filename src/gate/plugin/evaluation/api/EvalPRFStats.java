@@ -13,7 +13,7 @@ package gate.plugin.evaluation.api;
  * 
  * @author Johann Petrak
  */
-public class EvalPRFStats {
+public class EvalPRFStats  {
   
   protected double threshold = Double.NaN;
   
@@ -22,6 +22,24 @@ public class EvalPRFStats {
   }
   public EvalPRFStats(double threshold) {
     this.threshold = threshold;
+  }
+  
+  /**
+   * Create a copy of an existing EvalPRFStats object.
+   * This can be used to get an exact copy of the EvalPRFStats object passed to the constructor.
+   * @param other 
+   */
+  public EvalPRFStats(EvalPRFStats other) {
+    threshold = other.threshold;
+    nTargets = other.nTargets;
+    nResponses = other.nResponses;
+    nCorrectStrict = other.nCorrectStrict;
+    nCorrectPartial = other.nCorrectPartial;
+    nIncorrectStrict = other.nIncorrectStrict;
+    nIncorrectPartial = other.nIncorrectPartial;
+    nSingleCorrectStrict = other.nSingleCorrectStrict;
+    nSingleCorrectPartial = other.nSingleCorrectPartial;
+    
   }
   
   public double getThreshold() { return threshold; }
@@ -227,9 +245,73 @@ public class EvalPRFStats {
     sb.append("True Missing Lenient: "); sb.append(getTrueMissingLenient()); sb.append("\n");
     sb.append("Spurious Lenient: "); sb.append(getSpuriousLenient()); sb.append("\n");
     sb.append("True Spurious Lenient: "); sb.append(getTrueSpuriousLenient()); sb.append("\n");
-    // TODO
     return sb.toString();
   }
+
+  /**
+   * Create a String in TSV format containing all the headers for all fields in this object.
+   * @return a String with all the headers of currently supported fields.
+   */
+  public static String getTSVHeaders() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("threshold"); sb.append("\t");
+    sb.append("recisionStrict"); sb.append("\t");
+    sb.append("recallStrict"); sb.append("\t");
+    sb.append("F1Strict"); sb.append("\t");
+    sb.append("accuracyStrict"); sb.append("\t");
+    sb.append("precisionLenient"); sb.append("\t");
+    sb.append("recallLenient"); sb.append("\t");
+    sb.append("F1Lenient"); sb.append("\t");
+    sb.append("accuracyLenient"); sb.append("\t");
+    sb.append("targets"); sb.append("\t");
+    sb.append("responses"); sb.append("\t");
+    sb.append("correctStrict"); sb.append("\t");
+    sb.append("singleCorrectStrict"); sb.append("\t");
+    sb.append("incorrectStrict"); sb.append("\t");
+    sb.append("missingStrict"); sb.append("\t");
+    sb.append("trueMissingStrict"); sb.append("\t");
+    sb.append("spuriousStrict"); sb.append("\t");
+    sb.append("trueSpurious Strict"); sb.append("\t");
+    sb.append("correctPartial"); sb.append("\t");
+    sb.append("singleCorrectPartial"); sb.append("\t");
+    sb.append("incorrectPartial"); sb.append("\t");
+    sb.append("missingLenient"); sb.append("\t");
+    sb.append("trueMissingLenient"); sb.append("\t");
+    sb.append("spuriousLenient"); sb.append("\t");
+    sb.append("trueSpuriousLenient"); 
+    return sb.toString();
+  }
+  
+  public String getTSVLine() {
+    StringBuilder sb = new StringBuilder();
+    sb.append(threshold);
+    sb.append(getPrecisionStrict()); sb.append("\t");
+    sb.append(getRecallStrict()); sb.append("\t");
+    sb.append(getFMeasureStrict(1.0)); sb.append("\t");
+    sb.append(getSingleCorrectAccuracyStrict()); sb.append("\t");
+    sb.append(getPrecisionLenient()); sb.append("\t");
+    sb.append(getRecallLenient()); sb.append("\t");
+    sb.append(getFMeasureLenient(1.0)); sb.append("\t");
+    sb.append(getSingleCorrectAccuracyLenient()); sb.append("\t");
+    sb.append(getTargets()); sb.append("\t");
+    sb.append(getResponses()); sb.append("\t");
+    sb.append(getCorrectStrict()); sb.append("\t");
+    sb.append(getSingleCorrectStrict()); sb.append("\t");
+    sb.append(getIncorrectStrict()); sb.append("\t");
+    sb.append(getMissingStrict()); sb.append("\t");
+    sb.append(getTrueMissingStrict()); sb.append("\t");
+    sb.append(getSpuriousStrict()); sb.append("\t");
+    sb.append(getTrueSpuriousStrict()); sb.append("\t");
+    sb.append(getCorrectPartial()); sb.append("\t");
+    sb.append(getSingleCorrectPartial()); sb.append("\t");
+    sb.append(getIncorrectPartial()); sb.append("\t");
+    sb.append(getMissingLenient()); sb.append("\t");
+    sb.append(getTrueMissingLenient()); sb.append("\t");
+    sb.append(getSpuriousLenient()); sb.append("\n");
+    sb.append(getTrueSpuriousLenient()); sb.append("\n");    
+    return sb.toString();
+  }
+  
   
   // TODO: can we add agreement measures based on SingleCorrectAccuracy?
   
