@@ -381,6 +381,7 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
       }
     }
     if(evalStatsByThreshold != null) {
+      System.out.println("DEBUG: map has entries: "+evalStatsByThreshold.size());
       Double th = evalStatsByThreshold.firstKey();
       double highestPrecisionSoFarStrict = 0.0; // used for "interpolated precision"      
       double highestPrecisionSoFarLenient = 0.0; // used for "interpolated precision"      
@@ -393,9 +394,9 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
         highestPrecisionSoFarStrict = Math.max(highestPrecisionSoFarStrict, es.getPrecisionStrict());
         highestPrecisionSoFarLenient = Math.max(highestPrecisionSoFarLenient, es.getPrecisionLenient());
         String line = es.getTSVLine();
-        // TODO: output a row of data
+        System.out.println(line);
         // get the next higher threshold
-        th = evalStatsByThreshold.lowerKey(th);
+        th = evalStatsByThreshold.higherKey(th);
       }
       // TODO: output a row for everything above the highest seen score, which mean:
       // precision = 1.0, recall = 0.0, responses = 0, correct = 0 and incorrect = 0

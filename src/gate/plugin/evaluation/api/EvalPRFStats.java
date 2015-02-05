@@ -27,8 +27,10 @@ public class EvalPRFStats  {
   /**
    * Create a copy of an existing EvalPRFStats object.
    * This can be used to get an exact copy of the EvalPRFStats object passed to the constructor.
+   * <p>
    * @param other 
    */
+  // Why we did not implement clone(): http://www.artima.com/intv/bloch13.html
   public EvalPRFStats(EvalPRFStats other) {
     threshold = other.threshold;
     nTargets = other.nTargets;
@@ -220,7 +222,7 @@ public class EvalPRFStats  {
   // Default conversion to String simply prints all the counts and measures.
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("Threshold: "+threshold);
+    sb.append("Threshold: "); sb.append(getThreshold()); sb.append("\n");
     sb.append("Precision Strict: "); sb.append(getPrecisionStrict()); sb.append("\n");
     sb.append("Recall Strict: "); sb.append(getRecallStrict()); sb.append("\n");
     sb.append("F1.0 Strict: "); sb.append(getFMeasureStrict(1.0)); sb.append("\n");
@@ -255,7 +257,7 @@ public class EvalPRFStats  {
   public static String getTSVHeaders() {
     StringBuilder sb = new StringBuilder();
     sb.append("threshold"); sb.append("\t");
-    sb.append("recisionStrict"); sb.append("\t");
+    sb.append("precisionStrict"); sb.append("\t");
     sb.append("recallStrict"); sb.append("\t");
     sb.append("F1Strict"); sb.append("\t");
     sb.append("accuracyStrict"); sb.append("\t");
@@ -271,7 +273,7 @@ public class EvalPRFStats  {
     sb.append("missingStrict"); sb.append("\t");
     sb.append("trueMissingStrict"); sb.append("\t");
     sb.append("spuriousStrict"); sb.append("\t");
-    sb.append("trueSpurious Strict"); sb.append("\t");
+    sb.append("trueSpuriousStrict"); sb.append("\t");
     sb.append("correctPartial"); sb.append("\t");
     sb.append("singleCorrectPartial"); sb.append("\t");
     sb.append("incorrectPartial"); sb.append("\t");
@@ -284,7 +286,7 @@ public class EvalPRFStats  {
   
   public String getTSVLine() {
     StringBuilder sb = new StringBuilder();
-    sb.append(threshold);
+    sb.append(threshold); sb.append("\t");
     sb.append(getPrecisionStrict()); sb.append("\t");
     sb.append(getRecallStrict()); sb.append("\t");
     sb.append(getFMeasureStrict(1.0)); sb.append("\t");
@@ -307,8 +309,8 @@ public class EvalPRFStats  {
     sb.append(getIncorrectPartial()); sb.append("\t");
     sb.append(getMissingLenient()); sb.append("\t");
     sb.append(getTrueMissingLenient()); sb.append("\t");
-    sb.append(getSpuriousLenient()); sb.append("\n");
-    sb.append(getTrueSpuriousLenient()); sb.append("\n");    
+    sb.append(getSpuriousLenient()); sb.append("\t");
+    sb.append(getTrueSpuriousLenient()); 
     return sb.toString();
   }
   

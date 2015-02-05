@@ -186,6 +186,7 @@ public class AnnotationDiffer {
     if(features != null && !features.isEmpty()) {
       significantFeaturesSet = new HashSet<String>(features);      
     }
+    // Calculate the overall statistics, no thresholds
     evalStats = calculateDiff(targets, responses, features, thresholdFeature, Double.NaN);
     // if we have a threshold feature, get all the thresholds and re-runn the calculateDiff 
     // method for each threshold. Add the per-threshold evalstats to the byThresholdEvalStats object.
@@ -204,18 +205,20 @@ public class AnnotationDiffer {
       }
       // Now calculate the EvalPRFStats(threshold) for each threshold we found in decreasing order.
       // The counts we get will need to get added to all existing EvalPRFStats which are already
-      // in the byThresholdEvalStats map. To simplify this, we accumulate the stats for each 
-      // of our own thresholds and then use the accumulated stats for incrementing (this avoids
-      // going through the map O(n^2) times)
+      // in the byThresholdEvalStats map for thresholds less than or equal to that threshold. 
       
       // Initialize the accumulating evalstats
       EvalPRFStats accum = new EvalPRFStats();
+      
       // start with the highest threshold
       Double th = thresholds.last();
       while(th != null) {
+        System.out.println("DEBUG: calculating the diffs for th="+th);
         EvalPRFStats es = calculateDiff(targets,responses,features,thresholdFeature,th);
+        System.out.println("DEBUG: got stats: "+es);
         accum.add(es);
         Double nextTh = thresholds.lower(th);
+        System.out.println("DEBUG: next lower th="+nextTh);
         // now add the accum to all entries in the byThresholdEvalStats for which the threshold
         // is less than or equal than our current threshold and and larger than our next 
         // threshold
@@ -225,18 +228,27 @@ public class AnnotationDiffer {
             found = true;
           }
           EvalPRFStats oes = byThresholdEvalStats.get(oth);
+          System.out.println("Adding accumulated stats to stats for th="+oes.getThreshold());
           oes.add(accum);
         }
         // if the entry was not already in the byThresholdEvalStats, we need to add it, but this
-        // entry also needs to count all the entries from the next higher one, of there is one
+        // entry also needs to count all the entries from the next lower one, of there is one
         if(!found) {
-          EvalPRFStats nextHigher = byThresholdEvalStats.higherEntry(th).getValue();
-          if(nextHigher != null) {
-            es.add(nextHigher);
+          EvalPRFStats nextLower = null;
+          if(byThresholdEvalStats.lowerEntry(th) != null) {
+            nextLower = byThresholdEvalStats.lowerEntry(th).getValue();
           }
+          System.out.println("DEBUG: not found, try to find the next lower one: "+nextLower);
+          if(nextLower != null) {
+            es.add(nextLower);
+          }
+          System.out.println("DEBUG Adding stats for th="+th);
           byThresholdEvalStats.put(th, es);
         }
+        th = nextTh;
       }
+     
+      System.out.println("DEBUG: finished processing all the threshold, map has entries: "+byThresholdEvalStats.size());
     }
   }
   
@@ -322,7 +334,7 @@ public class AnnotationDiffer {
 
   /**
    * Add the annotations that indicate changes between responses.
-  * 
+   * 
    * @param outSet 
    * @param responses 
    * @param reference 
@@ -331,12 +343,36 @@ public class AnnotationDiffer {
     // TODO
   }
   
+
+  
+  // TODO: the following is for calculating McNemar's test
+  /**
+   * This returns a 2x2 contingency table with the counts for both correct, both incorrect and different correctness.
+   * This method only makes sense if the correctness and incorrectness can be established reasonably
+   * i.e. if there is a feature for checking the correctness of a response.
+   * TODO: two methods for lenient and strict!!
+   * @param responseDiffer
+   * @param referenceDiffer
+   * @return 
+   */
+  //public static ContingencyTable getPairedCorrectnessCountsStrict(
+  //  ContingencyTable toIncrement, AnnotationDiffer responseDiffer, AnnotationDiffer referenceDiffer) {
+  //  
+  //}
   
   private void addAnnsWithTypeSuffix(AnnotationSet outSet, Collection<Annotation> inAnns, String suffix) {
     for(Annotation ann : inAnns) {
       gate.Utils.addAnn(outSet, ann, ann.getType()+suffix, gate.Utils.toFeatureMap(ann.getFeatures()));
     }
   }
+  
+  // this contains the choices we want to remember, which are the ones calculated for no (NaN) threshold
+  protected List<Pairing> choices = new ArrayList<Pairing>();
+  
+  
+  // TODO: figure out how to support calculating Krippendorff's alpha and Fleiss's Kappa too!
+  // Ideally all these things would incrementally calculate whatever contingency tables they need,
+  // so the method would take an existing table and two differs and increment the counts.
   
   
   /**
@@ -435,6 +471,7 @@ public class AnnotationDiffer {
 
     while(!possibleChoices.isEmpty()){
       PairingImpl bestChoice = (PairingImpl)possibleChoices.remove(0);
+      // TODO: 
       bestChoice.consume();
       finalChoices.add(bestChoice);
       switch(bestChoice.value){
@@ -488,7 +525,9 @@ public class AnnotationDiffer {
     for(int i = 0; i < keyChoices.size(); i++){
       List<Pairing> aList = keyChoices.get(i);
       if(aList == null || aList.isEmpty()){
-        trueMissingLenientAnns.add((keyList.get(i)));
+        if(Double.isNaN(threshold)) { 
+          trueMissingLenientAnns.add((keyList.get(i)));
+        }
         Pairing choice = new PairingImpl(i, -1, WRONG_VALUE);
         choice.setType(MISSING_TYPE);
         finalChoices.add(choice);
@@ -504,11 +543,13 @@ public class AnnotationDiffer {
     for(int i = 0; i < responseChoices.size(); i++){
       List<Pairing> aList = responseChoices.get(i);
       if(aList == null || aList.isEmpty()){
-        trueSpuriousLenientAnns.add(responseList.get(i));
-        spuriousAnnSet.add(responseList.get(i));
-        PairingImpl choice = new PairingImpl(-1, i, WRONG_VALUE);
-        choice.setType(SPURIOUS_TYPE);
-        finalChoices.add(choice);
+        if(Double.isNaN(threshold)) {  
+          trueSpuriousLenientAnns.add(responseList.get(i));        
+          spuriousAnnSet.add(responseList.get(i));
+          PairingImpl choice = new PairingImpl(-1, i, WRONG_VALUE);
+          choice.setType(SPURIOUS_TYPE);
+          finalChoices.add(choice);
+        }
         //es.addTrueSpurious(1);
       }
     }
@@ -534,7 +575,7 @@ public class AnnotationDiffer {
     }
     }
     
-    
+    choices = finalChoices;
     return es;
   }
 

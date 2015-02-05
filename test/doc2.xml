@@ -11,7 +11,7 @@
 <!-- The document content area with serialized nodes -->
 
 <TextWithNodes><Node id="0"/>This<Node id="4"/> <Node id="5"/>is<Node id="7"/> <Node id="8"/>the<Node id="11"/> second<Node id="18"/> test <Node id="24"/>document<Node id="32"/> doc1. It contains a Key annotation set with annotation targets
-for P/R/F evaluation and it contains the <Node id="137"/>annotation<Node id="147"/> sets Resp1 and Resp2 with responses.
+for P/R/F evaluation and it contains the <Node id="137"/>an<Node id="139"/>notati<Node id="145"/>on<Node id="147"/> sets Resp1 and Resp2 with responses.
 All sets contain annotations <Node id="214"/>of <Node id="217"/>type<Node id="221"/> mention<Node id="229"/> with a single feature "id" which contains some 
 string<Node id="284"/> that <Node id="290"/>identifies<Node id="300"/> <Node id="301"/>the<Node id="304"/> "value" of the target <Node id="327"/>or <Node id="330"/>response.
 doc2.xml</TextWithNodes>
@@ -28,6 +28,26 @@ doc2.xml</TextWithNodes>
 <!-- Named annotation set -->
 
 <AnnotationSet Name="Resp1">
+<Annotation Id="16" Type="Mention" StartNode="327" EndNode="330">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.4</Value>
+</Feature>
+</Annotation>
+<Annotation Id="35" Type="Mention" StartNode="139" EndNode="147">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">b</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.1</Value>
+</Feature>
+</Annotation>
 <Annotation Id="11" Type="Mention" StartNode="0" EndNode="4">
 <Feature>
   <Name className="java.lang.String">id</Name>
@@ -35,7 +55,7 @@ doc2.xml</TextWithNodes>
 </Feature>
 <Feature>
   <Name className="java.lang.String">c</Name>
-  <Value className="java.lang.String">correct</Value>
+  <Value className="java.lang.String">0.5</Value>
 </Feature>
 </Annotation>
 <Annotation Id="12" Type="Mention" StartNode="5" EndNode="7">
@@ -45,7 +65,7 @@ doc2.xml</TextWithNodes>
 </Feature>
 <Feature>
   <Name className="java.lang.String">c</Name>
-  <Value className="java.lang.String">spurious</Value>
+  <Value className="java.lang.String">0.1</Value>
 </Feature>
 </Annotation>
 <Annotation Id="13" Type="Mention" StartNode="11" EndNode="18">
@@ -55,17 +75,642 @@ doc2.xml</TextWithNodes>
 </Feature>
 <Feature>
   <Name className="java.lang.String">c</Name>
-  <Value className="java.lang.String">partial correct</Value>
+  <Value className="java.lang.String">0.8</Value>
 </Feature>
 </Annotation>
 <Annotation Id="14" Type="Mention" StartNode="24" EndNode="32">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.9</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Resp1Out">
+<Annotation Id="17" Type="Mention_CS" StartNode="0" EndNode="4">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.5</Value>
+</Feature>
+</Annotation>
+<Annotation Id="18" Type="Mention_CS" StartNode="24" EndNode="32">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.9</Value>
+</Feature>
+</Annotation>
+<Annotation Id="19" Type="Mention_CS" StartNode="327" EndNode="330">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.4</Value>
+</Feature>
+</Annotation>
+<Annotation Id="20" Type="Mention_CP" StartNode="11" EndNode="18">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.8</Value>
+</Feature>
+</Annotation>
+<Annotation Id="21" Type="Mention_ML" StartNode="0" EndNode="4">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="22" Type="Mention_ML" StartNode="137" EndNode="147">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="23" Type="Mention_ML" StartNode="217" EndNode="221">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="24" Type="Mention_ML" StartNode="8" EndNode="18">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25" Type="Mention_ML" StartNode="217" EndNode="229">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">c</Value>
+</Feature>
+</Annotation>
+<Annotation Id="26" Type="Mention_ML" StartNode="214" EndNode="221">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">b</Value>
+</Feature>
+</Annotation>
+<Annotation Id="27" Type="Mention_ML" StartNode="284" EndNode="300">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="28" Type="Mention_ML" StartNode="290" EndNode="301">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="29" Type="Mention_ML" StartNode="327" EndNode="330">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="30" Type="Mention_ML" StartNode="290" EndNode="304">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="31" Type="Mention_SL" StartNode="5" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.1</Value>
+</Feature>
+</Annotation>
+<Annotation Id="32" Type="Mention_SL" StartNode="0" EndNode="4">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.5</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33" Type="Mention_SL" StartNode="11" EndNode="18">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.8</Value>
+</Feature>
+</Annotation>
+<Annotation Id="34" Type="Mention_SL" StartNode="327" EndNode="330">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.4</Value>
+</Feature>
+</Annotation>
+<Annotation Id="36" Type="Mention_CS" StartNode="0" EndNode="4">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.5</Value>
+</Feature>
+</Annotation>
+<Annotation Id="37" Type="Mention_CS" StartNode="24" EndNode="32">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.9</Value>
+</Feature>
+</Annotation>
+<Annotation Id="38" Type="Mention_CS" StartNode="327" EndNode="330">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.4</Value>
+</Feature>
+</Annotation>
+<Annotation Id="39" Type="Mention_CP" StartNode="11" EndNode="18">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.8</Value>
+</Feature>
+</Annotation>
+<Annotation Id="40" Type="Mention_IS" StartNode="137" EndNode="147">
 <Feature>
   <Name className="java.lang.String">id</Name>
   <Value className="java.lang.String">b</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">c</Name>
-  <Value className="java.lang.String">incorrect</Value>
+  <Value className="java.lang.String">0.1</Value>
+</Feature>
+</Annotation>
+<Annotation Id="41" Type="Mention_ML" StartNode="0" EndNode="4">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="42" Type="Mention_ML" StartNode="137" EndNode="147">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="43" Type="Mention_ML" StartNode="217" EndNode="221">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="44" Type="Mention_ML" StartNode="8" EndNode="18">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="45" Type="Mention_ML" StartNode="217" EndNode="229">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">c</Value>
+</Feature>
+</Annotation>
+<Annotation Id="46" Type="Mention_ML" StartNode="214" EndNode="221">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">b</Value>
+</Feature>
+</Annotation>
+<Annotation Id="47" Type="Mention_ML" StartNode="284" EndNode="300">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="48" Type="Mention_ML" StartNode="290" EndNode="301">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="49" Type="Mention_ML" StartNode="327" EndNode="330">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="50" Type="Mention_ML" StartNode="290" EndNode="304">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="51" Type="Mention_SL" StartNode="137" EndNode="147">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">b</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.1</Value>
+</Feature>
+</Annotation>
+<Annotation Id="52" Type="Mention_SL" StartNode="5" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.1</Value>
+</Feature>
+</Annotation>
+<Annotation Id="53" Type="Mention_SL" StartNode="0" EndNode="4">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.5</Value>
+</Feature>
+</Annotation>
+<Annotation Id="54" Type="Mention_SL" StartNode="11" EndNode="18">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.8</Value>
+</Feature>
+</Annotation>
+<Annotation Id="55" Type="Mention_SL" StartNode="327" EndNode="330">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.4</Value>
+</Feature>
+</Annotation>
+<Annotation Id="56" Type="Mention_CS" StartNode="0" EndNode="4">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.5</Value>
+</Feature>
+</Annotation>
+<Annotation Id="57" Type="Mention_CS" StartNode="24" EndNode="32">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.9</Value>
+</Feature>
+</Annotation>
+<Annotation Id="58" Type="Mention_CS" StartNode="327" EndNode="330">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.4</Value>
+</Feature>
+</Annotation>
+<Annotation Id="59" Type="Mention_CP" StartNode="11" EndNode="18">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.8</Value>
+</Feature>
+</Annotation>
+<Annotation Id="60" Type="Mention_IP" StartNode="137" EndNode="145">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">b</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.1</Value>
+</Feature>
+</Annotation>
+<Annotation Id="61" Type="Mention_ML" StartNode="0" EndNode="4">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="62" Type="Mention_ML" StartNode="137" EndNode="147">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="63" Type="Mention_ML" StartNode="217" EndNode="221">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="64" Type="Mention_ML" StartNode="8" EndNode="18">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="65" Type="Mention_ML" StartNode="217" EndNode="229">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">c</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66" Type="Mention_ML" StartNode="214" EndNode="221">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">b</Value>
+</Feature>
+</Annotation>
+<Annotation Id="67" Type="Mention_ML" StartNode="284" EndNode="300">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="68" Type="Mention_ML" StartNode="290" EndNode="301">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="69" Type="Mention_ML" StartNode="327" EndNode="330">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="70" Type="Mention_ML" StartNode="290" EndNode="304">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="71" Type="Mention_SL" StartNode="137" EndNode="145">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">b</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.1</Value>
+</Feature>
+</Annotation>
+<Annotation Id="72" Type="Mention_SL" StartNode="5" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.1</Value>
+</Feature>
+</Annotation>
+<Annotation Id="73" Type="Mention_SL" StartNode="0" EndNode="4">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.5</Value>
+</Feature>
+</Annotation>
+<Annotation Id="74" Type="Mention_SL" StartNode="11" EndNode="18">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.8</Value>
+</Feature>
+</Annotation>
+<Annotation Id="75" Type="Mention_SL" StartNode="327" EndNode="330">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.4</Value>
+</Feature>
+</Annotation>
+<Annotation Id="76" Type="Mention_CS" StartNode="0" EndNode="4">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.5</Value>
+</Feature>
+</Annotation>
+<Annotation Id="77" Type="Mention_CS" StartNode="24" EndNode="32">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.9</Value>
+</Feature>
+</Annotation>
+<Annotation Id="78" Type="Mention_CS" StartNode="327" EndNode="330">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.4</Value>
+</Feature>
+</Annotation>
+<Annotation Id="79" Type="Mention_CP" StartNode="11" EndNode="18">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.8</Value>
+</Feature>
+</Annotation>
+<Annotation Id="80" Type="Mention_IP" StartNode="139" EndNode="147">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">b</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.1</Value>
+</Feature>
+</Annotation>
+<Annotation Id="81" Type="Mention_ML" StartNode="0" EndNode="4">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="82" Type="Mention_ML" StartNode="137" EndNode="147">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="83" Type="Mention_ML" StartNode="217" EndNode="221">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="84" Type="Mention_ML" StartNode="8" EndNode="18">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="85" Type="Mention_ML" StartNode="217" EndNode="229">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">c</Value>
+</Feature>
+</Annotation>
+<Annotation Id="86" Type="Mention_ML" StartNode="214" EndNode="221">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">b</Value>
+</Feature>
+</Annotation>
+<Annotation Id="87" Type="Mention_ML" StartNode="284" EndNode="300">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="88" Type="Mention_ML" StartNode="290" EndNode="301">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="89" Type="Mention_ML" StartNode="327" EndNode="330">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="90" Type="Mention_ML" StartNode="290" EndNode="304">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+</Annotation>
+<Annotation Id="91" Type="Mention_SL" StartNode="139" EndNode="147">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">b</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.1</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92" Type="Mention_SL" StartNode="5" EndNode="7">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.1</Value>
+</Feature>
+</Annotation>
+<Annotation Id="93" Type="Mention_SL" StartNode="0" EndNode="4">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.5</Value>
+</Feature>
+</Annotation>
+<Annotation Id="94" Type="Mention_SL" StartNode="11" EndNode="18">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.8</Value>
+</Feature>
+</Annotation>
+<Annotation Id="95" Type="Mention_SL" StartNode="327" EndNode="330">
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">c</Name>
+  <Value className="java.lang.String">0.4</Value>
 </Feature>
 </Annotation>
 </AnnotationSet>
