@@ -14,6 +14,7 @@ import gate.creole.metadata.CreoleResource;
 import gate.creole.metadata.Optional;
 import gate.creole.metadata.RunTime;
 import gate.plugin.evaluation.api.AnnotationDiffer;
+import gate.plugin.evaluation.api.ByThresholdEvalStats;
 import gate.plugin.evaluation.api.EvalPRFStats;
 import gate.util.GateRuntimeException;
 import java.io.File;
@@ -23,11 +24,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.NavigableMap;
 import java.util.Set;
-import java.util.TreeMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 // TODO(!!!): Add a java class for holding counts or instances of pairings between the reference set
 // and the response set so we can calculate p-values for the SingleResponse accuracy analysis. 
@@ -149,6 +146,13 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
   public void setEvaluationId(String value) { evaluationId = value; }
   public String getEvaluationId() { return evaluationId == null ? "" : evaluationId; }
      
+  public ByThresholdEvalStats.WhichThresholds whichThresholds;
+  @CreoleParameter(comment="",defaultValue="USE_ALL")
+  @RunTime
+  @Optional  
+  public void setWhichThresholds(ByThresholdEvalStats.WhichThresholds value) { whichThresholds = value; }
+  public ByThresholdEvalStats.WhichThresholds getWhichThresholds() { return whichThresholds; }
+     
   
   //////////////////// 
   // PR METHODS 
@@ -171,12 +175,12 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
   }
   
   // fields shared between the execute method and the methods for initializing and finalization
-  EvalPRFStats allDocumentsStats;
-  EvalPRFStats allDocumentsReferenceStats = null;
+  protected EvalPRFStats allDocumentsStats;
+  protected EvalPRFStats allDocumentsReferenceStats = null;
   
   // This will be initialized at the start of the run and be incremented in the AnnotationDiffer
   // for each document.
-  NavigableMap<Double,EvalPRFStats> evalStatsByThreshold;
+  protected ByThresholdEvalStats evalStatsByThreshold;
   
   
   @Override
@@ -314,7 +318,7 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     }
     
     if(getScoreFeatureName() != null && !getScoreFeatureName().isEmpty()) {
-      evalStatsByThreshold = new TreeMap<Double,EvalPRFStats>();
+      evalStatsByThreshold = new ByThresholdEvalStats(getWhichThresholds());
     }
     
     if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {

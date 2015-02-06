@@ -21,7 +21,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
-import java.util.NavigableMap;
 import java.util.NavigableSet;
 import java.util.Set;
 import java.util.TreeSet;
@@ -110,7 +109,7 @@ public class AnnotationDiffer {
   public EvalPRFStats getEvalPRFStats() { return evalStats; }
 
   // This is only used if we have a threshold feature;
-  protected NavigableMap<Double,EvalPRFStats> evalStatsByThreshold;
+  protected ByThresholdEvalStats evalStatsByThreshold;
   /**
    * Get counters by thresholds for all the scores we have seen. 
    * 
@@ -118,8 +117,7 @@ public class AnnotationDiffer {
    * object was created. 
    * @return The map with all seen scores mapped to their EvalPRFStats.
    */
-  public NavigableMap<Double,EvalPRFStats> getEvalPRFStatsByThreshold() { return evalStatsByThreshold; }
-  
+  public ByThresholdEvalStats getEvalPRFStatsByThreshold() { return evalStatsByThreshold; }
   
   
   private AnnotationDiffer() {}
@@ -131,15 +129,22 @@ public class AnnotationDiffer {
    * annotations which are assumed to be correct - and the responses set - the set e.g. created by
    * an algorithm which should get evaluated against the targets set. The features list is a list
    * of features which need to have equal values for a target and a response annotation to be 
-   * considered identical. If the feature list is empty or null, then no features are compared and
-   * a target is identical to a response if the offsets match (and it is partial identical if the
-   * spans overlap). Note that the type of the annotations in the targets and responses sets 
-   * are not used at all: usually this class will be used with sets where the annotations are
-   * already filtered by type, but this is not enforced by this class. 
+   * considered identical. If the features list is null, then the responses have to match whatever
+   * features are in the target. If the feature list is an empty list, then no features are ever
+   * used for the comparison. In order for a response to match a target the types of the two annotations
+   * have to match. 
    * 
-   * @param targets
-   * @param responses
-   * @param features 
+   * @param targets A set of annotations which are regarded to be correct.
+   * @param responses A set of annotations for which we asses how well they match the targets. A
+   * response strictly matches a target if it a) is coextensive with the target, b) the types are
+   * equal and c) they features match according to the features list (see below). 
+   * @param features If null, the features match if all features that are in the target are also
+   * in the response and have the same value as in the target. If an empty list, no features are
+   * compared. Otherwise, the features in this list must have identical values in the target and
+   * in the response. This also means that if a feature specified in this list is not present 
+   * in the target, it also must be not present in the response. (NOTE: this is different from 
+   * how the old AnnotationDiffer worked where if a feature was missing in the target it was 
+   * never used for the comparison at all). 
    */
   public AnnotationDiffer(
           AnnotationSet targets,
@@ -176,7 +181,7 @@ public class AnnotationDiffer {
           AnnotationSet responses,
           List<String> features,
           String thresholdFeature,
-          NavigableMap<Double,EvalPRFStats> byThresholdEvalStats
+          ByThresholdEvalStats byThresholdEvalStats
                   ) {
     this.targets = targets;
     this.responses = responses;
@@ -196,12 +201,36 @@ public class AnnotationDiffer {
         throw new GateRuntimeException("thresholdFeature is specified but byThresholdEvalStats object is null!");
       }
       NavigableSet<Double> thresholds = new TreeSet<Double>();
-      for(Annotation res : responses) {
-        double score = getFeatureDouble(res.getFeatures(),thresholdFeature,Double.NaN);
-        if(Double.isNaN(score)) {
-          throw new GateRuntimeException("Response does not have a score: "+res);
+      if(byThresholdEvalStats.getWhichThresholds() == ByThresholdEvalStats.WhichThresholds.USE_ALL ||
+         byThresholdEvalStats.getWhichThresholds() == ByThresholdEvalStats.WhichThresholds.USE_ALLROUNDED) {
+        for(Annotation res : responses) {
+          double score = getFeatureDouble(res.getFeatures(),thresholdFeature,Double.NaN);
+          if(Double.isNaN(score)) {
+            throw new GateRuntimeException("Response does not have a score: "+res);
+          }
+          if(byThresholdEvalStats.getWhichThresholds() == ByThresholdEvalStats.WhichThresholds.USE_ALLROUNDED) {
+            // this will not work for arbitrary values but should work for most values we reasonably 
+            // encounter as scores (most should be between 0 and 1 anyway). 
+            // A better approach would involve BigDecimal but that would be much slower
+            score = score * 100.0; // we want to round by two decimal places, so we multiply by 100 
+            long tmp = Math.round(score);
+            score = (double) tmp/100.0;
+            // the score will not actually be a decimal number rounded to two places, since it is 
+            // a binary representation, but if we output the double it will appear to be rounded
+            // to two places.
+          }
+          thresholds.add(score);
         }
-        thresholds.add(score);
+      } else {
+        double[] ths = null;
+        if(byThresholdEvalStats.getWhichThresholds() == ByThresholdEvalStats.WhichThresholds.USE_11FROM0TO1) {
+          ths = ByThresholdEvalStats.THRESHOLDS11FROM0TO1;
+        } else if(byThresholdEvalStats.getWhichThresholds() == ByThresholdEvalStats.WhichThresholds.USE_21FROM0TO1) {
+          ths = ByThresholdEvalStats.THRESHOLDS21FROM0TO1;
+        }
+        for(double th : ths) {
+          thresholds.add(th);
+        }
       }
       // Now calculate the EvalPRFStats(threshold) for each threshold we found in decreasing order.
       // The counts we get will need to get added to all existing EvalPRFStats which are already
@@ -256,7 +285,7 @@ public class AnnotationDiffer {
   protected Collection<Annotation> targets;
   protected Collection<Annotation> responses;
   protected String thresholdFeature;
-  protected NavigableMap<Double,EvalPRFStats> byThresholdEvalStats;
+  protected ByThresholdEvalStats byThresholdEvalStats;
   protected List<String> features;
   
 
@@ -437,7 +466,7 @@ public class AnnotationDiffer {
         PairingImpl choice = null;
         if(keyAnn.coextensive(resAnn)){
           //we have full overlap -> CORRECT or WRONG
-          if(keyAnn.isCompatible(resAnn, significantFeaturesSet)){
+          if(keyAnn.getType().equals(resAnn.getType()) && keyAnn.isCompatible(resAnn, significantFeaturesSet)){
             //we have a full match
             choice = new PairingImpl(i, j, CORRECT_VALUE);
           }else{
@@ -447,7 +476,7 @@ public class AnnotationDiffer {
           }
         }else if(keyAnn.overlaps(resAnn)){
           //we have partial overlap -> PARTIALLY_CORRECT or WRONG
-          if(keyAnn.isPartiallyCompatible(resAnn, significantFeaturesSet)){
+          if(keyAnn.getType().equals(resAnn.getType()) && keyAnn.isPartiallyCompatible(resAnn, significantFeaturesSet)){
             choice = new PairingImpl(i, j, PARTIALLY_CORRECT_VALUE);
           }else{
             choice = new PairingImpl(i, j, WRONG_VALUE);
