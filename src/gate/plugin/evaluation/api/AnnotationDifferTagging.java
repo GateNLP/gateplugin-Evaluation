@@ -567,8 +567,8 @@ public class AnnotationDifferTagging {
     //get the unmatched responses
     // In order to find overlaps between targets(keys) and spurious annotations, we need
     // to store the spurious annotations in an actual annotation set
-    AnnotationSetImpl spuriousAnnSet = new AnnotationSetImpl(responseAnns);
-    spuriousAnnSet.clear();
+    AnnotationSetImpl spuriousAnnSet = new AnnotationSetImpl(responseAnns.getDocument());
+    //spuriousAnnSet.clear();
     for(int i = 0; i < responseChoices.size(); i++){
       List<Pairing> aList = responseChoices.get(i);
       if(aList == null || aList.isEmpty()){
