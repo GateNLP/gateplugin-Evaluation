@@ -32,6 +32,7 @@ import java.util.Set;
 import org.junit.Before;
 import static org.junit.Assert.*;
 import static gate.Utils.*;
+import gate.plugin.evaluation.api.ByThEvalStatsTagging;
 import static gate.plugin.evaluation.tests.TestUtils.*;
 
 /**
@@ -246,6 +247,25 @@ public class TestTagging1 {
       assertEquals("M_CS ann start",0,(long)start(a));
       assertEquals("M_CS ann end",10,(long)end(a));
     }
+  }
+
+  // Test P/R curve, 01
+  @Test
+  public void testTaggingPR01() throws ResourceInstantiationException {
+    Document doc = newD();
+    // add 4 targets to the keys
+    addA(doc,"Keys",0, 10,"M",featureMap("id","x"));
+    addA(doc,"Keys",20,30,"M",featureMap("id","x"));
+    addA(doc,"Keys",40,50,"M",featureMap("id","x"));
+    AnnotationSet t = addA(doc,"Keys",60,70,"M",featureMap("id","x"));
+    // add 4 correct responses with 4 different scores
+    addA(doc,"Resp",0,10,"M",featureMap("id","x","s","0.1"));
+    addA(doc,"Resp",20,30,"M",featureMap("id","x","s","0.2"));
+    addA(doc,"Resp",40,50,"M",featureMap("id","x","s","0.3"));
+    AnnotationSet r = addA(doc,"Resp",60,70,"M",featureMap("id","x","s","0.4"));
+    ByThEvalStatsTagging bth = new ByThEvalStatsTagging(ByThEvalStatsTagging.WhichThresholds.USE_ALL);
+    AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FL_ID,"s",bth);
+    EvalStatsTagging es = ad.getEvalStatsTagging();
   }
   
 
