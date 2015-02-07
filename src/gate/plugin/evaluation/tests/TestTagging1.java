@@ -32,6 +32,7 @@ import java.util.Set;
 import org.junit.Before;
 import static org.junit.Assert.*;
 import static gate.Utils.*;
+import static gate.plugin.evaluation.tests.TestUtils.*;
 
 /**
  * First simple test for the annotation differ. 
@@ -42,20 +43,6 @@ import static gate.Utils.*;
  */
 public class TestTagging1 {
 
-  // For the comparison of doubles, we use an epsilon of approximately
-  // 1.7E-15 which is 1.0 (the maximum expected number) divided through the value of the maximum 
-  // mantissa of double (64 bit), but with 3 bits taken away, i.e. 52-3 bits for the mantissa,
-  // i.e. 2^49 
-  private static final double EPS = 1.7763568394002505e-15;
-  
-  // create a string with 1000 blanks which we will use as document content for many documents
-  // dynamically created in the tests
-  private static final String STR1000 = new String(new char[1000]).replace("\0", " ");
-  
-  // predefined lists with the names of features to use
-  private static final List<String> FL_ID = new ArrayList<String>();
-  static { FL_ID.add("id"); }
-  
   ////////////////////////////
   // Initialization
   ////////////////////////////
@@ -158,7 +145,7 @@ public class TestTagging1 {
   
   @Test
   public void testTaggingD01() throws ResourceInstantiationException {
-    Document doc = newDocument();
+    Document doc = newD();
     AnnotationSet t = addA(doc,"Keys",0,10,"M","x");
     AnnotationSet r = addA(doc,"Resp",0,10,"M","x");
     AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FL_ID);
@@ -179,7 +166,7 @@ public class TestTagging1 {
   
   @Test
   public void testTaggingD02() throws ResourceInstantiationException {
-    Document doc = newDocument();
+    Document doc = newD();
     AnnotationSet t = addA(doc,"Keys",0,10,"M","x");
     AnnotationSet r = addA(doc,"Resp",0,10,"M","y");
     AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FL_ID);
@@ -200,7 +187,7 @@ public class TestTagging1 {
   
   @Test
   public void testTaggingD03() throws ResourceInstantiationException {
-    Document doc = newDocument();
+    Document doc = newD();
     AnnotationSet t = addA(doc,"Keys",0,10,"M","x");
     addA(doc,"Resp",0,10,"M","x");
     AnnotationSet r = addA(doc,"Resp",0,10,"M","y");
@@ -230,7 +217,7 @@ public class TestTagging1 {
 
   @Test
   public void testTaggingD04() throws ResourceInstantiationException {
-    Document doc = newDocument();
+    Document doc = newD();
     addA(doc,"Keys",0,10,"M","x");
     AnnotationSet t = addA(doc,"Keys",0,10,"M","y");
     addA(doc,"Resp",0,10,"M","x");
@@ -268,16 +255,6 @@ public class TestTagging1 {
   ///////////////////////////
   
   
- Document newDocument() throws ResourceInstantiationException {
-   return Factory.newDocument(STR1000);
- }
-  
- AnnotationSet addA(Document doc, String setName, int from, int to, String type, Object idFeatureValue) {
-   AnnotationSet set = doc.getAnnotations(setName);
-   addAnn(set, from, to, type, featureMap("id",idFeatureValue));
-   return set;
- }
- 
   ///////////////////////////
   /// MAIN
   //////////////////////////
