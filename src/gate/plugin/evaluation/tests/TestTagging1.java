@@ -266,6 +266,13 @@ public class TestTagging1 {
     ByThEvalStatsTagging bth = new ByThEvalStatsTagging(ByThEvalStatsTagging.WhichThresholds.USE_ALL);
     AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FL_ID,"s",bth);
     EvalStatsTagging es = ad.getEvalStatsTagging();
+    
+    // now actually perform the tests on the values ....
+    assertEquals("F1.0 strict, th=NaN",1.0,es.getFMeasureStrict(1.0),EPS);
+    assertEquals("F1.0 strict, th=0.1",1.0,bth.get(0.1).getFMeasureStrict(1.0),EPS);
+    assertEquals("F1.0 strict, th=0.2",0.75,bth.get(0.2).getFMeasureStrict(1.0),EPS);
+    assertEquals("F1.0 strict, th=0.3",0.50,bth.get(0.3).getFMeasureStrict(1.0),EPS);
+    assertEquals("F1.0 strict, th=0.4",0.25,bth.get(0.4).getFMeasureStrict(1.0),EPS);
   }
   
 
