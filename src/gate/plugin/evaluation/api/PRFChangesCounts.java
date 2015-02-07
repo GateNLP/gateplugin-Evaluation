@@ -1,7 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  Copyright (c) 1995-2015, The University of Sheffield. See the file
+ *  COPYRIGHT.txt in the software or at http://gate.ac.uk/gate/COPYRIGHT.txt
+ *
+ *  This file is part of GATE (see http://gate.ac.uk/), and is free
+ *  software, licenced under the GNU Library General Public License,
+ *  Version 2, June 1991 (in the distribution as file licence.html,
+ *  and also available at http://gate.ac.uk/gate/licence.html).
+ *
  */
 package gate.plugin.evaluation.api;
 

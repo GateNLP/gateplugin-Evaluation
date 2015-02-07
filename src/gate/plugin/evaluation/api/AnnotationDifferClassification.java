@@ -1,5 +1,5 @@
-/**
- *  Copyright (c) 1995-2012, The University of Sheffield. See the file
+/*
+ *  Copyright (c) 1995-2015, The University of Sheffield. See the file
  *  COPYRIGHT.txt in the software or at http://gate.ac.uk/gate/COPYRIGHT.txt
  *
  *  This file is part of GATE (see http://gate.ac.uk/), and is free
@@ -7,9 +7,7 @@
  *  Version 2, June 1991 (in the distribution as file licence.html,
  *  and also available at http://gate.ac.uk/gate/licence.html).
  *
- *  $Id: ContingencyTable.java 12125 2010-01-04 14:44:43Z ggorrell $
  */
-
 package gate.plugin.evaluation.api;
 
 import gate.AnnotationSet;
