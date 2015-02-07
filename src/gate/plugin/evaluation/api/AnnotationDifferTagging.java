@@ -106,10 +106,10 @@ public class AnnotationDifferTagging {
    * 
    * @return an EvalStatsTagging object with the counts for the annotation differences.
    */
-  public EvalStatsTagging getEvalPRFStats() { return evalStats; }
+  public EvalStatsTagging getEvalStatsTagging() { return evalStats; }
 
   // This is only used if we have a threshold feature;
-  protected ByThEvalStatsTagging evalStatsByThreshold;
+  protected ByThEvalStatsTagging evalStatsTaggingByThreshold;
   /**
    * Get counters by thresholds for all the scores we have seen. 
    * 
@@ -117,7 +117,7 @@ public class AnnotationDifferTagging {
  object was created. 
    * @return The map with all seen scores mapped to their EvalStatsTagging.
    */
-  public ByThEvalStatsTagging getEvalPRFStatsByThreshold() { return evalStatsByThreshold; }
+  public ByThEvalStatsTagging getEvalPRFStatsByThreshold() { return evalStatsTaggingByThreshold; }
   
   
   private AnnotationDifferTagging() {}
@@ -368,7 +368,7 @@ public class AnnotationDifferTagging {
    * @param responses 
    * @param reference 
    */
-  public static void addChangeIndicatorAnnotations(AnnotationSet outSet, AnnotationDifferTagging responses, AnnotationDifferTagging reference) {
+  public static void addChangesIndicatorAnnotations(AnnotationSet outSet, AnnotationDifferTagging responses, AnnotationDifferTagging reference) {
     // TODO
   }
   
@@ -422,7 +422,7 @@ public class AnnotationDifferTagging {
     System.out.println("DEBUG: calculating the differences for threshold "+threshold);
     EvalStatsTagging es = new EvalStatsTagging(threshold);
     // If the threshold is not NaN, then we will calculate a temporary EvalStatsTagging object with that
-    // threshold and then insert or update such an EvalStatsTagging object in the global evalStatsByThreshold object. 
+    // threshold and then insert or update such an EvalStatsTagging object in the global evalStatsTaggingByThreshold object. 
     
     if(Double.isNaN(threshold)) {
       correctStrictAnns = new HashSet<Annotation>();
@@ -608,195 +608,6 @@ public class AnnotationDifferTagging {
     return es;
   }
 
-  /**
-   * Gets the strict precision (the ratio of correct responses out of all the 
-   * provided responses).
-   * @return a <tt>double</tt> value.
-   */
-  public double getPrecisionStrict(){
-    return evalStats.getPrecisionStrict();
-  }
-
-  /**
-   * Gets the strict recall (the ratio of key matched to a response out of all 
-   * the keys).
-   * @return a <tt>double</tt> value.
-   */  
-  public double getRecallStrict(){
-    return evalStats.getRecallStrict();
-  }
-
-  /**
-   * Gets the lenient precision (where the partial matches are considered as
-   * correct).
-   * @return a <tt>double</tt> value.
-   */
-  public double getPrecisionLenient(){
-    return evalStats.getPrecisionLenient();
-  }
-
-  /**
-   * Gets the average of the strict and lenient precision values.
-   * @return a <tt>double</tt> value.
-   */
-  public double getPrecisionAverage() {
-    return (getPrecisionLenient() + getPrecisionStrict()) / (2.0);
-  }
-
-  /**
-   * Gets the lenient recall (where the partial matches are considered as
-   * correct).
-   * @return a <tt>double</tt> value.
-   */
-  public double getRecallLenient(){
-    return evalStats.getRecallLenient();
-  }
-
-  /**
-   * Gets the average of the strict and lenient recall values.
-   * @return a <tt>double</tt> value.
-   */
-  public double getRecallAverage() {
-    return (getRecallLenient() + getRecallStrict()) / (2.0);
-  }
-
-  /**
-   * Gets the strict F-Measure (the harmonic weighted mean of the strict
-   * precision and the strict recall) using the provided parameter as relative 
-   * weight. 
-   * @param beta The relative weight of precision and recall. A value of 1 
-   * gives equal weights to precision and recall. A value of 0 takes the recall 
-   * value completely out of the equation.
-   * @return a <tt>double</tt>value.
-   */
-  public double getFMeasureStrict(double beta){
-    return evalStats.getFMeasureStrict(beta);
-  }
-
-  /**
-   * Gets the lenient F-Measure (F-Measure where the lenient precision and 
-   * recall values are used) using the provided parameter as relative weight. 
-   * @param beta The relative weight of precision and recall. A value of 1 
-   * gives equal weights to precision and recall. A value of 0 takes the recall 
-   * value completely out of the equation.
-   * @return a <tt>double</tt>value.
-   */
-  public double getFMeasureLenient(double beta){
-    return evalStats.getFMeasureLenient(beta);
-  }
-
-  /**
-   * Gets the average of strict and lenient F-Measure values.
-   * @param beta The relative weight of precision and recall. A value of 1 
-   * gives equal weights to precision and recall. A value of 0 takes the recall 
-   * value completely out of the equation.
-   * @return a <tt>double</tt>value.
-   */  
-  public double getFMeasureAverage(double beta) {
-    double answer = (getFMeasureLenient(beta) + getFMeasureStrict(beta)) / (2.0);
-    return answer;
-  }
-
-  /**
-   * Gets the number of correct matches.
-   * @return an <tt>int<tt> value.
-   */
-  public int getCorrectMatches(){
-    return evalStats.getCorrectStrict();
-  }
-
-  /**
-   * Gets the number of partially correct matches.
-   * @return an <tt>int<tt> value.
-   */
-  public int getPartiallyCorrectMatches(){
-    return evalStats.getCorrectPartial();
-  }
-
-  /**
-   * Gets the number of pairings of type {@link #MISSING_TYPE}.
-   * @return an <tt>int<tt> value.
-   */
-  public int getMissing(){
-    return evalStats.getMissingLenient();
-  }
-
-  /**
-   * Gets the number of pairings of type {@link #SPURIOUS_TYPE}.
-   * @return an <tt>int<tt> value.
-   */
-  public int getSpurious(){
-    return evalStats.getSpuriousLenient();
-  }
-
-  /**
-   * Gets the number of pairings which are not correct. 
-   * (number of responses which are not correct)
-   * @return an <tt>int<tt> value.
-   */
-  public int getFalsePositivesStrict(){
-    return responseList.size() - getCorrectMatches();
-  }
-
-  /**
-   * Gets the number of responses that aren't either correct or partially 
-   * correct.
-   * @return an <tt>int<tt> value.
-   */
-  public int getFalsePositivesLenient(){
-    return responseList.size() - getCorrectMatches() - getPartiallyCorrectMatches();
-  }
-
-  /**
-   * Gets the number of keys provided.
-   * @return an <tt>int<tt> value.
-   */
-  public int getKeysCount() {
-    return keyList.size();
-  }
-
-  /**
-   * Gets the number of responses provided.
-   * @return an <tt>int<tt> value.
-   */
-  public int getResponsesCount() {
-    return responseList.size();
-  }
-
-  /**
-   * Prints to System.out the pairings that are not correct.
-   */
-  public void printMissmatches(){
-    //get the partial correct matches
-    for (Pairing aChoice : finalChoices) {
-      switch(aChoice.getValue()){
-        case PARTIALLY_CORRECT_VALUE:{
-          System.out.println("Missmatch (partially correct):");
-          System.out.println("Key: " + keyList.get(aChoice.getKeyIndex()).toString());
-          System.out.println("Response: " + responseList.get(aChoice.getResponseIndex()).toString());
-          break;
-        }
-      }
-    }
-
-    //get the unmatched keys
-    for(int i = 0; i < keyChoices.size(); i++){
-      List<Pairing> aList = keyChoices.get(i);
-      if(aList == null || aList.isEmpty()){
-        System.out.println("Missed Key: " + keyList.get(i).toString());
-      }
-    }
-
-    //get the unmatched responses
-    for(int i = 0; i < responseChoices.size(); i++){
-      List<Pairing> aList = responseChoices.get(i);
-      if(aList == null || aList.isEmpty()){
-        System.out.println("Spurious Response: " + responseList.get(i).toString());
-      }
-    }
-  }
-
-
 
   /**
    * Performs some basic checks over the internal data structures from the last
@@ -868,18 +679,6 @@ public class AnnotationDifferTagging {
    */
   public Set<?> getSignificantFeaturesSet() {
     return significantFeaturesSet;
-  }
-
-  /**
-   * Set the set of features considered significant for the matching algorithm.
-   * A <tt>null</tt> value means that all features are significant, an empty 
-   * set value means that no features are significant while a set of String 
-   * values specifies that only features with names included in the set are 
-   * significant. 
-   * @param significantFeaturesSet a Set of String values or <tt>null<tt>.
-   */
-  public void setSignificantFeaturesSet(Set<String> significantFeaturesSet) {
-    this.significantFeaturesSet = significantFeaturesSet;
   }
 
   /**
@@ -1248,20 +1047,4 @@ public class AnnotationDifferTagging {
    */
   protected List<Pairing> finalChoices;
 
-  //protected int incorrectStrict = 0;
-  //protected int incorrectPartial = 0;
-  //protected int truemissing = 0;
-  //protected int truespurious = 0;
-  
-  public int getIncorrectStrict() {
-    return evalStats.getIncorrectStrict();
-  }
-  public int getIncorrectLenient() {
-    return evalStats.getIncorrectLenient();
-  }
-  public int getIncorrectPartial() {
-    return evalStats.getIncorrectLenient();
-  }
-  
-  
 }

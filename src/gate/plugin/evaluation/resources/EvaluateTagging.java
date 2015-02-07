@@ -251,7 +251,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
             scoreFeatureName,
             evalStatsByThreshold           
     );
-    allDocumentsStats.add(docDiffer.getEvalPRFStats());
+    allDocumentsStats.add(docDiffer.getEvalStatsTagging());
     
     // Now if we have parameters to record the matchings, get the information from the docDiffer
     // and create the apropriate annotations.
@@ -270,14 +270,14 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
               scoreFeatureName,
               evalStatsByThreshold
       );
-      allDocumentsReferenceStats.add(docDiffer.getEvalPRFStats());
+      allDocumentsReferenceStats.add(docDiffer.getEvalStatsTagging());
       // if we need to record the matchings, also add the annotations for how things changed
       // between the reference set and the response set.
       if(outputAnnotationSet != null) {
         docRefDiffer.addIndicatorAnnotations(outputAnnotationSet);
         // Now add also the annotations that indicate the changes between the reference set and
         // the response set
-        AnnotationDifferTagging.addChangeIndicatorAnnotations(outputAnnotationSet, docDiffer, docRefDiffer);
+        AnnotationDifferTagging.addChangesIndicatorAnnotations(outputAnnotationSet, docDiffer, docRefDiffer);
       }
       
       // TODO: increment the overall count of how things changed

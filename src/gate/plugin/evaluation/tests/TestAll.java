@@ -14,7 +14,7 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-  TestDiffer1.class
+  TestTagging1.class
 })
 public class TestAll {
   // so we can run this test from the command line 

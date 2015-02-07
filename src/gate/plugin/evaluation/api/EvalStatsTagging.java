@@ -219,6 +219,10 @@ public class EvalStatsTagging  {
     return getSingleCorrectLenient() / (double) getTargets();
   }
   
+  public double getFMeasureAverage(double beta) {
+     return (getFMeasureLenient(beta) + getFMeasureStrict(beta)) / (2.0);
+  }
+  
   // Default conversion to String simply prints all the counts and measures.
   public String toString() {
     StringBuilder sb = new StringBuilder();
