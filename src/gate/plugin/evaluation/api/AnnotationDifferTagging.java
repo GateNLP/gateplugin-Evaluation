@@ -30,24 +30,24 @@ import java.util.TreeSet;
  * A class for analyzing the differences between two annotation sets and calculating the counts
  * needed to obtain precision, recall, f-measure and other statistics. 
  * 
- * This is based on the gate.util.AnnotationDiffer class but has been heavily modified. One important
- * change is that all the counts and the methods for calculating measures from the counts are
- * kept in a separate object of type EvalPRFStats. This class is mainly for finding the optimal
- * matchings between the target and response sets and for storing the response and target annotations
- * that correspond to correct, incorrect, missing or spurious matches. 
- * <P>
+ * This is based on the gate.util.AnnotationDifferTagging class but has been heavily modified. One important
+ change is that all the counts and the methods for calculating measures from the counts are
+ kept in a separate object of type EvalStatsTagging. This class is mainly for finding the optimal
+ matchings between the target and response sets and for storing the response and target annotations
+ that correspond to correct, incorrect, missing or spurious matches. 
+ <P>
  * TODO: we still need to implement threshold-based diffing for P/R curves and document this here!
  * <p>
  * TODO: we still need to document the different way how this class needs to get used (everything
  * done at construction time, essentially)
  * <p> 
- * TODO: we still need to decide if we should remove the methods that just wrap the contained 
- * EvalPRFStats methods. 
+ TODO: we still need to decide if we should remove the methods that just wrap the contained 
+ EvalStatsTagging methods. 
  * 
  * @author Valentin Tablan
  * @author Johann Petrak
  */
-public class AnnotationDiffer {
+public class AnnotationDifferTagging {
 
   public static final String SUFFIX_ANN_CS = "_CS"; // this is correct strict
   public static final String SUFFIX_ANN_CP = "_CP"; // This is a partially correct
@@ -99,28 +99,28 @@ public class AnnotationDiffer {
   private static final String SUFFIX_ANN_TM_IL = "_ML_IL";
 
   
-  protected EvalPRFStats evalStats = new EvalPRFStats();
+  protected EvalStatsTagging evalStats = new EvalStatsTagging();
   /**
-   * Access the counts and evaluation measures calculated by this AnnotationDiffer.
+   * Access the counts and evaluation measures calculated by this AnnotationDifferTagging.
    * 
    * 
-   * @return an EvalPRFStats object with the counts for the annotation differences.
+   * @return an EvalStatsTagging object with the counts for the annotation differences.
    */
-  public EvalPRFStats getEvalPRFStats() { return evalStats; }
+  public EvalStatsTagging getEvalPRFStats() { return evalStats; }
 
   // This is only used if we have a threshold feature;
-  protected ByThresholdEvalStats evalStatsByThreshold;
+  protected ByThEvalStatsTagging evalStatsByThreshold;
   /**
    * Get counters by thresholds for all the scores we have seen. 
    * 
-   * This will only return non-null if a score feature  was specified when the AnnotationDiffer
-   * object was created. 
-   * @return The map with all seen scores mapped to their EvalPRFStats.
+   * This will only return non-null if a score feature  was specified when the AnnotationDifferTagging
+ object was created. 
+   * @return The map with all seen scores mapped to their EvalStatsTagging.
    */
-  public ByThresholdEvalStats getEvalPRFStatsByThreshold() { return evalStatsByThreshold; }
+  public ByThEvalStatsTagging getEvalPRFStatsByThreshold() { return evalStatsByThreshold; }
   
   
-  private AnnotationDiffer() {}
+  private AnnotationDifferTagging() {}
   
   /**
    * Create a differ for the two sets and the given, potentially empty/null list of features.
@@ -146,7 +146,7 @@ public class AnnotationDiffer {
    * how the old AnnotationDiffer worked where if a feature was missing in the target it was 
    * never used for the comparison at all). 
    */
-  public AnnotationDiffer(
+  public AnnotationDifferTagging(
           AnnotationSet targets,
           AnnotationSet responses,
           List<String> features
@@ -156,13 +156,13 @@ public class AnnotationDiffer {
   /**
    * Create a differ that will also calculate the stats by score thresholds. 
    * This does the same as the constructor AnnotationDiffer(targets,responses,features) but 
-   * will in addition also expect every response to have a feature with the name given by the
-   * thresholdFeature parameter. This feature is expected to contain a value that can be converted
-   * to a double and which will be interpreted as a score or confidence. This score can then be
-   * used to perform the evaluation such that only responses with a score higher than a certain
-   * threshold will be considered. The differ will update the NavigableMap passed to the constructor
-   * to add an EvalPRFStats object for each score that is encountered in the responses set.
-   * <p>
+ will in addition also expect every response to have a feature with the name given by the
+ thresholdFeature parameter. This feature is expected to contain a value that can be converted
+ to a double and which will be interpreted as a score or confidence. This score can then be
+ used to perform the evaluation such that only responses with a score higher than a certain
+ threshold will be considered. The differ will update the NavigableMap passed to the constructor
+ to add an EvalStatsTagging object for each score that is encountered in the responses set.
+ <p>
    * In order to create the statistics for several documents a single NavigableMap has to be 
    * used for every AnnotationDiffer that is used for each document. Every time a new AnnotationDiffer
    * compares a new pair of sets, that NavigableMap will incrementally get updated with the new 
@@ -176,12 +176,12 @@ public class AnnotationDiffer {
    * @param thresholdFeature
    * @param byThresholdEvalStats 
    */
-  public AnnotationDiffer(
+  public AnnotationDifferTagging(
           AnnotationSet targets, 
           AnnotationSet responses,
           List<String> features,
           String thresholdFeature,
-          ByThresholdEvalStats byThresholdEvalStats
+          ByThEvalStatsTagging byThresholdEvalStats
                   ) {
     this.targets = targets;
     this.responses = responses;
@@ -201,14 +201,14 @@ public class AnnotationDiffer {
         throw new GateRuntimeException("thresholdFeature is specified but byThresholdEvalStats object is null!");
       }
       NavigableSet<Double> thresholds = new TreeSet<Double>();
-      if(byThresholdEvalStats.getWhichThresholds() == ByThresholdEvalStats.WhichThresholds.USE_ALL ||
-         byThresholdEvalStats.getWhichThresholds() == ByThresholdEvalStats.WhichThresholds.USE_ALLROUNDED) {
+      if(byThresholdEvalStats.getWhichThresholds() == ByThEvalStatsTagging.WhichThresholds.USE_ALL ||
+         byThresholdEvalStats.getWhichThresholds() == ByThEvalStatsTagging.WhichThresholds.USE_ALLROUNDED) {
         for(Annotation res : responses) {
           double score = getFeatureDouble(res.getFeatures(),thresholdFeature,Double.NaN);
           if(Double.isNaN(score)) {
             throw new GateRuntimeException("Response does not have a score: "+res);
           }
-          if(byThresholdEvalStats.getWhichThresholds() == ByThresholdEvalStats.WhichThresholds.USE_ALLROUNDED) {
+          if(byThresholdEvalStats.getWhichThresholds() == ByThEvalStatsTagging.WhichThresholds.USE_ALLROUNDED) {
             // this will not work for arbitrary values but should work for most values we reasonably 
             // encounter as scores (most should be between 0 and 1 anyway). 
             // A better approach would involve BigDecimal but that would be much slower
@@ -223,27 +223,27 @@ public class AnnotationDiffer {
         }
       } else {
         double[] ths = null;
-        if(byThresholdEvalStats.getWhichThresholds() == ByThresholdEvalStats.WhichThresholds.USE_11FROM0TO1) {
-          ths = ByThresholdEvalStats.THRESHOLDS11FROM0TO1;
-        } else if(byThresholdEvalStats.getWhichThresholds() == ByThresholdEvalStats.WhichThresholds.USE_21FROM0TO1) {
-          ths = ByThresholdEvalStats.THRESHOLDS21FROM0TO1;
+        if(byThresholdEvalStats.getWhichThresholds() == ByThEvalStatsTagging.WhichThresholds.USE_11FROM0TO1) {
+          ths = ByThEvalStatsTagging.THRESHOLDS11FROM0TO1;
+        } else if(byThresholdEvalStats.getWhichThresholds() == ByThEvalStatsTagging.WhichThresholds.USE_21FROM0TO1) {
+          ths = ByThEvalStatsTagging.THRESHOLDS21FROM0TO1;
         }
         for(double th : ths) {
           thresholds.add(th);
         }
       }
-      // Now calculate the EvalPRFStats(threshold) for each threshold we found in decreasing order.
-      // The counts we get will need to get added to all existing EvalPRFStats which are already
+      // Now calculate the EvalStatsTagging(threshold) for each threshold we found in decreasing order.
+      // The counts we get will need to get added to all existing EvalStatsTagging which are already
       // in the byThresholdEvalStats map for thresholds less than or equal to that threshold. 
       
       // Initialize the accumulating evalstats
-      EvalPRFStats accum = new EvalPRFStats();
+      EvalStatsTagging accum = new EvalStatsTagging();
       
       // start with the highest threshold
       Double th = thresholds.last();
       while(th != null) {
         System.out.println("DEBUG: calculating the diffs for th="+th);
-        EvalPRFStats es = calculateDiff(targets,responses,features,thresholdFeature,th);
+        EvalStatsTagging es = calculateDiff(targets,responses,features,thresholdFeature,th);
         System.out.println("DEBUG: got stats: "+es);
         accum.add(es);
         Double nextTh = thresholds.lower(th);
@@ -256,14 +256,14 @@ public class AnnotationDiffer {
           if(oth == th) {
             found = true;
           }
-          EvalPRFStats oes = byThresholdEvalStats.get(oth);
+          EvalStatsTagging oes = byThresholdEvalStats.get(oth);
           System.out.println("Adding accumulated stats to stats for th="+oes.getThreshold());
           oes.add(accum);
         }
         // if the entry was not already in the byThresholdEvalStats, we need to add it, but this
         // entry also needs to count all the entries from the next lower one, of there is one
         if(!found) {
-          EvalPRFStats nextLower = null;
+          EvalStatsTagging nextLower = null;
           if(byThresholdEvalStats.lowerEntry(th) != null) {
             nextLower = byThresholdEvalStats.lowerEntry(th).getValue();
           }
@@ -285,7 +285,7 @@ public class AnnotationDiffer {
   protected Collection<Annotation> targets;
   protected Collection<Annotation> responses;
   protected String thresholdFeature;
-  protected ByThresholdEvalStats byThresholdEvalStats;
+  protected ByThEvalStatsTagging byThresholdEvalStats;
   protected List<String> features;
   
 
@@ -353,12 +353,12 @@ public class AnnotationDiffer {
    * @param outSet 
    */
   public void addIndicatorAnnotations(AnnotationSet outSet) {
-    addAnnsWithTypeSuffix(outSet,getCorrectStrictAnnotations(),AnnotationDiffer.SUFFIX_ANN_CS);
-    addAnnsWithTypeSuffix(outSet,getCorrectPartialAnnotations(),AnnotationDiffer.SUFFIX_ANN_CP);
-    addAnnsWithTypeSuffix(outSet,getIncorrectStrictAnnotations(),AnnotationDiffer.SUFFIX_ANN_IS);
-    addAnnsWithTypeSuffix(outSet,getIncorrectPartialAnnotations(),AnnotationDiffer.SUFFIX_ANN_IP);
-    addAnnsWithTypeSuffix(outSet,getTrueMissingLenientAnnotations(),AnnotationDiffer.SUFFIX_ANN_ML);
-    addAnnsWithTypeSuffix(outSet,getTrueSpuriousLenientAnnotations(),AnnotationDiffer.SUFFIX_ANN_SL);    
+    addAnnsWithTypeSuffix(outSet,getCorrectStrictAnnotations(),AnnotationDifferTagging.SUFFIX_ANN_CS);
+    addAnnsWithTypeSuffix(outSet,getCorrectPartialAnnotations(),AnnotationDifferTagging.SUFFIX_ANN_CP);
+    addAnnsWithTypeSuffix(outSet,getIncorrectStrictAnnotations(),AnnotationDifferTagging.SUFFIX_ANN_IS);
+    addAnnsWithTypeSuffix(outSet,getIncorrectPartialAnnotations(),AnnotationDifferTagging.SUFFIX_ANN_IP);
+    addAnnsWithTypeSuffix(outSet,getTrueMissingLenientAnnotations(),AnnotationDifferTagging.SUFFIX_ANN_ML);
+    addAnnsWithTypeSuffix(outSet,getTrueSpuriousLenientAnnotations(),AnnotationDifferTagging.SUFFIX_ANN_SL);    
   }
 
   /**
@@ -368,7 +368,7 @@ public class AnnotationDiffer {
    * @param responses 
    * @param reference 
    */
-  public static void addChangeIndicatorAnnotations(AnnotationSet outSet, AnnotationDiffer responses, AnnotationDiffer reference) {
+  public static void addChangeIndicatorAnnotations(AnnotationSet outSet, AnnotationDifferTagging responses, AnnotationDifferTagging reference) {
     // TODO
   }
   
@@ -385,7 +385,7 @@ public class AnnotationDiffer {
    * @return 
    */
   //public static ContingencyTable getPairedCorrectnessCountsStrict(
-  //  ContingencyTable toIncrement, AnnotationDiffer responseDiffer, AnnotationDiffer referenceDiffer) {
+  //  ContingencyTable toIncrement, AnnotationDifferTagging responseDiffer, AnnotationDifferTagging referenceDiffer) {
   //  
   //}
   
@@ -411,7 +411,7 @@ public class AnnotationDiffer {
    * @return a list of {@link Pairing} objects representing the pairing set
    * that results in the best score.
    */
-  private EvalPRFStats calculateDiff(
+  private EvalStatsTagging calculateDiff(
           AnnotationSet keyAnns, 
           AnnotationSet responseAnns,
           List<String> features,
@@ -420,9 +420,9 @@ public class AnnotationDiffer {
           )
   {
     System.out.println("DEBUG: calculating the differences for threshold "+threshold);
-    EvalPRFStats es = new EvalPRFStats(threshold);
-    // If the threshold is not NaN, then we will calculate a temporary EvalPRFStats object with that
-    // threshold and then insert or update such an EvalPRFStats object in the global evalStatsByThreshold object. 
+    EvalStatsTagging es = new EvalStatsTagging(threshold);
+    // If the threshold is not NaN, then we will calculate a temporary EvalStatsTagging object with that
+    // threshold and then insert or update such an EvalStatsTagging object in the global evalStatsByThreshold object. 
     
     if(Double.isNaN(threshold)) {
       correctStrictAnns = new HashSet<Annotation>();

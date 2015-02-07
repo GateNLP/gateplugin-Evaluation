@@ -7,8 +7,8 @@ import java.util.TreeMap;
  *
  * @author Johann Petrak
  */
-public class ByThresholdEvalStats {
-  protected NavigableMap<Double,EvalPRFStats> byThresholdEvalStats = new TreeMap<Double,EvalPRFStats>();
+public class ByThEvalStatsTagging {
+  protected NavigableMap<Double,EvalStatsTagging> byThresholdEvalStats = new TreeMap<Double,EvalStatsTagging>();
   protected WhichThresholds whichThresholds = WhichThresholds.USE_ALL;
   public WhichThresholds getWhichThresholds() { return whichThresholds; }
   public static final double[] THRESHOLDS11FROM0TO1 = { 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 };
@@ -20,22 +20,22 @@ public class ByThresholdEvalStats {
   /**
    * By default, all scores will be used.
    */
-  public ByThresholdEvalStats() {
+  public ByThEvalStatsTagging() {
     
   }
   
-  public ByThresholdEvalStats(WhichThresholds which) {
+  public ByThEvalStatsTagging(WhichThresholds which) {
     whichThresholds = which;
     if(whichThresholds == null) {
       whichThresholds = WhichThresholds.USE_ALL;
     }
   }
 
-  public NavigableMap.Entry<Double,EvalPRFStats> lowerEntry(Double th) {
+  public NavigableMap.Entry<Double,EvalStatsTagging> lowerEntry(Double th) {
     return byThresholdEvalStats.lowerEntry(th);
   }
 
-  public EvalPRFStats get(Double oth) {
+  public EvalStatsTagging get(Double oth) {
     return byThresholdEvalStats.get(oth);
   }
 
@@ -47,7 +47,7 @@ public class ByThresholdEvalStats {
     return byThresholdEvalStats.lowerKey(oth);
   }
 
-  public void put(Double th, EvalPRFStats es) {
+  public void put(Double th, EvalStatsTagging es) {
     byThresholdEvalStats.put(th,es);
   }
 
@@ -73,7 +73,7 @@ public class ByThresholdEvalStats {
   // We just allow access to the contained NavigableMap object instead of actually wrappign the 
   // interface. 
   
-  public NavigableMap<Double,EvalPRFStats> getByThresholdEvalStats() { return byThresholdEvalStats; }
+  public NavigableMap<Double,EvalStatsTagging> getByThresholdEvalStats() { return byThresholdEvalStats; }
   
   
   

@@ -3,7 +3,7 @@ package gate.plugin.evaluation.api;
 /**
  * A class to hold all the numbers for an evaluation and for calculating
  * various measures from the numbers.
- * In addition to the numbers, a EvalPRFStats object also contains a confidence
+ * In addition to the numbers, a EvalStatsTagging object also contains a confidence
  or score threshold. This is a double value such the the stats object
  represents the numbers if the evaluation was carried out with that 
  threshold, i.e. a response is only considered if the score of the response
@@ -13,14 +13,14 @@ package gate.plugin.evaluation.api;
  * 
  * @author Johann Petrak
  */
-public class EvalPRFStats  {
+public class EvalStatsTagging  {
   
   protected double threshold = Double.NaN;
   
-  public EvalPRFStats() {
+  public EvalStatsTagging() {
     
   }
-  public EvalPRFStats(double threshold) {
+  public EvalStatsTagging(double threshold) {
     this.threshold = threshold;
   }
   
@@ -31,7 +31,7 @@ public class EvalPRFStats  {
    * @param other 
    */
   // Why we did not implement clone(): http://www.artima.com/intv/bloch13.html
-  public EvalPRFStats(EvalPRFStats other) {
+  public EvalStatsTagging(EvalStatsTagging other) {
     threshold = other.threshold;
     nTargets = other.nTargets;
     nResponses = other.nResponses;
@@ -46,8 +46,8 @@ public class EvalPRFStats  {
   
   public double getThreshold() { return threshold; }
   
-  // increment this EvalPRFStats object with the counts from another one
-  public void add(EvalPRFStats other) {
+  // increment this EvalStatsTagging object with the counts from another one
+  public void add(EvalStatsTagging other) {
     nTargets += other.nTargets;
     nResponses += other.nResponses;
     nCorrectStrict += other.nCorrectStrict;

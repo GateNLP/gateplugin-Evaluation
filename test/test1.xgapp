@@ -143,12 +143,12 @@
                 </entry>
                 <entry>
                   <string>nilTreatMent</string>
-                  <gate.plugin.evaluation.resources.EvaluatePRF-NilTreatment>NO_NILS</gate.plugin.evaluation.resources.EvaluatePRF-NilTreatment>
+                  <gate.plugin.evaluation.resources.EvaluateTagging-NilTreatment>NO_NILS</gate.plugin.evaluation.resources.EvaluateTagging-NilTreatment>
                 </entry>
               </localMap>
             </runtimeParams>
-            <resourceType>gate.plugin.evaluation.resources.EvaluatePRF</resourceType>
-            <resourceName>EvaluatePRF_0000C</resourceName>
+            <resourceType>gate.plugin.evaluation.resources.EvaluateTagging</resourceType>
+            <resourceName>EvaluateTagging_0000C</resourceName>
             <initParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
               <localMap/>

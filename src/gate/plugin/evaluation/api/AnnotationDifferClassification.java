@@ -36,7 +36,7 @@ import gate.util.Out;
  * extent of agreement between the feature values in the two annotation
  * sets. It computes observed agreement and Kappa measures.
  */
-public class ClassificationMeasuresOld {
+public class AnnotationDifferClassification {
   
   /** Array of dimensions categories * categories. */
   private float[][] confusionMatrix;
@@ -52,7 +52,7 @@ public class ClassificationMeasuresOld {
   /** List of feature values that are the labels of the confusion matrix */
   private TreeSet<String> featureValues;
 
-  public ClassificationMeasuresOld() {
+  public AnnotationDifferClassification() {
     // empty constructor
   }
 
@@ -241,7 +241,7 @@ public class ClassificationMeasuresOld {
    * figures for the entire set.
    * @param tables tables to combine
    */
-  public ClassificationMeasuresOld(Collection<ClassificationMeasuresOld> tables) {
+  public AnnotationDifferClassification(Collection<AnnotationDifferClassification> tables) {
     /* A hash of hashes for the actual values.
      * This will later be converted to a 2D float array for
      * compatibility with the existing code. */
@@ -253,7 +253,7 @@ public class ClassificationMeasuresOld {
     
     /* Now we are going to add each new contingency table in turn */
 
-    for (ClassificationMeasuresOld table : tables) {
+    for (AnnotationDifferClassification table : tables) {
       int it1index = 0;
       for (String featureValue1 : table.featureValues) {
         newFeatureValues.add(featureValue1);

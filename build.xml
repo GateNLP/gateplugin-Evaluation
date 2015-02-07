@@ -180,6 +180,9 @@
     </javadoc>
   </target>
 
+  <!-- tests is a synonym for test -->
+  <target name="tests" depends="test" />
+
   <!-- Build everything - the code and JavaDoc -->
   <target name="all" depends="jar, javadoc" />
 

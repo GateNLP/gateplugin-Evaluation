@@ -5,7 +5,7 @@ import gate.Document;
 import gate.Factory;
 import gate.FeatureMap;
 import gate.Gate;
-import gate.plugin.evaluation.api.AnnotationDiffer;
+import gate.plugin.evaluation.api.AnnotationDifferTagging;
 import org.junit.Test;
 
 import gate.util.GateException;
@@ -21,7 +21,7 @@ import org.junit.Before;
 /**
  * First simple test for the annotation differ. 
  * For now this is used to develop or own strategy for finding and counting
- * differences, based on the behavior of the gate.util.AnnotationDiffer
+ differences, based on the behavior of the gate.util.AnnotationDifferTagging
  * 
  * @author Petrak
  */
@@ -74,7 +74,7 @@ public class TestDiffer1 {
     
     List<String> featureList = new ArrayList<String>();
     featureList.add("id");
-    AnnotationDiffer newDiffer = new AnnotationDiffer(doc1KeyAnns,doc1Resp1Anns,featureList,null,null);
+    AnnotationDifferTagging newDiffer = new AnnotationDifferTagging(doc1KeyAnns,doc1Resp1Anns,featureList,null,null);
     
     
     System.out.println("OLD testFindPairings01 doc1 keys: "+annDiffer.getKeysCount());

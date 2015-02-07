@@ -13,9 +13,9 @@ import gate.creole.metadata.CreoleParameter;
 import gate.creole.metadata.CreoleResource;
 import gate.creole.metadata.Optional;
 import gate.creole.metadata.RunTime;
-import gate.plugin.evaluation.api.AnnotationDiffer;
-import gate.plugin.evaluation.api.ByThresholdEvalStats;
-import gate.plugin.evaluation.api.EvalPRFStats;
+import gate.plugin.evaluation.api.AnnotationDifferTagging;
+import gate.plugin.evaluation.api.ByThEvalStatsTagging;
+import gate.plugin.evaluation.api.EvalStatsTagging;
 import gate.util.GateRuntimeException;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -36,7 +36,7 @@ import java.util.Set;
  */
 @CreoleResource(name = "EvaluatePRF",
         comment = "Calculate P/R/F evalutation measures for documents")
-public class EvaluatePRF extends AbstractLanguageAnalyser
+public class EvaluateTagging extends AbstractLanguageAnalyser
   implements ControllerAwarePR  {
 
   ///////////////////
@@ -146,12 +146,12 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
   public void setEvaluationId(String value) { evaluationId = value; }
   public String getEvaluationId() { return evaluationId == null ? "" : evaluationId; }
      
-  public ByThresholdEvalStats.WhichThresholds whichThresholds;
+  public ByThEvalStatsTagging.WhichThresholds whichThresholds;
   @CreoleParameter(comment="",defaultValue="USE_ALL")
   @RunTime
   @Optional  
-  public void setWhichThresholds(ByThresholdEvalStats.WhichThresholds value) { whichThresholds = value; }
-  public ByThresholdEvalStats.WhichThresholds getWhichThresholds() { return whichThresholds; }
+  public void setWhichThresholds(ByThEvalStatsTagging.WhichThresholds value) { whichThresholds = value; }
+  public ByThEvalStatsTagging.WhichThresholds getWhichThresholds() { return whichThresholds; }
      
   
   //////////////////// 
@@ -175,12 +175,12 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
   }
   
   // fields shared between the execute method and the methods for initializing and finalization
-  protected EvalPRFStats allDocumentsStats;
-  protected EvalPRFStats allDocumentsReferenceStats = null;
+  protected EvalStatsTagging allDocumentsStats;
+  protected EvalStatsTagging allDocumentsReferenceStats = null;
   
-  // This will be initialized at the start of the run and be incremented in the AnnotationDiffer
+  // This will be initialized at the start of the run and be incremented in the AnnotationDifferTagging
   // for each document.
-  protected ByThresholdEvalStats evalStatsByThreshold;
+  protected ByThEvalStatsTagging evalStatsByThreshold;
   
   
   @Override
@@ -244,7 +244,7 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     //   on the NIL labels. 
     // TODO!!!
     
-    AnnotationDiffer docDiffer = new AnnotationDiffer(
+    AnnotationDifferTagging docDiffer = new AnnotationDifferTagging(
             keySet,
             responseSet,
             featureNames,
@@ -263,7 +263,7 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     
     // If we have a reference set, also calculate the stats for the reference set
     if(referenceSet != null) {
-      AnnotationDiffer docRefDiffer = new AnnotationDiffer(
+      AnnotationDifferTagging docRefDiffer = new AnnotationDifferTagging(
               keySet,
               referenceSet,
               featureNames,
@@ -277,7 +277,7 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
         docRefDiffer.addIndicatorAnnotations(outputAnnotationSet);
         // Now add also the annotations that indicate the changes between the reference set and
         // the response set
-        AnnotationDiffer.addChangeIndicatorAnnotations(outputAnnotationSet, docDiffer, docRefDiffer);
+        AnnotationDifferTagging.addChangeIndicatorAnnotations(outputAnnotationSet, docDiffer, docRefDiffer);
       }
       
       // TODO: increment the overall count of how things changed
@@ -301,8 +301,8 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     // Check if all required parameters have been set
     checkRequiredArguments();
     
-    allDocumentsStats = new EvalPRFStats();
-    allDocumentsReferenceStats = new EvalPRFStats();
+    allDocumentsStats = new EvalStatsTagging();
+    allDocumentsReferenceStats = new EvalStatsTagging();
     
     // avoid NPEs later
     if(featureNames == null) {
@@ -318,11 +318,11 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
     }
     
     if(getScoreFeatureName() != null && !getScoreFeatureName().isEmpty()) {
-      evalStatsByThreshold = new ByThresholdEvalStats(getWhichThresholds());
+      evalStatsByThreshold = new ByThEvalStatsTagging(getWhichThresholds());
     }
     
     if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
-      allDocumentsReferenceStats = new EvalPRFStats();
+      allDocumentsReferenceStats = new EvalStatsTagging();
     }
     
     if(getContainmentType() == null) {
@@ -390,10 +390,10 @@ public class EvaluatePRF extends AbstractLanguageAnalyser
       double highestPrecisionSoFarStrict = 0.0; // used for "interpolated precision"      
       double highestPrecisionSoFarLenient = 0.0; // used for "interpolated precision"      
       // TODO: output the header row
-      System.out.println(EvalPRFStats.getTSVHeaders());
+      System.out.println(EvalStatsTagging.getTSVHeaders());
       while(th != null) {
         // get the stats for that th
-        EvalPRFStats es = evalStatsByThreshold.get(th);
+        EvalStatsTagging es = evalStatsByThreshold.get(th);
         // calculate the interpolated precision values for this row
         highestPrecisionSoFarStrict = Math.max(highestPrecisionSoFarStrict, es.getPrecisionStrict());
         highestPrecisionSoFarLenient = Math.max(highestPrecisionSoFarLenient, es.getPrecisionLenient());
