@@ -140,7 +140,7 @@
                 </entry>
                 <entry>
                   <string>containmentType</string>
-                  <gate.plugin.evaluation.resources.EvaluateTagging-ContainmentType>OVERLAPPING</gate.plugin.evaluation.resources.EvaluateTagging-ContainmentType>
+                  <gate.plugin.evaluation.api.ContainmentType>OVERLAPPING</gate.plugin.evaluation.api.ContainmentType>
                 </entry>
                 <entry>
                   <string>containingASNameAndType</string>
@@ -151,8 +151,8 @@
                   <string>Resp1Out</string>
                 </entry>
                 <entry>
-                  <string>nilTreatMent</string>
-                  <gate.plugin.evaluation.resources.EvaluateTagging-NilTreatment>NO_NILS</gate.plugin.evaluation.resources.EvaluateTagging-NilTreatment>
+                  <string>nilTreatment</string>
+                  <gate.plugin.evaluation.api.NilTreatment>NO_NILS</gate.plugin.evaluation.api.NilTreatment>
                 </entry>
               </localMap>
             </runtimeParams>

@@ -33,6 +33,7 @@ import org.junit.Before;
 import static org.junit.Assert.*;
 import static gate.Utils.*;
 import gate.plugin.evaluation.api.ByThEvalStatsTagging;
+import gate.plugin.evaluation.api.ThresholdsToUse;
 import static gate.plugin.evaluation.tests.TestUtils.*;
 
 /**
@@ -263,7 +264,7 @@ public class TestTagging1 {
     addA(doc,"Resp",20,30,"M",featureMap("id","x","s","0.2"));
     addA(doc,"Resp",40,50,"M",featureMap("id","x","s","0.3"));
     AnnotationSet r = addA(doc,"Resp",60,70,"M",featureMap("id","x","s","0.4"));
-    ByThEvalStatsTagging bth = new ByThEvalStatsTagging(ByThEvalStatsTagging.WhichThresholds.USE_ALL);
+    ByThEvalStatsTagging bth = new ByThEvalStatsTagging(ThresholdsToUse.USE_ALL);
     AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FL_ID,"s",bth);
     EvalStatsTagging es = ad.getEvalStatsTagging();
     

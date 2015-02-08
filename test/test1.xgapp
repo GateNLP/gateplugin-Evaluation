@@ -142,8 +142,8 @@
                   <string>Resp1Out</string>
                 </entry>
                 <entry>
-                  <string>nilTreatMent</string>
-                  <gate.plugin.evaluation.resources.EvaluateTagging-NilTreatment>NO_NILS</gate.plugin.evaluation.resources.EvaluateTagging-NilTreatment>
+                  <string>nilTreatment</string>
+                  <gate.plugin.evaluation.api.NilTreatment>NO_NILS</gate.plugin.evaluation.api.NilTreatment>
                 </entry>
               </localMap>
             </runtimeParams>

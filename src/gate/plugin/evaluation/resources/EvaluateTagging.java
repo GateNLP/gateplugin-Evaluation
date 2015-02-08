@@ -10,6 +10,8 @@
  */
 package gate.plugin.evaluation.resources;
 
+import gate.plugin.evaluation.api.ContainmentType;
+import gate.plugin.evaluation.api.NilTreatment;
 import gate.Annotation;
 import gate.AnnotationSet;
 import gate.Controller;
@@ -26,6 +28,7 @@ import gate.creole.metadata.RunTime;
 import gate.plugin.evaluation.api.AnnotationDifferTagging;
 import gate.plugin.evaluation.api.ByThEvalStatsTagging;
 import gate.plugin.evaluation.api.EvalStatsTagging;
+import gate.plugin.evaluation.api.ThresholdsToUse;
 import gate.util.GateRuntimeException;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -132,8 +135,8 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   @CreoleParameter(comment="",defaultValue="NO_NILS")
   @RunTime
   @Optional  
-  public void setNilTreatMent(NilTreatment value) { nilTreatment = value; }
-  public NilTreatment getNilTreatMent() { return nilTreatment; }
+  public void setNilTreatment(NilTreatment value) { nilTreatment = value; }
+  public NilTreatment getNilTreatment() { return nilTreatment; }
      
   public String nilValue;
   @CreoleParameter(comment="",defaultValue="")
@@ -156,12 +159,12 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   public void setEvaluationId(String value) { evaluationId = value; }
   public String getEvaluationId() { return evaluationId == null ? "" : evaluationId; }
      
-  public ByThEvalStatsTagging.WhichThresholds whichThresholds;
+  public ThresholdsToUse whichThresholds;
   @CreoleParameter(comment="",defaultValue="USE_ALL")
   @RunTime
   @Optional  
-  public void setWhichThresholds(ByThEvalStatsTagging.WhichThresholds value) { whichThresholds = value; }
-  public ByThEvalStatsTagging.WhichThresholds getWhichThresholds() { return whichThresholds; }
+  public void setWhichThresholds(ThresholdsToUse value) { whichThresholds = value; }
+  public ThresholdsToUse getWhichThresholds() { return whichThresholds; }
      
   
   //////////////////// 
@@ -338,7 +341,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     if(getContainmentType() == null) {
       containmentType = ContainmentType.OVERLAPPING;
     }
-    if(getNilTreatMent() == null) {
+    if(getNilTreatment() == null) {
       nilTreatment = NilTreatment.NO_NILS;
     }
 
@@ -444,17 +447,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   }
   
   
-  public static enum ContainmentType {
-      COEXTENSIVE,
-      CONTAINING,
-      OVERLAPPING
-  }
 
-  public static enum NilTreatment {
-    NO_NILS,
-    NIL_IS_ABSENT,
-    NIL_CLUSTERS
-  }
   
   
 }

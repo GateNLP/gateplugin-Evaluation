@@ -201,14 +201,14 @@ public class AnnotationDifferTagging {
         throw new GateRuntimeException("thresholdFeature is specified but byThresholdEvalStats object is null!");
       }
       NavigableSet<Double> thresholds = new TreeSet<Double>();
-      if(byThresholdEvalStats.getWhichThresholds() == ByThEvalStatsTagging.WhichThresholds.USE_ALL ||
-         byThresholdEvalStats.getWhichThresholds() == ByThEvalStatsTagging.WhichThresholds.USE_ALLROUNDED) {
+      if(byThresholdEvalStats.getWhichThresholds() == ThresholdsToUse.USE_ALL ||
+         byThresholdEvalStats.getWhichThresholds() == ThresholdsToUse.USE_ALLROUNDED) {
         for(Annotation res : responses) {
           double score = getFeatureDouble(res.getFeatures(),thresholdFeature,Double.NaN);
           if(Double.isNaN(score)) {
             throw new GateRuntimeException("Response does not have a score: "+res);
           }
-          if(byThresholdEvalStats.getWhichThresholds() == ByThEvalStatsTagging.WhichThresholds.USE_ALLROUNDED) {
+          if(byThresholdEvalStats.getWhichThresholds() == ThresholdsToUse.USE_ALLROUNDED) {
             // this will not work for arbitrary values but should work for most values we reasonably 
             // encounter as scores (most should be between 0 and 1 anyway). 
             // A better approach would involve BigDecimal but that would be much slower
@@ -222,15 +222,7 @@ public class AnnotationDifferTagging {
           thresholds.add(score);
         }
       } else {
-        double[] ths = null;
-        if(byThresholdEvalStats.getWhichThresholds() == ByThEvalStatsTagging.WhichThresholds.USE_11FROM0TO1) {
-          ths = ByThEvalStatsTagging.THRESHOLDS11FROM0TO1;
-        } else if(byThresholdEvalStats.getWhichThresholds() == ByThEvalStatsTagging.WhichThresholds.USE_21FROM0TO1) {
-          ths = ByThEvalStatsTagging.THRESHOLDS21FROM0TO1;
-        }
-        for(double th : ths) {
-          thresholds.add(th);
-        }
+        thresholds = new TreeSet<Double>(byThresholdEvalStats.getWhichThresholds().getThresholds());
       }
       // Now calculate the EvalStatsTagging(threshold) for each threshold we found in decreasing order.
       // The counts we get will need to get added to all existing EvalStatsTagging which are already
