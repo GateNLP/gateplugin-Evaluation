@@ -188,15 +188,12 @@ public class AnnotationDifferTagging {
     this.thresholdFeature = thresholdFeature;
     this.byThresholdEvalStats = byThresholdEvalStats;
     this.features = features;
-    if(features != null && !features.isEmpty()) {
-      significantFeaturesSet = new HashSet<String>(features);      
-    }
     // Calculate the overall statistics, no thresholds
     evalStats = calculateDiff(targets, responses, features, thresholdFeature, Double.NaN);
     // if we have a threshold feature, get all the thresholds and re-runn the calculateDiff 
     // method for each threshold. Add the per-threshold evalstats to the byThresholdEvalStats object.
     if(thresholdFeature != null && !thresholdFeature.isEmpty()) {
-      System.out.println("DEBUG Calculating for the thresholds....");
+      //System.out.println("DEBUG Calculating for the thresholds....");
       if(byThresholdEvalStats == null) {
         throw new GateRuntimeException("thresholdFeature is specified but byThresholdEvalStats object is null!");
       }
@@ -232,14 +229,17 @@ public class AnnotationDifferTagging {
       EvalStatsTagging accum = new EvalStatsTagging();
       
       // start with the highest threshold
-      Double th = thresholds.last();
+      Double th = null;
+      if(!thresholds.isEmpty()) {
+        th = thresholds.last();
+      }
       while(th != null) {
-        System.out.println("DEBUG: calculating the diffs for th="+th);
+        //System.out.println("DEBUG: calculating the diffs for th="+th);
         EvalStatsTagging es = calculateDiff(targets,responses,features,thresholdFeature,th);
-        System.out.println("DEBUG: got stats: "+es);
+        //System.out.println("DEBUG: got stats: "+es);
         accum.add(es);
         Double nextTh = thresholds.lower(th);
-        System.out.println("DEBUG: next lower th="+nextTh);
+        //System.out.println("DEBUG: next lower th="+nextTh);
         // now add the accum to all entries in the byThresholdEvalStats for which the threshold
         // is less than or equal than our current threshold and and larger than our next 
         // threshold
@@ -259,21 +259,21 @@ public class AnnotationDifferTagging {
           if(byThresholdEvalStats.lowerEntry(th) != null) {
             nextLower = byThresholdEvalStats.lowerEntry(th).getValue();
           }
-          System.out.println("DEBUG: not found, try to find the next lower one: "+nextLower);
+          //System.out.println("DEBUG: not found, try to find the next lower one: "+nextLower);
           if(nextLower != null) {
             es.add(nextLower);
           }
-          System.out.println("DEBUG Adding stats for th="+th);
+          //System.out.println("DEBUG Adding stats for th="+th);
           byThresholdEvalStats.put(th, es);
         }
         th = nextTh;
       }
      
-      System.out.println("DEBUG: finished processing all the threshold, map has entries: "+byThresholdEvalStats.size());
+      //System.out.println("DEBUG: finished processing all the threshold, map has entries: "+byThresholdEvalStats.size());
     }
   }
   
-  protected Set<?> significantFeaturesSet;  
+  //protected Set<?> significantFeaturesSet;  
   protected Collection<Annotation> targets;
   protected Collection<Annotation> responses;
   protected String thresholdFeature;
@@ -398,6 +398,12 @@ public class AnnotationDifferTagging {
   
   /**
    * Computes a diff between two collections of annotations.
+   * 
+   * If the features list is empty, then no features are used for the comparison. If the 
+   * features list is null, then the comparison is done based on the values of all features
+   * in the key annotation. If the features list is non-empty, all the specified features must
+   * have the same values in the key and response annotation for a match. 
+   * 
    * @param keyAnns the collection of keyAnns annotations.
    * @param responseAnns the collection of responseAnns annotations.
    * @return a list of {@link Pairing} objects representing the pairing set
@@ -411,7 +417,7 @@ public class AnnotationDifferTagging {
           double threshold  // if not NaN, we will calculate the stats only for responses with score > threshold
           )
   {
-    System.out.println("DEBUG: calculating the differences for threshold "+threshold);
+    //System.out.println("DEBUG: calculating the differences for threshold "+threshold);
     EvalStatsTagging es = new EvalStatsTagging(threshold);
     // If the threshold is not NaN, then we will calculate a temporary EvalStatsTagging object with that
     // threshold and then insert or update such an EvalStatsTagging object in the global evalStatsTaggingByThreshold object. 
@@ -458,7 +464,7 @@ public class AnnotationDifferTagging {
         PairingImpl choice = null;
         if(keyAnn.coextensive(resAnn)){
           //we have full overlap -> CORRECT or WRONG
-          if(keyAnn.getType().equals(resAnn.getType()) && keyAnn.isCompatible(resAnn, significantFeaturesSet)){
+          if(annotationMatch(keyAnn,resAnn,features)) {
             //we have a full match
             choice = new PairingImpl(i, j, CORRECT_VALUE);
           }else{
@@ -468,7 +474,7 @@ public class AnnotationDifferTagging {
           }
         }else if(keyAnn.overlaps(resAnn)){
           //we have partial overlap -> PARTIALLY_CORRECT or WRONG
-          if(keyAnn.getType().equals(resAnn.getType()) && keyAnn.isPartiallyCompatible(resAnn, significantFeaturesSet)){
+          if(annotationMatch(keyAnn,resAnn,features)){
             choice = new PairingImpl(i, j, PARTIALLY_CORRECT_VALUE);
           }else{
             choice = new PairingImpl(i, j, WRONG_VALUE);
@@ -600,6 +606,47 @@ public class AnnotationDifferTagging {
     return es;
   }
 
+  /**
+   * Check if a response annotation matches a key annotation.
+   * If the annotations have different type, this returns false;
+   * Otherwise, if the features list is empty, this returns true;
+   * Otherwise, if the features list is null, this returns true if all features in the key 
+   * annotation have the same values as the same features in the response annotation.
+   * Otherwise, if the feature list is not empty, this returns true if all features in the 
+   * feature list have the same value in the key and response annotation.
+   * @param key
+   * @param response
+   * @param features
+   * @return 
+   */
+  public boolean annotationMatch(Annotation key, Annotation response, List<String> features) {
+    if(!key.getType().equals(response.getType())) { return false; }
+    if(features == null) {
+      // check if the key Ann is compatible with the response ann
+      FeatureMap fmk = key.getFeatures();
+      FeatureMap fmr = key.getFeatures();
+      return fmr.subsumes(fmk);
+    } else {
+      if(features.isEmpty()) {
+        return true;
+      } else {
+        // need to check if the features in the feature list all have the same value in both
+        // annotations
+        FeatureMap fmk = key.getFeatures();
+        FeatureMap fmr = response.getFeatures();
+        for(String fn : features) {
+          Object o1 = fmk.get(fn);
+          Object o2 = fmr.get(fn);
+          //System.out.println("DEBUG: comparing values "+o1+" and "+o2);
+          if(o1 == null && o2 != null) { return false; }
+          if(o2 == null && o1 != null) { return false; }
+          return o1.equals(o2);
+        }
+        return true;
+      }
+    }
+  }
+  
 
   /**
    * Performs some basic checks over the internal data structures from the last
@@ -665,13 +712,6 @@ public class AnnotationDifferTagging {
     existingChoices.add(pairing);
   }
 
-  /**
-   * Gets the set of features considered significant for the matching algorithm.
-   * @return a Set.
-   */
-  public Set<?> getSignificantFeaturesSet() {
-    return significantFeaturesSet;
-  }
 
   /**
    * Represents a pairing of a key annotation with a response annotation and

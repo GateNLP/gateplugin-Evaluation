@@ -10,6 +10,7 @@
  */
 package gate.plugin.evaluation.api;
 
+import gate.util.MethodNotImplementedException;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 
@@ -36,7 +37,33 @@ public class ByThEvalStatsTagging {
       whichThresholds = ThresholdsToUse.USE_ALL;
     }
   }
+  
+  // we also remember the thresholds for which we get the highest F strict and the highest F lenient
+  public double highestFMeasureLenientThreshold() {
+    // TODO
+    throw new MethodNotImplementedException();
+  }
+  public double highestFMeasureStrictThreshold() {
+    // TODO
+    throw new MethodNotImplementedException();
+  }
+  
+  // we should also provide a way to calculate the area under the P/R curve for strict and lenient
+  // precision/recall curves
+  public double areaUnderPRLenient() {
+    // TODO
+    throw new MethodNotImplementedException();
+  }
+  public double areaUnderPRStrict() {
+    // TODO
+    throw new MethodNotImplementedException();
+  }
 
+  // TODO, IMPORTANT: a method to add another object with stats by thresholds to this one. 
+  public void add(ByThEvalStatsTagging other) {
+    // TODO!!!!!
+  }
+  
   public NavigableMap.Entry<Double,EvalStatsTagging> lowerEntry(Double th) {
     return byThresholdEvalStats.lowerEntry(th);
   }
