@@ -13,6 +13,7 @@ package gate.plugin.evaluation.api;
 import gate.Annotation;
 import gate.AnnotationSet;
 import gate.FeatureMap;
+import gate.Utils;
 import gate.annotation.AnnotationSetImpl;
 import gate.util.GateRuntimeException;
 import java.util.ArrayList;
@@ -57,45 +58,7 @@ public class AnnotationDifferTagging {
   public static final String SUFFIX_ANN_ML = "_ML";  // this is true missing lenient!
   public static final String SUFFIX_ANN_SL = "_SL"; // this is a true spurious lenient
 
-  // The following changes are, in theory possible:
-  // CS -> CP, IS, IP, ML
-  // CP -> CS, IS, IP, ML
-  // IS -> IP, CS, CP, ML
-  // IP -> IS, CS, CP, ML
-  // ML -> CS, CP, IS, IP
-  // SL -> A (absent)
-  // A (absent) -> SL
-  // This would amount to 22 different pairings of which the following 9 are good:
-  // CP -> CS
-  // IS -> CS, CP
-  // IP -> IS, CS, CP
-  // ML -> CS, CP
-  // SL -> A
-  // The following 9 are bad
-  // CS -> CP, IS, IP, ML
-  // CP -> IS, IP, ML
-  // IS -> IP
-  // A - SL
-  // and the following 4 are indifferent
-  // IS -> ML
-  // IP -> ML
-  // ML -> IS, IP
-  // If we ignore the span, we get:
-  // Good: IL->CL, ML -> CL, SL -> A
-  // Bad:  CL->IL, CL->ML, A -> SL
-  // Indifferent: IL -> ML, ML -> IL
-  // Span only changes:
-  // good: CP -> CS, IP -> IS
-  // bad:  CS -> CP, IS -> IP
-  private static final String SUFFIX_ANN_IL_CL = "_IL_CL";
-  private static final String SUFFIX_ANN_TM_CL = "_ML_CL";
-  private static final String SUFFIX_ANN_TS_A = "_SL_A";
-  private static final String SUFFIX_ANN_CL_IL = "_CL_IL";
-  private static final String SUFFIX_ANN_CL_TM = "_CL_ML";
-  private static final String SUFFIX_ANN_A_TS = "_A_SL";
-  private static final String SUFFIX_ANN_IL_TM = "_IL_ML";
-  private static final String SUFFIX_ANN_TM_IL = "_ML_IL";
-
+  
   protected EvalStatsTagging evalStats = new EvalStatsTagging();
 
   /**
@@ -193,8 +156,6 @@ public class AnnotationDifferTagging {
     this.thresholdFeature = thresholdFeature;
     this.byThresholdEvalStats = byThresholdEvalStats;
     this.features = features;
-    // Calculate the overall statistics, no thresholds
-    evalStats = calculateDiff(targets, responses, features, thresholdFeature, Double.NaN);
     // if we have a threshold feature, get all the thresholds and re-runn the calculateDiff 
     // method for each threshold. Add the per-threshold evalstats to the byThresholdEvalStats object.
     if (thresholdFeature != null && !thresholdFeature.isEmpty()) {
@@ -248,6 +209,8 @@ public class AnnotationDifferTagging {
       byThresholdEvalStats.add(newMap);
 
     }
+    // Calculate the overall statistics, no thresholds
+    evalStats = calculateDiff(targets, responses, features, thresholdFeature, Double.NaN);
   }
 
   protected Collection<Annotation> targets;
@@ -297,34 +260,34 @@ public class AnnotationDifferTagging {
   }
 
   // the sets we record in case the threshold is NaN
-  private Set<Annotation> correctStrictAnns,
+  private AnnotationSet correctStrictAnns,
           correctPartialAnns,
           incorrectStrictAnns,
           incorrectPartialAnns,
           trueMissingLenientAnns,
           trueSpuriousLenientAnns;
 
-  public Set<Annotation> getCorrectStrictAnnotations() {
+  public AnnotationSet getCorrectStrictAnnotations() {
     return correctStrictAnns;
   }
 
-  public Set<Annotation> getCorrectPartialAnnotations() {
+  public AnnotationSet getCorrectPartialAnnotations() {
     return correctPartialAnns;
   }
 
-  public Set<Annotation> getIncorrectStrictAnnotations() {
+  public AnnotationSet getIncorrectStrictAnnotations() {
     return incorrectStrictAnns;
   }
 
-  public Set<Annotation> getIncorrectPartialAnnotations() {
+  public AnnotationSet getIncorrectPartialAnnotations() {
     return incorrectPartialAnns;
   }
 
-  public Set<Annotation> getTrueMissingLenientAnnotations() {
+  public AnnotationSet getTrueMissingLenientAnnotations() {
     return trueMissingLenientAnns;
   }
 
-  public Set<Annotation> getTrueSpuriousLenientAnnotations() {
+  public AnnotationSet getTrueSpuriousLenientAnnotations() {
     return trueSpuriousLenientAnns;
   }
 
@@ -348,15 +311,116 @@ public class AnnotationDifferTagging {
     addAnnsWithTypeSuffix(outSet, getTrueSpuriousLenientAnnotations(), AnnotationDifferTagging.SUFFIX_ANN_SL);
   }
 
+
+
   /**
    * Add the annotations that indicate changes between responses.
-   *
+   * At the moment, this simply creates annotations for all the changes between response and reference
+   * annotations, with respect to the target set. 
    * @param outSet
    * @param responses
    * @param reference
    */
   public static void addChangesIndicatorAnnotations(AnnotationSet outSet, AnnotationDifferTagging responses, AnnotationDifferTagging reference) {
-    
+  // The following changes are, in theory possible:
+  // CS -> CP, IS, IP, ML
+    for(Annotation ann : reference.getCorrectStrictAnnotations()) {
+      AnnotationSet tmpSet;
+      tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectPartialAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_CP");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectStrictAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_IS");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectPartialAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_IP");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getTrueMissingLenientAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_ML");
+    }
+  // CP -> CS, IS, IP, ML
+    for(Annotation ann : reference.getCorrectPartialAnnotations()) {
+      AnnotationSet tmpSet;
+      tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectStrictAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_CS");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectStrictAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_IS");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectPartialAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_IP");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getTrueMissingLenientAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_ML");
+    }
+  // IS -> IP, CS, CP, ML
+    for(Annotation ann : reference.getIncorrectStrictAnnotations()) {
+      AnnotationSet tmpSet;
+      tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectPartialAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_IP");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectStrictAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_CS");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectPartialAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_CP");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getTrueMissingLenientAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_ML");
+    }
+  // IP -> IS, CS, CP, ML
+    for(Annotation ann : reference.getIncorrectPartialAnnotations()) {
+      AnnotationSet tmpSet;
+      tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectStrictAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_IS");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectStrictAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_CS");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectPartialAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_CP");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getTrueMissingLenientAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_ML");
+    }
+  // ML -> CS, CP, IS, IP
+    for(Annotation ann : reference.getTrueMissingLenientAnnotations()) {
+      AnnotationSet tmpSet;
+      tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectStrictAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_CS");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectPartialAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_CP");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectStrictAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_IS");
+      tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectPartialAnnotations(), ann);
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_IP");
+    }
+  // SL -> A (absent)
+    for(Annotation ann : reference.getTrueSpuriousLenientAnnotations()) {
+      AnnotationSet tmpSet;
+      tmpSet = Utils.getOverlappingAnnotations(responses.getTrueSpuriousLenientAnnotations(), ann);
+      if(tmpSet.size() == 0) {
+        addAnnsWithTypeSuffix(outSet, tmpSet, "_SL_A");
+      }
+    }
+  // A (absent) -> SL
+    for(Annotation ann : responses.getTrueSpuriousLenientAnnotations()) {
+      AnnotationSet tmpSet;
+      tmpSet = Utils.getOverlappingAnnotations(reference.getTrueSpuriousLenientAnnotations(), ann);
+      if(tmpSet.size() == 0) {
+        addAnnsWithTypeSuffix(outSet, tmpSet, "_A_SL");
+      }
+    }
+  // This would amount to 22 different pairings of which the following 9 are good:
+  // CP -> CS
+  // IS -> CS, CP
+  // IP -> IS, CS, CP
+  // ML -> CS, CP
+  // SL -> A
+// The following 9 are bad
+  // CS -> CP, IS, IP, ML
+  // CP -> IS, IP, ML
+  // IS -> IP
+  // A - SL
+  // and the following 4 are indifferent
+  // IS -> ML
+  // IP -> ML
+  // ML -> IS, IP
+  // If we ignore the span, we get:
+  // Good: IL->CL, ML -> CL, SL -> A
+  // Bad:  CL->IL, CL->ML, A -> SL
+  // Indifferent: IL -> ML, ML -> IL
+  // Span only changes:
+  // good: CP -> CS, IP -> IS
+  // bad:  CS -> CP, IS -> IP
   }
 
   // TODO: the following is for calculating McNemar's test
@@ -374,7 +438,7 @@ public class AnnotationDifferTagging {
   //  ContingencyTable toIncrement, AnnotationDifferTagging responseDiffer, AnnotationDifferTagging referenceDiffer) {
   //  
   //}
-  private void addAnnsWithTypeSuffix(AnnotationSet outSet, Collection<Annotation> inAnns, String suffix) {
+  private static void addAnnsWithTypeSuffix(AnnotationSet outSet, Collection<Annotation> inAnns, String suffix) {
     for (Annotation ann : inAnns) {
       gate.Utils.addAnn(outSet, ann, ann.getType() + suffix, gate.Utils.toFeatureMap(ann.getFeatures()));
     }
@@ -412,12 +476,12 @@ public class AnnotationDifferTagging {
     // threshold and then insert or update such an EvalStatsTagging object in the global evalStatsTaggingByThreshold object. 
 
     if (Double.isNaN(threshold)) {
-      correctStrictAnns = new HashSet<Annotation>();
-      correctPartialAnns = new HashSet<Annotation>();
-      incorrectStrictAnns = new HashSet<Annotation>();
-      incorrectPartialAnns = new HashSet<Annotation>();
-      trueMissingLenientAnns = new HashSet<Annotation>();
-      trueSpuriousLenientAnns = new HashSet<Annotation>();
+      correctStrictAnns = new AnnotationSetImpl(keyAnns.getDocument());
+      correctPartialAnns = new AnnotationSetImpl(keyAnns.getDocument());
+      incorrectStrictAnns = new AnnotationSetImpl(keyAnns.getDocument());
+      incorrectPartialAnns = new AnnotationSetImpl(keyAnns.getDocument());
+      trueMissingLenientAnns = new AnnotationSetImpl(keyAnns.getDocument());
+      trueSpuriousLenientAnns = new AnnotationSetImpl(keyAnns.getDocument());
     }
     keyList = new ArrayList<Annotation>(keyAnns);
     responseList = null;
@@ -657,7 +721,7 @@ public class AnnotationDifferTagging {
       }
     }
   }
-
+  
   /**
    * Performs some basic checks over the internal data structures from the last run.
    *
@@ -733,6 +797,24 @@ public class AnnotationDifferTagging {
       scoreCalculated = false;
     }
 
+    public String toString() {
+      StringBuilder sb = new StringBuilder();
+      switch (getType()) {
+        case CORRECT_TYPE: sb.append("CORRECT: "); break;
+        case PARTIALLY_CORRECT_TYPE: sb.append("PARTIAL: "); break;
+        case MISSING_TYPE: sb.append("MISSING: "); break;
+        case SPURIOUS_TYPE: sb.append("SPURIOUS: "); break;
+        case MISMATCH_TYPE: sb.append("INCORRECT: "); break;
+        default: sb.append("UNKNOWN: "); sb.append(getType());
+      }
+      sb.append(", T=");
+      sb.append(getKey());
+      sb.append(", R=");
+      sb.append(getResponse());
+      return sb.toString();
+    }
+    
+    
     @Override
     public int getScore() {
       if (scoreCalculated) {
@@ -1030,5 +1112,9 @@ public class AnnotationDifferTagging {
    * A list with the choices selected for the best result.
    */
   protected List<Pairing> finalChoices;
+  
+  public List<Pairing> getFinalChoices() {
+    return finalChoices;
+  }
 
 }
