@@ -254,6 +254,35 @@ public class TestTagging1 {
   @Test
   public void testTaggingPR01() throws ResourceInstantiationException {
     Document doc = newD();
+    // add 2 targets to the keys
+    addA(doc,"Keys",0, 10,"M",featureMap("id","x"));
+    AnnotationSet t = addA(doc,"Keys",60,70,"M",featureMap("id","x"));
+    // add 2 correct responses with 4 different scores
+    addA(doc,"Resp",0,10,"M",featureMap("id","x","s","0.1"));
+    AnnotationSet r = addA(doc,"Resp",60,70,"M",featureMap("id","x","s","0.5"));
+    ByThEvalStatsTagging bth = new ByThEvalStatsTagging(ThresholdsToUse.USE_ALL);
+    System.out.println("DEBUG: Running test PR01");
+    AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FL_ID,"s",bth);
+    EvalStatsTagging es = ad.getEvalStatsTagging();
+
+    // Disregarding the thresholds, all responses must be correct
+    System.out.println("Stats for th=0.5:");
+    System.out.println(bth.get(0.5));
+    System.out.println("Stats for th=0.1:");
+    System.out.println(bth.get(0.1));
+    assertEquals("F1.0 strict, th=NaN",1.0,es.getFMeasureStrict(1.0),EPS);
+    // At the higher threshold, only one of the two correct ones is still there, so precision
+    // must be 1.0 and recall 0.5
+    assertEquals("Prec strict, th=0.5",1.0,bth.get(0.5).getPrecisionStrict(),EPS);
+    assertEquals("Rec strict, th=0.5",0.5,bth.get(0.5).getRecallStrict(),EPS);
+    // At the lower threshold, both responses are correct, so we should get 1.0
+    assertEquals("F1.0 strict, th=0.1",1.0,bth.get(0.1).getFMeasureStrict(1.0),EPS);
+  }
+  
+  // Test P/R curve, 02
+  @Test
+  public void testTaggingPR02() throws ResourceInstantiationException {
+    Document doc = newD();
     // add 4 targets to the keys
     addA(doc,"Keys",0, 10,"M",featureMap("id","x"));
     addA(doc,"Keys",20,30,"M",featureMap("id","x"));
@@ -269,13 +298,22 @@ public class TestTagging1 {
     EvalStatsTagging es = ad.getEvalStatsTagging();
     
     // now actually perform the tests on the values ....
+    System.out.println("PR02, th=0.1: "+bth.get(0.1).shortCounts());
+    System.out.println("PR02, th=0.2: "+bth.get(0.2).shortCounts());
+    System.out.println("PR02, th=0.3: "+bth.get(0.3).shortCounts());
+    System.out.println("PR02, th=0.4: "+bth.get(0.4).shortCounts());
     assertEquals("F1.0 strict, th=NaN",1.0,es.getFMeasureStrict(1.0),EPS);
-    assertEquals("F1.0 strict, th=0.1",1.0,bth.get(0.1).getFMeasureStrict(1.0),EPS);
-    assertEquals("F1.0 strict, th=0.2",0.75,bth.get(0.2).getFMeasureStrict(1.0),EPS);
-    assertEquals("F1.0 strict, th=0.3",0.50,bth.get(0.3).getFMeasureStrict(1.0),EPS);
-    assertEquals("F1.0 strict, th=0.4",0.25,bth.get(0.4).getFMeasureStrict(1.0),EPS);
+    assertEquals("Prec strict, th=0.1",1.0,bth.get(0.1).getPrecisionStrict(),EPS);
+    assertEquals("Rec strict,  th=0.1",1.0,bth.get(0.1).getRecallStrict(),EPS);
+    assertEquals("Prec strict, th=0.2",1.0,bth.get(0.2).getPrecisionStrict(),EPS);
+    assertEquals("Rec strict,  th=0.2",0.75,bth.get(0.2).getRecallStrict(),EPS);
+    assertEquals("Prec strict, th=0.3",1.0,bth.get(0.3).getPrecisionStrict(),EPS);
+    assertEquals("Rec strict,  th=0.3",0.5,bth.get(0.3).getRecallStrict(),EPS);
+    assertEquals("Prec strict, th=0.4",1.0,bth.get(0.4).getPrecisionStrict(),EPS);
+    assertEquals("Rec strict,  th=0.4",0.25,bth.get(0.4).getRecallStrict(),EPS);
   }
   
+
 
 
 ///////////////////////////

@@ -88,7 +88,7 @@
                 </entry>
                 <entry>
                   <string>whichThresholds</string>
-                  <gate.plugin.evaluation.api.ThresholdsToUse>USE_ALLROUNDED</gate.plugin.evaluation.api.ThresholdsToUse>
+                  <gate.plugin.evaluation.api.ThresholdsToUse>USE_11FROM0TO1</gate.plugin.evaluation.api.ThresholdsToUse>
                 </entry>
                 <entry>
                   <string>outputASName</string>

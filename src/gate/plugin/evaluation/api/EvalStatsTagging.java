@@ -328,6 +328,23 @@ public class EvalStatsTagging  {
     return sb.toString();
   }
   
+  public String shortCounts() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("T/R/CS/IS/TMS/TSS="); 
+    sb.append(getTargets()); sb.append("/");
+    sb.append(getResponses()); sb.append("/");
+    sb.append(getCorrectStrict()); sb.append("/");
+    sb.append(getIncorrectStrict()); sb.append("/");
+    sb.append(getTrueMissingStrict()); sb.append("/");
+    sb.append(getTrueSpuriousStrict()); sb.append(" ");
+    sb.append("PS/RS/FS=");
+    sb.append(getPrecisionStrict()); sb.append("/");
+    sb.append(getRecallStrict()); sb.append("/");
+    sb.append(getFMeasureStrict(1.0)); 
+    
+    return sb.toString();
+  }
+  
   
   // TODO: can we add agreement measures based on SingleCorrectAccuracy?
   

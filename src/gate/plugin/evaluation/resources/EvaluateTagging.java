@@ -684,18 +684,18 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     for(String type : getAnnotationTypes()) {
       System.out.println("Annotation type: "+type);
       System.out.println(allDocumentsStats.get(type));
-      if(outputStream != null) { outputStream.print(outputLine("", type, getResponseASName(), allDocumentsStats.get(type))); }
+      if(outputStream != null) { outputStream.println(outputLine("", type, getResponseASName(), allDocumentsStats.get(type))); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
         System.out.println("Reference set:");
         System.out.println(allDocumentsReferenceStats.get(type));
-        if(outputStream != null) { outputStream.print(outputLine("", type, getResponseASName(), allDocumentsReferenceStats.get(type))); }
+        if(outputStream != null) { outputStream.println(outputLine("", type, getResponseASName(), allDocumentsReferenceStats.get(type))); }
       }
       if(evalStatsByThreshold != null) {
         ByThEvalStatsTagging bthes = evalStatsByThreshold.get(type);
         for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
           System.out.println("Th="+th+":");
           System.out.println(bthes.get(th));
-          if(outputStream != null) { outputStream.print(outputLine("", type, getResponseASName(), bthes.get(th))); }
+          if(outputStream != null) { outputStream.println(outputLine("", type, getResponseASName(), bthes.get(th))); }
         }
       }
     }
@@ -703,18 +703,18 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     if(getAnnotationTypes().size() > 1) {
       System.out.println("Over all types (micro): ");
       System.out.println(allDocumentsStats.get(""));
-      if(outputStream != null) { outputStream.print(outputLine("", "", getResponseASName(), allDocumentsStats.get(""))); }
+      if(outputStream != null) { outputStream.println(outputLine("", "", getResponseASName(), allDocumentsStats.get(""))); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
         System.out.println("Reference set (all types):");
         System.out.println(allDocumentsReferenceStats.get(""));
-        if(outputStream != null) { outputStream.print(outputLine("", "", getReferenceASName(), allDocumentsReferenceStats.get(""))); }
+        if(outputStream != null) { outputStream.println(outputLine("", "", getReferenceASName(), allDocumentsReferenceStats.get(""))); }
       }      
       if(evalStatsByThreshold != null) {
         ByThEvalStatsTagging bthes = evalStatsByThreshold.get("");
         for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
           System.out.println("Th="+th+":");
           System.out.println(bthes.get(th));
-          if(outputStream != null) { outputStream.print(outputLine("", "", getResponseASName(), bthes.get(th))); }
+          if(outputStream != null) { outputStream.println(outputLine("", "", getResponseASName(), bthes.get(th))); }
         }        
       }
       System.out.println("Over all types (macro): ");
@@ -723,7 +723,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
         esm.add(allDocumentsStats.get(type));
       }
       System.out.println(esm);
-      if(outputStream != null) { outputStream.print(outputLine("", "", getResponseASName(), esm)); }
+      if(outputStream != null) { outputStream.println(outputLine("", "", getResponseASName(), esm)); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
         System.out.println("Over all types, reference set (macro): ");
         esm = new EvalStatsTaggingMacro();
@@ -731,7 +731,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
           esm.add(allDocumentsReferenceStats.get(type));
         }
         System.out.println(esm);
-        if(outputStream != null) { outputStream.print(outputLine("", "", getReferenceASName(), esm)); }
+        if(outputStream != null) { outputStream.println(outputLine("", "", getReferenceASName(), esm)); }
       }
     }
       

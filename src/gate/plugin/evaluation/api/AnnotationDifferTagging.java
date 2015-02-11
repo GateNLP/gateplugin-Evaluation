@@ -21,8 +21,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.NavigableMap;
 import java.util.NavigableSet;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 
@@ -225,52 +227,75 @@ public class AnnotationDifferTagging {
       // The counts we get will need to get added to all existing EvalStatsTagging which are already
       // in the byThresholdEvalStats map for thresholds less than or equal to that threshold. 
       
-      // Initialize the accumulating evalstats
-      EvalStatsTagging accum = new EvalStatsTagging();
       
       // start with the highest threshold
       Double th = null;
-      if(!thresholds.isEmpty()) {
-        th = thresholds.last();
+      // it is possible that at this point there is no threshold in the thresholds collection: this
+      // can happen for USE_ALL and USE_ALLROUNDED and there were no responses. In that case, we 
+      // still need to count the missing responses (for all entries) so we add the threshold +inf
+      // to the thresholds collection.
+      thresholds.add(Double.POSITIVE_INFINITY);
+      
+      // Run for all thresholds
+      ByThEvalStatsTagging newMap = new ByThEvalStatsTagging();
+      for(double t : thresholds) {
+        EvalStatsTagging es = calculateDiff(targets,responses,features,thresholdFeature,t);
+        newMap.put(t, es);
       }
+      // add the new map to our Map
+      byThresholdEvalStats.add(newMap);
+      
+      /*
+      System.out.println("DEBUG: got the thresholds: "+thresholds);
+      th = thresholds.last();
+      System.out.println("DEBUG: starting with threshold "+th);
       while(th != null) {
-        //System.out.println("DEBUG: calculating the diffs for th="+th);
+        System.out.println("DEBUG: calculating the diffs for th="+th);
         EvalStatsTagging es = calculateDiff(targets,responses,features,thresholdFeature,th);
-        //System.out.println("DEBUG: got stats: "+es);
-        accum.add(es);
+        System.out.println("DEBUG: got stats: "+es.shortCounts());
         Double nextTh = thresholds.lower(th);
-        //System.out.println("DEBUG: next lower th="+nextTh);
+        // TODO: nextTh could be null here!!! Rethink the tholw code block; maybe add it to 
+        // the ByThEvalStatsTagging object instead!!!!
+        System.out.println("DEBUG: next lower th="+nextTh);
         // now add the accum to all entries in the byThresholdEvalStats for which the threshold
         // is less than or equal than our current threshold and and larger than our next 
-        // threshold
+        // threshold. If the next threshold does not exist, then do nothing
         boolean found = false;
-        for(Double oth = byThresholdEvalStats.floorKey(th); oth != null && oth <= th && oth > nextTh; oth = byThresholdEvalStats.lowerKey(oth)) {
+        for(Double oth = byThresholdEvalStats.floorKey(th); nextTh != null && oth != null && oth <= th && oth > nextTh; oth = byThresholdEvalStats.lowerKey(oth)) {
+          System.out.println("DEBUG: floor th="+oth);
           if(oth == th) {
+            System.out.println("DEBUG: entry already in the data structure");
             found = true;
           }
           EvalStatsTagging oes = byThresholdEvalStats.get(oth);
           System.out.println("Adding accumulated stats to stats for th="+oes.getThreshold());
-          oes.add(accum);
+          oes.add(es);
+          System.out.println("DEBUG: Added accumulated stats to stats for th="+oes.getThreshold()+" are now: "+oes.shortCounts());          
         }
         // if the entry was not already in the byThresholdEvalStats, we need to add it, but this
-        // entry also needs to count all the entries from the next lower one, of there is one
+        // entry also needs to count all the entries from the next higher one, of there is one.
+        // (If the entry was found in the previous loop, then we simply added the counts to it,
+        // which is the correct thing to do).
         if(!found) {
-          EvalStatsTagging nextLower = null;
-          if(byThresholdEvalStats.lowerEntry(th) != null) {
-            nextLower = byThresholdEvalStats.lowerEntry(th).getValue();
+          System.out.println("DEBUG: entry was not already in the data structure");
+          EvalStatsTagging nextHigher = null;
+          if(byThresholdEvalStats.higherEntry(th) != null) {
+            nextHigher = byThresholdEvalStats.higherEntry(th).getValue();
           }
           //System.out.println("DEBUG: not found, try to find the next lower one: "+nextLower);
-          if(nextLower != null) {
-            es.add(nextLower);
+          if(nextHigher != null) {            
+            es.add(nextHigher);
+            System.out.println("DEBUG: added nexthigher th="+nextHigher.getThreshold()+" to new, is now "+nextHigher.shortCounts());
           }
-          //System.out.println("DEBUG Adding stats for th="+th);
+          System.out.println("DEBUG: adding new one to datastructure");
           byThresholdEvalStats.put(th, es);
         }
         th = nextTh;
       }
+      */
      
       //System.out.println("DEBUG: finished processing all the threshold, map has entries: "+byThresholdEvalStats.size());
-    }
+    }      
   }
   
   //protected Set<?> significantFeaturesSet;  
@@ -431,7 +456,22 @@ public class AnnotationDifferTagging {
       trueSpuriousLenientAnns = new HashSet<Annotation>();
     }
     keyList = new ArrayList<Annotation>(keyAnns);
-    responseList = new ArrayList<Annotation>(responseAnns);
+    responseList = null;
+    if(Double.isNaN(threshold)) {
+      responseList = new ArrayList<Annotation>(responseAnns);
+    } else {
+      responseList = new ArrayList<Annotation>(responseAnns.size());
+      for(Annotation res : responses) {
+        double score = getFeatureDouble(res.getFeatures(),thresholdFeature,Double.NaN);
+        if(Double.isNaN(score)) {
+          throw new GateRuntimeException("Response without a score feature: "+res);
+        }
+        if(score >= threshold) {
+          responseList.add(res);
+        }
+      }      
+    }
+    //System.out.println("DEBUG: responseList size for threshold "+threshold+" is "+responseList.size());
     
     keyChoices = new ArrayList<List<Pairing>>(keyList.size());
     // initialize by nr_keys nulls
@@ -443,24 +483,13 @@ public class AnnotationDifferTagging {
     possibleChoices = new ArrayList<Pairing>();
 
     es.addTargets(keyAnns.size());
-    es.addResponses(responseAnns.size());
+    es.addResponses(responseList.size());
     
     //1) try all possible pairings
     for(int i = 0; i < keyList.size(); i++){
       for(int j =0; j < responseList.size(); j++){
         Annotation keyAnn = keyList.get(i);
         Annotation resAnn = responseList.get(j);
-        if(!Double.isNaN(threshold)) {
-          // try to get the score for the responseAnns
-          double score = getFeatureDouble(resAnn.getFeatures(),thresholdFeature,Double.NaN);
-          if(Double.isNaN(score)) {
-            throw new GateRuntimeException("Response without a score feature: "+resAnn);
-          }
-          // We are only interested in responses which have a score >= the threshold
-          if(score < threshold) {
-            continue; // check the next responseAnns
-          }
-        }
         PairingImpl choice = null;
         if(keyAnn.coextensive(resAnn)){
           //we have full overlap -> CORRECT or WRONG
