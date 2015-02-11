@@ -455,23 +455,50 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
    * @return 
    */
   public EvalStatsTagging getEvalStatsTagging(String type) { 
+    // if there was only one type specified, then the type-specific evalstats is also the 
+    // overall evalstats and we will not have created a separate evalstats for "". In that case,
+    // if the overall evalstats are requested, we return the one for the one and only type.
     if(type.equals("") && getAnnotationTypes().size() == 1) {
       return allDocumentsStats.get(getAnnotationTypes().get(0));
     }
     return allDocumentsStats.get(type); 
   }
+  
   /**
    * Return the evaluation statistics for the reference set for the given type or over all types if an empty String is
    * passed.
-   * If a type name is passed which was not used for the evaluation, null is returned.
+   * If a type name is passed which was not used for the evaluation, null is returned. If no reference
+   * set was specified, null is returned.
    * @param type
    * @return 
    */
-  public EvalStatsTagging getEvalStatsTaggingReference(String type) { 
+  public EvalStatsTagging getEvalStatsTaggingReference(String type) {
+    if(getReferenceASName() == null || getReferenceASName().isEmpty()) {
+      return null;
+    }
+    // if there was only one type specified, then the type-specific evalstats is also the 
+    // overall evalstats and we will not have created a separate evalstats for "". In that case,
+    // if the overall evalstats are requested, we return the one for the one and only type.
     if(type.equals("") && getAnnotationTypes().size() == 1) {
       return allDocumentsReferenceStats.get(getAnnotationTypes().get(0));
     }
-    return allDocumentsReferenceStats.get(type); 
+    return allDocumentsReferenceStats.get(type);     
+  }
+  
+  /**
+   * Get the evaluation statistics by threshold for the given type or over all types if an empty
+   * String is passed.
+   * @param type
+   * @return 
+   */
+  public ByThEvalStatsTagging getByThEvalStatsTagging(String type) {
+    // if there was only one type specified, then the type-specific evalstats is also the 
+    // overall evalstats and we will not have created a separate evalstats for "". In that case,
+    // if the overall evalstats are requested, we return the one for the one and only type.
+    if(type.equals("") && getAnnotationTypes().size() == 1) {
+      return evalStatsByThreshold.get(getAnnotationTypes().get(0));
+    }
+    return evalStatsByThreshold.get(type);
   }
   
   
