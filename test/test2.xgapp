@@ -82,10 +82,6 @@
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
               <localMap>
                 <entry>
-                  <string>byValueFeatureNames</string>
-                  <null/>
-                </entry>
-                <entry>
                   <string>nilValue</string>
                   <string></string>
                 </entry>

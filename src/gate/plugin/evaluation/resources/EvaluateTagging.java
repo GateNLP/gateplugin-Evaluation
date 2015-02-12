@@ -39,8 +39,6 @@ import gate.util.GateRuntimeException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintStream;
 import java.net.URL;
 import java.util.ArrayList;
@@ -49,8 +47,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 // TODO: think about how this should deal with parallelization and custom duplication.
 // At the moment this will not work properly or even fail when run from duplicated pipelines. 
@@ -142,12 +138,14 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   public void setFeatureNames(List<String> names) { featureNames = names; }
   public List<String> getFeatureNames() { return featureNames; }
   
+  /*
   private List<String> byValueFeatureNames;
   @CreoleParameter (comment="A list of feature names to use for breaking up the evaluation (NOT IMPLEMENTED YET)")
   @RunTime
   @Optional
   public void setByValueFeatureNames(List<String> names) { byValueFeatureNames = names; }
   public List<String> getByValueFeatureNames() { return byValueFeatureNames; }
+  */
   
   private String scoreFeatureName;
   @CreoleParameter (comment="The name of the feature which contains a numeric score or confidence. If specified will generated P/R curve.")
@@ -205,6 +203,16 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   public void setWhichThresholds(ThresholdsToUse value) { whichThresholds = value; }
   public ThresholdsToUse getWhichThresholds() { return whichThresholds; }
      
+  /*
+  public String listAnnotationScoreFeature;
+  @CreoleParameter(comment="If this is set, the feature containing the score of annotations from a list annotation")
+  @RunTime
+  @Optional
+  public void setListAnnotationScoreFeature(String value) {
+    listAnnotationScoreFeature = value;
+  }
+  public String getListAnnotationScoreFeature() { return listAnnotationScoreFeature; }
+  */
   
   //////////////////// 
   // PR METHODS 
@@ -619,6 +627,12 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     featurePrefixReference += getReferenceASName() + ".";
 
     outputStream = getOutputStream();
+    // Output the initial header line
+    outputStream.print("evaluationId"); outputStream.print("\t");
+    outputStream.print("docName"); outputStream.print("\t");
+    outputStream.print("setName"); outputStream.print("\t");
+    outputStream.print("annotationType"); outputStream.print("\t");
+    outputStream.println(EvalStatsTagging.getTSVHeaders());
     
   }
   
@@ -711,18 +725,18 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     for(String type : getAnnotationTypes()) {
       System.out.println("Annotation type: "+type);
       System.out.println(allDocumentsStats.get(type));
-      if(outputStream != null) { outputStream.println(outputLine("", type, getResponseASName(), allDocumentsStats.get(type))); }
+      if(outputStream != null) { outputStream.println(outputLine(null, type, getResponseASName(), allDocumentsStats.get(type))); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
         System.out.println("Reference set:");
         System.out.println(allDocumentsReferenceStats.get(type));
-        if(outputStream != null) { outputStream.println(outputLine("", type, getResponseASName(), allDocumentsReferenceStats.get(type))); }
+        if(outputStream != null) { outputStream.println(outputLine(null, type, getResponseASName(), allDocumentsReferenceStats.get(type))); }
       }
       if(evalStatsByThreshold != null) {
         ByThEvalStatsTagging bthes = evalStatsByThreshold.get(type);
         for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
           System.out.println("Th="+th+":");
           System.out.println(bthes.get(th));
-          if(outputStream != null) { outputStream.println(outputLine("", type, getResponseASName(), bthes.get(th))); }
+          if(outputStream != null) { outputStream.println(outputLine(null, type, getResponseASName(), bthes.get(th))); }
         }
       }
     }
@@ -730,18 +744,18 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     if(getAnnotationTypes().size() > 1) {
       System.out.println("Over all types (micro): ");
       System.out.println(allDocumentsStats.get(""));
-      if(outputStream != null) { outputStream.println(outputLine("", "", getResponseASName(), allDocumentsStats.get(""))); }
+      if(outputStream != null) { outputStream.println(outputLine(null, "", getResponseASName(), allDocumentsStats.get(""))); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
         System.out.println("Reference set (all types):");
         System.out.println(allDocumentsReferenceStats.get(""));
-        if(outputStream != null) { outputStream.println(outputLine("", "", getReferenceASName(), allDocumentsReferenceStats.get(""))); }
+        if(outputStream != null) { outputStream.println(outputLine(null, "", getReferenceASName(), allDocumentsReferenceStats.get(""))); }
       }      
       if(evalStatsByThreshold != null) {
         ByThEvalStatsTagging bthes = evalStatsByThreshold.get("");
         for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
           System.out.println("Th="+th+":");
           System.out.println(bthes.get(th));
-          if(outputStream != null) { outputStream.println(outputLine("", "", getResponseASName(), bthes.get(th))); }
+          if(outputStream != null) { outputStream.println(outputLine(null, "", getResponseASName(), bthes.get(th))); }
         }        
       }
       System.out.println("Over all types (macro): ");
@@ -750,7 +764,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
         esm.add(allDocumentsStats.get(type));
       }
       System.out.println(esm);
-      if(outputStream != null) { outputStream.println(outputLine("", "", getResponseASName(), esm)); }
+      if(outputStream != null) { outputStream.println(outputLine(null, "", getResponseASName(), esm)); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
         System.out.println("Over all types, reference set (macro): ");
         esm = new EvalStatsTaggingMacro();
@@ -758,7 +772,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
           esm.add(allDocumentsReferenceStats.get(type));
         }
         System.out.println(esm);
-        if(outputStream != null) { outputStream.println(outputLine("", "", getReferenceASName(), esm)); }
+        if(outputStream != null) { outputStream.println(outputLine(null, "", getReferenceASName(), esm)); }
       }
     }
       
