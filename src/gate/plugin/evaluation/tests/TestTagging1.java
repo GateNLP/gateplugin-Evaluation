@@ -313,6 +313,44 @@ public class TestTagging1 {
     assertEquals("Rec strict,  th=0.4",0.25,bth.get(0.4).getRecallStrict(),EPS);
   }
   
+  // Test P/R curve, 03
+  @Test
+  public void testTaggingPR03() throws ResourceInstantiationException {
+    // same as 02, but with two different documents, and we check the 
+    // combined statistics
+    Document doc1 = newD();
+    Document doc2 = newD();
+    // add 4 targets to the keys
+    addA(doc1,"Keys",0, 10,"M",featureMap("id","x"));
+    addA(doc2,"Keys",20,30,"M",featureMap("id","x"));
+    AnnotationSet t1 = addA(doc1,"Keys",40,50,"M",featureMap("id","x"));
+    AnnotationSet t2 = addA(doc2,"Keys",60,70,"M",featureMap("id","x"));
+    // add 4 correct responses with 4 different scores
+    addA(doc1,"Resp",0,10,"M",featureMap("id","x","s","0.1"));
+    addA(doc2,"Resp",20,30,"M",featureMap("id","x","s","0.2"));
+    AnnotationSet r1 = addA(doc1,"Resp",40,50,"M",featureMap("id","x","s","0.3"));
+    AnnotationSet r2 = addA(doc2,"Resp",60,70,"M",featureMap("id","x","s","0.4"));
+    ByThEvalStatsTagging bth = new ByThEvalStatsTagging(ThresholdsToUse.USE_ALL);
+    AnnotationDifferTagging ad = new AnnotationDifferTagging(t1, r1, FL_ID,"s",bth);
+    ad = new AnnotationDifferTagging(t2, r2, FL_ID,"s",bth);
+    EvalStatsTagging es = ad.getEvalStatsTagging();
+    
+    // now actually perform the tests on the values ....
+    System.out.println("PR02, th=0.1: "+bth.get(0.1).shortCounts());
+    System.out.println("PR02, th=0.2: "+bth.get(0.2).shortCounts());
+    System.out.println("PR02, th=0.3: "+bth.get(0.3).shortCounts());
+    System.out.println("PR02, th=0.4: "+bth.get(0.4).shortCounts());
+    assertEquals("F1.0 strict, th=NaN",1.0,es.getFMeasureStrict(1.0),EPS);
+    assertEquals("Prec strict, th=0.1",1.0,bth.get(0.1).getPrecisionStrict(),EPS);
+    assertEquals("Rec strict,  th=0.1",1.0,bth.get(0.1).getRecallStrict(),EPS);
+    assertEquals("Prec strict, th=0.2",1.0,bth.get(0.2).getPrecisionStrict(),EPS);
+    assertEquals("Rec strict,  th=0.2",0.75,bth.get(0.2).getRecallStrict(),EPS);
+    assertEquals("Prec strict, th=0.3",1.0,bth.get(0.3).getPrecisionStrict(),EPS);
+    assertEquals("Rec strict,  th=0.3",0.5,bth.get(0.3).getRecallStrict(),EPS);
+    assertEquals("Prec strict, th=0.4",1.0,bth.get(0.4).getPrecisionStrict(),EPS);
+    assertEquals("Rec strict,  th=0.4",0.25,bth.get(0.4).getRecallStrict(),EPS);
+  }
+  
 
 
 
