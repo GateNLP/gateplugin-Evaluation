@@ -7,8 +7,11 @@ import gate.FeatureMap;
 import static gate.Utils.addAnn;
 import static gate.Utils.featureMap;
 import gate.creole.ResourceInstantiationException;
+import gate.plugin.evaluation.api.FeatureComparison;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Some utils and predefined values used in the tests.
@@ -28,6 +31,13 @@ public class TestUtils {
   // predefined lists with the names of features to use
   public static final List<String> FL_ID = new ArrayList<String>();
   static { FL_ID.add("id"); }
+
+  // predefined setss with the names of features to use
+  public static final Set<String> FS_ID = new HashSet<String>();
+  static { FS_ID.add("id"); }
+  
+  public static final FeatureComparison FC_EQU = FeatureComparison.FEATURE_EQUALITY;
+  public static final FeatureComparison FC_SUB = FeatureComparison.FEATURE_SUBSUMPTION;
   
   public static Document newD() throws ResourceInstantiationException {
     return Factory.newDocument(STR1000);

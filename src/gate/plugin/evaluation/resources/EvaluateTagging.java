@@ -33,6 +33,7 @@ import gate.plugin.evaluation.api.AnnotationDifferTagging;
 import gate.plugin.evaluation.api.ByThEvalStatsTagging;
 import gate.plugin.evaluation.api.EvalStatsTagging;
 import gate.plugin.evaluation.api.EvalStatsTaggingMacro;
+import gate.plugin.evaluation.api.FeatureComparison;
 import gate.plugin.evaluation.api.ThresholdsToUse;
 import gate.util.Files;
 import gate.util.GateRuntimeException;
@@ -132,11 +133,26 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   public List<String> getAnnotationTypes() { return annotationTypes; }
   
   private List<String> featureNames;
+  private Set<String> featureSet;
   @CreoleParameter (comment="A list of feature names to use for comparison, can be empty. First is used as the id feature, if necessary.")
   @RunTime
   @Optional
-  public void setFeatureNames(List<String> names) { featureNames = names; }
+  public void setFeatureNames(List<String> names) { 
+    featureNames = names; 
+    if(featureNames != null) {
+      featureSet = new HashSet<String>(featureNames);
+    }
+  }
   public List<String> getFeatureNames() { return featureNames; }
+  
+  public FeatureComparison featureComparison;
+  @CreoleParameter(comment="",defaultValue="FEATURE_EQUALITY")
+  @RunTime
+  @Optional  
+  public void setFeatureComparison(FeatureComparison value) { featureComparison = value; }
+  public FeatureComparison getFeatureComparison() { return featureComparison; }
+     
+  
   
   /*
   private List<String> byValueFeatureNames;
@@ -350,11 +366,17 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     AnnotationDifferTagging docDiffer = new AnnotationDifferTagging(
             keySet,
             responseSet,
-            featureNames,
-            scoreFeatureName,
-            evalStatsByThreshold.get(type)
+            featureSet,
+            featureComparison
     );
     EvalStatsTagging es = docDiffer.getEvalStatsTagging();
+
+    // if we also want to update the by thresholds data, do this now
+    if(evalStatsByThreshold != null) {
+      ByThEvalStatsTagging bth = evalStatsByThreshold.get(type);
+      AnnotationDifferTagging.calculateByThEvalStatsTagging(
+              keySet, responseSet, featureSet, featureComparison, scoreFeatureName, bth.getWhichThresholds(), bth);
+    }
     
     // Store the counts and measures as document feature values
     FeatureMap docFm = document.getFeatures();
@@ -394,18 +416,20 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
       docDiffer.addIndicatorAnnotations(outputAnnotationSet);
     }
     
+    
+    
     // If we have a reference set, also calculate the stats for the reference set
     EvalStatsTagging res = null;
     if(referenceSet != null) {
       AnnotationDifferTagging docRefDiffer = new AnnotationDifferTagging(
               keySet,
               referenceSet,
-              featureNames,
-              scoreFeatureName,
-              evalStatsByThreshold.get(type)
+              featureSet,
+              featureComparison
       );
       res = docRefDiffer.getEvalStatsTagging();
       allDocumentsReferenceStats.get(type).add(res);
+            
       // if we need to record the matchings, also add the annotations for how things changed
       // between the reference set and the response set.
       if(outputAnnotationSet != null) {

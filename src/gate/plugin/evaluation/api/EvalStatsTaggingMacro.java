@@ -34,6 +34,8 @@ public class EvalStatsTaggingMacro extends EvalStatsTagging {
   protected List<Double> fMeasureLenientVals = new ArrayList<Double>();
   protected List<Double> singleCorrectAccuracyStrictVals = new ArrayList<Double>();
   protected List<Double> singleCorrectAccuracyLenientVals = new ArrayList<Double>();
+  protected List<Integer> targetsVals = new ArrayList<Integer>();
+  protected List<Integer> responsesVals = new ArrayList<Integer>();
   
   
   @Override
@@ -56,26 +58,48 @@ public class EvalStatsTaggingMacro extends EvalStatsTagging {
     fMeasureLenientVals.add(other.getFMeasureLenient(1.0));
     singleCorrectAccuracyLenientVals.add(other.getSingleCorrectAccuracyLenient());
     singleCorrectAccuracyStrictVals.add(other.getSingleCorrectAccuracyStrict());
+    targetsVals.add(other.getTargets());
+    responsesVals.add(other.getResponses());
   }
   
   @Override
   public double getPrecisionStrict() {
-    return averageOf(precisionStrictVals);
+    double tmp = averageOf(precisionStrictVals);
+    if(Double.isNaN(tmp)) {
+      return 1.0;
+    } else {
+      return tmp;
+    }
   }
   
   @Override
   public double getPrecisionLenient() {
-    return averageOf(precisionLenientVals);
+    double tmp = averageOf(precisionLenientVals);
+    if(Double.isNaN(tmp)) {
+      return 1.0;
+    } else {
+      return tmp;
+    }
   }
   
   @Override
   public double getRecallStrict() {
-    return averageOf(recallStrictVals);
+    double tmp = averageOf(recallStrictVals);
+    if(Double.isNaN(tmp)) {
+      return 1.0;
+    } else {
+      return tmp;
+    }
   }
   
   @Override
   public double getRecallLenient() {
-    return averageOf(recallLenientVals);
+    double tmp = averageOf(recallLenientVals);
+    if(Double.isNaN(tmp)) {
+      return 1.0;
+    } else {
+      return tmp;
+    }
   }
   
   /**
@@ -85,10 +109,15 @@ public class EvalStatsTaggingMacro extends EvalStatsTagging {
    */
   @Override
   public double getFMeasureStrict(double beta) {
-    if(Math.abs(beta - 1.0) < EPS) {
+    if(Math.abs(beta - 1.0) > EPS) {
       throw new GateRuntimeException("Macro average for the FMeasure can only be calculated for beta=1.0 at the moment");
     }
-    return averageOf(fMeasureStrictVals);
+    double tmp = averageOf(fMeasureStrictVals);
+    if(Double.isNaN(tmp)) {
+      return 1.0;
+    } else {
+      return tmp;
+    }
   }
   
   /**
@@ -98,10 +127,15 @@ public class EvalStatsTaggingMacro extends EvalStatsTagging {
    */
   @Override
   public double getFMeasureLenient(double beta) {
-    if(Math.abs(beta - 1.0) < EPS) {
+    if(Math.abs(beta - 1.0) > EPS) {
       throw new GateRuntimeException("Macro average for the FMeasure can only be calculated for beta=1.0 at the moment");
     }
-    return averageOf(fMeasureLenientVals);
+    double tmp = averageOf(fMeasureLenientVals);
+    if(Double.isNaN(tmp)) {
+      return 1.0;
+    } else {
+      return tmp;
+    }
   }
   
   
@@ -114,12 +148,28 @@ public class EvalStatsTaggingMacro extends EvalStatsTagging {
     return precisionLenientVals.size();
   }
   
+  /** 
+   * Calculate the average over the values, but only for elements where there is at least 
+   * one target or response.
+   * @param values
+   * @return 
+   */
   protected double averageOf(List<Double> values) {
     double sum = 0.0;
+    int i = 0;
+    int n = 0;
     for(Double val : values) {
-      sum += val;
+      if(targetsVals.get(i) > 0 || responsesVals.get(i) > 0) {
+        sum += val;
+        n++;
+      }
+      i++;
     }
-    return sum / values.size();
+    if(n > 0) {
+      return sum / n;
+    } else {
+      return Double.NaN;
+    }
   }
   
   

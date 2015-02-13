@@ -90,9 +90,9 @@ public class TestTagging1 {
     //System.out.println("testTagging01 doc1 anns from Resp1: "+doc1Resp1Anns);
     List<gate.util.AnnotationDiffer.Pairing> pairings = annDiffer.calculateDiff(doc1KeyAnns, doc1Resp1Anns);
     
-    List<String> featureList = new ArrayList<String>();
-    featureList.add("id");
-    AnnotationDifferTagging newDiffer = new AnnotationDifferTagging(doc1KeyAnns,doc1Resp1Anns,featureList,null,null);
+    Set<String> featureSet = new HashSet<String>();
+    featureSet.add("id");
+    AnnotationDifferTagging newDiffer = new AnnotationDifferTagging(doc1KeyAnns,doc1Resp1Anns,featureSet,FC_EQU);
     EvalStatsTagging newDifferES = newDiffer.getEvalStatsTagging();
     
     System.out.println("OLD testFindPairings01 doc1 keys: "+annDiffer.getKeysCount());
@@ -150,7 +150,7 @@ public class TestTagging1 {
     Document doc = newD();
     AnnotationSet t = addA(doc,"Keys",0,10,"M","x");
     AnnotationSet r = addA(doc,"Resp",0,10,"M","x");
-    AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FL_ID);
+    AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FS_ID, FC_EQU);
     EvalStatsTagging es = ad.getEvalStatsTagging();
     assertEquals("targets",1,es.getTargets());
     assertEquals("responses",1,es.getResponses());
@@ -171,7 +171,7 @@ public class TestTagging1 {
     Document doc = newD();
     AnnotationSet t = addA(doc,"Keys",0,10,"M","x");
     AnnotationSet r = addA(doc,"Resp",0,10,"M","y");
-    AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FL_ID);
+    AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FS_ID, FC_EQU);
     EvalStatsTagging es = ad.getEvalStatsTagging();
     assertEquals("targets",1,es.getTargets());
     assertEquals("responses",1,es.getResponses());
@@ -193,7 +193,7 @@ public class TestTagging1 {
     AnnotationSet t = addA(doc,"Keys",0,10,"M","x");
     addA(doc,"Resp",0,10,"M","x");
     AnnotationSet r = addA(doc,"Resp",0,10,"M","y");
-    AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FL_ID);
+    AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FS_ID, FC_EQU);
     EvalStatsTagging es = ad.getEvalStatsTagging();
     assertEquals("targets",1,es.getTargets());
     assertEquals("responses",2,es.getResponses());
@@ -224,7 +224,7 @@ public class TestTagging1 {
     AnnotationSet t = addA(doc,"Keys",0,10,"M","y");
     addA(doc,"Resp",0,10,"M","x");
     AnnotationSet r = addA(doc,"Resp",0,10,"M","y");
-    AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FL_ID);
+    AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FS_ID, FC_EQU);
     EvalStatsTagging es = ad.getEvalStatsTagging();
     assertEquals("targets",2,es.getTargets());
     assertEquals("responses",2,es.getResponses());
@@ -260,9 +260,10 @@ public class TestTagging1 {
     // add 2 correct responses with 4 different scores
     addA(doc,"Resp",0,10,"M",featureMap("id","x","s","0.1"));
     AnnotationSet r = addA(doc,"Resp",60,70,"M",featureMap("id","x","s","0.5"));
-    ByThEvalStatsTagging bth = new ByThEvalStatsTagging(ThresholdsToUse.USE_ALL);
     System.out.println("DEBUG: Running test PR01");
-    AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FL_ID,"s",bth);
+    ByThEvalStatsTagging bth = 
+            AnnotationDifferTagging.calculateByThEvalStatsTagging(t, r, FS_ID, FC_EQU,"s",ThresholdsToUse.USE_ALL,null);
+    AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FS_ID, FC_EQU);
     EvalStatsTagging es = ad.getEvalStatsTagging();
 
     // Disregarding the thresholds, all responses must be correct
@@ -293,8 +294,9 @@ public class TestTagging1 {
     addA(doc,"Resp",20,30,"M",featureMap("id","x","s","0.2"));
     addA(doc,"Resp",40,50,"M",featureMap("id","x","s","0.3"));
     AnnotationSet r = addA(doc,"Resp",60,70,"M",featureMap("id","x","s","0.4"));
-    ByThEvalStatsTagging bth = new ByThEvalStatsTagging(ThresholdsToUse.USE_ALL);
-    AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FL_ID,"s",bth);
+    ByThEvalStatsTagging bth = 
+            AnnotationDifferTagging.calculateByThEvalStatsTagging(t, r, FS_ID, FC_EQU,"s",ThresholdsToUse.USE_ALL,null);
+    AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FS_ID, FC_EQU);
     EvalStatsTagging es = ad.getEvalStatsTagging();
     
     // now actually perform the tests on the values ....
@@ -330,10 +332,14 @@ public class TestTagging1 {
     addA(doc2,"Resp",20,30,"M",featureMap("id","x","s","0.2"));
     AnnotationSet r1 = addA(doc1,"Resp",40,50,"M",featureMap("id","x","s","0.3"));
     AnnotationSet r2 = addA(doc2,"Resp",60,70,"M",featureMap("id","x","s","0.4"));
-    ByThEvalStatsTagging bth = new ByThEvalStatsTagging(ThresholdsToUse.USE_ALL);
-    AnnotationDifferTagging ad = new AnnotationDifferTagging(t1, r1, FL_ID,"s",bth);
-    ad = new AnnotationDifferTagging(t2, r2, FL_ID,"s",bth);
+
+    ByThEvalStatsTagging bth = 
+            AnnotationDifferTagging.calculateByThEvalStatsTagging(t1, r1, FS_ID, FC_EQU,"s",ThresholdsToUse.USE_ALL,null);
+    bth = AnnotationDifferTagging.calculateByThEvalStatsTagging(t2, r2, FS_ID, FC_EQU,"s",ThresholdsToUse.USE_ALL,bth);
+    AnnotationDifferTagging ad = new AnnotationDifferTagging(t1, r1, FS_ID, FC_EQU);
     EvalStatsTagging es = ad.getEvalStatsTagging();
+    ad = new AnnotationDifferTagging(t2, r2, FS_ID, FC_EQU);
+    es.add(ad.getEvalStatsTagging());
     
     // now actually perform the tests on the values ....
     System.out.println("PR02, th=0.1: "+bth.get(0.1).shortCounts());

@@ -169,7 +169,7 @@ public class EvalStatsTagging  {
   // Precision strict is the portion of responses that are correct strict
   public double getPrecisionStrict() { 
     if(nResponses == 0) {
-      return 0.0;
+      return 1.0;
     } else {
       return nCorrectStrict/(double)nResponses;
     }
@@ -177,7 +177,7 @@ public class EvalStatsTagging  {
   
   public double getPrecisionLenient() {
     if(nResponses == 0) {
-      return 0.0;
+      return 1.0;
     } else {
       return getCorrectLenient()/(double)nResponses;
     }    
