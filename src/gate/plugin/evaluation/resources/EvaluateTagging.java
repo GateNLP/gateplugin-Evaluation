@@ -340,6 +340,26 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
       }
     } // have a containing set and type
     
+    
+    // TODO: to get the best candidate we need to have the candidates already sorted!
+    // So we should better do the evaluation over the top element after the candidate lists 
+    // have been created and we should refactor things so that creating the candidate lists
+    // is a separate step!
+    // Then we create the candidate lists here, then pass the already created candidate lists
+    // to the static method for calculating the lists evaluation!
+    AnnotationSet listAnns = null;
+    AnnotationSet listAnnsReference = null;
+    if(doListEvaluation) {
+      listAnns = responseSet;
+      listAnnsReference = referenceSet;
+      // get the highest scored annotation from each list
+      responseSet = new AnnotationSetImpl(listAnns.getDocument());
+      referenceSet = new AnnotationSetImpl(listAnnsReference.getDocument());
+      for(Annotation listAnn : listAnn) {
+        responseSet.add(getBestCandidate(ListAnn));
+      }
+    }
+    
     // Now depending on the NIL processing strategy, do something with those annotations which 
     // are identified as nil in the key and response sets.
     // NO_NILS: do nothing, all keys and responses are taken as is. If there are special NIL
@@ -360,6 +380,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     
     // Nils can only be represented if there is an id feature. If there is one and we treat
     // nils as absent, lets remove all the nils.
+    
     if(getFeatureNames() != null && getFeatureNames().size() > 0 && getNilTreatment().equals(NilTreatment.NIL_IS_ABSENT)) {
       removeNilAnns(keySet);
       removeNilAnns(responseSet);
@@ -385,7 +406,9 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     if(doListEvaluation) {
       ByThEvalStatsTagging bth = evalStatsByThreshold.get(type);
       AnnotationDifferTagging.calculateListByThEvalStatsTagging(
-              keySet, responseSet, featureSet, featureComparison, listIdFeatureName, scoreFeatureName, bth.getWhichThresholds(), bth);      
+              document.getAnnotations(getStringOrElse(getResponseASName(), "")),
+              keySet, responseSet, featureSet, featureComparison, 
+              listIdFeatureName, scoreFeatureName, bth.getWhichThresholds(), bth);      
     }
     
     // Store the counts and measures as document feature values
