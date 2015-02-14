@@ -163,6 +163,15 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   public List<String> getByValueFeatureNames() { return byValueFeatureNames; }
   */
   
+  public String listIdFeatureName;
+  @CreoleParameter(comment="",defaultValue="")
+  @RunTime
+  @Optional  
+  public void setListIdFeatureName(String value) { listIdFeatureName = value; }
+  public String getListIdFeatureName() { return listIdFeatureName; }
+     
+  
+  
   private String scoreFeatureName;
   @CreoleParameter (comment="The name of the feature which contains a numeric score or confidence. If specified will generated P/R curve.")
   @Optional
@@ -219,16 +228,6 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   public void setWhichThresholds(ThresholdsToUse value) { whichThresholds = value; }
   public ThresholdsToUse getWhichThresholds() { return whichThresholds; }
      
-  /*
-  public String listAnnotationScoreFeature;
-  @CreoleParameter(comment="If this is set, the feature containing the score of annotations from a list annotation")
-  @RunTime
-  @Optional
-  public void setListAnnotationScoreFeature(String value) {
-    listAnnotationScoreFeature = value;
-  }
-  public String getListAnnotationScoreFeature() { return listAnnotationScoreFeature; }
-  */
   
   //////////////////// 
   // PR METHODS 
@@ -261,8 +260,15 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   protected Map<String,ByThEvalStatsTagging> evalStatsByThreshold;
   
   
-  protected String featurePrefixResponse = "evaluateTagging.response.";
-  protected String featurePrefixReference = "evaluateTagging.reference.";
+  protected static final String initialFeaturePrefixResponse = "evaluateTagging.response.";
+  protected static final String initialFeaturePrefixReference = "evaluateTagging.reference.";
+  
+  protected String featurePrefixResponse;
+  protected String featurePrefixReference;
+  
+  
+  protected boolean doListEvaluation = false;
+  protected boolean doScoreEvaluation = false;
   
   
   @Override
@@ -354,7 +360,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     
     // Nils can only be represented if there is an id feature. If there is one and we treat
     // nils as absent, lets remove all the nils.
-    if(getFeatureNames().size() > 0 && getNilTreatment().equals(NilTreatment.NIL_IS_ABSENT)) {
+    if(getFeatureNames() != null && getFeatureNames().size() > 0 && getNilTreatment().equals(NilTreatment.NIL_IS_ABSENT)) {
       removeNilAnns(keySet);
       removeNilAnns(responseSet);
       if(referenceSet != null) {
@@ -371,11 +377,15 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     );
     EvalStatsTagging es = docDiffer.getEvalStatsTagging();
 
-    // if we also want to update the by thresholds data, do this now
-    if(evalStatsByThreshold != null) {
+    if(doScoreEvaluation) {
       ByThEvalStatsTagging bth = evalStatsByThreshold.get(type);
       AnnotationDifferTagging.calculateByThEvalStatsTagging(
               keySet, responseSet, featureSet, featureComparison, scoreFeatureName, bth.getWhichThresholds(), bth);
+    } 
+    if(doListEvaluation) {
+      ByThEvalStatsTagging bth = evalStatsByThreshold.get(type);
+      AnnotationDifferTagging.calculateListByThEvalStatsTagging(
+              keySet, responseSet, featureSet, featureComparison, listIdFeatureName, scoreFeatureName, bth.getWhichThresholds(), bth);      
     }
     
     // Store the counts and measures as document feature values
@@ -602,44 +612,70 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
         throw new GateRuntimeException("List of annotation types to use contains a null or empty type name!");
       }      
     }
+    
+    if(getFeatureNames() != null) {
+      for(String t : getFeatureNames()) {
+        if(t == null || t.isEmpty()) {
+          throw new GateRuntimeException("List of feature names to use contains a null or empty type name!");
+        }      
+      }
+    }
+      
     List<String> typesPlusEmpty = new ArrayList<String>();
     if(getAnnotationTypes().size() > 1) {
       typesPlusEmpty.add("");
     }
+
+    //create the data structure that hold an evalstats object over all documents for each type 
     allDocumentsStats = new HashMap<String, EvalStatsTagging>();
+    
+    // if we also have a reference set, create the data structure that holds an evalstats object
+    // over all documents for each type. This is left null if no reference set is specified!    
     if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
       allDocumentsReferenceStats = new HashMap<String, EvalStatsTagging>();
     }
+    
+    // If a score feature name is specified, we need to do either by score or list-based
+    // evaluation. In both cases we need a data structure to hold one by-threshold-object per 
+    // type.
     if(getScoreFeatureName() != null && !getScoreFeatureName().isEmpty()) {
       evalStatsByThreshold = new HashMap<String, ByThEvalStatsTagging>();
+      // also figure out if we want to do list or score evaluation or none of the two
+      if(getListIdFeatureName() != null && !getListIdFeatureName().isEmpty()) {
+        doListEvaluation = true;
+      } else {
+        doScoreEvaluation = true;
+      }
     }
+    
+    
     typesPlusEmpty.addAll(getAnnotationTypes());
     for(String t : typesPlusEmpty) {
       allDocumentsStats.put(t,new EvalStatsTagging());
-      allDocumentsStats.put(t,new EvalStatsTagging());      
-      if(getScoreFeatureName() != null && !getScoreFeatureName().isEmpty()) {
+      if(evalStatsByThreshold != null) {
         evalStatsByThreshold.put(t,new ByThEvalStatsTagging(getWhichThresholds()));
       }    
-      if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
+      if(allDocumentsReferenceStats != null) {
         allDocumentsReferenceStats.put(t,new EvalStatsTagging());
       }
       
     }
     
-    // avoid NPEs later
-    if(featureNames == null) {
-      featureNames = new ArrayList<String>();
+    // If the featureNames list is null, this has the special meaning that the features in 
+    // the key/target annotation should be used. In that case the featureNameSet will also 
+    // be left null. Otherwise the list will get converted to a set.
+    // Convert the feature list into a set
+    if(featureNames != null) {
+      Set<String> featureNameSet = new HashSet<String>();
+      featureNameSet.addAll(featureNames);
+      // check if we have duplicate entries in the featureNames
+      if(featureNameSet.size() != featureNames.size()) {
+        throw new GateRuntimeException("Duplicate feature in the feature name list");
+      }
     }
-    // convert the feature list into a set
-    Set<String> featureNameSet = new HashSet<String>();
-    featureNameSet.addAll(featureNames);
-    
-    // check if we have duplicate entries in the featureNames
-    if(featureNameSet.size() != featureNames.size()) {
-      throw new GateRuntimeException("Duplicate feature in the feature name list");
-    }
     
     
+    // Establish the default containment type if it was not specified. 
     if(getContainmentType() == null) {
       containmentType = ContainmentType.OVERLAPPING;
     }
@@ -647,8 +683,8 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
       nilTreatment = NilTreatment.NO_NILS;
     }
     
-    featurePrefixResponse += getResponseASName() + ".";
-    featurePrefixReference += getReferenceASName() + ".";
+    featurePrefixResponse = initialFeaturePrefixResponse + getResponseASName() + ".";
+    featurePrefixReference = initialFeaturePrefixReference + getReferenceASName() + ".";
 
     outputStream = getOutputStream();
     // Output the initial header line

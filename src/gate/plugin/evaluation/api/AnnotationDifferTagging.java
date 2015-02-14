@@ -191,7 +191,7 @@ public class AnnotationDifferTagging {
    * @param responses
    * @param features
    * @param fcmp
-   * @param thresholdFeature
+   * @param scoreFeature
    * @param byThresholdEvalStats
    * @return 
    */
@@ -200,12 +200,10 @@ public class AnnotationDifferTagging {
           AnnotationSet responses,
           Set<String> featureSet,
           FeatureComparison fcmp,
-          String thresholdFeature,
+          String scoreFeature,
           ThresholdsToUse thToUse,
           ByThEvalStatsTagging existingByThresholdEvalStats
   ) {
-    // if we have a threshold feature, get all the thresholds and re-runn the calculateDiff 
-    // method for each threshold. Add the per-threshold evalstats to the byThresholdEvalStats object.
     ByThEvalStatsTagging byThresholdEvalStats = null;
     if(existingByThresholdEvalStats == null) {
       byThresholdEvalStats = new ByThEvalStatsTagging(thToUse);
@@ -215,14 +213,14 @@ public class AnnotationDifferTagging {
       }
       byThresholdEvalStats = existingByThresholdEvalStats;
     }
-    if (thresholdFeature == null || thresholdFeature.isEmpty()) {
+    if (scoreFeature == null || scoreFeature.isEmpty()) {
       throw new GateRuntimeException("thresholdFeature must not be null or empty");
     }
       NavigableSet<Double> thresholds = new TreeSet<Double>();
       if (byThresholdEvalStats.getWhichThresholds() == ThresholdsToUse.USE_ALL
               || byThresholdEvalStats.getWhichThresholds() == ThresholdsToUse.USE_ALLROUNDED) {
         for (Annotation res : responses) {
-        double score = getFeatureDouble(res.getFeatures(), thresholdFeature, Double.NaN);
+        double score = getFeatureDouble(res.getFeatures(), scoreFeature, Double.NaN);
           if (Double.isNaN(score)) {
             throw new GateRuntimeException("Response does not have a score: " + res);
           }
@@ -259,7 +257,7 @@ public class AnnotationDifferTagging {
       AnnotationDifferTagging tmpAD = new AnnotationDifferTagging();
       tmpAD.createAdditionalData = false;
       for (double t : thresholds) {
-        EvalStatsTagging es = tmpAD.calculateDiff(targets, responses, featureSet, fcmp, thresholdFeature, t);
+        EvalStatsTagging es = tmpAD.calculateDiff(targets, responses, featureSet, fcmp, scoreFeature, t);
         newMap.put(t, es);
       }
       // add the new map to our Map
@@ -267,6 +265,42 @@ public class AnnotationDifferTagging {
 
     return byThresholdEvalStats;
   }
+  
+  
+  public static ByThEvalStatsTagging calculateListByThEvalStatsTagging(
+          AnnotationSet targets,
+          AnnotationSet responses,
+          Set<String> featureSet,
+          FeatureComparison fcmp,
+          String listIdFeature,
+          String scoreFeature,
+          ThresholdsToUse thToUse,
+          ByThEvalStatsTagging existingByThresholdEvalStats
+  ) {
+    ByThEvalStatsTagging byThresholdEvalStats = null;
+    if(existingByThresholdEvalStats == null) {
+      byThresholdEvalStats = new ByThEvalStatsTagging(thToUse);
+    } else {
+      if(existingByThresholdEvalStats.getWhichThresholds() != thToUse) {
+        throw new GateRuntimeException("The ThresholdsToUse parameter is different from the setting for the existingByThresholdEvalStats object");
+      }
+      byThresholdEvalStats = existingByThresholdEvalStats;
+    }
+    if (scoreFeature == null || scoreFeature.isEmpty()) {
+      throw new GateRuntimeException("thresholdFeature must not be null or empty");
+    }
+    
+    // for each response, create an actual sorted list of candidate annotations and also store the 
+    // minimum and maximum score.
+    
+    // Either use the predefined set of thresholds or get the thresholds from the scores from
+    // all the annotations pointed to from the list annotation. 
+    
+    // By increasing threshold, process the responses: 
+    
+    
+    return byThresholdEvalStats;
+  }  
 
   //protected Collection<Annotation> targets;
   //protected Collection<Annotation> responses;
