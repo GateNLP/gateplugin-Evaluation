@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.NavigableSet;
 import java.util.Set;
 import java.util.TreeSet;
+import org.apache.log4j.Logger;
 
 /**
  * A class for finding the differences between two annotation sets and calculating the counts
@@ -73,6 +74,9 @@ import java.util.TreeSet;
  * @author Johann Petrak
  */
 public class AnnotationDifferTagging {
+  
+  
+  protected static final Logger logger = Logger.getLogger(AnnotationDifferTagging.class);
   
   protected EvalStatsTagging evalStats = new EvalStatsTagging();
 
@@ -336,9 +340,9 @@ public class AnnotationDifferTagging {
     AnnotationDifferTagging tmpAD = new AnnotationDifferTagging();
     tmpAD.createAdditionalData = false;
     for(double th : thresholds) {
-      System.out.println("DEBUG: running differ for th "+th+" nr targets is "+targets.size()+" nr responseCands is "+responseCandidatesLists.size());
+      logger.debug("DEBUG: running differ for th "+th+" nr targets is "+targets.size()+" nr responseCands is "+responseCandidatesLists.size());
       EvalStatsTagging es = tmpAD.calculateDiff(targets, listAnnotations, featureSet, fcmp, scoreFeature, th, responseCandidatesLists);
-      System.out.println("DEBUG: got stats: "+es);
+      logger.debug("DEBUG: got stats: "+es);
       newMap.put(th, es);      
     }
     byThresholdEvalStats.add(newMap);
@@ -606,7 +610,7 @@ public class AnnotationDifferTagging {
           double threshold, // if not NaN, we will calculate the stats only for responses with score >= threshold
           List<CandidateList> candidateLists
   ) {
-    System.out.println("DEBUG: calculating the differences for threshold "+threshold);
+    logger.debug("DEBUG: calculating the differences for threshold "+threshold);
     EvalStatsTagging es = new EvalStatsTagging(threshold);
 
     if (createAdditionalData) {
@@ -629,7 +633,7 @@ public class AnnotationDifferTagging {
     // if the candidateLists parameter is not null, we need to prepare the responses 
     // from those lists.
     if(candidateLists != null) {
-      System.out.println("DEBUG: candidate list size is "+candidateLists.size());
+      logger.debug("DEBUG: candidate list size is "+candidateLists.size());
       // we create the response list by going through all the candidate lists and 
       // adding the highest score candidate to the response list if the candidate list 
       // still has entries for the threshold. That candidate may get replaced later ...
@@ -643,7 +647,7 @@ public class AnnotationDifferTagging {
         } 
         cidx++;
       }
-      System.out.println("DEBUG: response list size is now: "+responseList.size());
+      logger.debug("DEBUG: response list size is now: "+responseList.size());
     } else {
       
       // if we do not need to process the candidate lists, check if we need to process for 
@@ -664,7 +668,7 @@ public class AnnotationDifferTagging {
         }
       }
     } 
-    //System.out.println("DEBUG: responseList size for threshold "+threshold+" is "+responseList.size());
+    //logger.debug("DEBUG: responseList size for threshold "+threshold+" is "+responseList.size());
 
     keyChoices = new ArrayList<List<Pairing>>(keyList.size());
     // initialize by nr_keys nulls
@@ -702,22 +706,29 @@ public class AnnotationDifferTagging {
             Annotation bestAnn = responseList.get(j);
             for(int c = 0; c < candList.size; c++) {
               Annotation tmpResp = candList.get(c);
+              logger.debug("Checking annotation for th="+threshold+" at index: "+c+": "+tmpResp);
               if(isAnnotationsMatch(keyAnn,tmpResp,features,fcmp)) {
                 // if we are coextensive, then we can stop: can't get any better!
                 if(keyAnn.coextensive(tmpResp)) {
+                  logger.debug("Found correct match!!");
                   match = CORRECT_VALUE;
                   bestAnn = tmpResp; 
                   break;
                 } else {
+                  logger.debug("Found a partial match, checking if we can add!");
                   // if we did not already find a match, store
-                  if(match < 0) {
+                  if(match == WRONG_VALUE || match == MISMATCH_VALUE) {
+                    logger.debug("Found a partial match and adding!");
                     match = PARTIALLY_CORRECT_VALUE;
                     bestAnn = tmpResp;
                   }
                 }
               } else if(keyAnn.coextensive(tmpResp) && match == WRONG_VALUE) {
+                logger.debug("Found a MISMATCH");
                 match = MISMATCH_VALUE;
                 bestAnn = tmpResp;
+              } else {
+                logger.debug("Found ODD: match="+match);
               }
             } // for
             responseList.set(j, bestAnn);
@@ -769,7 +780,7 @@ public class AnnotationDifferTagging {
       finalChoices.add(bestChoice);
       switch (bestChoice.value) {
         case CORRECT_VALUE: {
-          //System.out.println("DEBUG: add a correct strict one: "+bestChoice.getKey());
+          //logger.debug("DEBUG: add a correct strict one: "+bestChoice.getKey());
           if (createAdditionalData) {
             correctStrictAnns.add(bestChoice.getResponse());
           }
@@ -778,7 +789,7 @@ public class AnnotationDifferTagging {
           break;
         }
         case PARTIALLY_CORRECT_VALUE: {  // correct but only opverlap, not coextensive
-          //System.out.println("DEBUG: add a correct partial one: "+bestChoice.getKey());
+          //logger.debug("DEBUG: add a correct partial one: "+bestChoice.getKey());
           if (createAdditionalData) {
             correctPartialAnns.add(bestChoice.getResponse());
           }
@@ -794,9 +805,9 @@ public class AnnotationDifferTagging {
               incorrectStrictAnns.add(bestChoice.getResponse());
             }
           } else if (bestChoice.getKey() != null) {
-            System.out.println("DEBUG: GOT a MISMATCH_VALUE (coext and not correct) with no key " + bestChoice);
+            logger.debug("DEBUG: GOT a MISMATCH_VALUE (coext and not correct) with no key " + bestChoice);
           } else if (bestChoice.getResponse() != null) {
-            System.out.println("DEBUG: GOT a MISMATCH_VALUE (coext and not correct) with no response " + bestChoice);
+            logger.debug("DEBUG: GOT a MISMATCH_VALUE (coext and not correct) with no response " + bestChoice);
           }
           break;
         }
@@ -809,9 +820,9 @@ public class AnnotationDifferTagging {
             bestChoice.setType(MISMATCH_TYPE);
           } else if (bestChoice.getKey() == null) {
             // this is a responseAnns which overlaps with a keyAnns but does not have a keyAnns??
-            System.out.println("DEBUG: GOT a WRONG_VALUE (overlapping and not correct) with no key " + bestChoice);
+            logger.debug("DEBUG: GOT a WRONG_VALUE (overlapping and not correct) with no key " + bestChoice);
           } else if (bestChoice.getResponse() == null) {
-            System.out.println("DEBUG: GOT a WRONG_VALUE (overlapping and not correct) with no response " + bestChoice);
+            logger.debug("DEBUG: GOT a WRONG_VALUE (overlapping and not correct) with no response " + bestChoice);
           }
           break;
         }
@@ -866,14 +877,14 @@ public class AnnotationDifferTagging {
           if (ol.size() == 0) {
             es.addSingleCorrectStrict(1);
           }
-          //System.out.println("DEBUG have a correct strict choice, overlapping: "+ol.size()+" key is "+t);
+          //logger.debug("DEBUG have a correct strict choice, overlapping: "+ol.size()+" key is "+t);
         } else if (p.getType() == PARTIALLY_CORRECT_TYPE) {
           Annotation t = p.getKey();
           AnnotationSet ol = gate.Utils.getOverlappingAnnotations(spuriousAnnSet, t);
           if (ol.size() == 0) {
             es.addSingleCorrectPartial(1);
           }
-          //System.out.println("DEBUG have a correct partial choice, overlapping: "+ol.size()+" key is "+t);
+          //logger.debug("DEBUG have a correct partial choice, overlapping: "+ol.size()+" key is "+t);
         }
       }
     }
@@ -921,7 +932,7 @@ public class AnnotationDifferTagging {
           for (String fn : features) {
             Object o1 = fmk.get(fn);
             Object o2 = fmr.get(fn);
-            //System.out.println("DEBUG: comparing values "+o1+" and "+o2);
+            //logger.debug("DEBUG: comparing values "+o1+" and "+o2);
             if (o1 == null && o2 != null) {
               return false;
             }
@@ -1335,18 +1346,18 @@ public class AnnotationDifferTagging {
         throw new GateRuntimeException("The listIdFeature for a list annotation does not contain a list: "+listAnn);
       }
       List<Integer> ids = (List<Integer>)val;
-      System.out.println("DEBUG: processing list annotation "+listAnn);
-      System.out.println("DEBUG: id list is "+ids);
+      logger.debug("DEBUG: processing list annotation "+listAnn);
+      logger.debug("DEBUG: id list is "+ids);
       
       if(!ids.isEmpty()) {
         cands = new ArrayList<Annotation>(ids.size());
         for(Integer id : ids) {
-          System.out.println("DEBUG: trying to get annotation for id "+id);
+          logger.debug("DEBUG: trying to get annotation for id "+id);
           cands.add(annSet.get(id));
         }
         ByScoreComparator comp = new ByScoreComparator(scoreFeature);
         cands.sort(comp);
-        System.out.println("DEBUG: cands is now "+cands);
+        logger.debug("DEBUG: cands is now "+cands);
         smallestScoreIndex = cands.size()-1;
         smallestScore = object2Double(cands.get(smallestScoreIndex).getFeatures().get(scoreFeature));
         highestScore = object2Double(cands.get(0).getFeatures().get(scoreFeature));
@@ -1364,6 +1375,8 @@ public class AnnotationDifferTagging {
     private String scoreFeature;
     
     public void setThreshold(double th) {
+      logger.debug("DEBUG: candidatelist setting threshold to "+th+" size before="+size);
+      logger.debug("DEBUG: highest="+highestScore+" smallest="+smallestScore);
       if (th > highestScore) {
         size = 0;
         smallestScore = Double.NaN;
@@ -1375,14 +1388,17 @@ public class AnnotationDifferTagging {
         while (th > smallestScore && size > 0) {
           size--;
           smallestScoreIndex--;
+          if(size>0) {
+            smallestScore = object2Double(cands.get(smallestScoreIndex).getFeatures().get(scoreFeature));
+          }
         }
         if (size == 0) {
+          smallestScoreIndex = -1;
           smallestScore = Double.NaN;
           highestScore = Double.NaN;
-        } else {
-          smallestScore = object2Double(cands.get(smallestScoreIndex).getFeatures().get(scoreFeature));
-        }
+        } 
       }
+      logger.debug("DEBUG: candidatelist setting threshold to "+th+" size after="+size);
     }
 
     public Annotation get(int index) {

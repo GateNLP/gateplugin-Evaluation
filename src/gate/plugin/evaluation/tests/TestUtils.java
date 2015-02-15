@@ -4,8 +4,6 @@ import gate.AnnotationSet;
 import gate.Document;
 import gate.Factory;
 import gate.FeatureMap;
-import gate.LanguageAnalyser;
-import gate.ProcessingResource;
 import static gate.Utils.addAnn;
 import static gate.Utils.featureMap;
 import gate.creole.ExecutionException;
@@ -75,16 +73,13 @@ public class TestUtils {
     addAnn(set,from,to,typeWithoutList+"List",featureMap("ids",annIds));
   }
   
-  public static void pln(String what) {
-    System.out.println(what);
-  }
   
-  public static void p(String what) { System.out.print(what); }
-  
-  public static void runETPR(EvaluateTagging pr, Document doc) throws ExecutionException {
-    pr.setDocument(doc);
+  public static void runETPR(EvaluateTagging pr, Document... docs) throws ExecutionException {
     pr.controllerExecutionStarted(null);
-    pr.execute();
+    for(Document d : docs) {
+      pr.setDocument(d);
+      pr.execute();
+    }
     pr.controllerExecutionFinished(null);
   }
   

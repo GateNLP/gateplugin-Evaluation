@@ -25,7 +25,6 @@ import gate.util.GateException;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -35,6 +34,11 @@ import static gate.Utils.*;
 import gate.plugin.evaluation.api.ByThEvalStatsTagging;
 import gate.plugin.evaluation.api.ThresholdsToUse;
 import static gate.plugin.evaluation.tests.TestUtils.*;
+import java.io.OutputStreamWriter;
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
 
 /**
  * Tests, mainly for the back-end API.
@@ -50,8 +54,20 @@ public class TestTagging1 {
   private Document doc2;
   private File pluginHome;
   private File testingDir;
+  private static final Logger logger = Logger.getLogger(TestTagging1.class);
   @Before
   public void setup() throws GateException, IOException {
+    /*
+    logger.setLevel(Level.DEBUG);
+    Logger rootLogger = Logger.getRootLogger();
+    rootLogger.setLevel(Level.DEBUG);
+    //logger.setLevel(Level.INFO);
+    ConsoleAppender appender = new ConsoleAppender();
+    appender.setWriter(new OutputStreamWriter(System.out));
+    appender.setLayout(new PatternLayout("%-5p [%t]: %m%n"));
+    //logger.addAppender(appender);
+    rootLogger.addAppender(appender);
+    */
     if(!Gate.isInitialised()) {
       Gate.runInSandbox(true);
       Gate.init();
@@ -75,7 +91,7 @@ public class TestTagging1 {
   
   @Test
   public void testTagging01() {
-    System.out.println("Running test testTagging01");
+    logger.debug("Running test testTagging01");
     // Get the differences, using the old method
     //AnnotationDifferOld annDiffer = new AnnotationDifferOld();
     gate.util.AnnotationDiffer annDiffer = new gate.util.AnnotationDiffer();
@@ -83,9 +99,9 @@ public class TestTagging1 {
     features.add("id");
     annDiffer.setSignificantFeaturesSet(features);
     AnnotationSet doc1KeyAnns = doc1.getAnnotations("Key");
-    //System.out.println("testTagging01 doc1 anns from Key: "+doc1KeyAnns);
+    //logger.debug("testTagging01 doc1 anns from Key: "+doc1KeyAnns);
     AnnotationSet doc1Resp1Anns = doc1.getAnnotations("Resp1");    
-    //System.out.println("testTagging01 doc1 anns from Resp1: "+doc1Resp1Anns);
+    //logger.debug("testTagging01 doc1 anns from Resp1: "+doc1Resp1Anns);
     List<gate.util.AnnotationDiffer.Pairing> pairings = annDiffer.calculateDiff(doc1KeyAnns, doc1Resp1Anns);
     
     Set<String> featureSet = new HashSet<String>();
@@ -93,47 +109,47 @@ public class TestTagging1 {
     AnnotationDifferTagging newDiffer = new AnnotationDifferTagging(doc1KeyAnns,doc1Resp1Anns,featureSet,FC_EQU);
     EvalStatsTagging newDifferES = newDiffer.getEvalStatsTagging();
     
-    System.out.println("OLD testFindPairings01 doc1 keys: "+annDiffer.getKeysCount());
-    System.out.println("NEW testFindPairings01 doc1 keys: "+newDifferES.getTargets());
-    System.out.println("OLD testFindPairings01 doc1 resp: "+annDiffer.getResponsesCount());
-    System.out.println("NEW testFindPairings01 doc1 resp: "+newDifferES.getResponses());
-    System.out.println("OLD testFindPairings01 doc1 correct: "+annDiffer.getCorrectMatches());
-    System.out.println("NEW testFindPairings01 doc1 correct: "+newDifferES.getCorrectStrict());
-    System.out.println("OLD testFindPairings01 doc1 correct anns: "+annDiffer.correctAnnotations.size());
-    System.out.println("OLD testFindPairings01 doc1 partially correct: "+annDiffer.getPartiallyCorrectMatches());
-    System.out.println("NEW testFindPairings01 doc1 partially correct: "+newDifferES.getCorrectPartial());
-    System.out.println("OLD testFindPairings01 doc1 partial anns: "+annDiffer.partiallyCorrectAnnotations.size());
-    System.out.println("OLD testFindPairings01 doc1 spurious: "+annDiffer.getSpurious());
-    System.out.println("NEW testFindPairings01 doc1 spurious strict: "+newDifferES.getSpuriousStrict());
-    System.out.println("NEW testFindPairings01 doc1 spurious lenient: "+newDifferES.getSpuriousLenient());
-    System.out.println("NEW testFindPairings01 doc1 true spurious strict: "+newDifferES.getTrueSpuriousStrict());
-    System.out.println("NEW testFindPairings01 doc1 true spurious lenient: "+newDifferES.getTrueSpuriousLenient());
-    System.out.println("OLD testFindPairings01 doc1 missing: "+annDiffer.getMissing());
-    System.out.println("NEW testFindPairings01 doc1 missing strict: "+newDifferES.getMissingStrict());
-    System.out.println("NEW testFindPairings01 doc1 missing lenient: "+newDifferES.getMissingLenient());
-    System.out.println("NEW testFindPairings01 doc1 true missing strict: "+newDifferES.getTrueMissingStrict());
-    System.out.println("NEW testFindPairings01 doc1 true missing lenient: "+newDifferES.getTrueMissingLenient());
-    System.out.println("NEW testFindPairings01 doc1 incorrect strict: "+newDifferES.getIncorrectStrict());
-    System.out.println("NEW testFindPairings01 doc1 incorrect lenient: "+newDifferES.getIncorrectLenient());
-    System.out.println("OLD testFindPairings01 doc1 precision strict: "+annDiffer.getPrecisionStrict());
-    System.out.println("NEW testFindPairings01 doc1 precision strict: "+newDifferES.getPrecisionStrict());
-    System.out.println("OLD testFindPairings01 doc1 recall strict: "+annDiffer.getRecallStrict());
-    System.out.println("NEW testFindPairings01 doc1 recall strict: "+newDifferES.getRecallStrict());
-    System.out.println("OLD testFindPairings01 doc1 fmeas strict: "+annDiffer.getFMeasureStrict(1.0));
-    System.out.println("NEW testFindPairings01 doc1 fmeas strict: "+newDifferES.getFMeasureStrict(1.0));
-    System.out.println("OLD testFindPairings01 doc1 precision lenient: "+annDiffer.getPrecisionLenient());
-    System.out.println("NEW testFindPairings01 doc1 precision lenient: "+newDifferES.getPrecisionLenient());
-    System.out.println("OLD testFindPairings01 doc1 recall lenient: "+annDiffer.getRecallLenient());
-    System.out.println("NEW testFindPairings01 doc1 recall lenient: "+newDifferES.getRecallLenient());
-    System.out.println("OLD testFindPairings01 doc1 fmeas lenient: "+annDiffer.getFMeasureLenient(1.0));
-    System.out.println("NEW testFindPairings01 doc1 fmeas lenient: "+newDifferES.getFMeasureLenient(1.0));
-    System.out.println("OLD testFindPairings01 doc1 missing anns: "+annDiffer.missingAnnotations.size());
-    System.out.println("OLD testFindPairings01 doc1 spurious anns: "+annDiffer.spuriousAnnotations.size());
-    System.out.println("NEW testFindPairings01 doc1 true missing lenient anns: "+newDiffer.getTrueMissingLenientAnnotations().size());
-    System.out.println("NEW testFindPairings01 doc1 true spurious lenient anns: "+newDiffer.getTrueSpuriousLenientAnnotations().size());
+    logger.debug("OLD testFindPairings01 doc1 keys: "+annDiffer.getKeysCount());
+    logger.debug("NEW testFindPairings01 doc1 keys: "+newDifferES.getTargets());
+    logger.debug("OLD testFindPairings01 doc1 resp: "+annDiffer.getResponsesCount());
+    logger.debug("NEW testFindPairings01 doc1 resp: "+newDifferES.getResponses());
+    logger.debug("OLD testFindPairings01 doc1 correct: "+annDiffer.getCorrectMatches());
+    logger.debug("NEW testFindPairings01 doc1 correct: "+newDifferES.getCorrectStrict());
+    logger.debug("OLD testFindPairings01 doc1 correct anns: "+annDiffer.correctAnnotations.size());
+    logger.debug("OLD testFindPairings01 doc1 partially correct: "+annDiffer.getPartiallyCorrectMatches());
+    logger.debug("NEW testFindPairings01 doc1 partially correct: "+newDifferES.getCorrectPartial());
+    logger.debug("OLD testFindPairings01 doc1 partial anns: "+annDiffer.partiallyCorrectAnnotations.size());
+    logger.debug("OLD testFindPairings01 doc1 spurious: "+annDiffer.getSpurious());
+    logger.debug("NEW testFindPairings01 doc1 spurious strict: "+newDifferES.getSpuriousStrict());
+    logger.debug("NEW testFindPairings01 doc1 spurious lenient: "+newDifferES.getSpuriousLenient());
+    logger.debug("NEW testFindPairings01 doc1 true spurious strict: "+newDifferES.getTrueSpuriousStrict());
+    logger.debug("NEW testFindPairings01 doc1 true spurious lenient: "+newDifferES.getTrueSpuriousLenient());
+    logger.debug("OLD testFindPairings01 doc1 missing: "+annDiffer.getMissing());
+    logger.debug("NEW testFindPairings01 doc1 missing strict: "+newDifferES.getMissingStrict());
+    logger.debug("NEW testFindPairings01 doc1 missing lenient: "+newDifferES.getMissingLenient());
+    logger.debug("NEW testFindPairings01 doc1 true missing strict: "+newDifferES.getTrueMissingStrict());
+    logger.debug("NEW testFindPairings01 doc1 true missing lenient: "+newDifferES.getTrueMissingLenient());
+    logger.debug("NEW testFindPairings01 doc1 incorrect strict: "+newDifferES.getIncorrectStrict());
+    logger.debug("NEW testFindPairings01 doc1 incorrect lenient: "+newDifferES.getIncorrectLenient());
+    logger.debug("OLD testFindPairings01 doc1 precision strict: "+annDiffer.getPrecisionStrict());
+    logger.debug("NEW testFindPairings01 doc1 precision strict: "+newDifferES.getPrecisionStrict());
+    logger.debug("OLD testFindPairings01 doc1 recall strict: "+annDiffer.getRecallStrict());
+    logger.debug("NEW testFindPairings01 doc1 recall strict: "+newDifferES.getRecallStrict());
+    logger.debug("OLD testFindPairings01 doc1 fmeas strict: "+annDiffer.getFMeasureStrict(1.0));
+    logger.debug("NEW testFindPairings01 doc1 fmeas strict: "+newDifferES.getFMeasureStrict(1.0));
+    logger.debug("OLD testFindPairings01 doc1 precision lenient: "+annDiffer.getPrecisionLenient());
+    logger.debug("NEW testFindPairings01 doc1 precision lenient: "+newDifferES.getPrecisionLenient());
+    logger.debug("OLD testFindPairings01 doc1 recall lenient: "+annDiffer.getRecallLenient());
+    logger.debug("NEW testFindPairings01 doc1 recall lenient: "+newDifferES.getRecallLenient());
+    logger.debug("OLD testFindPairings01 doc1 fmeas lenient: "+annDiffer.getFMeasureLenient(1.0));
+    logger.debug("NEW testFindPairings01 doc1 fmeas lenient: "+newDifferES.getFMeasureLenient(1.0));
+    logger.debug("OLD testFindPairings01 doc1 missing anns: "+annDiffer.missingAnnotations.size());
+    logger.debug("OLD testFindPairings01 doc1 spurious anns: "+annDiffer.spuriousAnnotations.size());
+    logger.debug("NEW testFindPairings01 doc1 true missing lenient anns: "+newDiffer.getTrueMissingLenientAnnotations().size());
+    logger.debug("NEW testFindPairings01 doc1 true spurious lenient anns: "+newDiffer.getTrueSpuriousLenientAnnotations().size());
     
-    System.out.println("NEW Stats object");
-    System.out.println(newDiffer.getEvalStatsTagging());
+    logger.debug("NEW Stats object");
+    logger.debug(newDiffer.getEvalStatsTagging());
     
     
     assertEquals("precision strict",annDiffer.getPrecisionStrict(),newDifferES.getPrecisionStrict(),EPS);
@@ -258,17 +274,17 @@ public class TestTagging1 {
     // add 2 correct responses with 4 different scores
     addA(doc,"Resp",0,10,"M",featureMap("id","x","s","0.1"));
     AnnotationSet r = addA(doc,"Resp",60,70,"M",featureMap("id","x","s","0.5"));
-    System.out.println("DEBUG: Running test PR01");
+    logger.debug("DEBUG: Running test PR01");
     ByThEvalStatsTagging bth = 
             AnnotationDifferTagging.calculateByThEvalStatsTagging(t, r, FS_ID, FC_EQU,"s",ThresholdsToUse.USE_ALL,null);
     AnnotationDifferTagging ad = new AnnotationDifferTagging(t, r, FS_ID, FC_EQU);
     EvalStatsTagging es = ad.getEvalStatsTagging();
 
     // Disregarding the thresholds, all responses must be correct
-    System.out.println("Stats for th=0.5:");
-    System.out.println(bth.get(0.5));
-    System.out.println("Stats for th=0.1:");
-    System.out.println(bth.get(0.1));
+    logger.debug("Stats for th=0.5:");
+    logger.debug(bth.get(0.5));
+    logger.debug("Stats for th=0.1:");
+    logger.debug(bth.get(0.1));
     assertEquals("F1.0 strict, th=NaN",1.0,es.getFMeasureStrict(1.0),EPS);
     // At the higher threshold, only one of the two correct ones is still there, so precision
     // must be 1.0 and recall 0.5
@@ -298,10 +314,10 @@ public class TestTagging1 {
     EvalStatsTagging es = ad.getEvalStatsTagging();
     
     // now actually perform the tests on the values ....
-    System.out.println("PR02, th=0.1: "+bth.get(0.1).shortCounts());
-    System.out.println("PR02, th=0.2: "+bth.get(0.2).shortCounts());
-    System.out.println("PR02, th=0.3: "+bth.get(0.3).shortCounts());
-    System.out.println("PR02, th=0.4: "+bth.get(0.4).shortCounts());
+    logger.debug("PR02, th=0.1: "+bth.get(0.1).shortCounts());
+    logger.debug("PR02, th=0.2: "+bth.get(0.2).shortCounts());
+    logger.debug("PR02, th=0.3: "+bth.get(0.3).shortCounts());
+    logger.debug("PR02, th=0.4: "+bth.get(0.4).shortCounts());
     assertEquals("F1.0 strict, th=NaN",1.0,es.getFMeasureStrict(1.0),EPS);
     assertEquals("Prec strict, th=0.1",1.0,bth.get(0.1).getPrecisionStrict(),EPS);
     assertEquals("Rec strict,  th=0.1",1.0,bth.get(0.1).getRecallStrict(),EPS);
@@ -340,10 +356,10 @@ public class TestTagging1 {
     es.add(ad.getEvalStatsTagging());
     
     // now actually perform the tests on the values ....
-    System.out.println("PR02, th=0.1: "+bth.get(0.1).shortCounts());
-    System.out.println("PR02, th=0.2: "+bth.get(0.2).shortCounts());
-    System.out.println("PR02, th=0.3: "+bth.get(0.3).shortCounts());
-    System.out.println("PR02, th=0.4: "+bth.get(0.4).shortCounts());
+    logger.debug("PR02, th=0.1: "+bth.get(0.1).shortCounts());
+    logger.debug("PR02, th=0.2: "+bth.get(0.2).shortCounts());
+    logger.debug("PR02, th=0.3: "+bth.get(0.3).shortCounts());
+    logger.debug("PR02, th=0.4: "+bth.get(0.4).shortCounts());
     assertEquals("F1.0 strict, th=NaN",1.0,es.getFMeasureStrict(1.0),EPS);
     assertEquals("Prec strict, th=0.1",1.0,bth.get(0.1).getPrecisionStrict(),EPS);
     assertEquals("Rec strict,  th=0.1",1.0,bth.get(0.1).getRecallStrict(),EPS);
@@ -354,24 +370,6 @@ public class TestTagging1 {
     assertEquals("Prec strict, th=0.4",1.0,bth.get(0.4).getPrecisionStrict(),EPS);
     assertEquals("Rec strict,  th=0.4",0.25,bth.get(0.4).getRecallStrict(),EPS);
   }
-  
-
-
-
-///////////////////////////
-  /// HELPER METHODS
-  ///////////////////////////
-  
-  
-  ///////////////////////////
-  /// MAIN
-  //////////////////////////
-  
-  
-  // so we can run this test from the command line 
-  //public static void main(String args[]) {
-  //  org.junit.runner.JUnitCore.main(TestTagging1.class.getCanonicalName());
-  //}  
   
   
 }

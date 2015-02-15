@@ -49,6 +49,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.apache.log4j.Logger;
 
 // TODO: add a list for getting the distribution of ranks/score of first lenient/exact match
 // if we process lists. 
@@ -277,6 +278,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   protected boolean doListEvaluation = false;
   protected boolean doScoreEvaluation = false;
   
+  protected static final Logger logger = Logger.getLogger(EvaluateTagging.class);
   
   @Override
   public void execute() {
@@ -472,8 +474,8 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     docFm.put(featurePrefixResponseT+"Responses", es.getResponses());
     
     
-    System.out.println("DEBUG: type is "+type);
-    System.out.println("DEBUG: all document stats types "+allDocumentsStats.keySet());
+    logger.debug("DEBUG: type is "+type);
+    logger.debug("DEBUG: all document stats types "+allDocumentsStats.keySet());
     allDocumentsStats.get(type).add(es);
     
     // Now if we have parameters to record the matchings, get the information from the docDiffer
@@ -709,7 +711,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     
     typesPlusEmpty.addAll(getAnnotationTypes());
     for(String t : typesPlusEmpty) {
-      System.out.println("DEBUG: initializing alldocument stats for type "+t);
+      logger.debug("DEBUG: initializing alldocument stats for type "+t);
       allDocumentsStats.put(t,new EvalStatsTagging());
       if(evalStatsByThreshold != null) {
         evalStatsByThreshold.put(t,new ByThEvalStatsTagging(getWhichThresholds()));
@@ -746,7 +748,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     featurePrefixReference = initialFeaturePrefixReference + getReferenceASName() + ".";
 
     outputStream = getOutputStream();
-    System.out.println("DEBUG: output stream is "+outputStream);
+    logger.debug("DEBUG: output stream is "+outputStream);
     // Output the initial header line
     if(outputStream != null) {
       outputStream.print("evaluationId"); outputStream.print("\t");
