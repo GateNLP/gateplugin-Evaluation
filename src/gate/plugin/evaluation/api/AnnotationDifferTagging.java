@@ -259,11 +259,26 @@ public class AnnotationDifferTagging {
     return byThresholdEvalStats;
   }
   
+  public static List<CandidateList> createCandidateLists(AnnotationSet candidatesSet, 
+          AnnotationSet listAnnotations, String listIdFeature, String scoreFeature) {
+    // for each response, create an actual sorted list of candidate annotations and also store the 
+    // minimum and maximum score.
+    List<CandidateList> responseCandidates = new ArrayList<CandidateList>(listAnnotations.size());
+    for(Annotation ann : listAnnotations) {
+      CandidateList cl = new CandidateList(candidatesSet, ann, listIdFeature, scoreFeature);
+      if(cl.size > 0) {
+        responseCandidates.add(cl);
+      }
+    }
+    return responseCandidates;
+    
+  }
   
   public static ByThEvalStatsTagging calculateListByThEvalStatsTagging(
           AnnotationSet targets,
           AnnotationSet listAnnotations,  
-          AnnotationSet candidates,
+          //AnnotationSet candidates,
+          List<CandidateList> responseCandidatesLists,
           Set<String> featureSet,
           FeatureComparison fcmp,
           String listIdFeature,
@@ -284,16 +299,27 @@ public class AnnotationDifferTagging {
       throw new GateRuntimeException("thresholdFeature must not be null or empty");
     }
     
+    
     // for each response, create an actual sorted list of candidate annotations and also store the 
     // minimum and maximum score.
-    List<CandidateList> responseCandidates = new ArrayList<CandidateList>(listAnnotations.size());
+    //List<CandidateList> responseCandidates = new ArrayList<CandidateList>(listAnnotations.size());
     Set<Double> allScores = null;
     if(thToUse == ThresholdsToUse.USE_ALL || thToUse == ThresholdsToUse.USE_ALLROUNDED) {
       allScores = new HashSet<Double>();
     }
-    for(Annotation ann : listAnnotations) {
-      responseCandidates.add(new CandidateList(candidates, ann, listIdFeature, scoreFeature, allScores, thToUse == ThresholdsToUse.USE_ALLROUNDED));
-    }
+    
+        if(allScores != null) {
+          for(CandidateList listOfCandList : responseCandidatesLists) {
+          for(Annotation ann : listOfCandList.getList()) {
+            double score = object2Double(ann.getFeatures().get(scoreFeature));
+            if(thToUse == ThresholdsToUse.USE_ALLROUNDED) { 
+              score = round(score,100.0);
+            }
+            allScores.add(score);
+          }
+          }
+        }
+    
     
     // Either use the predefined set of thresholds or get the thresholds from the scores from
     // all the annotations pointed to from the list annotation. 
@@ -310,7 +336,9 @@ public class AnnotationDifferTagging {
     AnnotationDifferTagging tmpAD = new AnnotationDifferTagging();
     tmpAD.createAdditionalData = false;
     for(double th : thresholds) {
-      EvalStatsTagging es = tmpAD.calculateDiff(targets, listAnnotations, featureSet, fcmp, scoreFeature, th, responseCandidates);
+      System.out.println("DEBUG: running differ for th "+th+" nr targets is "+targets.size()+" nr responseCands is "+responseCandidatesLists.size());
+      EvalStatsTagging es = tmpAD.calculateDiff(targets, listAnnotations, featureSet, fcmp, scoreFeature, th, responseCandidatesLists);
+      System.out.println("DEBUG: got stats: "+es);
       newMap.put(th, es);      
     }
     byThresholdEvalStats.add(newMap);
@@ -591,20 +619,31 @@ public class AnnotationDifferTagging {
     }
     keyList = new ArrayList<Annotation>(keyAnns);
     responseList = null;
+    // If we do list processing, this records, for each response annotation, what the corresponding
+    // index of the candidate list is. Since the responeList only contains annotations from those
+    // candidate lists which have still at least one candidate, there is no 1:1 mapping between
+    // the index of an annotation in the responseList and the index of the candidate lists, so 
+    // this list is used instead.
+    List<Integer> candidateIndices = new ArrayList<Integer>();
     
     // if the candidateLists parameter is not null, we need to prepare the responses 
     // from those lists.
     if(candidateLists != null) {
+      System.out.println("DEBUG: candidate list size is "+candidateLists.size());
       // we create the response list by going through all the candidate lists and 
       // adding the highest score candidate to the response list if the candidate list 
       // still has entries for the threshold. That candidate may get replaced later ...
-      responseList = new ArrayList<Annotation>(responseAnns);
+      responseList = new ArrayList<Annotation>(responseAnns.size());
+      int cidx = 0;
       for(CandidateList cand : candidateLists) {
         cand.setThreshold(threshold);
         if(cand.size != 0) {
           responseList.add(cand.get(0));
-        }
+          candidateIndices.add(cidx);
+        } 
+        cidx++;
       }
+      System.out.println("DEBUG: response list size is now: "+responseList.size());
     } else {
       
       // if we do not need to process the candidate lists, check if we need to process for 
@@ -656,12 +695,12 @@ public class AnnotationDifferTagging {
         // range if the list annotation with the key annotation. Only if they overlap, we 
         // go through the candidates.
         if(candidateLists != null) {
-          CandidateList candList = candidateLists.get(j);
+          CandidateList candList = candidateLists.get(candidateIndices.get(j));
           if(keyAnn.overlaps(candList.getListAnnotation())) {
             // find the best matching annotation and remember which kind of match we had
             int match = WRONG_VALUE;
             Annotation bestAnn = responseList.get(j);
-            for(int c = 0; i < candList.size; i++) {
+            for(int c = 0; c < candList.size; c++) {
               Annotation tmpResp = candList.get(c);
               if(isAnnotationsMatch(keyAnn,tmpResp,features,fcmp)) {
                 // if we are coextensive, then we can stop: can't get any better!
@@ -1282,13 +1321,12 @@ public class AnnotationDifferTagging {
   // update the state and may cause the number of visible elements to get changed to 0
   // The purpose of all this is to make checking these lists more efficient by preventing
   // actually destructively removing elements from the list
-  protected static class CandidateList {
+  public static class CandidateList {
     // the constructor takes the original list annotation and initializes this object 
     // will all the candidate annotations, sorted by the value of the specified score feature.
     // The constructor also optionally takes a HashSet<Double> which will be extended to contain all the 
     // scores seen in this list (unless the parameter is null)
-    public CandidateList(AnnotationSet annSet, Annotation listAnn, String listIdFeature, String scoreFeature, 
-            Set<Double> allScores, boolean allScoresToBeRounded) {
+    public CandidateList(AnnotationSet annSet, Annotation listAnn, String listIdFeature, String scoreFeature) {
       this.scoreFeature = scoreFeature;
       this.listAnn = listAnn;
       // First get the list of ids
@@ -1300,7 +1338,7 @@ public class AnnotationDifferTagging {
       System.out.println("DEBUG: processing list annotation "+listAnn);
       System.out.println("DEBUG: id list is "+ids);
       
-      if(ids.size() != 0) {
+      if(!ids.isEmpty()) {
         cands = new ArrayList<Annotation>(ids.size());
         for(Integer id : ids) {
           System.out.println("DEBUG: trying to get annotation for id "+id);
@@ -1311,17 +1349,8 @@ public class AnnotationDifferTagging {
         System.out.println("DEBUG: cands is now "+cands);
         smallestScoreIndex = cands.size()-1;
         smallestScore = object2Double(cands.get(smallestScoreIndex).getFeatures().get(scoreFeature));
-        highestScore = object2Double(cands.get(0));
+        highestScore = object2Double(cands.get(0).getFeatures().get(scoreFeature));
         size = cands.size();
-        if(allScores != null) {
-          for(Annotation ann : cands) {
-            double score = object2Double(ann.getFeatures().get(scoreFeature));
-            if(allScoresToBeRounded) { 
-              score = round(score,100.0);
-            }
-            allScores.add(score);
-          }
-        }
       }
     }
     public double smallestScore = Double.NaN;
@@ -1360,6 +1389,10 @@ public class AnnotationDifferTagging {
       return cands.get(index);
     }
     
+    public List<Annotation> getList() {
+      return cands;
+    }
+    
     public Annotation getListAnnotation() {
       return listAnn;
     }
@@ -1388,7 +1421,7 @@ public class AnnotationDifferTagging {
       } else if (tmp instanceof Number) {
         return ((Number) tmp).doubleValue();
       } else {
-        return Double.valueOf(tmp.toString());
+        throw new GateRuntimeException("Expected an object that is a Double or number but got "+tmp.getClass()+": "+tmp);
       }
     }
   }

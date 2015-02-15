@@ -4,11 +4,16 @@ import gate.AnnotationSet;
 import gate.Document;
 import gate.Factory;
 import gate.FeatureMap;
+import gate.LanguageAnalyser;
+import gate.ProcessingResource;
 import static gate.Utils.addAnn;
 import static gate.Utils.featureMap;
+import gate.creole.ExecutionException;
 import gate.creole.ResourceInstantiationException;
 import gate.plugin.evaluation.api.FeatureComparison;
+import gate.plugin.evaluation.resources.EvaluateTagging;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -43,6 +48,17 @@ public class TestUtils {
     return Factory.newDocument(STR1000);
   }
   
+  public static List<Integer> newIntList(Integer... vals)  {
+    List<Integer> ret = new ArrayList<Integer>();
+    ret.addAll(Arrays.asList(vals));
+    return ret;
+  }
+  public static List<String> newStringList(String... vals)  {
+    List<String> ret = new ArrayList<String>();
+    ret.addAll(Arrays.asList(vals));
+    return ret;
+  }
+  
   public static AnnotationSet addA(Document doc, String setName, int from, int to, String type, Object idFeatureValue) {
     AnnotationSet set = doc.getAnnotations(setName);
     addAnn(set, from, to, type, featureMap("id",idFeatureValue));
@@ -55,5 +71,22 @@ public class TestUtils {
     return set;
   }
   
-
+  public static void addListAnn(AnnotationSet set, int from, int to, String typeWithoutList, List<Integer> annIds) {
+    addAnn(set,from,to,typeWithoutList+"List",featureMap("ids",annIds));
+  }
+  
+  public static void pln(String what) {
+    System.out.println(what);
+  }
+  
+  public static void p(String what) { System.out.print(what); }
+  
+  public static void runETPR(EvaluateTagging pr, Document doc) throws ExecutionException {
+    pr.setDocument(doc);
+    pr.controllerExecutionStarted(null);
+    pr.execute();
+    pr.controllerExecutionFinished(null);
+  }
+  
+  
 }

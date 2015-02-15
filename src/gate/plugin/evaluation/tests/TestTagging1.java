@@ -37,11 +37,9 @@ import gate.plugin.evaluation.api.ThresholdsToUse;
 import static gate.plugin.evaluation.tests.TestUtils.*;
 
 /**
- * First simple test for the annotation differ. 
- * For now this is used to develop or own strategy for finding and counting
- differences, based on the behavior of the gate.util.AnnotationDifferTagging
+ * Tests, mainly for the back-end API.
  * 
- * @author Petrak
+ * @author Johann Petrak
  */
 public class TestTagging1 {
 

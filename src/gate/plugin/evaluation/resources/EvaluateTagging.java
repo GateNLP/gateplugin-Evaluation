@@ -30,6 +30,7 @@ import gate.creole.metadata.CreoleResource;
 import gate.creole.metadata.Optional;
 import gate.creole.metadata.RunTime;
 import gate.plugin.evaluation.api.AnnotationDifferTagging;
+import gate.plugin.evaluation.api.AnnotationDifferTagging.CandidateList;
 import gate.plugin.evaluation.api.ByThEvalStatsTagging;
 import gate.plugin.evaluation.api.EvalStatsTagging;
 import gate.plugin.evaluation.api.EvalStatsTaggingMacro;
@@ -48,6 +49,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+// TODO: add a list for getting the distribution of ranks/score of first lenient/exact match
+// if we process lists. 
+
+// TODO: add a datastructure for incremental update of the contingency tables needed for 
+// McNemar etc, if we have a reference set.
 
 // TODO: think about how this should deal with parallelization and custom duplication.
 // At the moment this will not work properly or even fail when run from duplicated pipelines. 
@@ -287,24 +294,42 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     AnnotationSet responseSet = null;
     AnnotationSet referenceSet = null;
     Set<String> typeSet = new HashSet<String>();
+    Set<String> typeSet4ListAnns = new HashSet<String>();
     
     if(getAnnotationTypes().size() > 1) {
+      if(doListEvaluation) {
+        for(String t : getAnnotationTypes()) {
+          typeSet4ListAnns.add(t+"List");
+        }
+      }
       typeSet.addAll(getAnnotationTypes());
       keySet = document.getAnnotations(getStringOrElse(getKeyASName(), "")).get(typeSet);
-      responseSet = document.getAnnotations(getStringOrElse(getResponseASName(), "")).get(typeSet);
+      if(doListEvaluation) {
+        responseSet = document.getAnnotations(getStringOrElse(getResponseASName(), "")).get(typeSet4ListAnns);
+      } else {
+        responseSet = document.getAnnotations(getStringOrElse(getResponseASName(), "")).get(typeSet);
+      }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
-        referenceSet = document.getAnnotations(getStringOrElse(getReferenceASName(), "")).get(typeSet);
+        if(doListEvaluation) {
+          referenceSet = document.getAnnotations(getStringOrElse(getReferenceASName(), "")).get(typeSet4ListAnns);
+        } else {
+          referenceSet = document.getAnnotations(getStringOrElse(getReferenceASName(), "")).get(typeSet);
+        }
       }
       evaluateForType(keySet,responseSet,referenceSet,"");
     }
     // now do it for each type seperately
     for(String type : getAnnotationTypes()) {
       keySet = document.getAnnotations(getStringOrElse(getKeyASName(), "")).get(type);
+      String origType = type;
+      if(doListEvaluation) {
+        type = type + "List";
+      }
       responseSet = document.getAnnotations(getStringOrElse(getResponseASName(), "")).get(type);
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
         referenceSet = document.getAnnotations(getStringOrElse(getReferenceASName(), "")).get(type);
       }
-      evaluateForType(keySet,responseSet,referenceSet,type);      
+      evaluateForType(keySet,responseSet,referenceSet,origType);      
     }
     
     
@@ -349,14 +374,21 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     // to the static method for calculating the lists evaluation!
     AnnotationSet listAnns = null;
     AnnotationSet listAnnsReference = null;
+    List<CandidateList> candList = null;
     if(doListEvaluation) {
       listAnns = responseSet;
       listAnnsReference = referenceSet;
+      candList = 
+              AnnotationDifferTagging.createCandidateLists(
+                      document.getAnnotations(getStringOrElse(getResponseASName(), "")),
+                      listAnns, listIdFeatureName, scoreFeatureName);
       // get the highest scored annotation from each list
       responseSet = new AnnotationSetImpl(listAnns.getDocument());
-      referenceSet = new AnnotationSetImpl(listAnnsReference.getDocument());
-      for(Annotation listAnn : listAnn) {
-        responseSet.add(getBestCandidate(ListAnn));
+      if(referenceSet != null) {
+        referenceSet = new AnnotationSetImpl(listAnnsReference.getDocument());
+      }
+      for(CandidateList cl : candList) {
+        responseSet.add(cl.get(0));
       }
     }
     
@@ -406,8 +438,9 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     if(doListEvaluation) {
       ByThEvalStatsTagging bth = evalStatsByThreshold.get(type);
       AnnotationDifferTagging.calculateListByThEvalStatsTagging(
+              keySet,
               document.getAnnotations(getStringOrElse(getResponseASName(), "")),
-              keySet, responseSet, featureSet, featureComparison, 
+              candList, featureSet, featureComparison, 
               listIdFeatureName, scoreFeatureName, bth.getWhichThresholds(), bth);      
     }
     
@@ -439,6 +472,8 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     docFm.put(featurePrefixResponseT+"Responses", es.getResponses());
     
     
+    System.out.println("DEBUG: type is "+type);
+    System.out.println("DEBUG: all document stats types "+allDocumentsStats.keySet());
     allDocumentsStats.get(type).add(es);
     
     // Now if we have parameters to record the matchings, get the information from the docDiffer
@@ -674,6 +709,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     
     typesPlusEmpty.addAll(getAnnotationTypes());
     for(String t : typesPlusEmpty) {
+      System.out.println("DEBUG: initializing alldocument stats for type "+t);
       allDocumentsStats.put(t,new EvalStatsTagging());
       if(evalStatsByThreshold != null) {
         evalStatsByThreshold.put(t,new ByThEvalStatsTagging(getWhichThresholds()));
@@ -710,13 +746,15 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     featurePrefixReference = initialFeaturePrefixReference + getReferenceASName() + ".";
 
     outputStream = getOutputStream();
+    System.out.println("DEBUG: output stream is "+outputStream);
     // Output the initial header line
-    outputStream.print("evaluationId"); outputStream.print("\t");
-    outputStream.print("docName"); outputStream.print("\t");
-    outputStream.print("setName"); outputStream.print("\t");
-    outputStream.print("annotationType"); outputStream.print("\t");
-    outputStream.println(EvalStatsTagging.getTSVHeaders());
-    
+    if(outputStream != null) {
+      outputStream.print("evaluationId"); outputStream.print("\t");
+      outputStream.print("docName"); outputStream.print("\t");
+      outputStream.print("setName"); outputStream.print("\t");
+      outputStream.print("annotationType"); outputStream.print("\t");
+      outputStream.println(EvalStatsTagging.getTSVHeaders());
+    }
   }
   
   
@@ -795,7 +833,9 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   
   public void finishRunning() {
     outputDefaultResults();
-    outputStream.close();    
+    if(outputStream != null) {
+      outputStream.close();    
+    }
   }
   
   
