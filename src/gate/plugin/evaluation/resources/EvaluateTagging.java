@@ -53,9 +53,14 @@ import org.apache.log4j.Logger;
 
 // TODO: add a list for getting the distribution of ranks/score of first lenient/exact match
 // if we process lists. 
+// This should get output as a separate tsv both per document and over all documents
+// Maybe only if enabled with a parameter.
+// If we process lists, also output per-document information about what the best is we can do
+// in that document with the candidate lists we have.
 
 // TODO: add a datastructure for incremental update of the contingency tables needed for 
 // McNemar etc, if we have a reference set.
+// These should get output at the end with values over all documents
 
 // TODO: think about how this should deal with parallelization and custom duplication.
 // At the moment this will not work properly or even fail when run from duplicated pipelines. 
@@ -538,11 +543,11 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
       docFm.put(featurePrefixReferenceT + "Responses", res.getResponses());
     }
     
-    if(outputStream != null) {
+    if(mainTsvPrintStream != null) {
       // a line for the response stats for that document
-      outputStream.println(outputLine(document.getName(), type, getResponseASName(), es));
+      mainTsvPrintStream.println(outputLine(document.getName(), type, getResponseASName(), es));
       if(res != null) {
-        outputStream.println(outputLine(document.getName(), type, getReferenceASName(), res));
+        mainTsvPrintStream.println(outputLine(document.getName(), type, getReferenceASName(), res));
       }
     }
   }
@@ -629,7 +634,8 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     return newset;
   }
   
-  private PrintStream outputStream;
+  private PrintStream mainTsvPrintStream;
+  private PrintStream scoreDistPrintStream;
   
   /** 
    * Create and open an print stream to the file where the Tsv rows should get written to.
@@ -639,7 +645,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
    * If the evaluationId parameter is not set, the file name is "EvaluateTagging.tsv".
    * @return 
    */
-  private PrintStream getOutputStream() {
+  private PrintStream getOutputStream(String suffix) {
     if(getOutputDirectoryUrl() == null) {
       return null;
     }
@@ -651,7 +657,11 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
       throw new GateRuntimeException("Not a directory: "+getOutputDirectoryUrl());
     }
     String fname = getStringOrElse(getEvaluationId(), "").equals("") 
-            ? "EvaluateTagging.tsv" : "EvaluateTagging-"+getEvaluationId()+".tsv";
+            ? "EvaluateTagging.tsv" : "EvaluateTagging-"+getEvaluationId();
+    if(suffix != null && !suffix.isEmpty()) {
+      fname += "-"+suffix;
+    }
+    fname += ".tsv";
     File outFile = new File(dir,fname);
     FileOutputStream os = null;
     try {
@@ -747,16 +757,20 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     featurePrefixResponse = initialFeaturePrefixResponse + getResponseASName() + ".";
     featurePrefixReference = initialFeaturePrefixReference + getReferenceASName() + ".";
 
-    outputStream = getOutputStream();
-    logger.debug("DEBUG: output stream is "+outputStream);
+    mainTsvPrintStream = getOutputStream(null);
     // Output the initial header line
-    if(outputStream != null) {
-      outputStream.print("evaluationId"); outputStream.print("\t");
-      outputStream.print("docName"); outputStream.print("\t");
-      outputStream.print("setName"); outputStream.print("\t");
-      outputStream.print("annotationType"); outputStream.print("\t");
-      outputStream.println(EvalStatsTagging.getTSVHeaders());
+    if(mainTsvPrintStream != null) {
+      mainTsvPrintStream.print("evaluationId"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("docName"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("setName"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("annotationType"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.println(EvalStatsTagging.getTSVHeaders());
     }
+    /** not used yet
+    if(doListEvaluation || doScoreEvaluation) {
+      scoreDistPrintStream = getOutputStream("-scores");
+    }
+    */
   }
   
   
@@ -835,9 +849,14 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   
   public void finishRunning() {
     outputDefaultResults();
-    if(outputStream != null) {
-      outputStream.close();    
+    if(mainTsvPrintStream != null) {
+      mainTsvPrintStream.close();    
     }
+    /** not used yet
+    if(scoreDistPrintStream != null) {
+      scoreDistPrintStream.close();
+    }
+    */
   }
   
   
@@ -850,18 +869,18 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     for(String type : getAnnotationTypes()) {
       System.out.println("Annotation type: "+type);
       System.out.println(allDocumentsStats.get(type));
-      if(outputStream != null) { outputStream.println(outputLine(null, type, getResponseASName(), allDocumentsStats.get(type))); }
+      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, type, getResponseASName(), allDocumentsStats.get(type))); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
         System.out.println("Reference set:");
         System.out.println(allDocumentsReferenceStats.get(type));
-        if(outputStream != null) { outputStream.println(outputLine(null, type, getResponseASName(), allDocumentsReferenceStats.get(type))); }
+        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, type, getResponseASName(), allDocumentsReferenceStats.get(type))); }
       }
       if(evalStatsByThreshold != null) {
         ByThEvalStatsTagging bthes = evalStatsByThreshold.get(type);
         for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
           System.out.println("Th="+th+":");
           System.out.println(bthes.get(th));
-          if(outputStream != null) { outputStream.println(outputLine(null, type, getResponseASName(), bthes.get(th))); }
+          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, type, getResponseASName(), bthes.get(th))); }
         }
       }
     }
@@ -869,18 +888,18 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     if(getAnnotationTypes().size() > 1) {
       System.out.println("Over all types (micro): ");
       System.out.println(allDocumentsStats.get(""));
-      if(outputStream != null) { outputStream.println(outputLine(null, "", getResponseASName(), allDocumentsStats.get(""))); }
+      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, "", getResponseASName(), allDocumentsStats.get(""))); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
         System.out.println("Reference set (all types):");
         System.out.println(allDocumentsReferenceStats.get(""));
-        if(outputStream != null) { outputStream.println(outputLine(null, "", getReferenceASName(), allDocumentsReferenceStats.get(""))); }
+        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, "", getReferenceASName(), allDocumentsReferenceStats.get(""))); }
       }      
       if(evalStatsByThreshold != null) {
         ByThEvalStatsTagging bthes = evalStatsByThreshold.get("");
         for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
           System.out.println("Th="+th+":");
           System.out.println(bthes.get(th));
-          if(outputStream != null) { outputStream.println(outputLine(null, "", getResponseASName(), bthes.get(th))); }
+          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, "", getResponseASName(), bthes.get(th))); }
         }        
       }
       System.out.println("Over all types (macro): ");
@@ -889,7 +908,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
         esm.add(allDocumentsStats.get(type));
       }
       System.out.println(esm);
-      if(outputStream != null) { outputStream.println(outputLine(null, "", getResponseASName(), esm)); }
+      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, "", getResponseASName(), esm)); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
         System.out.println("Over all types, reference set (macro): ");
         esm = new EvalStatsTaggingMacro();
@@ -897,7 +916,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
           esm.add(allDocumentsReferenceStats.get(type));
         }
         System.out.println(esm);
-        if(outputStream != null) { outputStream.println(outputLine(null, "", getReferenceASName(), esm)); }
+        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, "", getReferenceASName(), esm)); }
       }
     }
       
