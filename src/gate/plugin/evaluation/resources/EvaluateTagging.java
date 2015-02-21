@@ -545,9 +545,9 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     
     if(mainTsvPrintStream != null) {
       // a line for the response stats for that document
-      mainTsvPrintStream.println(outputLine(document.getName(), type, getResponseASName(), es));
+      mainTsvPrintStream.println(outputTsvLine(document.getName(), type, getResponseASName(), es));
       if(res != null) {
-        mainTsvPrintStream.println(outputLine(document.getName(), type, getReferenceASName(), res));
+        mainTsvPrintStream.println(outputTsvLine(document.getName(), type, getReferenceASName(), res));
       }
     }
   }
@@ -817,7 +817,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
    * @param es
    * @return 
    */
-  protected String outputLine(
+  protected String outputTsvLine(
           String docName,
           String annotationType,
           String setName,
@@ -859,6 +859,43 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     */
   }
   
+  // Output the complete EvalStats object, but in a format that makes it easier to grep
+  // out the lines one is interested in based on threshold and type
+  protected void outputEvalStatsForType(PrintStream out, EvalStatsTagging es, String type, String set) {
+    String ts = "none";
+    double th = es.getThreshold();
+    if(!Double.isNaN(th)) {
+      if(Double.isInfinite(th)) {
+        ts="inf";
+      } else {
+        ts = "" + ((double) Math.round(th * 10000.0) / 10000.0);
+      }
+    }
+    ts = ", th="+ts+", ";
+    out.println("Set="+set+", type="+type+ts+"Precision Strict: "+es.getPrecisionStrict());
+    out.println("Set="+set+", type="+type+ts+"Recall Strict: "+es.getRecallStrict());
+    out.println("Set="+set+", type="+type+ts+"F1.0 Strict: "+es.getFMeasureStrict(1.0));
+    out.println("Set="+set+", type="+type+ts+"Accuracy Strict: "+es.getSingleCorrectAccuracyStrict());
+    out.println("Set="+set+", type="+type+ts+"Precision Lenient: "+es.getPrecisionLenient());
+    out.println("Set="+set+", type="+type+ts+"Recall Lenient: "+es.getRecallLenient());
+    out.println("Set="+set+", type="+type+ts+"F1.0 Lenient: "+es.getFMeasureLenient(1.0));
+    out.println("Set="+set+", type="+type+ts+"Accuracy Lenient: "+es.getSingleCorrectAccuracyLenient());
+    out.println("Set="+set+", type="+type+ts+"Targets: "+es.getTargets());
+    out.println("Set="+set+", type="+type+ts+"Responses: "+es.getResponses());
+    out.println("Set="+set+", type="+type+ts+"Correct Strict: "+es.getCorrectStrict());
+    out.println("Set="+set+", type="+type+ts+"Correct Partial: "+es.getCorrectPartial());
+    out.println("Set="+set+", type="+type+ts+"Incorrect Strict: "+es.getIncorrectStrict());
+    out.println("Set="+set+", type="+type+ts+"Incorrect Partial: "+es.getIncorrectPartial());
+    out.println("Set="+set+", type="+type+ts+"Missing Strict: "+es.getMissingStrict());
+    out.println("Set="+set+", type="+type+ts+"True Missing Strict: "+es.getTrueMissingStrict());
+    out.println("Set="+set+", type="+type+ts+"Missing Lenient: "+es.getMissingLenient());
+    out.println("Set="+set+", type="+type+ts+"True Missing Lenient: "+es.getTrueMissingLenient());
+    out.println("Set="+set+", type="+type+ts+"Spurious Strict: "+es.getSpuriousStrict());
+    out.println("Set="+set+", type="+type+ts+"True Spurious Strict: "+es.getTrueSpuriousStrict());
+    out.println("Set="+set+", type="+type+ts+"Spurious Lenient: "+es.getSpuriousLenient());
+    out.println("Set="+set+", type="+type+ts+"True Spurious Lenient: "+es.getTrueSpuriousLenient());
+  }
+  
   
   public void outputDefaultResults() {
     
@@ -867,56 +904,48 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     
     // output for each of the types ...
     for(String type : getAnnotationTypes()) {
-      System.out.println("Annotation type: "+type);
-      System.out.println(allDocumentsStats.get(type));
-      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, type, getResponseASName(), allDocumentsStats.get(type))); }
+      outputEvalStatsForType(System.out, allDocumentsStats.get(type), type, getResponseASName());
+      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, type, getResponseASName(), allDocumentsStats.get(type))); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
-        System.out.println("Reference set:");
-        System.out.println(allDocumentsReferenceStats.get(type));
-        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, type, getResponseASName(), allDocumentsReferenceStats.get(type))); }
+        outputEvalStatsForType(System.out, allDocumentsReferenceStats.get(type), type, getReferenceASName());
+        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, type, getResponseASName(), allDocumentsReferenceStats.get(type))); }
       }
       if(evalStatsByThreshold != null) {
         ByThEvalStatsTagging bthes = evalStatsByThreshold.get(type);
         for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
-          System.out.println("Th="+th+":");
-          System.out.println(bthes.get(th));
-          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, type, getResponseASName(), bthes.get(th))); }
+          outputEvalStatsForType(System.out, bthes.get(th), type, getResponseASName());
+          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, type, getResponseASName(), bthes.get(th))); }
         }
       }
     }
     // If there was more than one type, also output the summary stats over all types
     if(getAnnotationTypes().size() > 1) {
-      System.out.println("Over all types (micro): ");
-      System.out.println(allDocumentsStats.get(""));
-      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, "", getResponseASName(), allDocumentsStats.get(""))); }
+      outputEvalStatsForType(System.out, allDocumentsStats.get(""), "all(micro)", getResponseASName());
+      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", getResponseASName(), allDocumentsStats.get(""))); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
-        System.out.println("Reference set (all types):");
-        System.out.println(allDocumentsReferenceStats.get(""));
-        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, "", getReferenceASName(), allDocumentsReferenceStats.get(""))); }
+        outputEvalStatsForType(System.out, allDocumentsReferenceStats.get(""), "all(micro)", getReferenceASName());
+        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", getReferenceASName(), allDocumentsReferenceStats.get(""))); }
       }      
       if(evalStatsByThreshold != null) {
         ByThEvalStatsTagging bthes = evalStatsByThreshold.get("");
         for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
-          System.out.println("Th="+th+":");
-          System.out.println(bthes.get(th));
-          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, "", getResponseASName(), bthes.get(th))); }
+          outputEvalStatsForType(System.out, bthes.get(th), "all(micro)", getResponseASName());
+          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", getResponseASName(), bthes.get(th))); }
         }        
       }
-      System.out.println("Over all types (macro): ");
       EvalStatsTaggingMacro esm = new EvalStatsTaggingMacro();
       for(String type : getAnnotationTypes()) {
         esm.add(allDocumentsStats.get(type));
       }
-      System.out.println(esm);
-      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, "", getResponseASName(), esm)); }
+      outputEvalStatsForType(System.out, esm, "all(macro)", getResponseASName());
+      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", getResponseASName(), esm)); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
-        System.out.println("Over all types, reference set (macro): ");
         esm = new EvalStatsTaggingMacro();
         for(String type : getAnnotationTypes()) {
           esm.add(allDocumentsReferenceStats.get(type));
         }
-        System.out.println(esm);
-        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputLine(null, "", getReferenceASName(), esm)); }
+        outputEvalStatsForType(System.out, esm, "all(macro)", getReferenceASName());
+        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", getReferenceASName(), esm)); }
       }
     }
       
