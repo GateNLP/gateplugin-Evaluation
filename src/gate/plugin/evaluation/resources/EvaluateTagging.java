@@ -93,6 +93,10 @@ import org.apache.log4j.Logger;
 // and the response set so we can calculate p-values for the SingleResponse accuracy analysis. 
 // This could be used to get p-values for the McNemar test and the paired t-test.
 
+// TODO: make the output directory URL more easily parametrizable by making the runtime parameter
+// an OR parameter with a String version which can then be expandable like the other String
+// parameters.
+
 /**
  *
  * @author Johann Petrak
