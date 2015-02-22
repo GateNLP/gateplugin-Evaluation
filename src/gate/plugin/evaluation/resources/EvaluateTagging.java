@@ -18,6 +18,7 @@ import gate.Controller;
 import gate.Factory;
 import gate.FeatureMap;
 import gate.Resource;
+import gate.Utils;
 import gate.annotation.AnnotationSetImpl;
 import gate.annotation.ImmutableAnnotationSetImpl;
 import gate.creole.AbstractLanguageAnalyser;
@@ -111,12 +112,14 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   @RunTime
   public void setKeyASName(String name) { keyASName = name; }
   public String getKeyASName() { return keyASName; }
+  public String getExpandedKeyASName() { return Utils.replaceVariablesInString(getKeyASName()); }
   
   private String responseASName;
   @CreoleParameter (comment="The name of the annotation set that contains the response annotations",defaultValue ="Response")
   @RunTime
   public void setResponseASName(String name) { responseASName = name; }
   public String getResponseASName() { return responseASName; }
+  public String getExpandedResponseASName() { return Utils.replaceVariablesInString(getResponseASName()); }
   
   private String referenceASName;
   @CreoleParameter (comment="The name of the annotation set that contains the reference/old response annotations. Empty means no reference set.")
@@ -124,6 +127,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   @RunTime
   public void setReferenceASName(String name) { referenceASName = name; }
   public String getReferenceASName() { return referenceASName; }
+  public String getExpandedReferenceASName() { return Utils.replaceVariablesInString(getReferenceASName()); }
   
   private String containingASNameAndType;
   @CreoleParameter (comment="The name of the restricting annotation set and the name of the type in the form asname:typename")
@@ -131,6 +135,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   @RunTime
   public void setContainingASNameAndType(String name) { containingASNameAndType = name; }
   public String getContainingASNameAndType() { return containingASNameAndType; }
+  public String getExpandedContainingASNameAndType() { return Utils.replaceVariablesInString(getContainingASNameAndType()); }
   
   private ContainmentType containmentType;
   @CreoleParameter (comment="How the responses are restricted to the annotations of the containingASNameAndType",defaultValue="OVERLAPPING")
@@ -182,7 +187,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   @Optional  
   public void setListIdFeatureName(String value) { listIdFeatureName = value; }
   public String getListIdFeatureName() { return listIdFeatureName; }
-     
+  public String getExpandedListIdFeatureName() { return Utils.replaceVariablesInString(getListIdFeatureName()); }
   
   
   private String scoreFeatureName;
@@ -191,6 +196,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   @RunTime
   public void setScoreFeatureName(String name) { scoreFeatureName = name; }
   public String getScoreFeatureName() { return scoreFeatureName; }
+  public String getExpandedScoreFeatureName() { return Utils.replaceVariablesInString(getScoreFeatureName()); }
   
   private String outputASName;
   @CreoleParameter (comment="The name of the annotation set for creating descriptive annotations. If empty, no annotations are created.")
@@ -198,6 +204,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   @RunTime
   public void setOutputASName(String name) { outputASName = name; }
   public String getOutputASName() { return outputASName; }
+  public String getExpandedOutputASName() { return Utils.replaceVariablesInString(getOutputASName()); }
   
   public String featureNameNilCluster;
   @CreoleParameter(comment = "", defaultValue = "")
@@ -205,6 +212,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   @Optional  
   public void setFeatureNameNilCluster(String value) { featureNameNilCluster = value; }
   public String getFeatureNameNilCluster() { return featureNameNilCluster; }
+  public String getExpandedFeatureNameNilCluster() { return Utils.replaceVariablesInString(getFeatureNameNilCluster()); }
   
   public NilTreatment nilTreatment;
   @CreoleParameter(comment="",defaultValue="NO_NILS")
@@ -219,6 +227,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   @Optional  
   public void setNilValue(String value) { nilValue = value; }
   public String getNilValue() { return nilValue; }
+  public String getExpandedNilValue() { return Utils.replaceVariablesInString(getNilValue()); }
      
   public URL outputDirectoryUrl;
   @CreoleParameter(comment="",defaultValue="")
@@ -233,6 +242,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   @Optional  
   public void setEvaluationId(String value) { evaluationId = value; }
   public String getEvaluationId() { return evaluationId == null ? "" : evaluationId; }
+  public String getExpandedEvaluationId() { return Utils.replaceVariablesInString(getEvaluationId()); }
      
   public ThresholdsToUse whichThresholds;
   @CreoleParameter(comment="",defaultValue="USE_ALL")
@@ -240,7 +250,6 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   @Optional  
   public void setWhichThresholds(ThresholdsToUse value) { whichThresholds = value; }
   public ThresholdsToUse getWhichThresholds() { return whichThresholds; }
-     
   
   //////////////////// 
   // PR METHODS 
@@ -283,6 +292,18 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   protected boolean doListEvaluation = false;
   protected boolean doScoreEvaluation = false;
   
+  String expandedKeySetName;
+  String expandedResponseSetName;
+  String expandedReferenceSetName;
+  String expandedContainingNameAndType;
+  String expandedListIdFeatureName;
+  String expandedScoreFeatureName;
+  String expandedOutputASName;
+  String expandedFeatureNameNilCluster;
+  String expandedNilValue;
+  String expandedEvaluationId;
+  
+  
   protected static final Logger logger = Logger.getLogger(EvaluateTagging.class);
   
   @Override
@@ -310,31 +331,31 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
         }
       }
       typeSet.addAll(getAnnotationTypes());
-      keySet = document.getAnnotations(getStringOrElse(getKeyASName(), "")).get(typeSet);
+      keySet = document.getAnnotations(expandedKeySetName).get(typeSet);
       if(doListEvaluation) {
-        responseSet = document.getAnnotations(getStringOrElse(getResponseASName(), "")).get(typeSet4ListAnns);
+        responseSet = document.getAnnotations(expandedResponseSetName).get(typeSet4ListAnns);
       } else {
-        responseSet = document.getAnnotations(getStringOrElse(getResponseASName(), "")).get(typeSet);
+        responseSet = document.getAnnotations(expandedResponseSetName).get(typeSet);
       }
-      if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
+      if(!expandedReferenceSetName.isEmpty()) {
         if(doListEvaluation) {
-          referenceSet = document.getAnnotations(getStringOrElse(getReferenceASName(), "")).get(typeSet4ListAnns);
+          referenceSet = document.getAnnotations(expandedReferenceSetName).get(typeSet4ListAnns);
         } else {
-          referenceSet = document.getAnnotations(getStringOrElse(getReferenceASName(), "")).get(typeSet);
+          referenceSet = document.getAnnotations(expandedReferenceSetName).get(typeSet);
         }
       }
       evaluateForType(keySet,responseSet,referenceSet,"");
     }
     // now do it for each type seperately
     for(String type : getAnnotationTypes()) {
-      keySet = document.getAnnotations(getStringOrElse(getKeyASName(), "")).get(type);
+      keySet = document.getAnnotations(expandedKeySetName).get(type);
       String origType = type;
       if(doListEvaluation) {
         type = type + "List";
       }
-      responseSet = document.getAnnotations(getStringOrElse(getResponseASName(), "")).get(type);
-      if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
-        referenceSet = document.getAnnotations(getStringOrElse(getReferenceASName(), "")).get(type);
+      responseSet = document.getAnnotations(expandedResponseSetName).get(type);
+      if(!expandedReferenceSetName.isEmpty()) {
+        referenceSet = document.getAnnotations(expandedReferenceSetName).get(type);
       }
       evaluateForType(keySet,responseSet,referenceSet,origType);      
     }
@@ -348,8 +369,8 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     AnnotationSet containingSet = null;
     String containingSetName = "";
     String containingType = "";
-    if(!getStringOrElse(getContainingASNameAndType(),"").isEmpty()) {
-      String[] setAndType = getContainingASNameAndType().split(":",2);
+    if(!expandedContainingNameAndType.isEmpty()) {
+      String[] setAndType = expandedContainingNameAndType.split(":",2);
       if(setAndType.length != 2 || setAndType[0].isEmpty() || setAndType[1].isEmpty()) {
         throw new GateRuntimeException("Runtime Parameter continingASAndName not of the form setname:typename");
       }      
@@ -361,7 +382,9 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
       ContainmentType ct = containmentType;
       if(ct == null) ct = ContainmentType.OVERLAPPING;
       responseSet = selectOverlappingBy(responseSet,containingSet,ct);
-      if(containingSetName.equals(keyASName) && containingType.equals(annotationTypes)) {
+      // TODO: at the moment this will never be true since we have changed the single type to a list
+      // of types. Thing about when to not do this ...
+      if(containingSetName.equals(expandedKeySetName) && containingType.equals(annotationTypes)) {
         // no need to do anything for the key set
       } else {
         keySet = selectOverlappingBy(keySet,containingSet,ct);
@@ -387,8 +410,8 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
       listAnnsReference = referenceSet;
       candList = 
               AnnotationDifferTagging.createCandidateLists(
-                      document.getAnnotations(getStringOrElse(getResponseASName(), "")),
-                      listAnns, listIdFeatureName, scoreFeatureName);
+                      document.getAnnotations(expandedResponseSetName),
+                      listAnns, expandedListIdFeatureName, expandedScoreFeatureName);
       // get the highest scored annotation from each list
       responseSet = new AnnotationSetImpl(listAnns.getDocument());
       if(referenceSet != null) {
@@ -440,15 +463,15 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     if(doScoreEvaluation) {
       ByThEvalStatsTagging bth = evalStatsByThreshold.get(type);
       AnnotationDifferTagging.calculateByThEvalStatsTagging(
-              keySet, responseSet, featureSet, featureComparison, scoreFeatureName, bth.getWhichThresholds(), bth);
+              keySet, responseSet, featureSet, featureComparison, expandedScoreFeatureName, bth.getWhichThresholds(), bth);
     } 
     if(doListEvaluation) {
       ByThEvalStatsTagging bth = evalStatsByThreshold.get(type);
       AnnotationDifferTagging.calculateListByThEvalStatsTagging(
               keySet,
-              document.getAnnotations(getStringOrElse(getResponseASName(), "")),
+              document.getAnnotations(expandedResponseSetName),
               candList, featureSet, featureComparison, 
-              listIdFeatureName, scoreFeatureName, bth.getWhichThresholds(), bth);      
+              expandedListIdFeatureName, expandedScoreFeatureName, bth.getWhichThresholds(), bth);      
     }
     
     // Store the counts and measures as document feature values
@@ -486,8 +509,8 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     // Now if we have parameters to record the matchings, get the information from the docDiffer
     // and create the apropriate annotations.
     AnnotationSet outputAnnotationSet = null;
-    if(getOutputASName() != null && !getOutputASName().isEmpty()) {
-      outputAnnotationSet = document.getAnnotations(getOutputASName());
+    if(!expandedOutputASName.isEmpty()) {
+      outputAnnotationSet = document.getAnnotations(expandedOutputASName);
       docDiffer.addIndicatorAnnotations(outputAnnotationSet);
     }
     
@@ -545,9 +568,9 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     
     if(mainTsvPrintStream != null) {
       // a line for the response stats for that document
-      mainTsvPrintStream.println(outputTsvLine(document.getName(), type, getResponseASName(), es));
+      mainTsvPrintStream.println(outputTsvLine(document.getName(), type, expandedResponseSetName, es));
       if(res != null) {
-        mainTsvPrintStream.println(outputTsvLine(document.getName(), type, getReferenceASName(), res));
+        mainTsvPrintStream.println(outputTsvLine(document.getName(), type, expandedReferenceSetName, res));
       }
     }
   }
@@ -674,6 +697,17 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   
   private void initializeForRunning() {
 
+    expandedKeySetName = getStringOrElse(getExpandedKeyASName(), "");
+    expandedResponseSetName = getStringOrElse(getExpandedResponseASName(),"");
+    expandedReferenceSetName = getStringOrElse(getExpandedReferenceASName(),"");
+    expandedContainingNameAndType = getStringOrElse(getExpandedContainingASNameAndType(),"");
+    expandedEvaluationId = getStringOrElse(getExpandedEvaluationId(),"");
+    expandedFeatureNameNilCluster = getStringOrElse(getExpandedFeatureNameNilCluster(),"");
+    expandedListIdFeatureName = getStringOrElse(getExpandedListIdFeatureName(),"");
+    expandedNilValue = getStringOrElse(getExpandedNilValue(),"");
+    expandedOutputASName = getStringOrElse(getExpandedOutputASName(),"");
+    expandedScoreFeatureName = getStringOrElse(getExpandedScoreFeatureName(),"");
+    
     if(getAnnotationTypes() == null || getAnnotationTypes().isEmpty()) {
       throw new GateRuntimeException("List of annotation types to use is not specified or empty!");
     }
@@ -701,17 +735,17 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     
     // if we also have a reference set, create the data structure that holds an evalstats object
     // over all documents for each type. This is left null if no reference set is specified!    
-    if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
+    if(!expandedReferenceSetName.isEmpty()) {
       allDocumentsReferenceStats = new HashMap<String, EvalStatsTagging>();
     }
     
     // If a score feature name is specified, we need to do either by score or list-based
     // evaluation. In both cases we need a data structure to hold one by-threshold-object per 
     // type.
-    if(getScoreFeatureName() != null && !getScoreFeatureName().isEmpty()) {
+    if(!expandedScoreFeatureName.isEmpty()) {
       evalStatsByThreshold = new HashMap<String, ByThEvalStatsTagging>();
       // also figure out if we want to do list or score evaluation or none of the two
-      if(getListIdFeatureName() != null && !getListIdFeatureName().isEmpty()) {
+      if(!expandedListIdFeatureName.isEmpty()) {
         doListEvaluation = true;
       } else {
         doScoreEvaluation = true;
@@ -824,7 +858,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
           EvalStatsTagging es
   ) {
     StringBuilder sb = new StringBuilder();
-    sb.append(getEvaluationId()); sb.append("\t");
+    sb.append(expandedEvaluationId); sb.append("\t");
     if(docName == null) {
       sb.append("[doc:all:micro]");
     } else {
@@ -832,7 +866,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     }
     sb.append("\t");
     if(setName == null || setName.isEmpty()) {
-      sb.append(getResponseASName());
+      sb.append(expandedResponseSetName);
     } else {
       sb.append(setName);
     }
@@ -904,48 +938,48 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     
     // output for each of the types ...
     for(String type : getAnnotationTypes()) {
-      outputEvalStatsForType(System.out, allDocumentsStats.get(type), type, getResponseASName());
+      outputEvalStatsForType(System.out, allDocumentsStats.get(type), type, expandedResponseSetName);
       if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, type, getResponseASName(), allDocumentsStats.get(type))); }
-      if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
-        outputEvalStatsForType(System.out, allDocumentsReferenceStats.get(type), type, getReferenceASName());
-        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, type, getResponseASName(), allDocumentsReferenceStats.get(type))); }
+      if(!expandedReferenceSetName.isEmpty()) {
+        outputEvalStatsForType(System.out, allDocumentsReferenceStats.get(type), type, expandedReferenceSetName);
+        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, type, expandedReferenceSetName, allDocumentsReferenceStats.get(type))); }
       }
       if(evalStatsByThreshold != null) {
         ByThEvalStatsTagging bthes = evalStatsByThreshold.get(type);
         for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
-          outputEvalStatsForType(System.out, bthes.get(th), type, getResponseASName());
-          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, type, getResponseASName(), bthes.get(th))); }
+          outputEvalStatsForType(System.out, bthes.get(th), type, expandedResponseSetName);
+          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, type, expandedResponseSetName, bthes.get(th))); }
         }
       }
     }
     // If there was more than one type, also output the summary stats over all types
     if(getAnnotationTypes().size() > 1) {
-      outputEvalStatsForType(System.out, allDocumentsStats.get(""), "all(micro)", getResponseASName());
-      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", getResponseASName(), allDocumentsStats.get(""))); }
+      outputEvalStatsForType(System.out, allDocumentsStats.get(""), "all(micro)", expandedResponseSetName);
+      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", expandedResponseSetName, allDocumentsStats.get(""))); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
-        outputEvalStatsForType(System.out, allDocumentsReferenceStats.get(""), "all(micro)", getReferenceASName());
-        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", getReferenceASName(), allDocumentsReferenceStats.get(""))); }
+        outputEvalStatsForType(System.out, allDocumentsReferenceStats.get(""), "all(micro)", expandedReferenceSetName);
+        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", expandedReferenceSetName, allDocumentsReferenceStats.get(""))); }
       }      
       if(evalStatsByThreshold != null) {
         ByThEvalStatsTagging bthes = evalStatsByThreshold.get("");
         for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
-          outputEvalStatsForType(System.out, bthes.get(th), "all(micro)", getResponseASName());
-          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", getResponseASName(), bthes.get(th))); }
+          outputEvalStatsForType(System.out, bthes.get(th), "all(micro)", expandedResponseSetName);
+          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", expandedResponseSetName, bthes.get(th))); }
         }        
       }
       EvalStatsTaggingMacro esm = new EvalStatsTaggingMacro();
       for(String type : getAnnotationTypes()) {
         esm.add(allDocumentsStats.get(type));
       }
-      outputEvalStatsForType(System.out, esm, "all(macro)", getResponseASName());
-      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", getResponseASName(), esm)); }
+      outputEvalStatsForType(System.out, esm, "all(macro)", expandedResponseSetName);
+      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", expandedResponseSetName, esm)); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
         esm = new EvalStatsTaggingMacro();
         for(String type : getAnnotationTypes()) {
           esm.add(allDocumentsReferenceStats.get(type));
         }
-        outputEvalStatsForType(System.out, esm, "all(macro)", getReferenceASName());
-        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", getReferenceASName(), esm)); }
+        outputEvalStatsForType(System.out, esm, "all(macro)", expandedReferenceSetName);
+        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", expandedReferenceSetName, esm)); }
       }
     }
       
