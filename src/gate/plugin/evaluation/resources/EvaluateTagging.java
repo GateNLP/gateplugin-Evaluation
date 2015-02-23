@@ -950,6 +950,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     
     // output for each of the types ...
     for(String type : getAnnotationTypes()) {
+      //System.out.println("DEBUG: alldocumentsStats="+allDocumentsStats+" type="+type+" expandedResponseSetName="+expandedResponseSetName);
       outputEvalStatsForType(System.out, allDocumentsStats.get(type), type, expandedResponseSetName);
       if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, type, getResponseASName(), allDocumentsStats.get(type))); }
       if(!expandedReferenceSetName.isEmpty()) {
@@ -1010,17 +1011,25 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
 
   @Override
   public void controllerExecutionFinished(Controller cntrlr) throws ExecutionException {
-    finishRunning();
-    needInitialization = true;
+    // only do anything at all if we had actually been executed once. The callback gets also
+    // invoked if the PR was disabled, so we have to check ...
+    // needInitialization is set in the started callback and reset in execute, so if it is still
+    // on, we never were in execute.
+    if(!needInitialization) {
+      finishRunning();
+      needInitialization = true;
+    }
   }
 
   @Override
   public void controllerExecutionAborted(Controller cntrlr, Throwable thrwbl) throws ExecutionException {
-    System.err.println("Processing was aborted: "+thrwbl.getMessage());
-    thrwbl.printStackTrace(System.err);
-    System.err.println("Here are the summary stats for what was processed: ");
-    finishRunning();
-    needInitialization = true;
+    if(!needInitialization) {
+      System.err.println("Processing was aborted: "+thrwbl.getMessage());
+      thrwbl.printStackTrace(System.err);
+      System.err.println("Here are the summary stats for what was processed: ");
+      finishRunning();
+      needInitialization = true;
+    }
   }
 
   @Override
