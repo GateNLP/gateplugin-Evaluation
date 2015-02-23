@@ -905,6 +905,10 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     */
   }
   
+  private static double r4(double x) {
+    return ((double) Math.round(x * 10000.0) / 10000.0);
+  }
+  
   // Output the complete EvalStats object, but in a format that makes it easier to grep
   // out the lines one is interested in based on threshold and type
   protected void outputEvalStatsForType(PrintStream out, EvalStatsTagging es, String type, String set) {
@@ -914,18 +918,18 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
       if(Double.isInfinite(th)) {
         ts="inf";
       } else {
-        ts = "" + ((double) Math.round(th * 10000.0) / 10000.0);
+        ts = "" + r4(th);
       }
     }
     ts = ", th="+ts+", ";
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Precision Strict: "+es.getPrecisionStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Recall Strict: "+es.getRecallStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"F1.0 Strict: "+es.getFMeasureStrict(1.0));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Accuracy Strict: "+es.getSingleCorrectAccuracyStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Precision Lenient: "+es.getPrecisionLenient());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Recall Lenient: "+es.getRecallLenient());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"F1.0 Lenient: "+es.getFMeasureLenient(1.0));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Accuracy Lenient: "+es.getSingleCorrectAccuracyLenient());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Precision Strict: "+r4(es.getPrecisionStrict()));
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Recall Strict: "+r4(es.getRecallStrict()));
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"F1.0 Strict: "+r4(es.getFMeasureStrict(1.0)));
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Accuracy Strict: "+r4(es.getSingleCorrectAccuracyStrict()));
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Precision Lenient: "+r4(es.getPrecisionLenient()));
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Recall Lenient: "+r4(es.getRecallLenient()));
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"F1.0 Lenient: "+r4(es.getFMeasureLenient(1.0)));
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Accuracy Lenient: "+r4(es.getSingleCorrectAccuracyLenient()));
     out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Targets: "+es.getTargets());
     out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Responses: "+es.getResponses());
     out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Correct Strict: "+es.getCorrectStrict());
