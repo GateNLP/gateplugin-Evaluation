@@ -313,6 +313,11 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   @Override
   public void execute() {
     
+    if(needInitialization) {
+      needInitialization = false;
+      initializeForRunning();
+    }
+    
     // Per document initialization
     
     // Prepare the annotation sets
@@ -699,6 +704,9 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     return new PrintStream(os);
   }
   
+  private boolean needInitialization = true;
+  // This needs to run as part of the first execute, since at the moment, the parametrization
+  // does not work correctly with the controller callbacks. 
   private void initializeForRunning() {
 
     expandedKeySetName = getStringOrElse(getExpandedKeyASName(), "");
@@ -997,12 +1005,13 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   
   @Override
   public void controllerExecutionStarted(Controller cntrlr) throws ExecutionException {
-    initializeForRunning();
+    needInitialization = true;
   }
 
   @Override
   public void controllerExecutionFinished(Controller cntrlr) throws ExecutionException {
     finishRunning();
+    needInitialization = true;
   }
 
   @Override
@@ -1011,6 +1020,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     thrwbl.printStackTrace(System.err);
     System.err.println("Here are the summary stats for what was processed: ");
     finishRunning();
+    needInitialization = true;
   }
 
   @Override
