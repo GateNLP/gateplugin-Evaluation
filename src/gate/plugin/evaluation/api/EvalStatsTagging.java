@@ -222,11 +222,19 @@ public class EvalStatsTagging  {
   }
   
   public double getSingleCorrectAccuracyStrict() {
-    return getSingleCorrectStrict() / (double)getTargets();
+    if(getTargets() == 0) {
+      return 0.0;
+    } else {
+      return getSingleCorrectStrict() / (double)getTargets();
+    }
   }
   
   public double getSingleCorrectAccuracyLenient() {
-    return getSingleCorrectLenient() / (double) getTargets();
+    if(getTargets() == 0) {
+      return 0.0;
+    } else {
+      return getSingleCorrectLenient() / (double) getTargets();
+    }
   }
   
   public double getFMeasureAverage(double beta) {
