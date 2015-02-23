@@ -910,28 +910,28 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
       }
     }
     ts = ", th="+ts+", ";
-    out.println("Set="+set+", type="+type+ts+"Precision Strict: "+es.getPrecisionStrict());
-    out.println("Set="+set+", type="+type+ts+"Recall Strict: "+es.getRecallStrict());
-    out.println("Set="+set+", type="+type+ts+"F1.0 Strict: "+es.getFMeasureStrict(1.0));
-    out.println("Set="+set+", type="+type+ts+"Accuracy Strict: "+es.getSingleCorrectAccuracyStrict());
-    out.println("Set="+set+", type="+type+ts+"Precision Lenient: "+es.getPrecisionLenient());
-    out.println("Set="+set+", type="+type+ts+"Recall Lenient: "+es.getRecallLenient());
-    out.println("Set="+set+", type="+type+ts+"F1.0 Lenient: "+es.getFMeasureLenient(1.0));
-    out.println("Set="+set+", type="+type+ts+"Accuracy Lenient: "+es.getSingleCorrectAccuracyLenient());
-    out.println("Set="+set+", type="+type+ts+"Targets: "+es.getTargets());
-    out.println("Set="+set+", type="+type+ts+"Responses: "+es.getResponses());
-    out.println("Set="+set+", type="+type+ts+"Correct Strict: "+es.getCorrectStrict());
-    out.println("Set="+set+", type="+type+ts+"Correct Partial: "+es.getCorrectPartial());
-    out.println("Set="+set+", type="+type+ts+"Incorrect Strict: "+es.getIncorrectStrict());
-    out.println("Set="+set+", type="+type+ts+"Incorrect Partial: "+es.getIncorrectPartial());
-    out.println("Set="+set+", type="+type+ts+"Missing Strict: "+es.getMissingStrict());
-    out.println("Set="+set+", type="+type+ts+"True Missing Strict: "+es.getTrueMissingStrict());
-    out.println("Set="+set+", type="+type+ts+"Missing Lenient: "+es.getMissingLenient());
-    out.println("Set="+set+", type="+type+ts+"True Missing Lenient: "+es.getTrueMissingLenient());
-    out.println("Set="+set+", type="+type+ts+"Spurious Strict: "+es.getSpuriousStrict());
-    out.println("Set="+set+", type="+type+ts+"True Spurious Strict: "+es.getTrueSpuriousStrict());
-    out.println("Set="+set+", type="+type+ts+"Spurious Lenient: "+es.getSpuriousLenient());
-    out.println("Set="+set+", type="+type+ts+"True Spurious Lenient: "+es.getTrueSpuriousLenient());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Precision Strict: "+es.getPrecisionStrict());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Recall Strict: "+es.getRecallStrict());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"F1.0 Strict: "+es.getFMeasureStrict(1.0));
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Accuracy Strict: "+es.getSingleCorrectAccuracyStrict());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Precision Lenient: "+es.getPrecisionLenient());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Recall Lenient: "+es.getRecallLenient());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"F1.0 Lenient: "+es.getFMeasureLenient(1.0));
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Accuracy Lenient: "+es.getSingleCorrectAccuracyLenient());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Targets: "+es.getTargets());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Responses: "+es.getResponses());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Correct Strict: "+es.getCorrectStrict());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Correct Partial: "+es.getCorrectPartial());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Incorrect Strict: "+es.getIncorrectStrict());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Incorrect Partial: "+es.getIncorrectPartial());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Missing Strict: "+es.getMissingStrict());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Missing Strict: "+es.getTrueMissingStrict());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Missing Lenient: "+es.getMissingLenient());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Missing Lenient: "+es.getTrueMissingLenient());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Spurious Strict: "+es.getSpuriousStrict());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Spurious Strict: "+es.getTrueSpuriousStrict());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Spurious Lenient: "+es.getSpuriousLenient());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Spurious Lenient: "+es.getTrueSpuriousLenient());
   }
   
   
