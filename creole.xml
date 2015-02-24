@@ -1,3 +1,4 @@
 <CREOLE-DIRECTORY>
   <JAR SCAN="true">Evaluation.jar</JAR>
+  <JAR>lib/commons-math3-3.4.1.jar</JAR>
 </CREOLE-DIRECTORY>

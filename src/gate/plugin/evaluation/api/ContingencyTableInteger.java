@@ -12,7 +12,7 @@ import java.util.List;
  * 
  * @author Johann Petrak
  */
-public class ContingencyTable implements NameBearer {
+public class ContingencyTableInteger implements NameBearer {
 
   protected String name = "";
   @Override
@@ -32,9 +32,9 @@ public class ContingencyTable implements NameBearer {
   protected int cols;
   protected int[] values;
   
-  private ContingencyTable() {}
+  private ContingencyTableInteger() {}
   
-  public ContingencyTable(int rows, int cols) {
+  public ContingencyTableInteger(int rows, int cols) {
     this.rows = rows;
     this.cols = cols;
     rowLabels = new ArrayList<String>(rows);

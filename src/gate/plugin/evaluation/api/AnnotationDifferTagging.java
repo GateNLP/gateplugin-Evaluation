@@ -466,8 +466,8 @@ public class AnnotationDifferTagging {
   public static void addChangesToContingenyTables(
           AnnotationDifferTagging responses,
           AnnotationDifferTagging reference, 
-          ContingencyTable tableStrict,
-          ContingencyTable tableLenient) {
+          ContingencyTableInteger tableStrict,
+          ContingencyTableInteger tableLenient) {
     if(tableStrict == null & tableLenient == null) {
       throw new RuntimeException("Both contingency tables null, no point of calling this method!");
     }
@@ -660,8 +660,8 @@ public class AnnotationDifferTagging {
    * @param referenceDiffer
    * @return
    */
-  //public static ContingencyTable getPairedCorrectnessCountsStrict(
-  //  ContingencyTable toIncrement, AnnotationDifferTagging responseDiffer, AnnotationDifferTagging referenceDiffer) {
+  //public static ContingencyTableInteger getPairedCorrectnessCountsStrict(
+  //  ContingencyTableInteger toIncrement, AnnotationDifferTagging responseDiffer, AnnotationDifferTagging referenceDiffer) {
   //  
   //}
   private static void addAnnsWithTypeSuffix(AnnotationSet outSet, Collection<Annotation> inAnns, String suffix) {

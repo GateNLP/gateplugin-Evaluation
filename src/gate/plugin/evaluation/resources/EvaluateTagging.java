@@ -33,6 +33,7 @@ import gate.creole.metadata.RunTime;
 import gate.plugin.evaluation.api.AnnotationDifferTagging;
 import gate.plugin.evaluation.api.AnnotationDifferTagging.CandidateList;
 import gate.plugin.evaluation.api.ByThEvalStatsTagging;
+import gate.plugin.evaluation.api.ContingencyTableInteger;
 import gate.plugin.evaluation.api.EvalStatsTagging;
 import gate.plugin.evaluation.api.EvalStatsTaggingMacro;
 import gate.plugin.evaluation.api.FeatureComparison;
@@ -278,6 +279,9 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   // fields shared between the execute method and the methods for initializing and finalization
   protected Map<String,EvalStatsTagging> allDocumentsStats;
   protected Map<String,EvalStatsTagging> allDocumentsReferenceStats = null;
+  
+  protected ContingencyTableInteger correctnessTableStrict;
+  protected ContingencyTableInteger correctnessTableLenient;
   
   // This will be initialized at the start of the run and be incremented in the AnnotationDifferTagging
   // for each document.
@@ -548,6 +552,8 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
       
       // TODO: increment the overall counts of how things changed
       
+      AnnotationDifferTagging.addChangesToContingenyTables(docDiffer, docRefDiffer, correctnessTableStrict, correctnessTableLenient);
+      
       // add document features for the reference set
       String featurePrefixReferenceT = featurePrefixReference;
       if(type.isEmpty()) {
@@ -667,7 +673,6 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   }
   
   private PrintStream mainTsvPrintStream;
-  private PrintStream scoreDistPrintStream;
   
   /** 
    * Create and open an print stream to the file where the Tsv rows should get written to.
@@ -749,6 +754,18 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     // over all documents for each type. This is left null if no reference set is specified!    
     if(!expandedReferenceSetName.isEmpty()) {
       allDocumentsReferenceStats = new HashMap<String, EvalStatsTagging>();
+      correctnessTableStrict = new ContingencyTableInteger(2, 2);
+      correctnessTableLenient = new ContingencyTableInteger(2, 2);
+      correctnessTableLenient.setName(expandedEvaluationId+"-"+expandedReferenceSetName+"/"+expandedResponseSetName+"(lenient)");
+      correctnessTableLenient.setRowLabel(0, expandedReferenceSetName+":correct");
+      correctnessTableLenient.setRowLabel(1, expandedReferenceSetName+":wrong");
+      correctnessTableLenient.setColumnLabel(0, expandedResponseSetName+":correct");
+      correctnessTableLenient.setColumnLabel(1, expandedResponseSetName+":wrong");
+      correctnessTableStrict.setName(expandedEvaluationId+"-"+expandedReferenceSetName+"/"+expandedResponseSetName+"(strict)");
+      correctnessTableStrict.setRowLabel(0, expandedReferenceSetName+":correct");
+      correctnessTableStrict.setRowLabel(1, expandedReferenceSetName+":wrong");
+      correctnessTableStrict.setColumnLabel(0, expandedResponseSetName+":correct");
+      correctnessTableStrict.setColumnLabel(1, expandedResponseSetName+":wrong");
     }
     
     // If a score feature name is specified, we need to do either by score or list-based
@@ -946,6 +963,14 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Spurious Lenient: "+es.getTrueSpuriousLenient());
   }
   
+  // TODO: make this work per type once we collect the tables per type!
+  public void outputContingencyTable(PrintStream out, ContingencyTableInteger table) {
+    out.println(expandedEvaluationId+" "+table.getName()+"correct/correct: "+table.get(0, 0));
+    out.println(expandedEvaluationId+" "+table.getName()+"correct/wrong: "+table.get(0, 1));
+    out.println(expandedEvaluationId+" "+table.getName()+"wrong/correct: "+table.get(1, 0));
+    out.println(expandedEvaluationId+" "+table.getName()+"wrong/wrong: "+table.get(1, 1));    
+  }
+  
   
   public void outputDefaultResults() {
     
@@ -1000,6 +1025,10 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
       }
     }
       
+    if(!expandedReferenceSetName.isEmpty()) {
+      outputContingencyTable(System.out, correctnessTableStrict);      
+      outputContingencyTable(System.out, correctnessTableLenient);
+    }
 
   }
   
