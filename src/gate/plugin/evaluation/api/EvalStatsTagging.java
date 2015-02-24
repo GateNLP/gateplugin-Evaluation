@@ -186,7 +186,7 @@ public class EvalStatsTagging  {
   // RECALL 
   // Recall is the portion of targets that have a correct response
   public double getRecallStrict() {
-    if(nResponses == 0) {
+    if(nTargets == 0) {
       return 0.0;
     } else {
       return nCorrectStrict/(double)nTargets;
@@ -194,7 +194,7 @@ public class EvalStatsTagging  {
   }
   
   public double getRecallLenient() {
-    if(nResponses == 0) {
+    if(nTargets == 0) {
       return 0.0;
     } else {
       return getCorrectLenient()/(double)nTargets;
