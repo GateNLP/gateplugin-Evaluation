@@ -543,7 +543,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
         docRefDiffer.addIndicatorAnnotations(outputAnnotationSet);
         // Now add also the annotations that indicate the changes between the reference set and
         // the response set
-        AnnotationDifferTagging.addChangesIndicatorAnnotations(outputAnnotationSet, docDiffer, docRefDiffer);
+        AnnotationDifferTagging.addChangesIndicatorAnnotations(docDiffer, docRefDiffer, outputAnnotationSet);
       }
       
       // TODO: increment the overall counts of how things changed

@@ -15,7 +15,6 @@ import gate.AnnotationSet;
 import gate.FeatureMap;
 import gate.Utils;
 import gate.annotation.AnnotationSetImpl;
-import gate.creole.annic.apache.lucene.search.SortField;
 import gate.util.GateRuntimeException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -400,10 +399,13 @@ public class AnnotationDifferTagging {
   // the sets we record in case the threshold is NaN
   private AnnotationSet correctStrictAnns,
           correctPartialAnns,
+          singleCorrectStrictAnns,
+          singleCorrectPartialAnns,
           incorrectStrictAnns,
           incorrectPartialAnns,
           trueMissingLenientAnns,
-          trueSpuriousLenientAnns;
+          trueSpuriousLenientAnns,
+          targetAnns;
 
   public AnnotationSet getCorrectStrictAnnotations() {
     return correctStrictAnns;
@@ -428,7 +430,19 @@ public class AnnotationDifferTagging {
   public AnnotationSet getTrueSpuriousLenientAnnotations() {
     return trueSpuriousLenientAnns;
   }
+  
+  public AnnotationSet getSingleCorrectStrictAnnotations() {
+    return singleCorrectStrictAnns;
+  }
 
+  public AnnotationSet getSingleCorrectPartialAnnotations() {
+    return singleCorrectPartialAnns;
+  }
+
+  public AnnotationSet getTargetAnnotations() {
+    return targetAnns;
+  }
+  
   /**
    * Add the annotations that indicate correct/incorrect etc to the output set. This will create one
    * annotation in the outSet for each annotation returned by getXXXAnnotations() but will change
@@ -449,17 +463,91 @@ public class AnnotationDifferTagging {
     addAnnsWithTypeSuffix(outSet, getTrueSpuriousLenientAnnotations(), "_SL");
   }
 
-
+  public static void addChangesToContingenyTables(
+          AnnotationDifferTagging responses,
+          AnnotationDifferTagging reference, 
+          ContingencyTable tableStrict,
+          ContingencyTable tableLenient) {
+    if(tableStrict == null & tableLenient == null) {
+      throw new RuntimeException("Both contingency tables null, no point of calling this method!");
+    }
+    if(tableStrict != null && (tableStrict.nRows() != 2 || tableStrict.nColumns() != 2)) {
+      throw new RuntimeException("tableStrict is not a 2x2 contingency table");
+    }
+    if(tableLenient != null && (tableLenient.nRows() != 2 || tableLenient.nColumns() != 2)) {
+      throw new RuntimeException("tableLenient is not a 2x2 contingency table");
+    }
+    // the contingency table must be 2x2. We assume that the rows refer to the reference
+    // set being correct or wrong, in that order and the columns to refer to the response set
+    // being correct or wrong in that order.
+    AnnotationSet refsCorrect = reference.getSingleCorrectStrictAnnotations();
+    AnnotationSet respsCorrect = responses.getSingleCorrectStrictAnnotations();
+    AnnotationSet refsCorrectPartial = reference.getSingleCorrectPartialAnnotations();
+    AnnotationSet respsCorrectPartial = responses.getSingleCorrectPartialAnnotations();
+    // for each correct reference, find the correct and incorrect ones from the response set
+    for(Annotation ann : responses.getTargetAnnotations()) {
+      boolean resStrictCorrect = false;
+      boolean resLenientCorrect = false;
+      boolean refStrictCorrect = false;
+      boolean refLenientCorrect = false;
+      
+      // Either set is correct for a target if there is a singleCorrect answer
+      AnnotationSet tmpSet = Utils.getCoextensiveAnnotations(respsCorrect, ann);
+      if(tmpSet.size() > 0) {
+        resStrictCorrect = true;
+        resLenientCorrect = true;
+      }
+      
+      tmpSet = Utils.getCoextensiveAnnotations(refsCorrect, ann);
+      if(tmpSet.size() > 0) {
+        refStrictCorrect = true;
+        refLenientCorrect = true;
+      }
+      
+      // if the lenient flags are still false, lets check if we got a partial response
+      tmpSet = Utils.getOverlappingAnnotations(respsCorrectPartial, ann);
+      if(tmpSet.size() > 0) {
+        resLenientCorrect = true;
+      }
+      tmpSet = Utils.getOverlappingAnnotations(refsCorrectPartial, ann);
+      if(tmpSet.size() > 0) {
+        refLenientCorrect = true;
+      }
+      if(tableStrict != null) {
+        if(refStrictCorrect && resStrictCorrect) {
+          tableStrict.incrementBy(0, 0, 1);
+        } else if(refStrictCorrect && !resStrictCorrect) {
+          tableStrict.incrementBy(0, 1, 1);
+        } else if(!refStrictCorrect && resStrictCorrect) {
+          tableStrict.incrementBy(1, 0, 1);
+        } else if(!refStrictCorrect && !resStrictCorrect) {
+          tableStrict.incrementBy(1, 1, 1);
+        }
+      }
+      if(tableLenient != null) {
+        if(refLenientCorrect && resLenientCorrect) {
+          tableLenient.incrementBy(0, 0, 1);
+        } else if(refLenientCorrect && !resLenientCorrect) {
+          tableLenient.incrementBy(0, 1, 1);
+        } else if(!refLenientCorrect && resLenientCorrect) {
+          tableLenient.incrementBy(1, 0, 1);
+        } else if(!refLenientCorrect && !resLenientCorrect) {
+          tableLenient.incrementBy(1, 1, 1);
+        }
+      }
+    } // for
+  }
 
   /**
    * Add the annotations that indicate changes between responses.
-   * At the moment, this simply creates annotations for all the changes between response and reference
-   * annotations, with respect to the target set. 
    * @param outSet
    * @param responses
    * @param reference
    */
-  public static void addChangesIndicatorAnnotations(AnnotationSet outSet, AnnotationDifferTagging responses, AnnotationDifferTagging reference) {
+  public static void addChangesIndicatorAnnotations(AnnotationDifferTagging responses, 
+          AnnotationDifferTagging reference, AnnotationSet outSet) {
+    
+    
   // The following changes are, in theory possible:
   // CS -> CP, IS, IP, ML
     for(Annotation ann : reference.getCorrectStrictAnnotations()) {
@@ -620,6 +708,10 @@ public class AnnotationDifferTagging {
       incorrectPartialAnns = new AnnotationSetImpl(keyAnns.getDocument());
       trueMissingLenientAnns = new AnnotationSetImpl(keyAnns.getDocument());
       trueSpuriousLenientAnns = new AnnotationSetImpl(keyAnns.getDocument());
+      targetAnns = new AnnotationSetImpl(keyAnns.getDocument());
+      targetAnns.addAll(keyAnns);
+      singleCorrectPartialAnns = new AnnotationSetImpl(keyAnns.getDocument());
+      singleCorrectStrictAnns = new AnnotationSetImpl(keyAnns.getDocument());
     }
     keyList = new ArrayList<Annotation>(keyAnns);
     responseList = null;
@@ -670,6 +762,8 @@ public class AnnotationDifferTagging {
     } 
     //logger.debug("DEBUG: responseList size for threshold "+threshold+" is "+responseList.size());
 
+    
+    
     keyChoices = new ArrayList<List<Pairing>>(keyList.size());
     // initialize by nr_keys nulls
     keyChoices.addAll(Collections.nCopies(keyList.size(), (List<Pairing>) null));
@@ -876,6 +970,7 @@ public class AnnotationDifferTagging {
           AnnotationSet ol = gate.Utils.getOverlappingAnnotations(spuriousAnnSet, t);
           if (ol.size() == 0) {
             es.addSingleCorrectStrict(1);
+            singleCorrectStrictAnns.add(p.getResponse());
           }
           //logger.debug("DEBUG have a correct strict choice, overlapping: "+ol.size()+" key is "+t);
         } else if (p.getType() == PARTIALLY_CORRECT_TYPE) {
@@ -883,6 +978,7 @@ public class AnnotationDifferTagging {
           AnnotationSet ol = gate.Utils.getOverlappingAnnotations(spuriousAnnSet, t);
           if (ol.size() == 0) {
             es.addSingleCorrectPartial(1);
+            singleCorrectPartialAnns.add(p.getResponse());
           }
           //logger.debug("DEBUG have a correct partial choice, overlapping: "+ol.size()+" key is "+t);
         }
