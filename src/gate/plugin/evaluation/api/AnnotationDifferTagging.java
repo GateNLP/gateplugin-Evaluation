@@ -1452,7 +1452,7 @@ public class AnnotationDifferTagging {
           cands.add(annSet.get(id));
         }
         ByScoreComparator comp = new ByScoreComparator(scoreFeature);
-        cands.sort(comp);
+        Collections.sort(cands,comp);
         logger.debug("DEBUG: cands is now "+cands);
         smallestScoreIndex = cands.size()-1;
         smallestScore = object2Double(cands.get(smallestScoreIndex).getFeatures().get(scoreFeature));
