@@ -1,4 +1,9 @@
-<CREOLE-DIRECTORY>
+<?xml version="1.0"?>
+<CREOLE-DIRECTORY
+  ID="gate.plugin.evaluation"
+  VERSION="0.1"
+  DESCRIPTION="Evaluation plugin"
+  HELPURL="https://github.com/johann-petrak/gateplugin-Evaluation/wiki"
+>
   <JAR SCAN="true">Evaluation.jar</JAR>
-  <JAR>lib/commons-math3-3.4.1.jar</JAR>
 </CREOLE-DIRECTORY>

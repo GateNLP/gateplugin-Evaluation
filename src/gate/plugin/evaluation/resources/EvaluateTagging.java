@@ -102,7 +102,9 @@ import org.apache.log4j.Logger;
  *
  * @author Johann Petrak
  */
-@CreoleResource(name = "EvaluatePRF",
+@CreoleResource(
+        name = "EvaluateTagging",
+        helpURL ="https://github.com/johann-petrak/gateplugin-Evaluation/wiki/EvaluateTagging-PR",
         comment = "Calculate P/R/F evalutation measures for documents")
 public class EvaluateTagging extends AbstractLanguageAnalyser
   implements ControllerAwarePR, CustomDuplication  {
@@ -961,6 +963,8 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Spurious Strict: "+es.getTrueSpuriousStrict());
     out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Spurious Lenient: "+es.getSpuriousLenient());
     out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Spurious Lenient: "+es.getTrueSpuriousLenient());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Single Correct Strict: "+es.getSingleCorrectStrict());
+    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Single Correct Lenient: "+es.getSingleCorrectLenient());
   }
   
   // TODO: make this work per type once we collect the tables per type!
