@@ -456,12 +456,12 @@ public class AnnotationDifferTagging {
    */
   public void addIndicatorAnnotations(AnnotationSet outSet, String prefix) {
     if(prefix==null) { prefix = ""; }
-    addAnnsWithTypeSuffix(outSet, getCorrectStrictAnnotations(), prefix+"_CS");
-    addAnnsWithTypeSuffix(outSet, getCorrectPartialAnnotations(), prefix+"_CP");
-    addAnnsWithTypeSuffix(outSet, getIncorrectStrictAnnotations(), prefix+"_IS");
-    addAnnsWithTypeSuffix(outSet, getIncorrectPartialAnnotations(), prefix+"_IP");
-    addAnnsWithTypeSuffix(outSet, getTrueMissingLenientAnnotations(), prefix+"_ML");
-    addAnnsWithTypeSuffix(outSet, getTrueSpuriousLenientAnnotations(), prefix+"_SL");
+    addAnnsWithTypeSuffix(outSet, getCorrectStrictAnnotations(), prefix+"_CS",null);
+    addAnnsWithTypeSuffix(outSet, getCorrectPartialAnnotations(), prefix+"_CP",null);
+    addAnnsWithTypeSuffix(outSet, getIncorrectStrictAnnotations(), prefix+"_IS",null);
+    addAnnsWithTypeSuffix(outSet, getIncorrectPartialAnnotations(), prefix+"_IP",null);
+    addAnnsWithTypeSuffix(outSet, getTrueMissingLenientAnnotations(), prefix+"_ML",null);
+    addAnnsWithTypeSuffix(outSet, getTrueSpuriousLenientAnnotations(), prefix+"_SL",null);
   }
 
   public static void addChangesToContingenyTables(
@@ -554,68 +554,70 @@ public class AnnotationDifferTagging {
     for(Annotation ann : reference.getCorrectStrictAnnotations()) {
       AnnotationSet tmpSet;
       tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectPartialAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_CP");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_CP","-");
       tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectStrictAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_IS");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_IS","-");
       tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectPartialAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_IP");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_IP","-");
       tmpSet = Utils.getOverlappingAnnotations(responses.getTrueMissingLenientAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_ML");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_ML","-");
     }
   // CP -> CS, IS, IP, ML
     for(Annotation ann : reference.getCorrectPartialAnnotations()) {
       AnnotationSet tmpSet;
       tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectStrictAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_CS");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_CS","+");
       tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectStrictAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_IS");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_IS","-");
       tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectPartialAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_IP");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_IP","-");
       tmpSet = Utils.getOverlappingAnnotations(responses.getTrueMissingLenientAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_ML");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_ML","-");
     }
   // IS -> IP, CS, CP, ML
     for(Annotation ann : reference.getIncorrectStrictAnnotations()) {
       AnnotationSet tmpSet;
       tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectPartialAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_IP");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_IP","+-");
       tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectStrictAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_CS");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_CS","+");
       tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectPartialAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_CP");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_CP","+");
       tmpSet = Utils.getOverlappingAnnotations(responses.getTrueMissingLenientAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_ML");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_ML","+-");
     }
   // IP -> IS, CS, CP, ML
     for(Annotation ann : reference.getIncorrectPartialAnnotations()) {
       AnnotationSet tmpSet;
       tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectStrictAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_IS");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_IS","+-");
       tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectStrictAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_CS");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_CS","+");
       tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectPartialAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_CP");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_CP","+");
       tmpSet = Utils.getOverlappingAnnotations(responses.getTrueMissingLenientAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_ML");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_ML","+-");
     }
   // ML -> CS, CP, IS, IP
     for(Annotation ann : reference.getTrueMissingLenientAnnotations()) {
       AnnotationSet tmpSet;
       tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectStrictAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_CS");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_CS","+");
       tmpSet = Utils.getOverlappingAnnotations(responses.getCorrectPartialAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_CP");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_CP","+");
       tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectStrictAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_IS");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_IS","+-");
       tmpSet = Utils.getOverlappingAnnotations(responses.getIncorrectPartialAnnotations(), ann);
-      addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_IP");
+      addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_IP","+-");
     }
   // SL -> A (absent)
     for(Annotation ann : reference.getTrueSpuriousLenientAnnotations()) {
       AnnotationSet tmpSet;
       tmpSet = Utils.getOverlappingAnnotations(responses.getTrueSpuriousLenientAnnotations(), ann);
       if(tmpSet.size() == 0) {
-        gate.Utils.addAnn(outSet, ann, ann.getType() + "_SL_A", gate.Utils.toFeatureMap(ann.getFeatures()));
+        FeatureMap fm = gate.Utils.toFeatureMap(ann.getFeatures());
+        fm.put("_eval.change","+-");
+        gate.Utils.addAnn(outSet, ann, ann.getType() + "_SL_A", fm);
       }
     }
   // A (absent) -> SL
@@ -624,7 +626,9 @@ public class AnnotationDifferTagging {
       tmpSet = Utils.getOverlappingAnnotations(reference.getTrueSpuriousLenientAnnotations(), ann);
       //System.err.println("\n\nDEBUG: checking ann in response "+ann+"\ngot overlaps: "+tmpSet+"\nsize is "+tmpSet.size());
       if(tmpSet.size() == 0) {
-        gate.Utils.addAnn(outSet, ann, ann.getType() + "_A_SL", gate.Utils.toFeatureMap(ann.getFeatures()));
+        FeatureMap fm = gate.Utils.toFeatureMap(ann.getFeatures());
+        fm.put("_eval.change","+-");
+        gate.Utils.addAnn(outSet, ann, ann.getType() + "_A_SL", fm);
       }
     }
   // This would amount to 22 different pairings of which the following 9 are good:
@@ -666,9 +670,13 @@ public class AnnotationDifferTagging {
   //  ContingencyTableInteger toIncrement, AnnotationDifferTagging responseDiffer, AnnotationDifferTagging referenceDiffer) {
   //  
   //}
-  private static void addAnnsWithTypeSuffix(AnnotationSet outSet, Collection<Annotation> inAnns, String suffix) {
+  private static void addAnnsWithTypeSuffix(AnnotationSet outSet, Collection<Annotation> inAnns, String suffix, String changeInd) {
     for (Annotation ann : inAnns) {
-      gate.Utils.addAnn(outSet, ann, ann.getType() + suffix, gate.Utils.toFeatureMap(ann.getFeatures()));
+      FeatureMap fm = gate.Utils.toFeatureMap(ann.getFeatures());
+      if(changeInd!=null && !changeInd.isEmpty()) {
+        fm.put("_eval.change",changeInd);
+      }
+      gate.Utils.addAnn(outSet, ann, ann.getType() + suffix, fm);
     }
   }
 
