@@ -38,7 +38,9 @@ public class ContingencyTableInteger implements NameBearer {
     this.rows = rows;
     this.cols = cols;
     rowLabels = new ArrayList<String>(rows);
+    for(int i = 0; i < rows; i++) { rowLabels.add(""); }
     columnLabels = new ArrayList<String>(cols);
+    for(int i = 0; i < cols; i++) { columnLabels.add(""); }
     values = new int[rows*cols];    
   }
   

@@ -223,7 +223,7 @@ public class TestTagging1 {
     assertEquals("F1.0 lenient",2/3.0,es.getFMeasureLenient(1.0),EPS);
     // also check if we create the correct annotations
     AnnotationSet os = doc.getAnnotations("O");
-    ad.addIndicatorAnnotations(os);
+    ad.addIndicatorAnnotations(os,"");
     assertEquals("outset size",2,os.size());
     AnnotationSet tmpSet = os.get("M_CS");
     assertEquals("M_CS size",1,tmpSet.size());
@@ -254,7 +254,7 @@ public class TestTagging1 {
     assertEquals("F1.0 lenient",1.0,es.getFMeasureLenient(1.0),EPS);
     // also check if we create the correct annotations
     AnnotationSet os = doc.getAnnotations("O");
-    ad.addIndicatorAnnotations(os);
+    ad.addIndicatorAnnotations(os,"");
     assertEquals("outset size",2,os.size());
     AnnotationSet tmpSet = os.get("M_CS");
     assertEquals("M_CS size",2,tmpSet.size());

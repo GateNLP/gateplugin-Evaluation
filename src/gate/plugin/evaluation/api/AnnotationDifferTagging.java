@@ -454,13 +454,14 @@ public class AnnotationDifferTagging {
    *
    * @param outSet
    */
-  public void addIndicatorAnnotations(AnnotationSet outSet) {
-    addAnnsWithTypeSuffix(outSet, getCorrectStrictAnnotations(), "_CS");
-    addAnnsWithTypeSuffix(outSet, getCorrectPartialAnnotations(), "_CP");
-    addAnnsWithTypeSuffix(outSet, getIncorrectStrictAnnotations(), "_IS");
-    addAnnsWithTypeSuffix(outSet, getIncorrectPartialAnnotations(), "_IP");
-    addAnnsWithTypeSuffix(outSet, getTrueMissingLenientAnnotations(), "_ML");
-    addAnnsWithTypeSuffix(outSet, getTrueSpuriousLenientAnnotations(), "_SL");
+  public void addIndicatorAnnotations(AnnotationSet outSet, String prefix) {
+    if(prefix==null) { prefix = ""; }
+    addAnnsWithTypeSuffix(outSet, getCorrectStrictAnnotations(), prefix+"_CS");
+    addAnnsWithTypeSuffix(outSet, getCorrectPartialAnnotations(), prefix+"_CP");
+    addAnnsWithTypeSuffix(outSet, getIncorrectStrictAnnotations(), prefix+"_IS");
+    addAnnsWithTypeSuffix(outSet, getIncorrectPartialAnnotations(), prefix+"_IP");
+    addAnnsWithTypeSuffix(outSet, getTrueMissingLenientAnnotations(), prefix+"_ML");
+    addAnnsWithTypeSuffix(outSet, getTrueSpuriousLenientAnnotations(), prefix+"_SL");
   }
 
   public static void addChangesToContingenyTables(
@@ -614,15 +615,16 @@ public class AnnotationDifferTagging {
       AnnotationSet tmpSet;
       tmpSet = Utils.getOverlappingAnnotations(responses.getTrueSpuriousLenientAnnotations(), ann);
       if(tmpSet.size() == 0) {
-        addAnnsWithTypeSuffix(outSet, tmpSet, "_SL_A");
+        gate.Utils.addAnn(outSet, ann, ann.getType() + "_SL_A", gate.Utils.toFeatureMap(ann.getFeatures()));
       }
     }
   // A (absent) -> SL
     for(Annotation ann : responses.getTrueSpuriousLenientAnnotations()) {
       AnnotationSet tmpSet;
       tmpSet = Utils.getOverlappingAnnotations(reference.getTrueSpuriousLenientAnnotations(), ann);
+      //System.err.println("\n\nDEBUG: checking ann in response "+ann+"\ngot overlaps: "+tmpSet+"\nsize is "+tmpSet.size());
       if(tmpSet.size() == 0) {
-        addAnnsWithTypeSuffix(outSet, tmpSet, "_A_SL");
+        gate.Utils.addAnn(outSet, ann, ann.getType() + "_A_SL", gate.Utils.toFeatureMap(ann.getFeatures()));
       }
     }
   // This would amount to 22 different pairings of which the following 9 are good:

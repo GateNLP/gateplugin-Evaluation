@@ -526,7 +526,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     AnnotationSet outputAnnotationSet = null;
     if(!expandedOutputASName.isEmpty()) {
       outputAnnotationSet = document.getAnnotations(expandedOutputASName);
-      docDiffer.addIndicatorAnnotations(outputAnnotationSet);
+      docDiffer.addIndicatorAnnotations(outputAnnotationSet,"_Res");
     }
     
     
@@ -546,7 +546,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
       // if we need to record the matchings, also add the annotations for how things changed
       // between the reference set and the response set.
       if(outputAnnotationSet != null) {
-        docRefDiffer.addIndicatorAnnotations(outputAnnotationSet);
+        docRefDiffer.addIndicatorAnnotations(outputAnnotationSet,"_Ref");
         // Now add also the annotations that indicate the changes between the reference set and
         // the response set
         AnnotationDifferTagging.addChangesIndicatorAnnotations(docDiffer, docRefDiffer, outputAnnotationSet);
