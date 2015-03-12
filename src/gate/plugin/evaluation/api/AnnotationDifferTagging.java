@@ -614,7 +614,7 @@ public class AnnotationDifferTagging {
   // SL -> A (absent)
     for(Annotation ann : reference.getTrueSpuriousLenientAnnotations()) {
       AnnotationSet tmpSet;
-      tmpSet = getOverlappingAnnsNotIn(responses.getTrueSpuriousLenientAnnotations(), ann, reference.getTrueSpuriousLenientAnnotations());
+      tmpSet = Utils.getOverlappingAnnotations(responses.getTrueSpuriousLenientAnnotations(), ann);
       if(tmpSet.size() == 0) {
         FeatureMap fm = gate.Utils.toFeatureMap(ann.getFeatures());
         fm.put("_eval.change","+-");
@@ -624,7 +624,7 @@ public class AnnotationDifferTagging {
   // A (absent) -> SL
     for(Annotation ann : responses.getTrueSpuriousLenientAnnotations()) {
       AnnotationSet tmpSet;
-      tmpSet = getOverlappingAnnsNotIn(reference.getTrueSpuriousLenientAnnotations(), ann, responses.getTrueSpuriousLenientAnnotations());
+      tmpSet = Utils.getOverlappingAnnotations(reference.getTrueSpuriousLenientAnnotations(), ann);
       //System.err.println("\n\nDEBUG: checking ann in response "+ann+"\ngot overlaps: "+tmpSet+"\nsize is "+tmpSet.size());
       if(tmpSet.size() == 0) {
         FeatureMap fm = gate.Utils.toFeatureMap(ann.getFeatures());
