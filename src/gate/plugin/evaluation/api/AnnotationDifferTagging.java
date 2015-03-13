@@ -687,15 +687,10 @@ public class AnnotationDifferTagging {
       for(Annotation c : coexts) {
         // if c matches a, remove a, i.e. do it.remove()
         //System.out.println("DEBUG: Comparing for exclusion: "+a+" WITH "+c);
-        //if(isAnnotationsMatch(a,c,fs,fc)) {
+        if(isAnnotationsMatch(a,c,fs,fc)) {
           //System.out.println("DEBUG: FOUND A MATCH!!!!");
-        //  it.remove();
-        //  break;
-        //}
-        // I think it is sufficient to check if the annotation exists, we do not need to check
-        // the features?
-        if(coexts.size() > 0)  {
           it.remove();
+          break;
         }
       }
     }
