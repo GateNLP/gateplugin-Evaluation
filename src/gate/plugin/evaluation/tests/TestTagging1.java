@@ -57,7 +57,7 @@ public class TestTagging1 {
   private static final Logger logger = Logger.getLogger(TestTagging1.class);
   @Before
   public void setup() throws GateException, IOException {
-    /*
+    
     logger.setLevel(Level.DEBUG);
     Logger rootLogger = Logger.getRootLogger();
     rootLogger.setLevel(Level.DEBUG);
@@ -67,7 +67,7 @@ public class TestTagging1 {
     appender.setLayout(new PatternLayout("%-5p [%t]: %m%n"));
     //logger.addAppender(appender);
     rootLogger.addAppender(appender);
-    */
+    
     if(!Gate.isInitialised()) {
       Gate.runInSandbox(true);
       Gate.init();
@@ -369,6 +369,51 @@ public class TestTagging1 {
     assertEquals("Rec strict,  th=0.3",0.5,bth.get(0.3).getRecallStrict(),EPS);
     assertEquals("Prec strict, th=0.4",1.0,bth.get(0.4).getPrecisionStrict(),EPS);
     assertEquals("Rec strict,  th=0.4",0.25,bth.get(0.4).getRecallStrict(),EPS);
+  }
+  
+  // Test change indicator annotations
+  @Test
+  public void testTaggingDiff01() throws ResourceInstantiationException {
+    Document doc1 = newD();
+    // here is how the annotations are placed in the key, response and reference sets:
+    // ann1 is a correct partial for key2
+    // key    |   key1   key2
+    // ref    |   --ann1-----
+    // res    |   --ann1-----
+    // This should create two indicator annotations in ref and res:
+    //        |   miss
+    //        |   correctpart
+    // This test checks that even though the miss in ref could be seen as changing into 
+    // the correctpart in res, the difference set should not contain indicator annotations
+    // for these changes and the algorithm should realize that they sets are identical.
+    addA(doc1,"Keys",5, 10,"M",featureMap("id","x"));
+    AnnotationSet keys = addA(doc1,"Keys",15,20,"M",featureMap("id","y"));
+    AnnotationSet res  = addA(doc1,"Res",5,20,"M",featureMap("id","y","s","0.1"));
+    AnnotationSet ref  = addA(doc1,"Ref",5,20,"M",featureMap("id","y","s","0.1"));
+
+    AnnotationDifferTagging adres = new AnnotationDifferTagging(keys, res, FS_ID, FC_EQU);
+    AnnotationDifferTagging adref = new AnnotationDifferTagging(keys, ref, FS_ID, FC_EQU);
+
+    AnnotationSet refinds_cp = adref.getCorrectPartialAnnotations();
+    logger.debug("Diff01, correct partial refs: "+refinds_cp);    
+    AnnotationSet refinds_ml = adref.getTrueMissingLenientAnnotations();
+    logger.debug("Diff01, missing refs: "+refinds_cp);
+    
+    AnnotationSet resinds_cp = adres.getCorrectPartialAnnotations();
+    logger.debug("Diff01, correct partial res: "+resinds_cp);    
+    AnnotationSet resinds_ml = adres.getTrueMissingLenientAnnotations();
+    logger.debug("Diff01, missing refs: "+resinds_cp);
+    
+    AnnotationSet diffs = doc1.getAnnotations("Diffs");
+    AnnotationDifferTagging.addChangesIndicatorAnnotations(adres, adref, diffs);
+    
+    logger.debug("Diff01, differences: "+diffs);
+    
+    assertEquals("Diff01, refs, cp",1,refinds_cp.size());
+    assertEquals("Diff01, refs, ml",1,refinds_ml.size());
+    assertEquals("Diff01, ress, cp",1,resinds_cp.size());
+    assertEquals("Diff01, ress, ml",1,resinds_ml.size());
+    assertEquals("Diff01, diffs",0,diffs.size());
   }
   
   

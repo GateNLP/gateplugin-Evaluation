@@ -75,7 +75,7 @@ public class TestTagging2 {
     parms.put("evaluationId","EvaluataTagging1");
     parms.put("featureNames",newStringList("id")); // our only feature for matching is "id"
     parms.put("keyASName", "Key");
-    parms.put("outputASName", "Evaluate");
+    parms.put("outputASPrefix", "Evaluate");
     parms.put("outputDirectoryUrl",testingDir.toURI().toURL());
     parms.put("responseASName","Resp");
     parms.put("scoreFeatureName", "s");  // score feature is "s"

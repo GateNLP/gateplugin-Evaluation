@@ -205,13 +205,13 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   public String getScoreFeatureName() { return scoreFeatureName; }
   public String getExpandedScoreFeatureName() { return Utils.replaceVariablesInString(getScoreFeatureName()); }
   
-  private String outputASName;
+  private String outputASPrefix;
   @CreoleParameter (comment="The name of the annotation set for creating descriptive annotations. If empty, no annotations are created.")
   @Optional
   @RunTime
-  public void setOutputASName(String name) { outputASName = name; }
-  public String getOutputASName() { return outputASName; }
-  public String getExpandedOutputASName() { return Utils.replaceVariablesInString(getOutputASName()); }
+  public void setOutputASPrefix(String name) { outputASPrefix = name; }
+  public String getOutputASPrefix() { return outputASPrefix; }
+  public String getExpandedOutputASPrefix() { return Utils.replaceVariablesInString(getOutputASPrefix()); }
   
   public String featureNameNilCluster;
   @CreoleParameter(comment = "", defaultValue = "")
@@ -308,7 +308,10 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   String expandedContainingNameAndType;
   String expandedListIdFeatureName;
   String expandedScoreFeatureName;
-  String expandedOutputASName;
+  String expandedOutputASPrefix;
+  String outputASResName = "";
+  String outputASRefName = "";
+  String outputASDiffName = "";
   String expandedFeatureNameNilCluster;
   String expandedNilValue;
   String expandedEvaluationId;
@@ -524,9 +527,9 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     // Now if we have parameters to record the matchings, get the information from the docDiffer
     // and create the apropriate annotations.
     AnnotationSet outputAnnotationSet = null;
-    if(!expandedOutputASName.isEmpty()) {
-      outputAnnotationSet = document.getAnnotations(expandedOutputASName);
-      docDiffer.addIndicatorAnnotations(outputAnnotationSet,"_Res");
+    if(!outputASResName.isEmpty()) {
+      outputAnnotationSet = document.getAnnotations(outputASResName);
+      docDiffer.addIndicatorAnnotations(outputAnnotationSet,"");
     }
     
     
@@ -545,10 +548,12 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
             
       // if we need to record the matchings, also add the annotations for how things changed
       // between the reference set and the response set.
-      if(outputAnnotationSet != null) {
-        docRefDiffer.addIndicatorAnnotations(outputAnnotationSet,"_Ref");
+      if(!outputASRefName.isEmpty()) {
+        outputAnnotationSet = document.getAnnotations(outputASRefName);
+        docRefDiffer.addIndicatorAnnotations(outputAnnotationSet,"");
         // Now add also the annotations that indicate the changes between the reference set and
         // the response set
+        outputAnnotationSet = document.getAnnotations(outputASDiffName);
         AnnotationDifferTagging.addChangesIndicatorAnnotations(docDiffer, docRefDiffer, outputAnnotationSet);
       }
       
@@ -724,7 +729,14 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     expandedFeatureNameNilCluster = getStringOrElse(getExpandedFeatureNameNilCluster(),"");
     expandedListIdFeatureName = getStringOrElse(getExpandedListIdFeatureName(),"");
     expandedNilValue = getStringOrElse(getExpandedNilValue(),"");
-    expandedOutputASName = getStringOrElse(getExpandedOutputASName(),"");
+    expandedOutputASPrefix = getStringOrElse(getExpandedOutputASPrefix(),"");
+    if(!expandedOutputASPrefix.isEmpty()) {
+      outputASResName = expandedOutputASPrefix+"_Res";
+      if(!expandedReferenceSetName.isEmpty()) {
+        outputASRefName = expandedOutputASPrefix+"_Ref";
+        outputASDiffName = expandedOutputASPrefix+"_Diff";
+      }
+    }
     expandedScoreFeatureName = getStringOrElse(getExpandedScoreFeatureName(),"");
     
     if(getAnnotationTypes() == null || getAnnotationTypes().isEmpty()) {

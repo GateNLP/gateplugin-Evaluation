@@ -109,7 +109,12 @@ public class AnnotationDifferTagging {
 
   private AnnotationDifferTagging() {
   }
-
+  
+  private Set<String> features;
+  public Set<String> getFeatureSet() { return features; }
+  
+  private FeatureComparison featureComparison;
+  public FeatureComparison getFeatureComparison() { return featureComparison; }
   /**
    * Create a differ for the two sets and the given, potentially empty/null list of features.
    *
@@ -470,7 +475,7 @@ public class AnnotationDifferTagging {
           AnnotationDifferTagging reference, 
           ContingencyTableInteger tableStrict,
           ContingencyTableInteger tableLenient) {
-    if(tableStrict == null & tableLenient == null) {
+    if(tableStrict == null && tableLenient == null) {
       throw new RuntimeException("Both contingency tables null, no point of calling this method!");
     }
     if(tableStrict != null && (tableStrict.nRows() != 2 || tableStrict.nColumns() != 2)) {
@@ -546,69 +551,81 @@ public class AnnotationDifferTagging {
    * @param responses
    * @param reference
    */
+  // NOTE: at the moment we only use the feature set/feature comparison strategy from the 
+  // response set and do not check if it is the same as for the reference set. Calculating
+  // differences really only makes sense if the same set and strategy are used!!
   public static void addChangesIndicatorAnnotations(AnnotationDifferTagging responses, 
           AnnotationDifferTagging reference, AnnotationSet outSet) {
     
+    Set<String> fs = responses.getFeatureSet();
+    FeatureComparison fc = responses.getFeatureComparison();
     
+    AnnotationSet allRefs = new AnnotationSetImpl(reference.getCorrectPartialAnnotations().getDocument());
+    allRefs.addAll(reference.getCorrectPartialAnnotations());
+    allRefs.addAll(reference.getCorrectStrictAnnotations());
+    allRefs.addAll(reference.getIncorrectPartialAnnotations());
+    allRefs.addAll(reference.getIncorrectStrictAnnotations());
+    allRefs.addAll(reference.getTrueMissingLenientAnnotations());
+    allRefs.addAll(reference.getTrueSpuriousLenientAnnotations());
   // The following changes are, in theory possible:
   // CS -> CP, IS, IP, ML
     for(Annotation ann : reference.getCorrectStrictAnnotations()) {
       AnnotationSet tmpSet;
-      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectPartialAnnotations(), ann,reference.getCorrectStrictAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectPartialAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_CP","-");
-      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectStrictAnnotations(), ann,reference.getCorrectStrictAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectStrictAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_IS","-");
-      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectPartialAnnotations(), ann,reference.getCorrectStrictAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectPartialAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_IP","-");
-      tmpSet = getOverlappingAnnsNotIn(responses.getTrueMissingLenientAnnotations(), ann,reference.getCorrectStrictAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getTrueMissingLenientAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_CS_ML","-");
     }
   // CP -> CS, IS, IP, ML
     for(Annotation ann : reference.getCorrectPartialAnnotations()) {
       AnnotationSet tmpSet;
-      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectStrictAnnotations(), ann,reference.getCorrectPartialAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectStrictAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_CS","+");
-      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectStrictAnnotations(), ann,reference.getCorrectPartialAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectStrictAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_IS","-");
-      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectPartialAnnotations(), ann,reference.getCorrectPartialAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectPartialAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_IP","-");
-      tmpSet = getOverlappingAnnsNotIn(responses.getTrueMissingLenientAnnotations(), ann,reference.getCorrectPartialAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getTrueMissingLenientAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_CP_ML","-");
     }
   // IS -> IP, CS, CP, ML
     for(Annotation ann : reference.getIncorrectStrictAnnotations()) {
       AnnotationSet tmpSet;
-      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectPartialAnnotations(), ann,reference.getIncorrectStrictAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectPartialAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_IP","+-");
-      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectStrictAnnotations(), ann,reference.getIncorrectStrictAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectStrictAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_CS","+");
-      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectPartialAnnotations(), ann,reference.getIncorrectStrictAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectPartialAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_CP","+");
-      tmpSet = getOverlappingAnnsNotIn(responses.getTrueMissingLenientAnnotations(), ann,reference.getIncorrectStrictAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getTrueMissingLenientAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_IS_ML","+-");
     }
   // IP -> IS, CS, CP, ML
     for(Annotation ann : reference.getIncorrectPartialAnnotations()) {
       AnnotationSet tmpSet;
-      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectStrictAnnotations(), ann,reference.getIncorrectPartialAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectStrictAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_IS","+-");
-      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectStrictAnnotations(), ann,reference.getIncorrectPartialAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectStrictAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_CS","+");
-      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectPartialAnnotations(), ann,reference.getIncorrectPartialAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectPartialAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_CP","+");
-      tmpSet = getOverlappingAnnsNotIn(responses.getTrueMissingLenientAnnotations(), ann,reference.getIncorrectPartialAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getTrueMissingLenientAnnotations(), ann, allRefs, fs ,fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_IP_ML","+-");
     }
   // ML -> CS, CP, IS, IP
     for(Annotation ann : reference.getTrueMissingLenientAnnotations()) {
       AnnotationSet tmpSet;
-      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectStrictAnnotations(), ann, reference.getTrueMissingLenientAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectStrictAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_CS","+");
-      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectPartialAnnotations(), ann, reference.getTrueMissingLenientAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getCorrectPartialAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_CP","+");
-      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectStrictAnnotations(), ann, reference.getTrueMissingLenientAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectStrictAnnotations(), ann, allRefs, fs, fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_IS","+-");
-      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectPartialAnnotations(), ann, reference.getTrueMissingLenientAnnotations());
+      tmpSet = getOverlappingAnnsNotIn(responses.getIncorrectPartialAnnotations(), ann, allRefs, fs ,fc);
       addAnnsWithTypeSuffix(outSet, tmpSet, "_ML_IP","+-");
     }
   // SL -> A (absent)
@@ -656,7 +673,8 @@ public class AnnotationDifferTagging {
   // bad:  CS -> CP, IS -> IP
   }
 
-  private static AnnotationSet getOverlappingAnnsNotIn(AnnotationSet from, Annotation ann, AnnotationSet notIn) {
+  private static AnnotationSet getOverlappingAnnsNotIn(AnnotationSet from, Annotation ann, 
+          AnnotationSet notIn, Set<String> fs, FeatureComparison fc) {
     AnnotationSet tmpSet = new AnnotationSetImpl(from.getDocument());
     tmpSet.addAll(gate.Utils.getOverlappingAnnotations(from, ann));
     // now make sure that none of the annotations in tmpSet occurs in notIn
@@ -665,9 +683,20 @@ public class AnnotationDifferTagging {
       // try to find an identical annotation in the notIn set. We only check the type.
       // TODO: not sure if the type alone is sufficient, should we also check the features?
       Annotation a = it.next();
-      AnnotationSet coext = gate.Utils.getCoextensiveAnnotations(from, ann, a.getType());
-      if(coext.size() > 0) {
-        it.remove();
+      AnnotationSet coexts = gate.Utils.getCoextensiveAnnotations(notIn, a, a.getType());
+      for(Annotation c : coexts) {
+        // if c matches a, remove a, i.e. do it.remove()
+        //System.out.println("DEBUG: Comparing for exclusion: "+a+" WITH "+c);
+        //if(isAnnotationsMatch(a,c,fs,fc)) {
+          //System.out.println("DEBUG: FOUND A MATCH!!!!");
+        //  it.remove();
+        //  break;
+        //}
+        // I think it is sufficient to check if the annotation exists, we do not need to check
+        // the features?
+        if(coexts.size() > 0)  {
+          it.remove();
+        }
       }
     }
     return tmpSet;
@@ -1036,7 +1065,7 @@ public class AnnotationDifferTagging {
    * @param features
    * @return
    */
-  public boolean isAnnotationsMatch(Annotation key, Annotation response, Set<String> features, FeatureComparison fcmp) {
+  public static boolean isAnnotationsMatch(Annotation key, Annotation response, Set<String> features, FeatureComparison fcmp) {
     if (!key.getType().equals(response.getType())) {
       return false;
     }
