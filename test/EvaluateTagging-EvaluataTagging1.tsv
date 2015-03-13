@@ -1,8 +1,0 @@
-evaluationId	docName	setName	annotationType	threshold	precisionStrict	recallStrict	F1Strict	accuracyStrict	precisionLenient	recallLenient	F1Lenient	accuracyLenient	targets	responses	correctStrict	singleCorrectStrict	incorrectStrict	missingStrict	trueMissingStrict	spuriousStrict	trueSpuriousStrict	correctPartial	singleCorrectPartial	incorrectPartial	missingLenient	trueMissingLenient	spuriousLenient	trueSpuriousLenient
-EvaluataTagging1	GATE Document_00025	Resp	M	NaN	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	1	1	0	0	1	1	0	1	0	0	0	0	1	0	1	0
-EvaluataTagging1	GATE Document_00026	Resp	M	NaN	0.0	0.0	0.0	0.0	1.0	1.0	1.0	1.0	1	1	0	0	0	1	1	1	1	1	1	0	0	0	0	0
-EvaluataTagging1	[doc:all:micro]	Resp	M	NaN	0.0	0.0	0.0	0.0	0.5	0.5	0.5	0.5	2	2	0	0	1	2	1	2	1	1	1	0	1	0	1	0
-EvaluataTagging1	[doc:all:micro]	Resp	M	0.6	1.0	1.0	1.0	0.0	1.0	1.0	1.0	0.0	2	2	2	0	0	0	0	0	0	0	0	0	0	0	0	0
-EvaluataTagging1	[doc:all:micro]	Resp	M	0.7	0.5	0.5	0.5	0.0	1.0	1.0	1.0	0.0	2	2	1	0	0	1	1	1	1	1	0	0	0	0	0	0
-EvaluataTagging1	[doc:all:micro]	Resp	M	0.8	0.0	0.0	0.0	0.0	1.0	1.0	1.0	0.0	2	2	0	0	0	2	2	2	2	2	0	0	0	0	0	0
-EvaluataTagging1	[doc:all:micro]	Resp	M	0.9	0.0	0.0	0.0	0.0	0.5	0.5	0.5	0.0	2	2	0	0	1	2	1	2	1	1	0	0	1	0	1	0

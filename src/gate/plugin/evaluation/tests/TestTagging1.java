@@ -397,12 +397,12 @@ public class TestTagging1 {
     AnnotationSet refinds_cp = adref.getCorrectPartialAnnotations();
     logger.debug("Diff01, correct partial refs: "+refinds_cp);    
     AnnotationSet refinds_ml = adref.getTrueMissingLenientAnnotations();
-    logger.debug("Diff01, missing refs: "+refinds_cp);
+    logger.debug("Diff01, missing refs: "+refinds_ml);
     
     AnnotationSet resinds_cp = adres.getCorrectPartialAnnotations();
     logger.debug("Diff01, correct partial res: "+resinds_cp);    
     AnnotationSet resinds_ml = adres.getTrueMissingLenientAnnotations();
-    logger.debug("Diff01, missing refs: "+resinds_cp);
+    logger.debug("Diff01, missing refs: "+resinds_ml);
     
     AnnotationSet diffs = doc1.getAnnotations("Diffs");
     AnnotationDifferTagging.addChangesIndicatorAnnotations(adres, adref, diffs);
@@ -414,6 +414,57 @@ public class TestTagging1 {
     assertEquals("Diff01, ress, cp",1,resinds_cp.size());
     assertEquals("Diff01, ress, ml",1,resinds_ml.size());
     assertEquals("Diff01, diffs",0,diffs.size());
+  }
+  
+  @Test
+  public void testTaggingDiff02() throws ResourceInstantiationException {
+    Document doc1 = newD();
+    // here is how the annotations are placed in the key, response and reference sets:
+    // ann1 is a correct partial for key2
+    // key    |   key1   key2
+    // ref    |   --annA-----
+    // res    |   --annB-----
+    // Where annA is incorrect partial and annB is correct partial, so we should get for 
+    // ref:
+    //        |   miss
+    //        |   incorrpart-
+    // and for res:
+    //        |   miss
+    //        |   correctpart
+    addA(doc1,"Keys",5, 10,"M",featureMap("id","x"));
+    AnnotationSet keys = addA(doc1,"Keys",15,20,"M",featureMap("id","y"));
+    AnnotationSet res  = addA(doc1,"Res",5,20,"M",featureMap("id","y","s","0.1"));
+    AnnotationSet ref  = addA(doc1,"Ref",5,20,"M",featureMap("id","z","s","0.1"));
+
+    AnnotationDifferTagging adres = new AnnotationDifferTagging(keys, res, FS_ID, FC_EQU);
+    AnnotationDifferTagging adref = new AnnotationDifferTagging(keys, ref, FS_ID, FC_EQU);
+
+    AnnotationSet refinds_cp = adref.getCorrectPartialAnnotations();
+    AnnotationSet refinds_ip = adref.getIncorrectPartialAnnotations();
+    logger.debug("Diff01, correct partial refs: "+refinds_cp);    
+    logger.debug("Diff01, incorrect partial refs: "+refinds_ip);    
+    AnnotationSet refinds_ml = adref.getTrueMissingLenientAnnotations();
+    logger.debug("Diff01, missing refs: "+refinds_ml);
+    
+    AnnotationSet resinds_cp = adres.getCorrectPartialAnnotations();
+    AnnotationSet resinds_ip = adres.getIncorrectPartialAnnotations();
+    logger.debug("Diff01, correct partial res: "+resinds_cp);    
+    logger.debug("Diff01, incorrect partial res: "+resinds_ip);    
+    AnnotationSet resinds_ml = adres.getTrueMissingLenientAnnotations();
+    logger.debug("Diff01, missing refs: "+resinds_ml);
+    
+    AnnotationSet diffs = doc1.getAnnotations("Diffs");
+    AnnotationDifferTagging.addChangesIndicatorAnnotations(adres, adref, diffs);
+    
+    logger.debug("Diff01, differences: "+diffs);
+    
+    assertEquals("Diff01, refs, cp",0,refinds_cp.size());
+    assertEquals("Diff01, refs, ip",1,refinds_ip.size());
+    assertEquals("Diff01, refs, ml",1,refinds_ml.size());
+    assertEquals("Diff01, ress, cp",1,resinds_cp.size());
+    assertEquals("Diff01, ress, ip",0,resinds_ip.size());
+    assertEquals("Diff01, ress, ml",1,resinds_ml.size());
+    assertEquals("Diff01, diffs",2,diffs.size());
   }
   
   

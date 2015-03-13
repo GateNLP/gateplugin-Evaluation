@@ -187,6 +187,8 @@ public class AnnotationDifferTagging {
     //if(features != null) {
     //  featuresSet = new HashSet<String>(features);
     //}
+    this.features = features;
+    this.featureComparison = fcmp;
     evalStats = calculateDiff(targets, responses, features, fcmp, scoreFeature, thresholdValue, null);
   }
   
@@ -558,7 +560,7 @@ public class AnnotationDifferTagging {
           AnnotationDifferTagging reference, AnnotationSet outSet) {
     
     Set<String> fs = responses.getFeatureSet();
-    FeatureComparison fc = responses.getFeatureComparison();
+    FeatureComparison fc = FeatureComparison.FEATURE_EQUALITY;
     
     AnnotationSet allRefs = new AnnotationSetImpl(reference.getCorrectPartialAnnotations().getDocument());
     allRefs.addAll(reference.getCorrectPartialAnnotations());
@@ -680,12 +682,11 @@ public class AnnotationDifferTagging {
     // now make sure that none of the annotations in tmpSet occurs in notIn
     Iterator<Annotation> it = tmpSet.iterator();
     while(it.hasNext()) {
-      // try to find an identical annotation in the notIn set. We only check the type.
-      // TODO: not sure if the type alone is sufficient, should we also check the features?
       Annotation a = it.next();
       AnnotationSet coexts = gate.Utils.getCoextensiveAnnotations(notIn, a, a.getType());
       for(Annotation c : coexts) {
         // if c matches a, remove a, i.e. do it.remove()
+        //System.out.println("DEBUG: set is "+fs+" method is "+fc);
         //System.out.println("DEBUG: Comparing for exclusion: "+a+" WITH "+c);
         if(isAnnotationsMatch(a,c,fs,fc)) {
           //System.out.println("DEBUG: FOUND A MATCH!!!!");
