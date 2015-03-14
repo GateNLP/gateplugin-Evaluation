@@ -15,6 +15,7 @@ import gate.AnnotationSet;
 import gate.FeatureMap;
 import gate.Utils;
 import gate.annotation.AnnotationSetImpl;
+import gate.annotation.ImmutableAnnotationSetImpl;
 import gate.util.GateRuntimeException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -1043,6 +1044,17 @@ public class AnnotationDifferTagging {
     } else {
       finalChoices = null;
     }
+    // before we exit, make all the annotation sets we created immutable, if they are not already immutabe
+    // new ImmutableAnnotationSetImpl(doc, annotationsToAdd)
+    correctStrictAnns = new ImmutableAnnotationSetImpl(keyAnns.getDocument(),correctStrictAnns);
+    correctPartialAnns = new ImmutableAnnotationSetImpl(keyAnns.getDocument(),correctPartialAnns);
+    incorrectStrictAnns = new ImmutableAnnotationSetImpl(keyAnns.getDocument(),incorrectStrictAnns);
+    incorrectPartialAnns = new ImmutableAnnotationSetImpl(keyAnns.getDocument(),incorrectPartialAnns);
+    trueMissingLenientAnns = new ImmutableAnnotationSetImpl(keyAnns.getDocument(),trueMissingLenientAnns);
+    trueSpuriousLenientAnns = new ImmutableAnnotationSetImpl(keyAnns.getDocument(),trueSpuriousLenientAnns);
+    targetAnns = new ImmutableAnnotationSetImpl(keyAnns.getDocument(),targetAnns);
+    singleCorrectPartialAnns = new ImmutableAnnotationSetImpl(keyAnns.getDocument(),singleCorrectPartialAnns);
+    singleCorrectStrictAnns = new ImmutableAnnotationSetImpl(keyAnns.getDocument(),singleCorrectStrictAnns);    
     return es;
   }
 
