@@ -7,4 +7,13 @@ import gate.plugin.evaluation.resources.*
 
 Gate.init()
 
-println("Hello World")
+def docFromFile(String file) {
+  def fm = Factory.newFeatureMap()
+  fm.put("sourceUrl",new File(file).toURI().toURL())
+  doc = (Document)Factory.createResource("gate.corpora.DocumentImpl", fm)
+  return doc
+}
+
+println("GATE initialized")
+
+
