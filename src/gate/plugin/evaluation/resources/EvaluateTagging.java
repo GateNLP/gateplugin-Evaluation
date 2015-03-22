@@ -865,7 +865,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
    */
   private AnnotationSet selectOverlappingBy(AnnotationSet toFilterSet, AnnotationSet bySet, ContainmentType how) {
     if(toFilterSet.isEmpty()) return toFilterSet;
-    if(bySet.isEmpty()) return AnnotationSetImpl.emptyAnnotationSet;
+    if(bySet.isEmpty()) return new ImmutableAnnotationSetImpl(toFilterSet.getDocument(),null);
     Set<Annotation> selected = new HashSet<Annotation>();
     for(Annotation byAnn : bySet) {
       AnnotationSet tmp = null;
