@@ -942,7 +942,12 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
   
   // Output the complete EvalStats object, but in a format that makes it easier to grep
   // out the lines one is interested in based on threshold and type
-  protected void outputEvalStatsForType(PrintStream out, EvalStatsTagging es, String type, String set) {
+  public void outputEvalStatsForType(PrintStream out, EvalStatsTagging es, String type, String set) {
+    EvaluateTagging.outputEvalStatsForType(out,es,type,set,expandedEvaluationId);
+  }
+    
+  public static void outputEvalStatsForType(PrintStream out, EvalStatsTagging es, String type, String set, String expandedEvaluationId) {
+    
     String ts = "none";
     double th = es.getThreshold();
     if(!Double.isNaN(th)) {

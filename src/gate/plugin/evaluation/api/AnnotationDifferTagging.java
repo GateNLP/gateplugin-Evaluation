@@ -357,6 +357,23 @@ public class AnnotationDifferTagging {
     
     return byThresholdEvalStats;
   }  
+  
+  public static AnnotationDifferTagging calculateEvalStatsTagging4List(
+          AnnotationSet targets,
+          AnnotationSet listAnnotations,  
+          List<CandidateList> responseCandidatesLists,
+          Set<String> featureSet,
+          FeatureComparison fcmp,
+          String listIdFeature,
+          String scoreFeature,
+          double threshold
+  ) {
+    AnnotationDifferTagging tmpAD = new AnnotationDifferTagging();
+    //tmpAD.createAdditionalData = false;
+    EvalStatsTagging es = tmpAD.calculateDiff(targets, listAnnotations, featureSet, fcmp, scoreFeature, threshold, responseCandidatesLists);
+    tmpAD.evalStats = es;
+    return tmpAD;
+  }
 
   //protected Collection<Annotation> targets;
   //protected Collection<Annotation> responses;
