@@ -21,6 +21,7 @@ import gate.Resource;
 import gate.Utils;
 import gate.annotation.AnnotationSetImpl;
 import gate.annotation.ImmutableAnnotationSetImpl;
+import gate.creole.AbstractLanguageAnalyser;
 import gate.creole.ControllerAwarePR;
 import gate.creole.CustomDuplication;
 import gate.creole.ExecutionException;
@@ -35,12 +36,15 @@ import gate.plugin.evaluation.api.ByThEvalStatsTagging;
 import gate.plugin.evaluation.api.ContingencyTableInteger;
 import gate.plugin.evaluation.api.EvalStatsTagging;
 import gate.plugin.evaluation.api.EvalStatsTaggingMacro;
+import gate.plugin.evaluation.api.FeatureComparison;
+import gate.plugin.evaluation.api.ThresholdsToUse;
 import gate.util.Files;
 import gate.util.GateRuntimeException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -49,46 +53,33 @@ import java.util.Map;
 import java.util.Set;
 import org.apache.log4j.Logger;
 
+
 /**
  *
  * @author Johann Petrak
  */
 @CreoleResource(
-        name = "EvaluateTagging",
+        name = "EvaluateTagging4Lists",
         helpURL ="https://github.com/johann-petrak/gateplugin-Evaluation/wiki/EvaluateTagging-PR",
-        comment = "Calculate P/R/F evalutation measures")
-public class EvaluateTagging extends EvaluateTaggingBase
-  implements ControllerAwarePR, CustomDuplication  {
-
+        comment = "Calculate P/R/F evalutation measures for annotations with candidate lists")
+public class EvaluateTagging4Lists extends EvaluateTaggingBase implements ControllerAwarePR, CustomDuplication {
+  
   ///////////////////
-  /// PR PARAMETERS: all the ones common to Tagging and Tagging4Lists are in the TaggingBase class
+  /// PR PARAMETERS 
   ///////////////////
+  
+  
 
-  // maybe not supported for list based PR even if we eventually support it for the normal one?
-  public String featureNameNilCluster;
-  @CreoleParameter(comment = "", defaultValue = "")
+  public String edgeName;
+  @CreoleParameter(comment="",defaultValue="")
   @RunTime
   @Optional  
-  public void setFeatureNameNilCluster(String value) { featureNameNilCluster = value; }
-  public String getFeatureNameNilCluster() { return featureNameNilCluster; }
-  public String getExpandedFeatureNameNilCluster() { return Utils.replaceVariablesInString(getFeatureNameNilCluster()); }
+  public void setEdgeName(String value) { edgeName = value; }
+  public String getEdgeName() { return edgeName; }
+  public String getExpandedEdgeName() { return Utils.replaceVariablesInString(getEdgeName()); }
   
   
-  
-  // maybe not supported for list based PR even if we eventually support it for the normal one?
-  /*
-  public String featureNameNilCluster;
-  @CreoleParameter(comment = "", defaultValue = "")
-  @RunTime
-  @Optional  
-  public void setFeatureNameNilCluster(String value) { featureNameNilCluster = value; }
-  public String getFeatureNameNilCluster() { return featureNameNilCluster; }
-  public String getExpandedFeatureNameNilCluster() { return Utils.replaceVariablesInString(getFeatureNameNilCluster()); }
-  */
-  
-  // TODO: maybe separate parameter for user-specified score thresholds which would allow 
-  // to evaluate for one specific singe score too?
-  
+  // TODO: maybe add field to specify your own thresholds?
   
   //////////////////// 
   // PR METHODS 
@@ -118,17 +109,17 @@ public class EvaluateTagging extends EvaluateTaggingBase
   protected ContingencyTableInteger correctnessTableStrict;
   protected ContingencyTableInteger correctnessTableLenient;
 
+  
   // This will be initialized at the start of the run and be incremented in the AnnotationDifferTagging
   // for each document.
   // This stores, for each type, the ByThEvalStatsTagging object for that type. The empty string
   // is used for the object that has the values over all types combined.
   protected Map<String,ByThEvalStatsTagging> evalStatsByThreshold;
   
-  String expandedFeatureNameNilCluster;
-
   
+  String expandedEdgeName;
   
-  protected static final Logger logger = Logger.getLogger(EvaluateTagging.class);
+  protected static final Logger logger = Logger.getLogger(EvaluateTagging4Lists.class);
   
   @Override
   public void execute() {
@@ -155,11 +146,14 @@ public class EvaluateTagging extends EvaluateTaggingBase
     
     if(getAnnotationTypes().size() > 1) {
       // TODO: more flexible annotation types!
+        for(String t : getAnnotationTypes()) {
+          typeSet4ListAnns.add(t+"List");
+        }
       typeSet.addAll(getAnnotationTypes());
       keySet = document.getAnnotations(expandedKeySetName).get(typeSet);
-      responseSet = document.getAnnotations(expandedResponseSetName).get(typeSet);
-      if(!expandedReferenceSetName.isEmpty()) {        
-        referenceSet = document.getAnnotations(expandedReferenceSetName).get(typeSet);
+        responseSet = document.getAnnotations(expandedResponseSetName).get(typeSet4ListAnns);
+      if(!expandedReferenceSetName.isEmpty()) {
+          referenceSet = document.getAnnotations(expandedReferenceSetName).get(typeSet4ListAnns);
       }
       evaluateForType(keySet,responseSet,referenceSet,"");
     }
@@ -167,6 +161,8 @@ public class EvaluateTagging extends EvaluateTaggingBase
     for(String type : getAnnotationTypes()) {
       keySet = document.getAnnotations(expandedKeySetName).get(type);
       String origType = type;
+      // TODO: THIS WAS DONE BEFORE, BUT SHOULD NOT BE NECESSARY ANY MORE!!
+      // type = type + "List";
       responseSet = document.getAnnotations(expandedResponseSetName).get(type);
       if(!expandedReferenceSetName.isEmpty()) {
         referenceSet = document.getAnnotations(expandedReferenceSetName).get(type);
@@ -220,7 +216,21 @@ public class EvaluateTagging extends EvaluateTaggingBase
     AnnotationSet listAnns = null;
     AnnotationSet listAnnsReference = null;
     List<CandidateList> candList = null;
-
+      listAnns = responseSet;
+      listAnnsReference = referenceSet;
+      candList = 
+              AnnotationDifferTagging.createCandidateLists(
+                      document.getAnnotations(expandedResponseSetName),
+                      listAnns, expandedEdgeName, expandedScoreFeatureName);
+      // get the highest scored annotation from each list
+      responseSet = new AnnotationSetImpl(listAnns.getDocument());
+      if(referenceSet != null) {
+        referenceSet = new AnnotationSetImpl(listAnnsReference.getDocument());
+      }
+      for(CandidateList cl : candList) {
+        responseSet.add(cl.get(0));
+      }
+    
     // Now depending on the NIL processing strategy, do something with those annotations which 
     // are identified as nil in the key and response sets.
     // NO_NILS: do nothing, all keys and responses are taken as is. If there are special NIL
@@ -259,9 +269,12 @@ public class EvaluateTagging extends EvaluateTaggingBase
     );
     EvalStatsTagging es = docDiffer.getEvalStatsTagging();
 
-    ByThEvalStatsTagging bth = evalStatsByThreshold.get(type);
-    AnnotationDifferTagging.calculateByThEvalStatsTagging(
-              keySet, responseSet, featureSet, featureComparison, expandedScoreFeatureName, bth.getWhichThresholds(), bth);
+      ByThEvalStatsTagging bth = evalStatsByThreshold.get(type);
+      AnnotationDifferTagging.calculateListByThEvalStatsTagging(
+              keySet,
+              document.getAnnotations(expandedResponseSetName),
+              candList, featureSet, featureComparison, 
+              expandedEdgeName, expandedScoreFeatureName, bth.getWhichThresholds(), bth);      
     
     // Store the counts and measures as document feature values
     FeatureMap docFm = document.getFeatures();
@@ -435,7 +448,7 @@ public class EvaluateTagging extends EvaluateTaggingBase
    */
   private AnnotationSet removeNilAnns(AnnotationSet set) {
     String nilStr = "";
-    if(getNilValue() != null) { nilStr = getNilValue(); }
+    if(getNilValue() != null) { nilValue = getNilValue(); }
     String idFeature = getFeatureNames().get(0);
     Set<Annotation> nils = new HashSet<Annotation>();
     for (Annotation ann : set) {
@@ -450,11 +463,19 @@ public class EvaluateTagging extends EvaluateTaggingBase
     return newset;
   }
   
-  
+
+  // This needs to run as part of the first execute, since at the moment, the parametrization
+  // does not work correctly with the controller callbacks. 
   protected void initializeForRunning() {
     super.initializeForRunning();
     
-    annotationTypeSpecs = new ArrayList<AnnotationTypeSpec>(getAnnotationTypes().size());
+    expandedEdgeName = getStringOrElse(getExpandedEdgeName(),"");
+    
+    if(getAnnotationTypes() == null || getAnnotationTypes().isEmpty()) {
+      throw new GateRuntimeException("List of annotation types to use is not specified or empty!");
+    }
+    // TODO!!!
+    //annotationTypeSpecs = new ArrayList<AnnotationTypeSpec>(getAnnotationTypes().size());
     for(String t : getAnnotationTypes()) {
       if(t == null || t.isEmpty()) {
         throw new GateRuntimeException("List of annotation types to use contains a null or empty type name!");
@@ -506,6 +527,13 @@ public class EvaluateTagging extends EvaluateTaggingBase
       correctnessTableStrict.setRowLabel(1, expandedReferenceSetName+":wrong");
       correctnessTableStrict.setColumnLabel(0, expandedResponseSetName+":correct");
       correctnessTableStrict.setColumnLabel(1, expandedResponseSetName+":wrong");
+    }
+    
+    // If a score feature name is specified, we need to do either by score or list-based
+    // evaluation. In both cases we need a data structure to hold one by-threshold-object per 
+    // type.
+    if(!expandedScoreFeatureName.isEmpty()) {
+      evalStatsByThreshold = new HashMap<String, ByThEvalStatsTagging>();
     }
     
     
@@ -564,6 +592,7 @@ public class EvaluateTagging extends EvaluateTaggingBase
   }
   
   
+  
   public void finishRunning() {
     outputDefaultResults();
     if(mainTsvPrintStream != null) {
@@ -576,50 +605,6 @@ public class EvaluateTagging extends EvaluateTaggingBase
     */
   }
   
-  
-  // Output the complete EvalStats object, but in a format that makes it easier to grep
-  // out the lines one is interested in based on threshold and type
-  public void outputEvalStatsForType(PrintStream out, EvalStatsTagging es, String type, String set) {
-    EvaluateTagging.outputEvalStatsForType(out,es,type,set,expandedEvaluationId);
-  }
-    
-  public static void outputEvalStatsForType(PrintStream out, EvalStatsTagging es, String type, String set, String expandedEvaluationId) {
-    
-    String ts = "none";
-    double th = es.getThreshold();
-    if(!Double.isNaN(th)) {
-      if(Double.isInfinite(th)) {
-        ts="inf";
-      } else {
-        ts = "" + r4(th);
-      }
-    }
-    ts = ", th="+ts+", ";
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Precision Strict: "+r4(es.getPrecisionStrict()));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Recall Strict: "+r4(es.getRecallStrict()));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"F1.0 Strict: "+r4(es.getFMeasureStrict(1.0)));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Accuracy Strict: "+r4(es.getSingleCorrectAccuracyStrict()));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Precision Lenient: "+r4(es.getPrecisionLenient()));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Recall Lenient: "+r4(es.getRecallLenient()));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"F1.0 Lenient: "+r4(es.getFMeasureLenient(1.0)));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Accuracy Lenient: "+r4(es.getSingleCorrectAccuracyLenient()));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Targets: "+es.getTargets());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Responses: "+es.getResponses());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Correct Strict: "+es.getCorrectStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Correct Partial: "+es.getCorrectPartial());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Incorrect Strict: "+es.getIncorrectStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Incorrect Partial: "+es.getIncorrectPartial());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Missing Strict: "+es.getMissingStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Missing Strict: "+es.getTrueMissingStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Missing Lenient: "+es.getMissingLenient());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Missing Lenient: "+es.getTrueMissingLenient());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Spurious Strict: "+es.getSpuriousStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Spurious Strict: "+es.getTrueSpuriousStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Spurious Lenient: "+es.getSpuriousLenient());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Spurious Lenient: "+es.getTrueSpuriousLenient());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Single Correct Strict: "+es.getSingleCorrectStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Single Correct Lenient: "+es.getSingleCorrectLenient());
-  }
   
   // TODO: make this work per type once we collect the tables per type!
   public void outputContingencyTable(PrintStream out, ContingencyTableInteger table) {
@@ -735,6 +720,29 @@ public class EvaluateTagging extends EvaluateTaggingBase
     // will do the actual summarization: it will access all stats objects from all other PRs and
     // summarize them and 
   }
+  
+  private static class AnnotationTypeSpec {
+    public String keyType = "";
+    public String keyElementType = "";
+    public String responseType = "";
+    public String responseElementType = "";
+    public String toString() {
+      String k = keyType;
+      String r = responseType;
+      if(!keyElementType.isEmpty()) {
+        k += "["+keyElementType+"]";
+      }
+      if(!responseElementType.isEmpty()) {
+        r += "["+responseElementType+"]";
+      }
+      if(k.equals(r)) {
+        return k;
+      } else {
+        return k+"|"+r;
+      }
+    }
+  }
+
   
   
 }
