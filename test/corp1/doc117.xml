@@ -1,0 +1,412 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="3">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">createSourceType</Name>
+  <Value className="java.lang.String">W</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">corpus</Name>
+  <Value className="java.lang.String">Web.HON.Eng</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">language</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02-disambig</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbUrl</Name>
+  <Value className="java.lang.String">http://www.weblogdofraga.blogspot.com/2007/04/full-strength-aspirin-over-time-has.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needAllContent</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">locationCountry</Name>
+  <Value className="java.lang.String">Brazil</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbSnippet</Name>
+  <Value className="java.lang.String"> Full-Strength Aspirin Over Time Has Ambiguous Effect on Cancer Risk ATLANTA, April 10 -- Five years or more of daily adult-strength aspirin is associated with modest protection against colorectal, pr...</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbLanguage</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-findContent</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">http://www.weblogdofraga.blogspot.com/2007/04/full-strength-aspirin-over-time-has.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbDomain</Name>
+  <Value className="java.lang.String">blogspot.com</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">images</Name>
+  <Value className="java.lang.String">http://img2.blogblog.com/img/icon18_edit_allbkg.gif|http://img1.blogblog.com/img/icon18_wrench_allbkg.png|http://3.bp.blogspot.com/-ZdPKkz8ex2Q/TbMW9MahyGI/AAAAAAAAAms/YiSnKw6i8bU/s240/foto.JPG|http://www.honcode.ch/HONcode/Seal/HONConduct281875_s.gif</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">idType</Name>
+  <Value className="java.lang.String">WebUrl</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needBoilerPipe</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-mimirIndexing</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">containsImages</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">hesClassification</Name>
+  <Value className="java.lang.String">patient</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-basic-annots</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createGuessedEncoding</Name>
+  <Value className="java.lang.String">UTF-8</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">domain</Name>
+  <Value className="java.lang.String">blogspot.com</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-umls-disambiguate</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbTitle</Name>
+  <Value className="java.lang.String">WEBLOG DO FRAGA: Full-Strength Aspirin Over Time Has Ambiguous Effect on Cancer Risk</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">publisher</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbId</Name>
+  <Value className="java.lang.String">http%3A%2F%2Fwww.weblogdofraga.blogspot.com%2F2007%2F04%2Ffull-strength-aspirin-over-time-has.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">locationCity</Name>
+  <Value className="java.lang.String">curitiba</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbSourceMD5</Name>
+  <Value className="java.lang.String">d3fc9af5a6241d051312bc4ca921670a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">authors</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needPubmedContent</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">health_topics</Name>
+  <Value className="java.lang.String">Cancer</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">tags.names</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-umls-extgaz</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cbdUrl</Name>
+  <Value className="java.lang.String">http://www.weblogdofraga.blogspot.com/2007/04/full-strength-aspirin-over-time-has.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needDefaultMeta</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">title</Name>
+  <Value className="java.lang.String">WEBLOG DO FRAGA: Full-Strength Aspirin Over Time Has Ambiguous Effect on Cancer Risk</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">MimeType</Name>
+  <Value className="java.lang.String">text/html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needWikipediaMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">http://www.weblogdofraga.blogspot.com/2007/04/full-strength-aspirin-over-time-has.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02-apply</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">health_topic_terms</Name>
+  <Value className="java.lang.String">breast cancer|colorectal cancer|lung cancer|prostate cancer|cancer|prostatitis|prostate|prostatism|use by dates|surveys|clinical result|medical treatment|toxicity|strategy|health insurance|health professional|depression|parkinson s|treatment|prevention|preventable disease|sexuality|cholesterol|nos|pulmonary hypertension|hypertension|antioxidant|flu|epidemic|epidemics|heart|sodium|crohn disease|lead|men|physicians|incidence|chemicals|openness|patients|protein|vaccine|vaccines|vaccination|estrogen|blood pressure|blood|research|families|family|women|alzheimer|hormone|youth|youthful|prescribed drug|prescribing|drug prescribing|surgery|diabetes|menopause|funding|bacteria|contaminant|education|guideline|cytokines|stress|acute|severity|obesity|growing|smoking|atrial fibrillation|nanoparticle|down syndrome|nursing home|nurses|calcium|rules|immunity|immunization|immunisation|biopsy|virus|system|environment|therapy|adjuvant|antibiotics|antibiotic|insurance|policy|requirement|windows</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needPubmedMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">categories</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbRev</Name>
+  <Value className="java.lang.String">2-1aefa93154be435576cd55bf4d405075</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbHost</Name>
+  <Value className="java.lang.String">www.weblogdofraga.blogspot.com</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createDate</Name>
+  <Value className="java.lang.String">2013-05-12,15:01:13</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02features</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-annotate-stopwords</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createFileName</Name>
+  <Value className="java.lang.String">W_blogspot.com_d3fc9af5a6241d051312bc4ca921670a.xml</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-drugbank-extgaz</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator5</Name>
+  <Value className="java.lang.String">lh49</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator4</Name>
+  <Value className="java.lang.String">lh71</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator3</Name>
+  <Value className="java.lang.String">lh52</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-MAIN</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator2</Name>
+  <Value className="java.lang.String">lh38</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator1</Name>
+  <Value className="java.lang.String">lh44</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">url</Name>
+  <Value className="java.lang.String">http://www.weblogdofraga.blogspot.com/2007/04/full-strength-aspirin-over-time-has.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">tags.codes</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbRelevancyScore</Name>
+  <Value className="java.lang.String">52.391032609263</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">couchDBType</Name>
+  <Value className="java.lang.String">web</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>                                                                                                                                                                           <Node id="171"/>       <Node id="178"/>                                   <Node id="213"/>      <Node id="219"/>                                                       <Node id="274"/>              <Node id="288"/> <Node id="289"/>       <Node id="296"/>                                              <Node id="342"/>          <Node id="352"/> <Node id="353"/> <Node id="354"/>        <Node id="362"/>      <Node id="368"/>              <Node id="382"/>                                        <Node id="422"/>               <Node id="437"/>       <Node id="444"/>                                                                                                     <Node id="545"/>      <Node id="551"/>                                                                                 <Node id="632"/>      <Node id="638"/>                                                                               <Node id="717"/>      <Node id="723"/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <Node id="1245"/>       <Node id="1252"/>                                                                                                                                     <Node id="1385"/>     <Node id="1390"/>                   <Node id="1409"/>     <Node id="1414"/>                                                                                                            <Node id="1522"/>         <Node id="1531"/>    <Node id="1535"/>       <Node id="1542"/>                                                                                                                                                                                                                                <Node id="1766"/>       <Node id="1773"/>           <Node id="1784"/>                 <Node id="1801"/>                  <Node id="1819"/>      <Node id="1825"/>                              <Node id="1855"/>       <Node id="1862"/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+<Annotation Id="10176" Type="Disease" StartNode="545" EndNode="551">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10177" Type="Disease" StartNode="717" EndNode="723">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10178" Type="Drug" StartNode="1535" EndNode="1542">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0004057</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10179" Type="Drug" StartNode="1766" EndNode="1773">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0004057</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10180" Type="Disease" StartNode="1819" EndNode="1825">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10171" Type="Disease" StartNode="213" EndNode="219">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10172" Type="Drug" StartNode="274" EndNode="288">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0718276</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10173" Type="Drug" StartNode="289" EndNode="296">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0004057</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10174" Type="Anatomy" StartNode="354" EndNode="362">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0033572</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10175" Type="Disease" StartNode="368" EndNode="382">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3281210</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="safe.preprocessing">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="ConsensusAuto">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Key">
+<Annotation Id="10212" Type="Investigation" StartNode="1409" EndNode="1414">
+</Annotation>
+<Annotation Id="10213" Type="Investigation" StartNode="1385" EndNode="1390">
+</Annotation>
+<Annotation Id="10214" Type="Disease" StartNode="632" EndNode="638">
+</Annotation>
+<Annotation Id="10215" Type="Disease" StartNode="354" EndNode="362">
+</Annotation>
+<Annotation Id="10216" Type="Disease" StartNode="342" EndNode="352">
+</Annotation>
+<Annotation Id="10217" Type="Disease" StartNode="213" EndNode="219">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10218" Type="Disease" StartNode="717" EndNode="723">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10219" Type="Disease" StartNode="545" EndNode="551">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10220" Type="Disease" StartNode="342" EndNode="353">
+</Annotation>
+<Annotation Id="10221" Type="Disease" StartNode="368" EndNode="382">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3281210</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10222" Type="Disease" StartNode="1522" EndNode="1531">
+</Annotation>
+<Annotation Id="10223" Type="Disease" StartNode="1819" EndNode="1825">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10224" Type="Drug" StartNode="289" EndNode="296">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0004057</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10225" Type="Drug" StartNode="274" EndNode="288">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0718276</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10226" Type="Drug" StartNode="1784" EndNode="1801">
+</Annotation>
+<Annotation Id="10227" Type="Drug" StartNode="1766" EndNode="1773">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0004057</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10228" Type="Drug" StartNode="422" EndNode="444">
+</Annotation>
+<Annotation Id="10229" Type="Drug" StartNode="171" EndNode="178">
+</Annotation>
+<Annotation Id="10230" Type="Drug" StartNode="437" EndNode="444">
+</Annotation>
+<Annotation Id="10231" Type="Drug" StartNode="1535" EndNode="1542">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0004057</Value>
+</Feature>
+</Annotation>
+<Annotation Id="10232" Type="Drug" StartNode="1245" EndNode="1252">
+</Annotation>
+<Annotation Id="10233" Type="Drug" StartNode="1855" EndNode="1862">
+</Annotation>
+<Annotation Id="10234" Type="Anatomy" StartNode="354" EndNode="362">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0033572</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+</GateDocument>

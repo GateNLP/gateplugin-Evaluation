@@ -1,0 +1,425 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="3">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTrueMissingStrict</Name>
+  <Value className="java.lang.Integer">11</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionIncorrectStrict</Name>
+  <Value className="java.lang.Integer">3</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionFMeasureLenient</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionCorrectPartial</Name>
+  <Value className="java.lang.Integer">0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionPrecisionLenient</Name>
+  <Value className="java.lang.Double">0.2222222222222222</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionSingleCorrectAccuracyStrict</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionPrecisionStrict</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">deleteNonNNPLookups</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-preprocess-en-twitter</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionIncorrectPartial</Name>
+  <Value className="java.lang.Integer">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionSingleCorrectAccuracyStrict</Name>
+  <Value className="java.lang.Double">0.125</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-preprocess-en</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionFMeasureStrict</Name>
+  <Value className="java.lang.Double">0.16</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionCorrectStrict</Name>
+  <Value className="java.lang.Integer">2</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionRecallLenient</Name>
+  <Value className="java.lang.Double">0.125</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTrueMissingLenient</Name>
+  <Value className="java.lang.Integer">10</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTrueSpuriousLenient</Name>
+  <Value className="java.lang.Integer">3</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTrueSpuriousStrict</Name>
+  <Value className="java.lang.Integer">4</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionFMeasureLenient</Name>
+  <Value className="java.lang.Double">0.16</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionPrecisionStrict</Name>
+  <Value className="java.lang.Double">0.2222222222222222</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">lang</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">MatchesAnnots</Name>
+  <Value className="gate.corpora.ObjectWrapper"><![CDATA[<?xml version='1.0' encoding='UTF-8'?><gate.corpora.ObjectWrapper><value class="map"><entry><null/><list/></entry></value></gate.corpora.ObjectWrapper>]]></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionCorrectStrict</Name>
+  <Value className="java.lang.Integer">0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionResponses</Name>
+  <Value className="java.lang.Integer">9</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionRecallStrict</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionResponses</Name>
+  <Value className="java.lang.Integer">10</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionSingleCorrectAccuracyLenient</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionFMeasureStrict</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionRecallLenient</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionSingleCorrectAccuracyLenient</Name>
+  <Value className="java.lang.Double">0.125</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">docType</Name>
+  <Value className="java.lang.String">generic</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTargets</Name>
+  <Value className="java.lang.Integer">16</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTrueSpuriousLenient</Name>
+  <Value className="java.lang.Integer">4</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTrueMissingStrict</Name>
+  <Value className="java.lang.Integer">11</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTargets</Name>
+  <Value className="java.lang.Integer">16</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionIncorrectStrict</Name>
+  <Value className="java.lang.Integer">5</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTrueMissingLenient</Name>
+  <Value className="java.lang.Integer">10</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionPrecisionLenient</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">keyOverlapsOnly</Name>
+  <Value className="java.lang.Boolean">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTrueSpuriousStrict</Name>
+  <Value className="java.lang.Integer">5</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">LodieCoref</Name>
+  <Value className="gate.corpora.ObjectWrapper"><![CDATA[<?xml version='1.0' encoding='UTF-8'?><gate.corpora.ObjectWrapper><value class="map"><entry><null/><list><list><int>11552</int></list><list><int>11491</int></list><list><int>11473</int></list><list><int>11092</int></list><list><int>11090</int></list><list><int>10709</int></list><list><int>9875</int></list><list><int>9870</int></list><list><int>9864</int></list><list><int>9686</int></list><list><int>9674</int></list><list><int>9592</int></list><list><int>9560</int></list><list><int>9075</int></list><list><int>9060</int></list><list><int>8493</int></list><list><int>8483</int></list><list><int>8481</int></list><list><int>8128</int></list><list><int>7666</int></list><list><int>7595</int></list><list><int>7457</int></list><list><int>7154</int></list></list></entry></value></gate.corpora.ObjectWrapper>]]></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionIncorrectPartial</Name>
+  <Value className="java.lang.Integer">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionRecallStrict</Name>
+  <Value className="java.lang.Double">0.125</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionCorrectPartial</Name>
+  <Value className="java.lang.Integer">0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">filter-prescoring.nrRemovedByAnniePerson</Name>
+  <Value className="java.lang.Integer">886</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>                                                                                                                                                                                                                                                                                                                                   <Node id="323"/>            <Node id="335"/>                                                                                                                                                                                                                                                                                                                                 <Node id="656"/>       <Node id="663"/>                              <Node id="693"/>       <Node id="700"/>                            <Node id="728"/>    <Node id="732"/>            <Node id="744"/>        <Node id="752"/>                                         <Node id="793"/>             <Node id="806"/>                                                                                         <Node id="895"/>        <Node id="903"/>                                                     <Node id="956"/>       <Node id="963"/>                                                  <Node id="1013"/>              <Node id="1027"/>                                   <Node id="1062"/>        <Node id="1070"/> <Node id="1071"/>       <Node id="1078"/>         <Node id="1087"/>      <Node id="1093"/> <Node id="1094"/>       <Node id="1101"/>     <Node id="1106"/>        <Node id="1114"/>         <Node id="1123"/>       <Node id="1130"/>                                                          <Node id="1188"/>              <Node id="1202"/>        <Node id="1210"/>            <Node id="1222"/>                                                                                                                                                                                                       <Node id="1421"/>                     <Node id="1442"/>                            <Node id="1470"/>           <Node id="1481"/>       <Node id="1488"/>                           <Node id="1515"/>            <Node id="1527"/>     <Node id="1532"/>         <Node id="1541"/>                                                                                                                            </TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Shef">
+<Annotation Id="16372" Type="Mention" StartNode="744" EndNode="752">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Creswell,_Oregon</Value>
+</Feature>
+</Annotation>
+<Annotation Id="16373" Type="Mention" StartNode="1470" EndNode="1488">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Straits_of_Florida</Value>
+</Feature>
+</Annotation>
+<Annotation Id="16374" Type="Mention" StartNode="1106" EndNode="1114">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Janine_Zacharia</Value>
+</Feature>
+</Annotation>
+<Annotation Id="16375" Type="Mention" StartNode="323" EndNode="335">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Gary_Edwards_(photographer)</Value>
+</Feature>
+</Annotation>
+<Annotation Id="16376" Type="Mention" StartNode="1094" EndNode="1101">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Wilson_Álvarez</Value>
+</Feature>
+</Annotation>
+<Annotation Id="16377" Type="Mention" StartNode="1071" EndNode="1078">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Wilson_Álvarez</Value>
+</Feature>
+</Annotation>
+<Annotation Id="16378" Type="Mention" StartNode="1421" EndNode="1442">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Subtropical_Storm_Nicole_(2004)</Value>
+</Feature>
+</Annotation>
+<Annotation Id="16379" Type="Mention" StartNode="1013" EndNode="1027">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Daniel_Alvarez_(soccer)</Value>
+</Feature>
+</Annotation>
+<Annotation Id="16380" Type="Mention" StartNode="1062" EndNode="1070">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Janine_Zacharia</Value>
+</Feature>
+</Annotation>
+<Annotation Id="16381" Type="Mention" StartNode="895" EndNode="903">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Creswell,_Oregon</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Ref">
+<Annotation Id="5508" Type="Mention" StartNode="693" EndNode="700">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Atlanta</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5509" Type="Mention" StartNode="1470" EndNode="1488">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Straits_of_Florida</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5510" Type="Mention" StartNode="1210" EndNode="1222">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Jacksonville,_Florida</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5511" Type="Mention" StartNode="1062" EndNode="1070">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Zacharia,_Kentucky</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5512" Type="Mention" StartNode="1106" EndNode="1114">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Zacharia,_Kentucky</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5513" Type="Mention" StartNode="728" EndNode="732">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5514" Type="Mention" StartNode="1013" EndNode="1027">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Daniel_Alvarez_(soccer)</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5515" Type="Mention" StartNode="1087" EndNode="1093">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Ariela_Massotti</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5516" Type="Mention" StartNode="1421" EndNode="1442">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Subtropical_Storm_Nicole_(2004)</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Original markups">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Key">
+<Annotation Id="32" Type="Mention" StartNode="656" EndNode="663">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+</Annotation>
+<Annotation Id="33" Type="Mention" StartNode="693" EndNode="700">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Atlanta</Value>
+</Feature>
+</Annotation>
+<Annotation Id="34" Type="Mention" StartNode="728" EndNode="732">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
+</Feature>
+</Annotation>
+<Annotation Id="35" Type="Mention" StartNode="744" EndNode="752">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Creswell,_North_Carolina</Value>
+</Feature>
+</Annotation>
+<Annotation Id="36" Type="Mention" StartNode="793" EndNode="806">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Jeep_Grand_Cherokee</Value>
+</Feature>
+</Annotation>
+<Annotation Id="37" Type="Mention" StartNode="956" EndNode="963">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Raleigh,_North_Carolina</Value>
+</Feature>
+</Annotation>
+<Annotation Id="38" Type="Mention" StartNode="895" EndNode="903">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Creswell,_North_Carolina</Value>
+</Feature>
+</Annotation>
+<Annotation Id="39" Type="Mention" StartNode="1013" EndNode="1027">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+</Annotation>
+<Annotation Id="40" Type="Mention" StartNode="1123" EndNode="1130">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+</Annotation>
+<Annotation Id="41" Type="Mention" StartNode="1106" EndNode="1114">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+</Annotation>
+<Annotation Id="42" Type="Mention" StartNode="1188" EndNode="1202">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/North_Carolina</Value>
+</Feature>
+</Annotation>
+<Annotation Id="43" Type="Mention" StartNode="1210" EndNode="1222">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Jacksonville,_North_Carolina</Value>
+</Feature>
+</Annotation>
+<Annotation Id="44" Type="Mention" StartNode="1515" EndNode="1527">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Mid-Atlantic_states</Value>
+</Feature>
+</Annotation>
+<Annotation Id="45" Type="Mention" StartNode="1481" EndNode="1488">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Florida</Value>
+</Feature>
+</Annotation>
+<Annotation Id="46" Type="Mention" StartNode="1532" EndNode="1541">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Northeastern_United_States</Value>
+</Feature>
+</Annotation>
+<Annotation Id="31" Type="Mention" StartNode="323" EndNode="335">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+</GateDocument>

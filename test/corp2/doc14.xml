@@ -1,0 +1,887 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="3">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTrueMissingStrict</Name>
+  <Value className="java.lang.Integer">50</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionIncorrectStrict</Name>
+  <Value className="java.lang.Integer">5</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionFMeasureLenient</Name>
+  <Value className="java.lang.Double">0.25</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionCorrectPartial</Name>
+  <Value className="java.lang.Integer">3</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionPrecisionLenient</Name>
+  <Value className="java.lang.Double">0.65</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionSingleCorrectAccuracyStrict</Name>
+  <Value className="java.lang.Double">0.10526315789473684</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionPrecisionStrict</Name>
+  <Value className="java.lang.Double">0.4</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">deleteNonNNPLookups</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-preprocess-en-twitter</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionIncorrectPartial</Name>
+  <Value className="java.lang.Integer">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionSingleCorrectAccuracyStrict</Name>
+  <Value className="java.lang.Double">0.3684210526315789</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-preprocess-en</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionFMeasureStrict</Name>
+  <Value className="java.lang.Double">0.4329896907216495</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionCorrectStrict</Name>
+  <Value className="java.lang.Integer">21</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionRecallLenient</Name>
+  <Value className="java.lang.Double">0.45614035087719296</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTrueMissingLenient</Name>
+  <Value className="java.lang.Integer">25</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTrueSpuriousLenient</Name>
+  <Value className="java.lang.Integer">8</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTrueSpuriousStrict</Name>
+  <Value className="java.lang.Integer">14</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionFMeasureLenient</Name>
+  <Value className="java.lang.Double">0.5360824742268041</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionPrecisionStrict</Name>
+  <Value className="java.lang.Double">0.525</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">lang</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">MatchesAnnots</Name>
+  <Value className="gate.corpora.ObjectWrapper"><![CDATA[<?xml version='1.0' encoding='UTF-8'?><gate.corpora.ObjectWrapper><value class="map"><entry><null/><list/></entry></value></gate.corpora.ObjectWrapper>]]></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionCorrectStrict</Name>
+  <Value className="java.lang.Integer">6</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionResponses</Name>
+  <Value className="java.lang.Integer">40</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionRecallStrict</Name>
+  <Value className="java.lang.Double">0.10526315789473684</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionResponses</Name>
+  <Value className="java.lang.Integer">15</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionSingleCorrectAccuracyLenient</Name>
+  <Value className="java.lang.Double">0.15789473684210525</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionFMeasureStrict</Name>
+  <Value className="java.lang.Double">0.16666666666666666</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionRecallLenient</Name>
+  <Value className="java.lang.Double">0.15789473684210525</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionSingleCorrectAccuracyLenient</Name>
+  <Value className="java.lang.Double">0.45614035087719296</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">docType</Name>
+  <Value className="java.lang.String">generic</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTargets</Name>
+  <Value className="java.lang.Integer">57</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTrueSpuriousLenient</Name>
+  <Value className="java.lang.Integer">4</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTrueMissingStrict</Name>
+  <Value className="java.lang.Integer">31</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTargets</Name>
+  <Value className="java.lang.Integer">57</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionIncorrectStrict</Name>
+  <Value className="java.lang.Integer">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTrueMissingLenient</Name>
+  <Value className="java.lang.Integer">46</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionPrecisionLenient</Name>
+  <Value className="java.lang.Double">0.6</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">keyOverlapsOnly</Name>
+  <Value className="java.lang.Boolean">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTrueSpuriousStrict</Name>
+  <Value className="java.lang.Integer">8</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">LodieCoref</Name>
+  <Value className="gate.corpora.ObjectWrapper"><![CDATA[<?xml version='1.0' encoding='UTF-8'?><gate.corpora.ObjectWrapper><value class="map"><entry><null/><list><list><int>45885</int></list><list><int>45628</int></list><list><int>45513</int></list><list><int>45504</int></list><list><int>45076</int></list><list><int>45062</int></list><list><int>44805</int></list><list><int>44102</int></list><list><int>44079</int></list><list><int>43822</int></list><list><int>43680</int></list><list><int>43262</int></list><list><int>42844</int></list><list><int>42426</int></list><list><int>42400</int></list><list><int>41958</int></list><list><int>41892</int></list><list><int>41890</int></list><list><int>41513</int></list><list><int>41095</int></list><list><int>40838</int></list><list><int>40831</int></list><list><int>40740</int></list><list><int>40603</int></list><list><int>40404</int></list><list><int>40076</int></list><list><int>39997</int></list><list><int>39715</int></list><list><int>39662</int></list><list><int>39182</int></list><list><int>38901</int></list><list><int>38018</int></list><list><int>38013</int></list><list><int>37061</int></list><list><int>36775</int></list><list><int>36617</int></list><list><int>35902</int></list><list><int>35584</int></list><list><int>35375</int></list><list><int>35153</int></list><list><int>34334</int></list><list><int>34001</int></list><list><int>33573</int></list><list><int>33366</int></list><list><int>33066</int></list><list><int>32442</int></list><list><int>32015</int></list><list><int>31995</int></list><list><int>31547</int></list><list><int>31544</int></list><list><int>31184</int></list><list><int>30752</int></list><list><int>30334</int></list><list><int>29443</int></list><list><int>29438</int></list><list><int>28997</int></list></list></entry></value></gate.corpora.ObjectWrapper>]]></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionIncorrectPartial</Name>
+  <Value className="java.lang.Integer">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionRecallStrict</Name>
+  <Value className="java.lang.Double">0.3684210526315789</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionCorrectPartial</Name>
+  <Value className="java.lang.Integer">5</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">filter-prescoring.nrRemovedByAnniePerson</Name>
+  <Value className="java.lang.Integer">228</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>  <Node id="2"/>        <Node id="10"/>          <Node id="20"/>     <Node id="25"/>                  <Node id="43"/>          <Node id="53"/>                          <Node id="79"/>        <Node id="87"/>         <Node id="96"/>     <Node id="101"/>                                                                                                                              <Node id="227"/>     <Node id="232"/>                                                                 <Node id="297"/>       <Node id="304"/>                                                          <Node id="362"/>        <Node id="370"/>     <Node id="375"/>       <Node id="382"/>                                                <Node id="430"/>     <Node id="435"/>                                                                   <Node id="502"/>       <Node id="509"/>                                        <Node id="549"/>     <Node id="554"/>                                                                     <Node id="623"/>     <Node id="628"/>        <Node id="636"/>        <Node id="644"/>                                                                                                                <Node id="756"/>     <Node id="761"/>                                                                                                        <Node id="865"/>        <Node id="873"/>                                                  <Node id="923"/>       <Node id="930"/>      <Node id="936"/>     <Node id="941"/>  <Node id="943"/>          <Node id="953"/>                  <Node id="971"/>                                   <Node id="1006"/>      <Node id="1012"/>                                                                                                              <Node id="1122"/>      <Node id="1128"/>        <Node id="1136"/>        <Node id="1144"/>                <Node id="1160"/>         <Node id="1169"/>                                       <Node id="1208"/>         <Node id="1217"/>                                   <Node id="1252"/>                       <Node id="1275"/> <Node id="1276"/>               <Node id="1291"/>                            <Node id="1319"/>     <Node id="1324"/>                                                                                                             <Node id="1433"/>          <Node id="1443"/>       <Node id="1450"/>                              <Node id="1480"/>      <Node id="1486"/> <Node id="1487"/>    <Node id="1491"/>     <Node id="1496"/>     <Node id="1501"/>                                                             <Node id="1562"/>     <Node id="1567"/>                                                                                    <Node id="1651"/>     <Node id="1656"/>        <Node id="1664"/>        <Node id="1672"/>                        <Node id="1696"/>            <Node id="1708"/>                     <Node id="1729"/>      <Node id="1735"/>                               <Node id="1766"/>     <Node id="1771"/>   <Node id="1774"/>      <Node id="1780"/>        <Node id="1788"/>                                                                          <Node id="1862"/>            <Node id="1874"/>                                                       <Node id="1929"/>       <Node id="1936"/>                         <Node id="1961"/>        <Node id="1969"/>                                           <Node id="2012"/>              <Node id="2026"/>   <Node id="2029"/>     <Node id="2034"/>                                                             <Node id="2095"/>     <Node id="2100"/>                                                                                <Node id="2180"/>     <Node id="2185"/>   <Node id="2188"/>                <Node id="2204"/>                                                                                                                                                                                       <Node id="2387"/>                 <Node id="2404"/>                                           <Node id="2447"/>     <Node id="2452"/>         <Node id="2461"/>     <Node id="2466"/>                                                                                           <Node id="2557"/>     <Node id="2562"/>  <Node id="2564"/>                                                                                  <Node id="2646"/>     <Node id="2651"/>                                   <Node id="2686"/>   <Node id="2689"/>     <Node id="2694"/>       <Node id="2701"/>        <Node id="2709"/> <Node id="2710"/>          <Node id="2720"/>                                                             <Node id="2781"/>              <Node id="2795"/>                                      <Node id="2833"/>    <Node id="2837"/> <Node id="2838"/>      <Node id="2844"/>          <Node id="2854"/>       <Node id="2861"/>                                                      <Node id="2915"/>     <Node id="2920"/>                                         <Node id="2961"/>     <Node id="2966"/>                                                                                                                                  <Node id="3096"/>       <Node id="3103"/>                                                           <Node id="3162"/>     <Node id="3167"/>  <Node id="3169"/>                                                                                                                     <Node id="3286"/>     <Node id="3291"/>                                                                                                                                                     <Node id="3440"/>     <Node id="3445"/>                              <Node id="3475"/>                                              <Node id="3521"/>           <Node id="3532"/>                <Node id="3548"/>       <Node id="3555"/>                       <Node id="3578"/>       <Node id="3585"/>                             </TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Shef">
+<Annotation Id="66881" Type="Mention" StartNode="43" EndNode="53">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Tokyo_2010</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66880" Type="Mention" StartNode="1276" EndNode="1291">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Yoshito_Sengoku</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66883" Type="Mention" StartNode="2387" EndNode="2404">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Junichiro_Koizumi</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66882" Type="Mention" StartNode="3475" EndNode="3521">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Hong_Kong_University_of_Science_and_Technology</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66885" Type="Mention" StartNode="2694" EndNode="2709">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Premier_of_the_People's_Republic_of_China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66884" Type="Mention" StartNode="1862" EndNode="1874">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Shijiazhuang_Zhengding_International_Airport</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66886" Type="Mention" StartNode="3532" EndNode="3555">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Associated_Press</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66873" Type="Mention" StartNode="2012" EndNode="2026">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/East_China_Sea</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66872" Type="Mention" StartNode="1160" EndNode="1169">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Naoto_Kan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66875" Type="Mention" StartNode="1122" EndNode="1128">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Xinhua_News_Agency</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66874" Type="Mention" StartNode="1487" EndNode="1491">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Corporation</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66877" Type="Mention" StartNode="1774" EndNode="1788">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Haneda_Airport</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66876" Type="Mention" StartNode="1252" EndNode="1275">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Chief_Cabinet_Secretary</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66879" Type="Mention" StartNode="953" EndNode="971">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Xinhua_News_Agency</Value>
+</Feature>
+</Annotation>
+<Annotation Id="66878" Type="Mention" StartNode="1433" EndNode="1450">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Kyodo_News</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Ref">
+<Annotation Id="25088" Type="Mention" StartNode="96" EndNode="101">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25089" Type="Mention" StartNode="3475" EndNode="3521">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Hong_Kong_University_of_Science_and_Technology</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25090" Type="Mention" StartNode="1160" EndNode="1169">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Naoto_Kan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25091" Type="Mention" StartNode="2838" EndNode="2844">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Europe</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25092" Type="Mention" StartNode="953" EndNode="971">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Xinhua_News_Agency</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25093" Type="Mention" StartNode="1766" EndNode="1771">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Tokyo</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25094" Type="Mention" StartNode="2029" EndNode="2034">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25095" Type="Mention" StartNode="2854" EndNode="2861">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Belgium</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25096" Type="Mention" StartNode="1729" EndNode="1735">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Fujita_scale</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25097" Type="Mention" StartNode="3162" EndNode="3169">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25098" Type="Mention" StartNode="1774" EndNode="1788">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Haneda_Airport</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25099" Type="Mention" StartNode="1862" EndNode="1874">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Shijiazhuang</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25100" Type="Mention" StartNode="2694" EndNode="2709">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Premier_of_the_People's_Republic_of_China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25101" Type="Mention" StartNode="1122" EndNode="1128">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Xinhua_News_Agency</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25062" Type="Mention" StartNode="2781" EndNode="2795">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/United_Nations</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25063" Type="Mention" StartNode="1276" EndNode="1291">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Yoshito_Sengoku</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25064" Type="Mention" StartNode="1433" EndNode="1450">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Kyodo_News</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25065" Type="Mention" StartNode="1319" EndNode="1324">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Tokyo</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25066" Type="Mention" StartNode="2387" EndNode="2404">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Junichiro_Koizumi</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25067" Type="Mention" StartNode="2461" EndNode="2466">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25068" Type="Mention" StartNode="2833" EndNode="2837">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Asia</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25069" Type="Mention" StartNode="3578" EndNode="3585">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Beijing</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25070" Type="Mention" StartNode="43" EndNode="53">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Tokyo_2010</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25071" Type="Mention" StartNode="1496" EndNode="1501">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Tokyo</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25072" Type="Mention" StartNode="20" EndNode="25">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25073" Type="Mention" StartNode="623" EndNode="628">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25074" Type="Mention" StartNode="2961" EndNode="2966">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25075" Type="Mention" StartNode="227" EndNode="232">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Tokyo</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25076" Type="Mention" StartNode="1480" EndNode="1486">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Fujita_scale</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25077" Type="Mention" StartNode="1651" EndNode="1656">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25078" Type="Mention" StartNode="1006" EndNode="1012">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Sadamu_Shimomura</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25079" Type="Mention" StartNode="3286" EndNode="3291">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25080" Type="Mention" StartNode="756" EndNode="761">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25081" Type="Mention" StartNode="2915" EndNode="2920">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25082" Type="Mention" StartNode="936" EndNode="943">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25083" Type="Mention" StartNode="1562" EndNode="1567">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25084" Type="Mention" StartNode="549" EndNode="554">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Tokyo</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25085" Type="Mention" StartNode="502" EndNode="509">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Beijing</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25086" Type="Mention" StartNode="2095" EndNode="2100">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="25087" Type="Mention" StartNode="2557" EndNode="2564">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Original markups">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Key">
+<Annotation Id="128" Type="Mention" StartNode="2694" EndNode="2701">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="129" Type="Mention" StartNode="2710" EndNode="2720">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Wen_Jiabao</Value>
+</Feature>
+</Annotation>
+<Annotation Id="130" Type="Mention" StartNode="2781" EndNode="2795">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/United_Nations</Value>
+</Feature>
+</Annotation>
+<Annotation Id="131" Type="Mention" StartNode="2854" EndNode="2861">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Belgium</Value>
+</Feature>
+</Annotation>
+<Annotation Id="132" Type="Mention" StartNode="3532" EndNode="3548">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Associated_Press</Value>
+</Feature>
+</Annotation>
+<Annotation Id="133" Type="Mention" StartNode="3578" EndNode="3585">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Beijing</Value>
+</Feature>
+</Annotation>
+<Annotation Id="134" Type="Mention" StartNode="3162" EndNode="3167">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="135" Type="Mention" StartNode="3286" EndNode="3291">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="136" Type="Mention" StartNode="3440" EndNode="3445">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="80" Type="Mention" StartNode="2" EndNode="10">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japanese_people</Value>
+</Feature>
+</Annotation>
+<Annotation Id="81" Type="Mention" StartNode="20" EndNode="25">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="82" Type="Mention" StartNode="79" EndNode="87">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japanese_people</Value>
+</Feature>
+</Annotation>
+<Annotation Id="83" Type="Mention" StartNode="96" EndNode="101">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="84" Type="Mention" StartNode="227" EndNode="232">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="85" Type="Mention" StartNode="297" EndNode="304">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="86" Type="Mention" StartNode="362" EndNode="370">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="87" Type="Mention" StartNode="430" EndNode="435">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Asia</Value>
+</Feature>
+</Annotation>
+<Annotation Id="88" Type="Mention" StartNode="375" EndNode="382">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="89" Type="Mention" StartNode="549" EndNode="554">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="90" Type="Mention" StartNode="502" EndNode="509">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="91" Type="Mention" StartNode="636" EndNode="644">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92" Type="Mention" StartNode="623" EndNode="628">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="93" Type="Mention" StartNode="756" EndNode="761">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="94" Type="Mention" StartNode="923" EndNode="930">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="95" Type="Mention" StartNode="865" EndNode="873">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japanese_people</Value>
+</Feature>
+</Annotation>
+<Annotation Id="96" Type="Mention" StartNode="953" EndNode="971">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Xinhua_News_Agency</Value>
+</Feature>
+</Annotation>
+<Annotation Id="97" Type="Mention" StartNode="936" EndNode="941">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="98" Type="Mention" StartNode="1122" EndNode="1128">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Xinhua_News_Agency</Value>
+</Feature>
+</Annotation>
+<Annotation Id="99" Type="Mention" StartNode="1160" EndNode="1169">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Naoto_Kan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="100" Type="Mention" StartNode="1136" EndNode="1144">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="101" Type="Mention" StartNode="1276" EndNode="1291">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Yoshito_Sengoku</Value>
+</Feature>
+</Annotation>
+<Annotation Id="102" Type="Mention" StartNode="1319" EndNode="1324">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="103" Type="Mention" StartNode="1208" EndNode="1217">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+</Annotation>
+<Annotation Id="104" Type="Mention" StartNode="1562" EndNode="1567">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="105" Type="Mention" StartNode="1651" EndNode="1656">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="106" Type="Mention" StartNode="1433" EndNode="1443">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Kyodo_News</Value>
+</Feature>
+</Annotation>
+<Annotation Id="107" Type="Mention" StartNode="1729" EndNode="1735">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+</Annotation>
+<Annotation Id="108" Type="Mention" StartNode="1664" EndNode="1672">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="109" Type="Mention" StartNode="1696" EndNode="1708">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/World_War_II</Value>
+</Feature>
+</Annotation>
+<Annotation Id="110" Type="Mention" StartNode="1862" EndNode="1874">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Shijiazhuang</Value>
+</Feature>
+</Annotation>
+<Annotation Id="111" Type="Mention" StartNode="1766" EndNode="1771">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Tokyo</Value>
+</Feature>
+</Annotation>
+<Annotation Id="112" Type="Mention" StartNode="1774" EndNode="1780">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Haneda_Airport</Value>
+</Feature>
+</Annotation>
+<Annotation Id="113" Type="Mention" StartNode="2012" EndNode="2026">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/East_China_Sea</Value>
+</Feature>
+</Annotation>
+<Annotation Id="114" Type="Mention" StartNode="1961" EndNode="1969">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="115" Type="Mention" StartNode="1929" EndNode="1936">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="116" Type="Mention" StartNode="2188" EndNode="2204">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Ministry_of_Foreign_Affairs_of_the_People's_Republic_of_China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="117" Type="Mention" StartNode="2180" EndNode="2185">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="118" Type="Mention" StartNode="2095" EndNode="2100">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="119" Type="Mention" StartNode="2029" EndNode="2034">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="120" Type="Mention" StartNode="2461" EndNode="2466">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="121" Type="Mention" StartNode="2447" EndNode="2452">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Japan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="122" Type="Mention" StartNode="2387" EndNode="2404">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Junichiro_Koizumi</Value>
+</Feature>
+</Annotation>
+<Annotation Id="123" Type="Mention" StartNode="2686" EndNode="2689">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Naoto_Kan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="124" Type="Mention" StartNode="2646" EndNode="2651">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Asia</Value>
+</Feature>
+</Annotation>
+<Annotation Id="125" Type="Mention" StartNode="2557" EndNode="2562">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="126" Type="Mention" StartNode="2915" EndNode="2920">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+<Annotation Id="127" Type="Mention" StartNode="3096" EndNode="3103">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/China</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+</GateDocument>

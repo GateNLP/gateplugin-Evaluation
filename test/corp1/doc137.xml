@@ -1,0 +1,466 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="3">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">createSourceType</Name>
+  <Value className="java.lang.String">W</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">corpus</Name>
+  <Value className="java.lang.String">Web.HON.Eng</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">language</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02-disambig</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbUrl</Name>
+  <Value className="java.lang.String">http://www.diabetescounselling.com.au/members/tone/forums/replies/</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needAllContent</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">locationCountry</Name>
+  <Value className="java.lang.String">Australia</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbSnippet</Name>
+  <Value className="java.lang.String"> Name is Tony. Type I diabetic since 1971 (was aged 9), Hypertension since 1982, and Addison’s Disease since 1997. And little retinopathy which so far has not needed treatment (touch wood). Apart from...</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbLanguage</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-findContent</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">http://www.diabetescounselling.com.au/members/tone/forums/replies/</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbDomain</Name>
+  <Value className="java.lang.String">diabetescounselling.com.au</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">images</Name>
+  <Value className="java.lang.String">http://www.gravatar.com/avatar/9608adb90dbcc33b052da4826f18d4a5?d=http://www.diabetescounselling.com.au/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg&amp;s=80&amp;r=G|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/ribbon_youtube.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/logo.jpg|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/bubble_twitter.png|http://www.gravatar.com/avatar/9608adb90dbcc33b052da4826f18d4a5?d=http://www.diabetescounselling.com.au/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg&amp;s=150&amp;r=G|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/ribbon_scoop.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/bubble_facebook.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/bubble_youtube.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/ribbon_facebook.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/bubble_scoop.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/HONConduct531511_s1.gif|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/ribbon_twitter.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/bubble_pinterest.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/ribbon_pinterest.png</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">idType</Name>
+  <Value className="java.lang.String">WebUrl</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needBoilerPipe</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-mimirIndexing</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">containsImages</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">hesClassification</Name>
+  <Value className="java.lang.String">patient</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-basic-annots</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createGuessedEncoding</Name>
+  <Value className="java.lang.String">UTF-8</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">domain</Name>
+  <Value className="java.lang.String">diabetescounselling.com.au</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-umls-disambiguate</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbTitle</Name>
+  <Value className="java.lang.String">Tone | Discussion Forums | Diabetes Counselling</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">publisher</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbId</Name>
+  <Value className="java.lang.String">http%3A%2F%2Fwww.diabetescounselling.com.au%2Fmembers%2Ftone%2Fforums%2Freplies%2F</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">locationCity</Name>
+  <Value className="java.lang.String">Adelaide</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbSourceMD5</Name>
+  <Value className="java.lang.String">b552d63fe01d14a59d2825494b6b831a</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">authors</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needPubmedContent</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">health_topics</Name>
+  <Value className="java.lang.String">Other non-communicable diseases</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">tags.names</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-umls-extgaz</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cbdUrl</Name>
+  <Value className="java.lang.String">http://www.diabetescounselling.com.au/members/tone/forums/replies/</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needDefaultMeta</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">title</Name>
+  <Value className="java.lang.String">Tone | Discussion Forums | Diabetes Counselling</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">MimeType</Name>
+  <Value className="java.lang.String">text/html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needWikipediaMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">http://www.diabetescounselling.com.au/members/tone/forums/replies/</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02-apply</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">health_topic_terms</Name>
+  <Value className="java.lang.String">diabetes|hypertension|addison disease|preventable disease|chronic diseases|treatment|wood|relative|fitness|teen|youth|youthful|immunity|immunization|immunisation|blood pressure|blood|smoking|education|projects|funding|prevention|men</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needPubmedMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">categories</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbRev</Name>
+  <Value className="java.lang.String">1-bb3675f15b92fd0f7d3d8bca742d17da</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbHost</Name>
+  <Value className="java.lang.String">www.diabetescounselling.com.au</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createDate</Name>
+  <Value className="java.lang.String">2013-05-12,15:01:39</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02features</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-annotate-stopwords</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createFileName</Name>
+  <Value className="java.lang.String">W_diabetescounselling.com.au_b552d63fe01d14a59d2825494b6b831a.xml</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-drugbank-extgaz</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator5</Name>
+  <Value className="java.lang.String">lh49</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator4</Name>
+  <Value className="java.lang.String">lh45</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator3</Name>
+  <Value className="java.lang.String">lh71</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-MAIN</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator2</Name>
+  <Value className="java.lang.String">lh44</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator1</Name>
+  <Value className="java.lang.String">lh38</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">url</Name>
+  <Value className="java.lang.String">http://www.diabetescounselling.com.au/members/tone/forums/replies/</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">tags.codes</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbRelevancyScore</Name>
+  <Value className="java.lang.String">11.2428226502055</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">couchDBType</Name>
+  <Value className="java.lang.String">web</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <Node id="1360"/>            <Node id="1372"/>                 <Node id="1389"/>                 <Node id="1406"/>                                                                                                                                                                                <Node id="1582"/>        <Node id="1590"/>                                                                                                                                                                                                                                                                                                                                                                                                                                                               <Node id="2037"/>        <Node id="2045"/>                                                                                                <Node id="2141"/>        <Node id="2149"/>                                                                                                                                                                                                                                                                                                    <Node id="2441"/>        <Node id="2449"/>      <Node id="2455"/>        <Node id="2463"/>     <Node id="2468"/>        <Node id="2476"/>                                                                                                                                                  <Node id="2622"/>              <Node id="2636"/>     <Node id="2641"/>               <Node id="2656"/>                                                                                                                                                       <Node id="2807"/>               <Node id="2822"/>     <Node id="2827"/>    <Node id="2831"/>              <Node id="2845"/>    <Node id="2849"/>                                                   <Node id="2900"/>        <Node id="2908"/>                                                                                                                                                                                                                                                               <Node id="3163"/>     <Node id="3168"/>                                                                                                                                                                                                                                                           <Node id="3419"/>        <Node id="3427"/>                                                                        <Node id="3499"/>    <Node id="3503"/>                                                                                                                               <Node id="3630"/>       <Node id="3637"/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <Node id="4232"/>               <Node id="4247"/>                                                                                                <Node id="4343"/>        <Node id="4351"/>                     <Node id="4372"/>        <Node id="4380"/>                           <Node id="4407"/>        <Node id="4415"/>                                                                                                                                         <Node id="4552"/>        <Node id="4560"/>                                      <Node id="4598"/>   <Node id="4601"/>                                                                                                                                                                                                          </TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+<Annotation Id="5930" Type="Disease" StartNode="1360" EndNode="1372">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3280936</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5931" Type="Disease" StartNode="2141" EndNode="2149">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5932" Type="Drug" StartNode="2622" EndNode="2636">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0020268</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5933" Type="Disease" StartNode="2807" EndNode="2822">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1320657</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5934" Type="Drug" StartNode="2827" EndNode="2831">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C2702424</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5935" Type="Disease" StartNode="2845" EndNode="2849">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0021345</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5936" Type="Disease" StartNode="2900" EndNode="2908">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5937" Type="Anatomy" StartNode="3163" EndNode="3168">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1522097</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5938" Type="Disease" StartNode="3419" EndNode="3427">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5939" Type="Disease" StartNode="3499" EndNode="3503">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1865325</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5940" Type="Drug" StartNode="3630" EndNode="3637">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0939808</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5941" Type="Disease" StartNode="4232" EndNode="4247">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0008679</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5942" Type="Disease" StartNode="4343" EndNode="4351">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5943" Type="Disease" StartNode="4372" EndNode="4380">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5944" Type="Disease" StartNode="4407" EndNode="4415">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5945" Type="Disease" StartNode="4552" EndNode="4560">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5946" Type="Drug" StartNode="4598" EndNode="4601">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0872896</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="safe.preprocessing">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="ConsensusAuto">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Key">
+<Annotation Id="5984" Type="Drug" StartNode="2455" EndNode="2463">
+</Annotation>
+<Annotation Id="5985" Type="Drug" StartNode="2622" EndNode="2636">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0020268</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5986" Type="Anatomy" StartNode="3163" EndNode="3168">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1522097</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5966" Type="Disease" StartNode="2900" EndNode="2908">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5967" Type="Disease" StartNode="3419" EndNode="3427">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5968" Type="Disease" StartNode="2141" EndNode="2149">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5969" Type="Disease" StartNode="2807" EndNode="2822">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1320657</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5970" Type="Disease" StartNode="4407" EndNode="4415">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5971" Type="Disease" StartNode="4372" EndNode="4380">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5972" Type="Disease" StartNode="4552" EndNode="4560">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5973" Type="Disease" StartNode="3499" EndNode="3503">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1865325</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5974" Type="Disease" StartNode="4343" EndNode="4351">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5975" Type="Disease" StartNode="4232" EndNode="4247">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0008679</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5976" Type="Disease" StartNode="2037" EndNode="2045">
+</Annotation>
+<Annotation Id="5977" Type="Disease" StartNode="2441" EndNode="2449">
+</Annotation>
+<Annotation Id="5978" Type="Disease" StartNode="1389" EndNode="1406">
+</Annotation>
+<Annotation Id="5979" Type="Disease" StartNode="1582" EndNode="1590">
+</Annotation>
+<Annotation Id="5980" Type="Disease" StartNode="1360" EndNode="1372">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3280936</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5981" Type="Drug" StartNode="3630" EndNode="3637">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0939808</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5982" Type="Drug" StartNode="2641" EndNode="2656">
+</Annotation>
+<Annotation Id="5983" Type="Drug" StartNode="2468" EndNode="2476">
+</Annotation>
+</AnnotationSet>
+
+</GateDocument>

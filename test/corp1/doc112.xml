@@ -1,0 +1,438 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="3">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">createSourceType</Name>
+  <Value className="java.lang.String">W</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">corpus</Name>
+  <Value className="java.lang.String">Web.HON.Eng</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">language</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02-disambig</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbUrl</Name>
+  <Value className="java.lang.String">http://www.amicor.blogspot.com/2005/03/clinical-and-demographic.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needAllContent</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">locationCountry</Name>
+  <Value className="java.lang.String">Brazil</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbSnippet</Name>
+  <Value className="java.lang.String"> This Blog AMICOR is a communication instrument of a group of friends primarily interested in health promotion, with a focus on cardiovascular diseases prevention. To contact send a message to achutti...</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbLanguage</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-findContent</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">http://www.amicor.blogspot.com/2005/03/clinical-and-demographic.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbDomain</Name>
+  <Value className="java.lang.String">blogspot.com</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">images</Name>
+  <Value className="java.lang.String">http://badge.facebook.com/badge/679359572.5010.729955934.png|http://img2.blogblog.com/img/icon18_edit_allbkg.gif|http://www.hon.ch/HONcode/Seal/HONConduct816621_s.gif|http://img1.blogblog.com/img/icon18_wrench_allbkg.png|http://img1.blogblog.com/img/icon18_email.gif</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">idType</Name>
+  <Value className="java.lang.String">WebUrl</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needBoilerPipe</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-mimirIndexing</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">containsImages</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">hesClassification</Name>
+  <Value className="java.lang.String">patient</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-basic-annots</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createGuessedEncoding</Name>
+  <Value className="java.lang.String">UTF-8</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">domain</Name>
+  <Value className="java.lang.String">blogspot.com</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-umls-disambiguate</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbTitle</Name>
+  <Value className="java.lang.String">AMICOR: Clinical and Demographic Characteristics of 99 Episodes of Rheumatic Fever in Acre, the Brazilian Amazon</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">publisher</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbId</Name>
+  <Value className="java.lang.String">http%3A%2F%2Fwww.amicor.blogspot.com%2F2005%2F03%2Fclinical-and-demographic.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">locationCity</Name>
+  <Value className="java.lang.String">Porto Alegre</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbSourceMD5</Name>
+  <Value className="java.lang.String">6f71fec17130617ed16f59b947e234f9</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">authors</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needPubmedContent</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">health_topics</Name>
+  <Value className="java.lang.String">Quality assurance</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">tags.names</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-umls-extgaz</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cbdUrl</Name>
+  <Value className="java.lang.String">http://www.amicor.blogspot.com/2005/03/clinical-and-demographic.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needDefaultMeta</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">title</Name>
+  <Value className="java.lang.String">AMICOR: Clinical and Demographic Characteristics of 99 Episodes of Rheumatic Fever in Acre, the Brazilian Amazon</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">MimeType</Name>
+  <Value className="java.lang.String">text/html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needWikipediaMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">http://www.amicor.blogspot.com/2005/03/clinical-and-demographic.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02-apply</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">health_topic_terms</Name>
+  <Value className="java.lang.String">characteristic|friend|promotion|cardiovascular disease|preventable disease|prevention|initiatives|patients|assessment|female|antibiotics|antibiotic|therapy|directive|prevalence|epidemiology|heart|women|standardization|standard|obesity|overweight|development|stroke|incidence|surveys|guideline</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needPubmedMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">categories</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbRev</Name>
+  <Value className="java.lang.String">2-1397b8370ba58b1e60178a43f8cbb8c2</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbHost</Name>
+  <Value className="java.lang.String">www.amicor.blogspot.com</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createDate</Name>
+  <Value className="java.lang.String">2013-05-12,15:02:16</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02features</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-annotate-stopwords</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createFileName</Name>
+  <Value className="java.lang.String">W_blogspot.com_6f71fec17130617ed16f59b947e234f9.xml</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-drugbank-extgaz</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator5</Name>
+  <Value className="java.lang.String">lh11</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator4</Name>
+  <Value className="java.lang.String">lh71</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator3</Name>
+  <Value className="java.lang.String">lh52</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-MAIN</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator2</Name>
+  <Value className="java.lang.String">lh38</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator1</Name>
+  <Value className="java.lang.String">lh44</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">url</Name>
+  <Value className="java.lang.String">http://www.amicor.blogspot.com/2005/03/clinical-and-demographic.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">tags.codes</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbRelevancyScore</Name>
+  <Value className="java.lang.String">19.5895633353445</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">couchDBType</Name>
+  <Value className="java.lang.String">web</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <Node id="547"/>               <Node id="562"/>                                                                                           <Node id="653"/>               <Node id="668"/>                                                                                                                                                                           <Node id="839"/>  <Node id="841"/>                                                                  <Node id="907"/>               <Node id="922"/>                                                                                                                                                                                                                                                                                                                                                             <Node id="1271"/>               <Node id="1286"/>                                                 <Node id="1335"/>        <Node id="1343"/>          <Node id="1353"/>         <Node id="1362"/>              <Node id="1376"/>      <Node id="1382"/>         <Node id="1391"/>                    <Node id="1411"/>                     <Node id="1432"/>      <Node id="1438"/>                                        <Node id="1478"/>                    <Node id="1498"/>     <Node id="1503"/>                    <Node id="1523"/>                    <Node id="1543"/>                  <Node id="1561"/>                                      <Node id="1599"/>               <Node id="1614"/>                                                                                                      <Node id="1716"/>          <Node id="1726"/>                            <Node id="1754"/>          <Node id="1764"/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+<Annotation Id="5831" Type="Disease" StartNode="547" EndNode="562">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0035436</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5832" Type="Disease" StartNode="653" EndNode="668">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0035436</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5833" Type="Drug" StartNode="839" EndNode="841">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0972289</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5834" Type="Disease" StartNode="907" EndNode="922">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0035436</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5835" Type="Disease" StartNode="1271" EndNode="1286">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0035436</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5836" Type="Disease" StartNode="1353" EndNode="1362">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0003864</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5837" Type="Disease" StartNode="1376" EndNode="1382">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0008489</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5838" Type="Disease" StartNode="1391" EndNode="1411">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0026266</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5839" Type="Disease" StartNode="1432" EndNode="1438">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0221198</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5840" Type="Disease" StartNode="1478" EndNode="1498">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0026266</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5841" Type="Disease" StartNode="1503" EndNode="1523">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0003504</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5842" Type="Disease" StartNode="1543" EndNode="1561">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0035439</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5843" Type="Disease" StartNode="1599" EndNode="1614">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0035436</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5844" Type="Disease" StartNode="1754" EndNode="1764">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C2825055</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="safe.preprocessing">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="ConsensusAuto">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Key">
+<Annotation Id="5856" Type="Disease" StartNode="653" EndNode="668">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0035436</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5857" Type="Disease" StartNode="547" EndNode="562">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0035436</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5858" Type="Disease" StartNode="1335" EndNode="1343">
+</Annotation>
+<Annotation Id="5859" Type="Disease" StartNode="1271" EndNode="1286">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0035436</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5860" Type="Disease" StartNode="1353" EndNode="1362">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0003864</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5861" Type="Disease" StartNode="1376" EndNode="1382">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0008489</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5862" Type="Disease" StartNode="1391" EndNode="1411">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0026266</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5863" Type="Disease" StartNode="1432" EndNode="1438">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0221198</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5864" Type="Disease" StartNode="1478" EndNode="1498">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0026266</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5865" Type="Disease" StartNode="1503" EndNode="1523">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0003504</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5866" Type="Disease" StartNode="1543" EndNode="1561">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0035439</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5867" Type="Drug" StartNode="1716" EndNode="1726">
+</Annotation>
+<Annotation Id="5868" Type="Drug" StartNode="839" EndNode="841">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0972289</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5853" Type="Disease" StartNode="907" EndNode="922">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0035436</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5854" Type="Disease" StartNode="1599" EndNode="1614">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0035436</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5855" Type="Disease" StartNode="1754" EndNode="1764">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C2825055</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+</GateDocument>

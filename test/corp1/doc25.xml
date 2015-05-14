@@ -1,0 +1,342 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="3">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">createSourceType</Name>
+  <Value className="java.lang.String">K</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needPubmedContent</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-umls-extgaz</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needDefaultMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">wpTitle</Name>
+  <Value className="java.lang.String">Crotamiton</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">language</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02-disambig</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">MimeType</Name>
+  <Value className="java.lang.String">text/x-mediawiki</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">wpLanguage</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needWikipediaMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">created from String</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needAllContent</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02-apply</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">wpTimestamp</Name>
+  <Value className="java.lang.String">2012-10-31T12:52:19Z</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needPubmedMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-findContent</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">https://en.wikipedia.org/wiki/Crotamiton</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createDate</Name>
+  <Value className="java.lang.String">2013-05-12,14:08:19</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02features</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-annotate-stopwords</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createFileName</Name>
+  <Value className="java.lang.String">K_Crotamiton.xml</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-drugbank-extgaz</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needBoilerPipe</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator5</Name>
+  <Value className="java.lang.String">lh45</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator4</Name>
+  <Value className="java.lang.String">lh71</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator3</Name>
+  <Value className="java.lang.String">lh52</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-MAIN</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator2</Name>
+  <Value className="java.lang.String">lh44</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-mimirIndexing</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator1</Name>
+  <Value className="java.lang.String">lh38</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">url</Name>
+  <Value className="java.lang.String">https://en.wikipedia.org/wiki/Crotamiton</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">HONLabel.language</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-basic-annots</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">HONLabel.targetAudience</Name>
+  <Value className="java.lang.String">patient</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">domain</Name>
+  <Value className="java.lang.String">en.wikipedia.org</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-umls-disambiguate</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createLanguage</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes><Node id="0"/>          <Node id="10"/>                                                           <Node id="69"/>       <Node id="76"/>                    <Node id="96"/>            <Node id="108"/>                                                                                                                                                             <Node id="265"/>    <Node id="269"/>            <Node id="281"/>       <Node id="288"/>                                                                                                    <Node id="388"/>       <Node id="395"/>  <Node id="397"/>          <Node id="407"/>                                                                                                                                                                                                                                                                           <Node id="674"/>          <Node id="684"/>                           <Node id="711"/>       <Node id="718"/>                                                                                                                                                                  <Node id="880"/>    <Node id="884"/>                   <Node id="903"/>    <Node id="907"/>                                                              <Node id="969"/>          <Node id="979"/>                                                                                                   <Node id="1078"/>          <Node id="1088"/>                                                                                                         <Node id="1193"/>     <Node id="1198"/>                                                                 <Node id="1263"/>               <Node id="1278"/>               <Node id="1293"/>          <Node id="1303"/>                                   <Node id="1338"/>     <Node id="1343"/>                                                                                                                                                                                  </TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+<Annotation Id="1869" Type="Drug" StartNode="0" EndNode="10">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0056519</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1870" Type="Disease" StartNode="69" EndNode="76">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0036262</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1871" Type="Anatomy" StartNode="265" EndNode="269">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1123023</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1872" Type="Disease" StartNode="388" EndNode="395">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0036262</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1873" Type="Drug" StartNode="397" EndNode="407">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0056519</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1874" Type="Drug" StartNode="674" EndNode="684">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0056519</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1875" Type="Anatomy" StartNode="880" EndNode="884">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0015392</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1876" Type="Drug" StartNode="969" EndNode="979">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0056519</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1877" Type="Drug" StartNode="1078" EndNode="1088">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0056519</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1878" Type="Anatomy" StartNode="1193" EndNode="1198">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1523991</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1879" Type="Disease" StartNode="1263" EndNode="1278">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0152030</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1880" Type="Drug" StartNode="1293" EndNode="1303">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0056519</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1881" Type="Drug" StartNode="1338" EndNode="1343">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0699631</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="safe.preprocessing">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="ConsensusAuto">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Key">
+<Annotation Id="1898" Type="Disease" StartNode="69" EndNode="76">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0036262</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1899" Type="Disease" StartNode="281" EndNode="288">
+</Annotation>
+<Annotation Id="1900" Type="Disease" StartNode="711" EndNode="718">
+</Annotation>
+<Annotation Id="1901" Type="Disease" StartNode="388" EndNode="395">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0036262</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1902" Type="Disease" StartNode="1263" EndNode="1278">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0152030</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1903" Type="Drug" StartNode="1078" EndNode="1088">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0056519</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1904" Type="Drug" StartNode="969" EndNode="979">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0056519</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1905" Type="Drug" StartNode="674" EndNode="684">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0056519</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1906" Type="Drug" StartNode="397" EndNode="407">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0056519</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1907" Type="Drug" StartNode="0" EndNode="10">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0056519</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1908" Type="Drug" StartNode="96" EndNode="108">
+</Annotation>
+<Annotation Id="1909" Type="Drug" StartNode="1338" EndNode="1343">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0699631</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1910" Type="Drug" StartNode="1293" EndNode="1303">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0056519</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1911" Type="Anatomy" StartNode="903" EndNode="907">
+</Annotation>
+<Annotation Id="1912" Type="Anatomy" StartNode="265" EndNode="269">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1123023</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1913" Type="Anatomy" StartNode="1193" EndNode="1198">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1523991</Value>
+</Feature>
+</Annotation>
+<Annotation Id="1914" Type="Anatomy" StartNode="880" EndNode="884">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0015392</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+</GateDocument>
