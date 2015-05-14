@@ -188,11 +188,19 @@
 <AnnotationSet>
 <Annotation Id="2083" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_of_France</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2084" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_of_South_Korea</Value>
@@ -200,11 +208,19 @@
 </Annotation>
 <Annotation Id="2085" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_of_the_Confederate_States_of_America</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2086" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_of_the_United_States</Value>
@@ -212,11 +228,19 @@
 </Annotation>
 <Annotation Id="2090" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Quirinal_Palace</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2225" Type="Lookup" StartNode="575" EndNode="585">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">War_in_Afghanistan</Value>
@@ -224,11 +248,19 @@
 </Annotation>
 <Annotation Id="2354" Type="Lookup" StartNode="57" EndNode="67">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2099" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">The_Presidents_of_the_United_States_of_America_(band)</Value>
@@ -248,11 +280,19 @@
 </Annotation>
 <Annotation Id="2104" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">University_of_Chicago</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2360" Type="Lookup" StartNode="295" EndNode="304">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata-Zhurt</Value>
@@ -266,6 +306,10 @@
 </Annotation>
 <Annotation Id="2233" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Jon_Monday</Value>
 </Feature>
@@ -278,11 +322,19 @@
 </Annotation>
 <Annotation Id="2106" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Air_Kyrgyzstan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2107" Type="Lookup" StartNode="0" EndNode="6">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan</Value>
@@ -290,11 +342,19 @@
 </Annotation>
 <Annotation Id="2235" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2108" Type="Lookup" StartNode="0" EndNode="6">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan_Airlines</Value>
@@ -302,11 +362,19 @@
 </Annotation>
 <Annotation Id="2236" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday,_Monday</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2109" Type="Lookup" StartNode="0" EndNode="6">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan_Federation_of_Trade_Unions</Value>
@@ -314,11 +382,19 @@
 </Annotation>
 <Annotation Id="2110" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan_national_football_team</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2111" Type="Lookup" StartNode="0" EndNode="6">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan_women's_national_football_team</Value>
@@ -326,17 +402,29 @@
 </Annotation>
 <Annotation Id="2113" Type="Lookup" StartNode="368" EndNode="375">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Janish_Bakiyev</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2114" Type="Lookup" StartNode="368" EndNode="375">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kurmanbek_Bakiyev</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2115" Type="Lookup" StartNode="368" EndNode="375">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Maxim_Bakiyev</Value>
@@ -350,11 +438,19 @@
 </Annotation>
 <Annotation Id="2117" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Air_Kyrgyzstan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2118" Type="Lookup" StartNode="0" EndNode="6">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan</Value>
@@ -362,11 +458,19 @@
 </Annotation>
 <Annotation Id="2119" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan_Airlines</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2120" Type="Lookup" StartNode="0" EndNode="6">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan_Federation_of_Trade_Unions</Value>
@@ -374,11 +478,19 @@
 </Annotation>
 <Annotation Id="2248" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Michiru</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2121" Type="Lookup" StartNode="0" EndNode="6">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan_national_football_team</Value>
@@ -386,11 +498,19 @@
 </Annotation>
 <Annotation Id="2122" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan_women's_national_football_team</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2124" Type="Lookup" StartNode="377" EndNode="384">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Janish_Bakiyev</Value>
@@ -398,11 +518,19 @@
 </Annotation>
 <Annotation Id="2125" Type="Lookup" StartNode="377" EndNode="384">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kurmanbek_Bakiyev</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2126" Type="Lookup" StartNode="377" EndNode="384">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Maxim_Bakiyev</Value>
@@ -416,11 +544,19 @@
 </Annotation>
 <Annotation Id="2128" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">American_wine</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2129" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Federal_Republic_of_Central_America</Value>
@@ -428,11 +564,19 @@
 </Annotation>
 <Annotation Id="2259" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Mornings</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2262" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Baseball</Value>
@@ -440,11 +584,19 @@
 </Annotation>
 <Annotation Id="2135" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Stellaland</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2265" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Countdown</Value>
@@ -452,11 +604,19 @@
 </Annotation>
 <Annotation Id="2138" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2266" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Football</Value>
@@ -464,11 +624,19 @@
 </Annotation>
 <Annotation Id="2271" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Soccer</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2144" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_Belgium</Value>
@@ -476,11 +644,19 @@
 </Annotation>
 <Annotation Id="2146" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_Colombia</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2147" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_Europe</Value>
@@ -488,11 +664,19 @@
 </Annotation>
 <Annotation Id="2148" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_Greater_Austria</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2149" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_Indonesia</Value>
@@ -500,11 +684,19 @@
 </Annotation>
 <Annotation Id="2021" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Chancellor_(education)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2151" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_the_Ionian_Islands</Value>
@@ -512,17 +704,29 @@
 </Annotation>
 <Annotation Id="2279" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Montag_aus_Licht</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2280" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Rick_Monday</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2154" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Zeitgeist_(The_Smashing_Pumpkins_album)</Value>
@@ -535,6 +739,10 @@
 </Feature>
 </Annotation>
 <Annotation Id="2156" Type="Lookup" StartNode="709" EndNode="718">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata-Zhurt</Value>
@@ -554,6 +762,10 @@
 </Annotation>
 <Annotation Id="2285" Type="Lookup" StartNode="48" EndNode="55">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Bishkek</Value>
 </Feature>
@@ -566,11 +778,19 @@
 </Annotation>
 <Annotation Id="2033" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">John_Sheridan_(Babylon_5)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2040" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President</Value>
@@ -653,11 +873,19 @@
 <AnnotationSet Name="LookupInfo">
 <Annotation Id="2560" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Africa_Travel_Association</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2561" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Air_Transport_Auxiliary</Value>
@@ -665,11 +893,19 @@
 </Annotation>
 <Annotation Id="2562" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Albanian_Telegraphic_Agency</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2563" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Alberta_Teachers'_Association</Value>
@@ -677,11 +913,19 @@
 </Annotation>
 <Annotation Id="2564" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Allen_Telescope_Array</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2565" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Amateur_Trapshooting_Association</Value>
@@ -689,11 +933,19 @@
 </Annotation>
 <Annotation Id="2566" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">American_Taekwondo_Association</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2567" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">American_Telemedicine_Association</Value>
@@ -701,11 +953,19 @@
 </Annotation>
 <Annotation Id="2568" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">American_Tennis_Association</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2569" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">American_Thyroid_Association</Value>
@@ -713,11 +973,19 @@
 </Annotation>
 <Annotation Id="2570" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">American_Topical_Association</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2571" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">American_Translators_Association</Value>
@@ -725,11 +993,19 @@
 </Annotation>
 <Annotation Id="2572" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">American_Trucking_Associations</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2573" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Analog_telephone_adapter</Value>
@@ -737,11 +1013,19 @@
 </Annotation>
 <Annotation Id="2574" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Antarctica</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2575" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Anti-topoisomerase_antibodies</Value>
@@ -749,11 +1033,19 @@
 </Annotation>
 <Annotation Id="2576" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Anti-transglutaminase_antibodies</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2577" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Archery_Trade_Association</Value>
@@ -761,11 +1053,19 @@
 </Annotation>
 <Annotation Id="2578" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Artists'_Television_Access</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2579" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ashcroft_Technology_Academy</Value>
@@ -773,11 +1073,19 @@
 </Annotation>
 <Annotation Id="2580" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Asia_Theological_Association</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2581" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Association_of_Talent_Agents</Value>
@@ -785,11 +1093,19 @@
 </Annotation>
 <Annotation Id="2582" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata-Malik_Juvayni</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2583" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_(name)</Value>
@@ -797,11 +1113,19 @@
 </Annotation>
 <Annotation Id="2584" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_Airlines</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2585" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_Behlakeh</Value>
@@ -809,11 +1133,19 @@
 </Annotation>
 <Annotation Id="2586" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_Bolaghi</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2587" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_Demirer</Value>
@@ -821,11 +1153,19 @@
 </Annotation>
 <Annotation Id="2588" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_Gears</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2589" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_Hussain_Fani_Chishti</Value>
@@ -833,11 +1173,19 @@
 </Annotation>
 <Annotation Id="2590" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_Manobo_language</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2591" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_Turab</Value>
@@ -845,11 +1193,19 @@
 </Annotation>
 <Annotation Id="2592" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_Yamrali</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2593" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_al-Ayyubi</Value>
@@ -857,11 +1213,19 @@
 </Annotation>
 <Annotation Id="2594" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_ibn_Abi_Rabah</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2595" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_je_spet_pijan</Value>
@@ -869,11 +1233,19 @@
 </Annotation>
 <Annotation Id="2596" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_language</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2597" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_language_(Aeta)</Value>
@@ -881,11 +1253,19 @@
 </Annotation>
 <Annotation Id="2598" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata_ul_Haq_Qasmi</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2599" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Atlantic_Treaty_Association</Value>
@@ -893,11 +1273,19 @@
 </Annotation>
 <Annotation Id="2600" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Automotive_Technician_Accreditation</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2601" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ayla_Akat_Ata</Value>
@@ -905,11 +1293,19 @@
 </Annotation>
 <Annotation Id="2602" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ața_River</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2603" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">ETA</Value>
@@ -917,11 +1313,19 @@
 </Annotation>
 <Annotation Id="2604" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Global_Aviation_Holdings</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2605" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Le_Mamea_Matatumua_Ata</Value>
@@ -929,11 +1333,19 @@
 </Annotation>
 <Annotation Id="2606" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Michael_Lameck</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2607" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Parallel_ATA</Value>
@@ -941,11 +1353,19 @@
 </Annotation>
 <Annotation Id="2608" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Prince_Ata</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2609" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Shaun_Ata</Value>
@@ -953,11 +1373,19 @@
 </Annotation>
 <Annotation Id="2610" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Solomone_Ula_Ata</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2611" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Tariq_Ata</Value>
@@ -965,11 +1393,19 @@
 </Annotation>
 <Annotation Id="2612" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Thyroglobulin</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2613" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Áta</Value>
@@ -983,11 +1419,19 @@
 </Annotation>
 <Annotation Id="2615" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Coordinated_Universal_Time</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2616" Type="Lookup" StartNode="88" EndNode="91">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">UTC_(disambiguation)</Value>
@@ -995,11 +1439,19 @@
 </Annotation>
 <Annotation Id="2617" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">UTC_Aerospace_Systems</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2618" Type="Lookup" StartNode="88" EndNode="91">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">UTC_Fire_&amp;_Security</Value>
@@ -1007,11 +1459,19 @@
 </Annotation>
 <Annotation Id="2619" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">UTC_Plymouth</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2620" Type="Lookup" StartNode="88" EndNode="91">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">UTC_Power</Value>
@@ -1019,11 +1479,19 @@
 </Annotation>
 <Annotation Id="2621" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">UTC_Reading</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2622" Type="Lookup" StartNode="88" EndNode="91">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">UTC_Sheffield</Value>
@@ -1031,11 +1499,19 @@
 </Annotation>
 <Annotation Id="2623" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ultimate_Typing_Championship</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2624" Type="Lookup" StartNode="88" EndNode="91">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Uncle_Tom's_Cabin</Value>
@@ -1043,11 +1519,19 @@
 </Annotation>
 <Annotation Id="2625" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Unicode_Consortium</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2626" Type="Lookup" StartNode="88" EndNode="91">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Unified_Theories_of_Cognition</Value>
@@ -1055,11 +1539,19 @@
 </Annotation>
 <Annotation Id="2627" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_Technologies_Corporation</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2628" Type="Lookup" StartNode="88" EndNode="91">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_Theological_College</Value>
@@ -1067,11 +1559,19 @@
 </Annotation>
 <Annotation Id="2629" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Universidad_Técnica_de_Cajamarca</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2630" Type="Lookup" StartNode="88" EndNode="91">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">University_Technical_College</Value>
@@ -1079,11 +1579,19 @@
 </Annotation>
 <Annotation Id="2631" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">University_Transportation_Centers_Program</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2632" Type="Lookup" StartNode="88" EndNode="91">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">University_of_Technology_of_Compiègne</Value>
@@ -1091,11 +1599,19 @@
 </Annotation>
 <Annotation Id="2633" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">University_of_Tennessee_at_Chattanooga</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2634" Type="Lookup" StartNode="88" EndNode="91">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Uttarakhand_Transport_Corporation</Value>
@@ -1103,17 +1619,29 @@
 </Annotation>
 <Annotation Id="2635" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Washington_Utilities_and_Transportation_Commission</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2636" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Westfield_UTC</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2637" Type="Lookup" StartNode="88" EndNode="91">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Workers_Union_of_the_Comoros</Value>
@@ -1127,11 +1655,19 @@
 </Annotation>
 <Annotation Id="2639" Type="Lookup" StartNode="575" EndNode="585">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Soviet_war_in_Afghanistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2640" Type="Lookup" StartNode="575" EndNode="585">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">War_in_Afghanistan</Value>
@@ -1139,11 +1675,19 @@
 </Annotation>
 <Annotation Id="2641" Type="Lookup" StartNode="575" EndNode="585">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">War_in_Afghanistan_(1978–present)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2642" Type="Lookup" StartNode="575" EndNode="585">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">War_in_Afghanistan_(2001–present)</Value>
@@ -1157,11 +1701,19 @@
 </Annotation>
 <Annotation Id="2644" Type="Lookup" StartNode="57" EndNode="67">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Air_Kyrgyzstan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2645" Type="Lookup" StartNode="57" EndNode="67">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan</Value>
@@ -1169,11 +1721,19 @@
 </Annotation>
 <Annotation Id="2646" Type="Lookup" StartNode="57" EndNode="67">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan_Airlines</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2647" Type="Lookup" StartNode="57" EndNode="67">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan_Federation_of_Trade_Unions</Value>
@@ -1181,11 +1741,19 @@
 </Annotation>
 <Annotation Id="2648" Type="Lookup" StartNode="57" EndNode="67">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan_national_football_team</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2649" Type="Lookup" StartNode="57" EndNode="67">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan_women's_national_football_team</Value>
@@ -1199,11 +1767,19 @@
 </Annotation>
 <Annotation Id="2651" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">10th_Delaware_General_Assembly</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2652" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">11th_Delaware_General_Assembly</Value>
@@ -1211,11 +1787,19 @@
 </Annotation>
 <Annotation Id="2653" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">12th_Delaware_General_Assembly</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2654" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">13th_Delaware_General_Assembly</Value>
@@ -1223,11 +1807,19 @@
 </Annotation>
 <Annotation Id="2655" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">14th_Delaware_General_Assembly</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2656" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">15th_Delaware_General_Assembly</Value>
@@ -1235,11 +1827,19 @@
 </Annotation>
 <Annotation Id="2657" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">16th_Delaware_General_Assembly</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2658" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">1st_Delaware_General_Assembly</Value>
@@ -1247,11 +1847,19 @@
 </Annotation>
 <Annotation Id="2659" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">2nd_Delaware_General_Assembly</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2660" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">3rd_Delaware_General_Assembly</Value>
@@ -1259,11 +1867,19 @@
 </Annotation>
 <Annotation Id="2661" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">4th_Delaware_General_Assembly</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2662" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">5th_Delaware_General_Assembly</Value>
@@ -1271,11 +1887,19 @@
 </Annotation>
 <Annotation Id="2663" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">6th_Delaware_General_Assembly</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2664" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">7th_Delaware_General_Assembly</Value>
@@ -1283,11 +1907,19 @@
 </Annotation>
 <Annotation Id="2665" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">8th_Delaware_General_Assembly</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2666" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">9th_Delaware_General_Assembly</Value>
@@ -1295,11 +1927,19 @@
 </Annotation>
 <Annotation Id="2667" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Adrian_Frutiger</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2668" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Category:Lists_of_presidents</Value>
@@ -1307,11 +1947,19 @@
 </Annotation>
 <Annotation Id="2669" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Category:Presidents_by_country</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2670" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Chancellor_(education)</Value>
@@ -1319,11 +1967,19 @@
 </Annotation>
 <Annotation Id="2671" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Characters_of_seaQuest_2032</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2672" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">El_Se%C3%B1or_Presidente</Value>
@@ -1331,11 +1987,19 @@
 </Annotation>
 <Annotation Id="2673" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">El_Señor_Presidente</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2674" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">French_frigate_Président</Value>
@@ -1343,11 +2007,19 @@
 </Annotation>
 <Annotation Id="2675" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">GWR_103_President</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2676" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">George_Kerr_(judoka)</Value>
@@ -1355,11 +2027,19 @@
 </Annotation>
 <Annotation Id="2677" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Gerald_R._Ford,_Jr.,_House</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2678" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Gouais_blanc</Value>
@@ -1367,11 +2047,19 @@
 </Annotation>
 <Annotation Id="2679" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Graisse</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2680" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">HMS_Bonaventure_(1650)</Value>
@@ -1379,11 +2067,19 @@
 </Annotation>
 <Annotation Id="2681" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Hotel_President</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2682" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">John_Sheridan_(Babylon_5)</Value>
@@ -1391,11 +2087,19 @@
 </Annotation>
 <Annotation Id="2683" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Mr._President</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2684" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">National_Venturing_President</Value>
@@ -1403,11 +2107,19 @@
 </Annotation>
 <Annotation Id="2685" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Nissan_President</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2686" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Nissan_President__150_&amp;_250__1</Value>
@@ -1415,11 +2127,19 @@
 </Annotation>
 <Annotation Id="2687" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Nissan_President__HG50__1</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2688" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Nissan_President__PGF50__1</Value>
@@ -1427,11 +2147,19 @@
 </Annotation>
 <Annotation Id="2689" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2690" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President-Hotel_(Kiev)</Value>
@@ -1439,11 +2167,19 @@
 </Annotation>
 <Annotation Id="2691" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_(Albania)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2692" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_(CSRT)</Value>
@@ -1451,11 +2187,19 @@
 </Annotation>
 <Annotation Id="2693" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_(LDS_Church_honorific)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2694" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_(TV_series)</Value>
@@ -1463,11 +2207,19 @@
 </Annotation>
 <Annotation Id="2695" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_(card_game)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2696" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_(corporate_title)</Value>
@@ -1475,11 +2227,19 @@
 </Annotation>
 <Annotation Id="2697" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_(disambiguation)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2698" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_(narrowboat)</Value>
@@ -1487,11 +2247,19 @@
 </Annotation>
 <Annotation Id="2699" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_(song)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2700" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_(steamboat)</Value>
@@ -1499,11 +2267,19 @@
 </Annotation>
 <Annotation Id="2701" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_(tree)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2702" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Airlines</Value>
@@ -1511,11 +2287,19 @@
 </Annotation>
 <Annotation Id="2703" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Brand_Park</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2704" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Bridge</Value>
@@ -1523,11 +2307,19 @@
 </Annotation>
 <Annotation Id="2705" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Carlos_P._Garcia,_Bohol</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2706" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Elect_(video_game)</Value>
@@ -1535,11 +2327,19 @@
 </Annotation>
 <Annotation Id="2707" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Forever_2008_+_Primaries</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2708" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Gari_Pellam</Value>
@@ -1547,11 +2347,19 @@
 </Annotation>
 <Annotation Id="2709" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_George_Bush_Turnpike</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2710" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Guard_Regiment</Value>
@@ -1559,11 +2367,19 @@
 </Annotation>
 <Annotation Id="2711" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Hotel_Ashgabat</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2712" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_James_K._Polk_Historic_Site</Value>
@@ -1571,11 +2387,19 @@
 </Annotation>
 <Annotation Id="2713" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Kennedy_School_and_Community_College</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2714" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Lincoln's_Cottage_at_the_Soldiers'_Home</Value>
@@ -1583,11 +2407,19 @@
 </Annotation>
 <Annotation Id="2715" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Manuel_A._Roxas,_Zamboanga_del_Norte</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2716" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_McKinley_Inauguration_Footage</Value>
@@ -1595,11 +2427,19 @@
 </Annotation>
 <Annotation Id="2717" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Obama_on_Death_of_Osama_bin_Laden_(SPOOF)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2718" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Plaza</Value>
@@ -1607,11 +2447,19 @@
 </Annotation>
 <Annotation Id="2719" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Quirino,_Sultan_Kudarat</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2720" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Range</Value>
@@ -1619,11 +2467,19 @@
 </Annotation>
 <Annotation Id="2721" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Ridge</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2722" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Roxas,_Capiz</Value>
@@ -1631,11 +2487,19 @@
 </Annotation>
 <Annotation Id="2723" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Roxas,_Cotabato</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2724" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Street_Station</Value>
@@ -1643,11 +2507,19 @@
 </Annotation>
 <Annotation Id="2725" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Theodore_Roosevelt_High_School</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2726" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Township,_Venango_County,_Pennsylvania</Value>
@@ -1655,11 +2527,19 @@
 </Annotation>
 <Annotation Id="2727" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_University</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2728" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_William_McKinley_High_School</Value>
@@ -1667,11 +2547,19 @@
 </Annotation>
 <Annotation Id="2729" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Wilson_in_Paris</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2730" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_Yo_La_Tengo</Value>
@@ -1679,11 +2567,19 @@
 </Annotation>
 <Annotation Id="2731" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_of_Angola</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2732" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_of_France</Value>
@@ -1691,11 +2587,19 @@
 </Annotation>
 <Annotation Id="2733" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_of_South_Korea</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2734" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_of_the_Confederate_States_of_America</Value>
@@ -1703,11 +2607,19 @@
 </Annotation>
 <Annotation Id="2735" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">President_of_the_United_States</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2736" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Presidential_Administration_of_Ukraine</Value>
@@ -1715,11 +2627,19 @@
 </Annotation>
 <Annotation Id="2737" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Präsident</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2738" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Président_(brand)</Value>
@@ -1727,11 +2647,19 @@
 </Annotation>
 <Annotation Id="2739" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Quirinal_Palace</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2740" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Rio–Niterói_Bridge</Value>
@@ -1739,11 +2667,19 @@
 </Annotation>
 <Annotation Id="2741" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Rothesay-class_frigate</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2742" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">SS_Wilson_(1968)</Value>
@@ -1751,11 +2687,19 @@
 </Annotation>
 <Annotation Id="2743" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Taj_al-Din_al-Hasani</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2744" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">The_President</Value>
@@ -1763,11 +2707,19 @@
 </Annotation>
 <Annotation Id="2745" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">The_Presidents_(band)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2746" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">The_Presidents_(film)</Value>
@@ -1775,11 +2727,19 @@
 </Annotation>
 <Annotation Id="2747" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">The_Presidents_(rock_band)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2748" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">The_Presidents_of_the_United_States_of_America_(band)</Value>
@@ -1787,11 +2747,19 @@
 </Annotation>
 <Annotation Id="2749" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">The_Promise:_President_Obama,_Year_One</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2750" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Tjokorda_Gde_Raka_Soekawati</Value>
@@ -1799,17 +2767,29 @@
 </Annotation>
 <Annotation Id="2751" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">USS_President_(1812)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2752" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">USS_Thomas_J._Gary_(DE-326)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2753" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">University_of_Chicago</Value>
@@ -1823,6 +2803,10 @@
 </Annotation>
 <Annotation Id="2755" Type="Lookup" StartNode="295" EndNode="304">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata-Zhurt</Value>
 </Feature>
@@ -1835,17 +2819,29 @@
 </Annotation>
 <Annotation Id="2387" Type="Lookup" StartNode="368" EndNode="375">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Janish_Bakiyev</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2388" Type="Lookup" StartNode="368" EndNode="375">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kurmanbek_Bakiyev</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2389" Type="Lookup" StartNode="368" EndNode="375">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Maxim_Bakiyev</Value>
@@ -1859,11 +2855,19 @@
 </Annotation>
 <Annotation Id="2391" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Aqua_Teen_Hunger_Force_(season_2)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2392" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Carl_Monday</Value>
@@ -1871,11 +2875,19 @@
 </Annotation>
 <Annotation Id="2393" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Daniel_Munday</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2394" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Edigold_Monday</Value>
@@ -1883,11 +2895,19 @@
 </Annotation>
 <Annotation Id="2395" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Jon_Monday</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2396" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kenny_Monday</Value>
@@ -1895,11 +2915,19 @@
 </Annotation>
 <Annotation Id="2397" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2398" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday,_Monday</Value>
@@ -1907,11 +2935,19 @@
 </Annotation>
 <Annotation Id="2399" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday,_Tuesday..._Laissez-moi_danser</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2400" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_(The_X-Files)</Value>
@@ -1919,11 +2955,19 @@
 </Annotation>
 <Annotation Id="2401" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_(film)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2402" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_(play)</Value>
@@ -1931,11 +2975,19 @@
 </Annotation>
 <Annotation Id="2403" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_(surname)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2404" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Creek</Value>
@@ -1943,11 +2995,19 @@
 </Annotation>
 <Annotation Id="2405" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Creek_Township,_Perry_County,_Ohio</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2406" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_James</Value>
@@ -1955,11 +3015,19 @@
 </Annotation>
 <Annotation Id="2407" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Kiz</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2408" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Magazine</Value>
@@ -1967,11 +3035,19 @@
 </Annotation>
 <Annotation Id="2409" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Merotohun</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2410" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Michiru</Value>
@@ -1979,11 +3055,19 @@
 </Annotation>
 <Annotation Id="2411" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Mona_Lisa_Club</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2412" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Monday_(TV_series)</Value>
@@ -1991,11 +3075,19 @@
 </Annotation>
 <Annotation Id="2413" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Morning_(Christina_Aguilera_song)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2414" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Morning_(Melanie_Fiona_song)</Value>
@@ -2003,11 +3095,19 @@
 </Annotation>
 <Annotation Id="2415" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Morning_(band)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2416" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Morning_(newsletter)</Value>
@@ -2015,11 +3115,19 @@
 </Annotation>
 <Annotation Id="2417" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Morning_Apocalypse</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2418" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Morning_Church</Value>
@@ -2027,11 +3135,19 @@
 </Annotation>
 <Annotation Id="2419" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Morning_Cold</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2420" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Morning_in_a_Coney_Island_Police_Court</Value>
@@ -2039,11 +3155,19 @@
 </Annotation>
 <Annotation Id="2421" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Mornings</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2422" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Mourning</Value>
@@ -2051,11 +3175,19 @@
 </Annotation>
 <Annotation Id="2423" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2424" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Baseball</Value>
@@ -2063,11 +3195,19 @@
 </Annotation>
 <Annotation Id="2425" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Brewing</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2426" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Combat</Value>
@@ -2075,11 +3215,19 @@
 </Annotation>
 <Annotation Id="2427" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Countdown</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2428" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Football</Value>
@@ -2087,11 +3235,19 @@
 </Annotation>
 <Annotation Id="2429" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Football_(How_I_Met_Your_Mother)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2430" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Football_on_Triple_M</Value>
@@ -2099,11 +3255,19 @@
 </Annotation>
 <Annotation Id="2431" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Golf</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2432" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Live_(Comcast_SportsNet)</Value>
@@ -2111,11 +3275,19 @@
 </Annotation>
 <Annotation Id="2433" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Soccer</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2434" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_Special</Value>
@@ -2123,11 +3295,19 @@
 </Annotation>
 <Annotation Id="2435" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Night_with_Matty_Johns</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2436" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_River</Value>
@@ -2135,11 +3315,19 @@
 </Annotation>
 <Annotation Id="2437" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_Songs</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2438" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_at_the_Hug_&amp;_Pint</Value>
@@ -2147,11 +3335,19 @@
 </Annotation>
 <Annotation Id="2439" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_or_Tuesday</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2440" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday_or_Tuesday_(film)</Value>
@@ -2159,17 +3355,29 @@
 </Annotation>
 <Annotation Id="2441" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Montag_aus_Licht</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2442" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Rick_Monday</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2443" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Weigel_House</Value>
@@ -2183,11 +3391,19 @@
 </Annotation>
 <Annotation Id="2445" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">American_wine</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2446" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Federal_Republic_of_Central_America</Value>
@@ -2195,11 +3411,19 @@
 </Annotation>
 <Annotation Id="2447" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Institutions_in_the_Southern_Victory_Series</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2448" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Jesusland_map</Value>
@@ -2207,11 +3431,19 @@
 </Annotation>
 <Annotation Id="2449" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">SS_United_States</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2450" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Special:Allpages/United_States</Value>
@@ -2219,11 +3451,19 @@
 </Annotation>
 <Annotation Id="2451" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Special:Allpages/United_States_of_America</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2452" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Stellaland</Value>
@@ -2231,11 +3471,19 @@
 </Annotation>
 <Annotation Id="2453" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">The_United_States_of_America_(band)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2454" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Transportation_of_the_President_of_the_United_States</Value>
@@ -2243,11 +3491,19 @@
 </Annotation>
 <Annotation Id="2455" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2456" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States,_Chanceries_of_Foreign_Governments</Value>
@@ -2255,11 +3511,19 @@
 </Annotation>
 <Annotation Id="2457" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_(TV_series)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2458" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_(album)</Value>
@@ -2267,11 +3531,19 @@
 </Annotation>
 <Annotation Id="2459" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_Live</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2460" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_Africa</Value>
@@ -2279,11 +3551,19 @@
 </Annotation>
 <Annotation Id="2461" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_Belgium</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2462" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_China</Value>
@@ -2291,11 +3571,19 @@
 </Annotation>
 <Annotation Id="2463" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_Colombia</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2464" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_Europe</Value>
@@ -2303,11 +3591,19 @@
 </Annotation>
 <Annotation Id="2465" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_Greater_Austria</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2466" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_Indonesia</Value>
@@ -2315,11 +3611,19 @@
 </Annotation>
 <Annotation Id="2467" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_Latin_Africa</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2468" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_the_Ionian_Islands</Value>
@@ -2327,17 +3631,29 @@
 </Annotation>
 <Annotation Id="2469" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_the_West</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2470" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_v._Comstock</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2471" Type="Lookup" StartNode="548" EndNode="552">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Zeitgeist_(The_Smashing_Pumpkins_album)</Value>
@@ -2351,6 +3667,10 @@
 </Annotation>
 <Annotation Id="2473" Type="Lookup" StartNode="595" EndNode="603">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Monday's_Child_(film)</Value>
 </Feature>
@@ -2362,6 +3682,10 @@
 </Feature>
 </Annotation>
 <Annotation Id="2475" Type="Lookup" StartNode="709" EndNode="718">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata-Zhurt</Value>
@@ -2375,17 +3699,29 @@
 </Annotation>
 <Annotation Id="2477" Type="Lookup" StartNode="377" EndNode="384">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Janish_Bakiyev</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2478" Type="Lookup" StartNode="377" EndNode="384">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kurmanbek_Bakiyev</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2479" Type="Lookup" StartNode="377" EndNode="384">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Maxim_Bakiyev</Value>
@@ -2399,6 +3735,10 @@
 </Annotation>
 <Annotation Id="2481" Type="Lookup" StartNode="571" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">The_Afghan</Value>
 </Feature>
@@ -2411,11 +3751,19 @@
 </Annotation>
 <Annotation Id="2483" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2484" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan,_Iran</Value>
@@ -2423,11 +3771,19 @@
 </Annotation>
 <Annotation Id="2485" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_(Australia)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2486" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_(blanket)</Value>
@@ -2435,11 +3791,19 @@
 </Annotation>
 <Annotation Id="2487" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_(ethnonym)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2488" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Air_Force</Value>
@@ -2447,11 +3811,19 @@
 </Annotation>
 <Annotation Id="2489" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_American</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2490" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Armed_Forces</Value>
@@ -2459,11 +3831,19 @@
 </Annotation>
 <Annotation Id="2491" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Australian</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2492" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Babbler</Value>
@@ -2471,11 +3851,19 @@
 </Annotation>
 <Annotation Id="2493" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Border_Police</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2494" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Breakdown</Value>
@@ -2483,11 +3871,19 @@
 </Annotation>
 <Annotation Id="2495" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Canadian</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2496" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_F.C.</Value>
@@ -2495,11 +3891,19 @@
 </Annotation>
 <Annotation Id="2497" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Hound</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2498" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_IPTV</Value>
@@ -2507,11 +3911,19 @@
 </Annotation>
 <Annotation Id="2499" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Independence_Day</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2500" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Interim_Administration</Value>
@@ -2519,11 +3931,19 @@
 </Annotation>
 <Annotation Id="2501" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Knights</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2502" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Luke</Value>
@@ -2531,11 +3951,19 @@
 </Annotation>
 <Annotation Id="2503" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Massacre:_The_Convoy_of_Death</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2504" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Muscles</Value>
@@ -2543,11 +3971,19 @@
 </Annotation>
 <Annotation Id="2505" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Museum</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2506" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_National_Army</Value>
@@ -2555,11 +3991,19 @@
 </Annotation>
 <Annotation Id="2507" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Post</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2508" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Premier_League</Value>
@@ -2567,11 +4011,19 @@
 </Annotation>
 <Annotation Id="2509" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Public_Protection_Force</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2510" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Red_Crescent_Society</Value>
@@ -2579,11 +4031,19 @@
 </Annotation>
 <Annotation Id="2511" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Refugee_Camp</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2512" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Refugee_Camp,_Saveh</Value>
@@ -2591,11 +4051,19 @@
 </Annotation>
 <Annotation Id="2513" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Sign_Language</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2514" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Snowfinch</Value>
@@ -2603,11 +4071,19 @@
 </Annotation>
 <Annotation Id="2515" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Star</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2516" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Star_(film)</Value>
@@ -2615,11 +4091,19 @@
 </Annotation>
 <Annotation Id="2517" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_TV</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2518" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Talybov</Value>
@@ -2627,11 +4111,19 @@
 </Annotation>
 <Annotation Id="2519" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Telecom</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2520" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Transitional_Administration</Value>
@@ -2639,11 +4131,19 @@
 </Annotation>
 <Annotation Id="2521" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_Turk_High_Schools</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2522" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_United_Kabul_F.C.</Value>
@@ -2651,11 +4151,19 @@
 </Annotation>
 <Annotation Id="2523" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_biscuit</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2524" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_bread</Value>
@@ -2663,11 +4171,19 @@
 </Annotation>
 <Annotation Id="2525" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_cuisine</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2526" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_diaspora</Value>
@@ -2675,11 +4191,19 @@
 </Annotation>
 <Annotation Id="2527" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_flying_squirrel</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2528" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_hedgehog</Value>
@@ -2687,11 +4211,19 @@
 </Annotation>
 <Annotation Id="2529" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_pika</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2530" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_rug</Value>
@@ -2699,11 +4231,19 @@
 </Annotation>
 <Annotation Id="2531" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghan_vole</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2532" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghani</Value>
@@ -2711,11 +4251,19 @@
 </Annotation>
 <Annotation Id="2533" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghanistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2534" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Afghanistan_Relief_Organization</Value>
@@ -2723,11 +4271,19 @@
 </Annotation>
 <Annotation Id="2535" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Azad_Khan_Afghan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2536" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Battles_of_Mazar-i-Sharif_(1997–98)</Value>
@@ -2735,11 +4291,19 @@
 </Annotation>
 <Annotation Id="2537" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Commandos_(Afghanistan)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2538" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Demography_of_Afghanistan</Value>
@@ -2747,11 +4311,19 @@
 </Annotation>
 <Annotation Id="2539" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ethnic_groups_in_Afghanistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2540" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Jamiat_Eslah_(ASSRD)</Value>
@@ -2759,11 +4331,19 @@
 </Annotation>
 <Annotation Id="2541" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Mangal_(singer)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2542" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Postal_codes_in_Afghanistan</Value>
@@ -2771,17 +4351,29 @@
 </Annotation>
 <Annotation Id="2543" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Sediq_Afghan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2544" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Special:Allpages/Afghan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2545" Type="Lookup" StartNode="575" EndNode="581">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">The_Afghan</Value>
@@ -2795,11 +4387,19 @@
 </Annotation>
 <Annotation Id="2547" Type="Lookup" StartNode="48" EndNode="55">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Bishkek</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2548" Type="Lookup" StartNode="48" EndNode="55">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Bishkek_Observer</Value>
@@ -2813,11 +4413,19 @@
 </Annotation>
 <Annotation Id="2550" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">A.T.A._(Greenland)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2551" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">ATA</Value>
@@ -2825,11 +4433,19 @@
 </Annotation>
 <Annotation Id="2552" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">ATA_100</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2553" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">ATA_Airlines</Value>
@@ -2837,11 +4453,19 @@
 </Annotation>
 <Annotation Id="2554" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">ATA_Brasil</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2555" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">ATA_Bus</Value>
@@ -2849,11 +4473,19 @@
 </Annotation>
 <Annotation Id="2556" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">ATA_Carnet</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2557" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">ATA_Connection</Value>
@@ -2861,11 +4493,19 @@
 </Annotation>
 <Annotation Id="2558" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">ATA_Cruiser</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2559" Type="Lookup" StartNode="295" EndNode="298">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.math.BigDecimal">0.0</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Advanced_Technologies_Academy</Value>
