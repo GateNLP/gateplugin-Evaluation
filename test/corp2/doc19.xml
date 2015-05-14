@@ -189,7 +189,7 @@
 <Annotation Id="2083" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.01420627802690583</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -199,7 +199,7 @@
 <Annotation Id="2084" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.005201793721973094</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -209,7 +209,7 @@
 <Annotation Id="2085" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0020448430493273544</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -219,7 +219,7 @@
 <Annotation Id="2086" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.3013811659192825</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -229,73 +229,31 @@
 <Annotation Id="2090" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Quirinal_Palace</Value>
 </Feature>
 </Annotation>
-<Annotation Id="2225" Type="Lookup" StartNode="575" EndNode="585">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">War_in_Afghanistan</Value>
-</Feature>
-</Annotation>
-<Annotation Id="2354" Type="Lookup" StartNode="57" EndNode="67">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">Kyrgyzstan</Value>
-</Feature>
-</Annotation>
 <Annotation Id="2099" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">The_Presidents_of_the_United_States_of_America_(band)</Value>
 </Feature>
 </Annotation>
-<Annotation Id="2228" Type="LookupList" StartNode="575" EndNode="585">
-<Feature>
-  <Name className="java.lang.String">ids</Name>
-  <Value className="java.util.ArrayList" itemClassName="java.lang.Integer">2225</Value>
-</Feature>
-</Annotation>
-<Annotation Id="2359" Type="LookupList" StartNode="57" EndNode="67">
-<Feature>
-  <Name className="java.lang.String">ids</Name>
-  <Value className="java.util.ArrayList" itemClassName="java.lang.Integer">2354</Value>
-</Feature>
-</Annotation>
 <Annotation Id="2104" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">University_of_Chicago</Value>
-</Feature>
-</Annotation>
-<Annotation Id="2360" Type="Lookup" StartNode="295" EndNode="304">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">Ata-Zhurt</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2105" Type="LookupList" StartNode="347" EndNode="356">
@@ -304,26 +262,10 @@
   <Value className="java.util.ArrayList" itemClassName="java.lang.Integer">2021;2033;2040;2083;2084;2085;2086;2090;2099;2104</Value>
 </Feature>
 </Annotation>
-<Annotation Id="2233" Type="Lookup" StartNode="595" EndNode="601">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">Jon_Monday</Value>
-</Feature>
-</Annotation>
-<Annotation Id="2361" Type="LookupList" StartNode="295" EndNode="304">
-<Feature>
-  <Name className="java.lang.String">ids</Name>
-  <Value className="java.util.ArrayList" itemClassName="java.lang.Integer">2360</Value>
-</Feature>
-</Annotation>
 <Annotation Id="2106" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.001008827238335435</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -333,47 +275,27 @@
 <Annotation Id="2107" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.940983606557377</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan</Value>
 </Feature>
 </Annotation>
-<Annotation Id="2235" Type="Lookup" StartNode="595" EndNode="601">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">Monday</Value>
-</Feature>
-</Annotation>
 <Annotation Id="2108" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan_Airlines</Value>
 </Feature>
 </Annotation>
-<Annotation Id="2236" Type="Lookup" StartNode="595" EndNode="601">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">Monday,_Monday</Value>
-</Feature>
-</Annotation>
 <Annotation Id="2109" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -383,7 +305,7 @@
 <Annotation Id="2110" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.019672131147540985</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -393,7 +315,7 @@
 <Annotation Id="2111" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">7.566204287515763E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -403,7 +325,7 @@
 <Annotation Id="2113" Type="Lookup" StartNode="368" EndNode="375">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -413,7 +335,7 @@
 <Annotation Id="2114" Type="Lookup" StartNode="368" EndNode="375">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">1.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -423,7 +345,7 @@
 <Annotation Id="2115" Type="Lookup" StartNode="368" EndNode="375">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -439,7 +361,7 @@
 <Annotation Id="2117" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.001008827238335435</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -449,7 +371,7 @@
 <Annotation Id="2118" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.940983606557377</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -459,7 +381,7 @@
 <Annotation Id="2119" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -469,27 +391,17 @@
 <Annotation Id="2120" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Kyrgyzstan_Federation_of_Trade_Unions</Value>
 </Feature>
 </Annotation>
-<Annotation Id="2248" Type="Lookup" StartNode="595" EndNode="601">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">Monday_Michiru</Value>
-</Feature>
-</Annotation>
 <Annotation Id="2121" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.019672131147540985</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -499,7 +411,7 @@
 <Annotation Id="2122" Type="Lookup" StartNode="0" EndNode="6">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">7.566204287515763E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -509,7 +421,7 @@
 <Annotation Id="2124" Type="Lookup" StartNode="377" EndNode="384">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -519,7 +431,7 @@
 <Annotation Id="2125" Type="Lookup" StartNode="377" EndNode="384">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">1.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -529,7 +441,7 @@
 <Annotation Id="2126" Type="Lookup" StartNode="377" EndNode="384">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -545,7 +457,7 @@
 <Annotation Id="2128" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">2.7936359171461657E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -555,87 +467,37 @@
 <Annotation Id="2129" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Federal_Republic_of_Central_America</Value>
 </Feature>
 </Annotation>
-<Annotation Id="2259" Type="Lookup" StartNode="595" EndNode="601">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">Monday_Mornings</Value>
-</Feature>
-</Annotation>
-<Annotation Id="2262" Type="Lookup" StartNode="595" EndNode="601">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">Monday_Night_Baseball</Value>
-</Feature>
-</Annotation>
 <Annotation Id="2135" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Stellaland</Value>
 </Feature>
 </Annotation>
-<Annotation Id="2265" Type="Lookup" StartNode="595" EndNode="601">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">Monday_Night_Countdown</Value>
-</Feature>
-</Annotation>
 <Annotation Id="2138" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.9652507738822077</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States</Value>
 </Feature>
 </Annotation>
-<Annotation Id="2266" Type="Lookup" StartNode="595" EndNode="601">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">Monday_Night_Football</Value>
-</Feature>
-</Annotation>
-<Annotation Id="2271" Type="Lookup" StartNode="595" EndNode="601">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">Monday_Night_Soccer</Value>
-</Feature>
-</Annotation>
 <Annotation Id="2144" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -645,7 +507,7 @@
 <Annotation Id="2146" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -655,7 +517,7 @@
 <Annotation Id="2147" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -665,7 +527,7 @@
 <Annotation Id="2148" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -675,57 +537,27 @@
 <Annotation Id="2149" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_Indonesia</Value>
 </Feature>
 </Annotation>
-<Annotation Id="2021" Type="Lookup" StartNode="347" EndNode="356">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">Chancellor_(education)</Value>
-</Feature>
-</Annotation>
 <Annotation Id="2151" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">United_States_of_the_Ionian_Islands</Value>
 </Feature>
 </Annotation>
-<Annotation Id="2279" Type="Lookup" StartNode="595" EndNode="601">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">Montag_aus_Licht</Value>
-</Feature>
-</Annotation>
-<Annotation Id="2280" Type="Lookup" StartNode="595" EndNode="601">
-<Feature>
-  <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">inst</Name>
-  <Value className="java.lang.String">Rick_Monday</Value>
-</Feature>
-</Annotation>
 <Annotation Id="2154" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">4.505864382493816E-6</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -741,17 +573,11 @@
 <Annotation Id="2156" Type="Lookup" StartNode="709" EndNode="718">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">1.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">Ata-Zhurt</Value>
-</Feature>
-</Annotation>
-<Annotation Id="2284" Type="LookupList" StartNode="595" EndNode="603">
-<Feature>
-  <Name className="java.lang.String">ids</Name>
-  <Value className="java.util.ArrayList" itemClassName="java.lang.Integer">2233;2235;2236;2248;2259;2262;2265;2266;2271;2279;2280</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2157" Type="LookupList" StartNode="709" EndNode="718">
@@ -760,10 +586,142 @@
   <Value className="java.util.ArrayList" itemClassName="java.lang.Integer">2156</Value>
 </Feature>
 </Annotation>
+<Annotation Id="2225" Type="Lookup" StartNode="575" EndNode="585">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">War_in_Afghanistan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2228" Type="LookupList" StartNode="575" EndNode="585">
+<Feature>
+  <Name className="java.lang.String">ids</Name>
+  <Value className="java.util.ArrayList" itemClassName="java.lang.Integer">2225</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2233" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">Jon_Monday</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2235" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6643356643356644</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">Monday</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2236" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">Monday,_Monday</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2248" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">Monday_Michiru</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2259" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">Monday_Mornings</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2262" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.04195804195804196</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">Monday_Night_Baseball</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2265" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">Monday_Night_Countdown</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2266" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.0979020979020979</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">Monday_Night_Football</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2271" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">Monday_Night_Soccer</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2279" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">Montag_aus_Licht</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2280" Type="Lookup" StartNode="595" EndNode="601">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">Rick_Monday</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2284" Type="LookupList" StartNode="595" EndNode="603">
+<Feature>
+  <Name className="java.lang.String">ids</Name>
+  <Value className="java.util.ArrayList" itemClassName="java.lang.Integer">2233;2235;2236;2248;2259;2262;2265;2266;2271;2279;2280</Value>
+</Feature>
+</Annotation>
 <Annotation Id="2285" Type="Lookup" StartNode="48" EndNode="55">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.9938118811881188</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -776,10 +734,52 @@
   <Value className="java.util.ArrayList" itemClassName="java.lang.Integer">2285</Value>
 </Feature>
 </Annotation>
+<Annotation Id="2354" Type="Lookup" StartNode="57" EndNode="67">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.940983606557377</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">Kyrgyzstan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2359" Type="LookupList" StartNode="57" EndNode="67">
+<Feature>
+  <Name className="java.lang.String">ids</Name>
+  <Value className="java.util.ArrayList" itemClassName="java.lang.Integer">2354</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2360" Type="Lookup" StartNode="295" EndNode="304">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">1.0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">Ata-Zhurt</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2361" Type="LookupList" StartNode="295" EndNode="304">
+<Feature>
+  <Name className="java.lang.String">ids</Name>
+  <Value className="java.util.ArrayList" itemClassName="java.lang.Integer">2360</Value>
+</Feature>
+</Annotation>
+<Annotation Id="2021" Type="Lookup" StartNode="347" EndNode="356">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.009829596412556053</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">Chancellor_(education)</Value>
+</Feature>
+</Annotation>
 <Annotation Id="2033" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -789,7 +789,7 @@
 <Annotation Id="2040" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.13424215246636773</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -874,7 +874,7 @@
 <Annotation Id="2560" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -884,7 +884,7 @@
 <Annotation Id="2561" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.027149321266968326</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -894,7 +894,7 @@
 <Annotation Id="2562" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.01809954751131222</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -904,7 +904,7 @@
 <Annotation Id="2563" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -914,7 +914,7 @@
 <Annotation Id="2564" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.004524886877828055</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -924,7 +924,7 @@
 <Annotation Id="2565" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -934,7 +934,7 @@
 <Annotation Id="2566" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.004524886877828055</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -944,7 +944,7 @@
 <Annotation Id="2567" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -954,7 +954,7 @@
 <Annotation Id="2568" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.004524886877828055</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -964,7 +964,7 @@
 <Annotation Id="2569" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -974,7 +974,7 @@
 <Annotation Id="2570" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -984,7 +984,7 @@
 <Annotation Id="2571" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -994,7 +994,7 @@
 <Annotation Id="2572" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1004,7 +1004,7 @@
 <Annotation Id="2573" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.02262443438914027</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1014,7 +1014,7 @@
 <Annotation Id="2574" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1024,7 +1024,7 @@
 <Annotation Id="2575" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1034,7 +1034,7 @@
 <Annotation Id="2576" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1044,7 +1044,7 @@
 <Annotation Id="2577" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.004524886877828055</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1054,7 +1054,7 @@
 <Annotation Id="2578" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1064,7 +1064,7 @@
 <Annotation Id="2579" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1074,7 +1074,7 @@
 <Annotation Id="2580" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1084,7 +1084,7 @@
 <Annotation Id="2581" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1094,7 +1094,7 @@
 <Annotation Id="2582" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1104,7 +1104,7 @@
 <Annotation Id="2583" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.013574660633484163</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1114,7 +1114,7 @@
 <Annotation Id="2584" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1124,7 +1124,7 @@
 <Annotation Id="2585" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1134,7 +1134,7 @@
 <Annotation Id="2586" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1144,7 +1144,7 @@
 <Annotation Id="2587" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1154,7 +1154,7 @@
 <Annotation Id="2588" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.00904977375565611</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1164,7 +1164,7 @@
 <Annotation Id="2589" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1174,7 +1174,7 @@
 <Annotation Id="2590" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.00904977375565611</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1184,7 +1184,7 @@
 <Annotation Id="2591" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1194,7 +1194,7 @@
 <Annotation Id="2592" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1204,7 +1204,7 @@
 <Annotation Id="2593" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1214,7 +1214,7 @@
 <Annotation Id="2594" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1224,7 +1224,7 @@
 <Annotation Id="2595" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1234,7 +1234,7 @@
 <Annotation Id="2596" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.02262443438914027</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1244,7 +1244,7 @@
 <Annotation Id="2597" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.004524886877828055</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1254,7 +1254,7 @@
 <Annotation Id="2598" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1264,7 +1264,7 @@
 <Annotation Id="2599" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1274,7 +1274,7 @@
 <Annotation Id="2600" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.004524886877828055</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1284,7 +1284,7 @@
 <Annotation Id="2601" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1294,7 +1294,7 @@
 <Annotation Id="2602" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.004524886877828055</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1304,7 +1304,7 @@
 <Annotation Id="2603" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1314,7 +1314,7 @@
 <Annotation Id="2604" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1324,7 +1324,7 @@
 <Annotation Id="2605" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1334,7 +1334,7 @@
 <Annotation Id="2606" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1344,7 +1344,7 @@
 <Annotation Id="2607" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.6018099547511312</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1354,7 +1354,7 @@
 <Annotation Id="2608" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1364,7 +1364,7 @@
 <Annotation Id="2609" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1374,7 +1374,7 @@
 <Annotation Id="2610" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.004524886877828055</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1384,7 +1384,7 @@
 <Annotation Id="2611" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1394,7 +1394,7 @@
 <Annotation Id="2612" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1404,7 +1404,7 @@
 <Annotation Id="2613" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.02262443438914027</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1420,7 +1420,7 @@
 <Annotation Id="2615" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.9775280898876404</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1430,7 +1430,7 @@
 <Annotation Id="2616" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1440,7 +1440,7 @@
 <Annotation Id="2617" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1450,7 +1450,7 @@
 <Annotation Id="2618" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1460,7 +1460,7 @@
 <Annotation Id="2619" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1470,7 +1470,7 @@
 <Annotation Id="2620" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1480,7 +1480,7 @@
 <Annotation Id="2621" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1490,7 +1490,7 @@
 <Annotation Id="2622" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1500,7 +1500,7 @@
 <Annotation Id="2623" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1510,7 +1510,7 @@
 <Annotation Id="2624" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1520,7 +1520,7 @@
 <Annotation Id="2625" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1530,7 +1530,7 @@
 <Annotation Id="2626" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1540,7 +1540,7 @@
 <Annotation Id="2627" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0018726591760299626</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1550,7 +1550,7 @@
 <Annotation Id="2628" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1560,7 +1560,7 @@
 <Annotation Id="2629" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0029427501337613697</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1570,7 +1570,7 @@
 <Annotation Id="2630" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1580,7 +1580,7 @@
 <Annotation Id="2631" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1590,7 +1590,7 @@
 <Annotation Id="2632" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.001070090957731407</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1600,7 +1600,7 @@
 <Annotation Id="2633" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0034777956126270733</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1610,7 +1610,7 @@
 <Annotation Id="2634" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1620,7 +1620,7 @@
 <Annotation Id="2635" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1630,7 +1630,7 @@
 <Annotation Id="2636" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">2.6752273943285177E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1640,7 +1640,7 @@
 <Annotation Id="2637" Type="Lookup" StartNode="88" EndNode="91">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1656,7 +1656,7 @@
 <Annotation Id="2639" Type="Lookup" StartNode="575" EndNode="585">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.1826086956521739</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1666,7 +1666,7 @@
 <Annotation Id="2640" Type="Lookup" StartNode="575" EndNode="585">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1676,7 +1676,7 @@
 <Annotation Id="2641" Type="Lookup" StartNode="575" EndNode="585">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.034782608695652174</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1686,7 +1686,7 @@
 <Annotation Id="2642" Type="Lookup" StartNode="575" EndNode="585">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.5304347826086957</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1702,7 +1702,7 @@
 <Annotation Id="2644" Type="Lookup" StartNode="57" EndNode="67">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.001008827238335435</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1712,7 +1712,7 @@
 <Annotation Id="2645" Type="Lookup" StartNode="57" EndNode="67">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.940983606557377</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1722,7 +1722,7 @@
 <Annotation Id="2646" Type="Lookup" StartNode="57" EndNode="67">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1732,7 +1732,7 @@
 <Annotation Id="2647" Type="Lookup" StartNode="57" EndNode="67">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1742,7 +1742,7 @@
 <Annotation Id="2648" Type="Lookup" StartNode="57" EndNode="67">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.019672131147540985</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1752,7 +1752,7 @@
 <Annotation Id="2649" Type="Lookup" StartNode="57" EndNode="67">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">7.566204287515763E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1768,7 +1768,7 @@
 <Annotation Id="2651" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1778,7 +1778,7 @@
 <Annotation Id="2652" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1788,7 +1788,7 @@
 <Annotation Id="2653" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1798,7 +1798,7 @@
 <Annotation Id="2654" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1808,7 +1808,7 @@
 <Annotation Id="2655" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1818,7 +1818,7 @@
 <Annotation Id="2656" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1828,7 +1828,7 @@
 <Annotation Id="2657" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1838,7 +1838,7 @@
 <Annotation Id="2658" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1848,7 +1848,7 @@
 <Annotation Id="2659" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1858,7 +1858,7 @@
 <Annotation Id="2660" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1868,7 +1868,7 @@
 <Annotation Id="2661" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1878,7 +1878,7 @@
 <Annotation Id="2662" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1888,7 +1888,7 @@
 <Annotation Id="2663" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1898,7 +1898,7 @@
 <Annotation Id="2664" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1908,7 +1908,7 @@
 <Annotation Id="2665" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1918,7 +1918,7 @@
 <Annotation Id="2666" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1928,7 +1928,7 @@
 <Annotation Id="2667" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1938,7 +1938,7 @@
 <Annotation Id="2668" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1948,7 +1948,7 @@
 <Annotation Id="2669" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1958,7 +1958,7 @@
 <Annotation Id="2670" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.009829596412556053</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1968,7 +1968,7 @@
 <Annotation Id="2671" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1978,7 +1978,7 @@
 <Annotation Id="2672" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1988,7 +1988,7 @@
 <Annotation Id="2673" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -1998,7 +1998,7 @@
 <Annotation Id="2674" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">7.174887892376681E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2008,7 +2008,7 @@
 <Annotation Id="2675" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2018,7 +2018,7 @@
 <Annotation Id="2676" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2028,7 +2028,7 @@
 <Annotation Id="2677" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2038,7 +2038,7 @@
 <Annotation Id="2678" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2048,7 +2048,7 @@
 <Annotation Id="2679" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2058,7 +2058,7 @@
 <Annotation Id="2680" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2068,7 +2068,7 @@
 <Annotation Id="2681" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2078,7 +2078,7 @@
 <Annotation Id="2682" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2088,7 +2088,7 @@
 <Annotation Id="2683" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2098,7 +2098,7 @@
 <Annotation Id="2684" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2108,7 +2108,7 @@
 <Annotation Id="2685" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">1.7937219730941703E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2118,7 +2118,7 @@
 <Annotation Id="2686" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2128,7 +2128,7 @@
 <Annotation Id="2687" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2138,7 +2138,7 @@
 <Annotation Id="2688" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2148,7 +2148,7 @@
 <Annotation Id="2689" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.13424215246636773</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2158,7 +2158,7 @@
 <Annotation Id="2690" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2168,7 +2168,7 @@
 <Annotation Id="2691" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2178,7 +2178,7 @@
 <Annotation Id="2692" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2188,7 +2188,7 @@
 <Annotation Id="2693" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">4.663677130044843E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2198,7 +2198,7 @@
 <Annotation Id="2694" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">8.609865470852018E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2208,7 +2208,7 @@
 <Annotation Id="2695" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">3.228699551569507E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2218,7 +2218,7 @@
 <Annotation Id="2696" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0016143497757847534</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2228,7 +2228,7 @@
 <Annotation Id="2697" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2238,7 +2238,7 @@
 <Annotation Id="2698" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">2.1524663677130045E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2248,7 +2248,7 @@
 <Annotation Id="2699" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">3.587443946188341E-5</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2258,7 +2258,7 @@
 <Annotation Id="2700" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">1.4349775784753364E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2268,7 +2268,7 @@
 <Annotation Id="2701" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">1.4349775784753364E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2278,7 +2278,7 @@
 <Annotation Id="2702" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2288,7 +2288,7 @@
 <Annotation Id="2703" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2298,7 +2298,7 @@
 <Annotation Id="2704" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2308,7 +2308,7 @@
 <Annotation Id="2705" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2318,7 +2318,7 @@
 <Annotation Id="2706" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2328,7 +2328,7 @@
 <Annotation Id="2707" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2338,7 +2338,7 @@
 <Annotation Id="2708" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2348,7 +2348,7 @@
 <Annotation Id="2709" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2358,7 +2358,7 @@
 <Annotation Id="2710" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2368,7 +2368,7 @@
 <Annotation Id="2711" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2378,7 +2378,7 @@
 <Annotation Id="2712" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2388,7 +2388,7 @@
 <Annotation Id="2713" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2398,7 +2398,7 @@
 <Annotation Id="2714" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2408,7 +2408,7 @@
 <Annotation Id="2715" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2418,7 +2418,7 @@
 <Annotation Id="2716" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2428,7 +2428,7 @@
 <Annotation Id="2717" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2438,7 +2438,7 @@
 <Annotation Id="2718" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2448,7 +2448,7 @@
 <Annotation Id="2719" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2458,7 +2458,7 @@
 <Annotation Id="2720" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2468,7 +2468,7 @@
 <Annotation Id="2721" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2478,7 +2478,7 @@
 <Annotation Id="2722" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2488,7 +2488,7 @@
 <Annotation Id="2723" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2498,7 +2498,7 @@
 <Annotation Id="2724" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2508,7 +2508,7 @@
 <Annotation Id="2725" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2518,7 +2518,7 @@
 <Annotation Id="2726" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">1.7937219730941703E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2528,7 +2528,7 @@
 <Annotation Id="2727" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2538,7 +2538,7 @@
 <Annotation Id="2728" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2548,7 +2548,7 @@
 <Annotation Id="2729" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2558,7 +2558,7 @@
 <Annotation Id="2730" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2568,7 +2568,7 @@
 <Annotation Id="2731" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0010044843049327355</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2578,7 +2578,7 @@
 <Annotation Id="2732" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.01420627802690583</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2588,7 +2588,7 @@
 <Annotation Id="2733" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.005201793721973094</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2598,7 +2598,7 @@
 <Annotation Id="2734" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0020448430493273544</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2608,7 +2608,7 @@
 <Annotation Id="2735" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.3013811659192825</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2618,7 +2618,7 @@
 <Annotation Id="2736" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2628,7 +2628,7 @@
 <Annotation Id="2737" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2638,7 +2638,7 @@
 <Annotation Id="2738" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">7.174887892376682E-5</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2648,7 +2648,7 @@
 <Annotation Id="2739" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2658,7 +2658,7 @@
 <Annotation Id="2740" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2668,7 +2668,7 @@
 <Annotation Id="2741" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2678,7 +2678,7 @@
 <Annotation Id="2742" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2688,7 +2688,7 @@
 <Annotation Id="2743" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2698,7 +2698,7 @@
 <Annotation Id="2744" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2708,7 +2708,7 @@
 <Annotation Id="2745" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2718,7 +2718,7 @@
 <Annotation Id="2746" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2728,7 +2728,7 @@
 <Annotation Id="2747" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2738,7 +2738,7 @@
 <Annotation Id="2748" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2748,7 +2748,7 @@
 <Annotation Id="2749" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2758,7 +2758,7 @@
 <Annotation Id="2750" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2768,7 +2768,7 @@
 <Annotation Id="2751" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2778,7 +2778,7 @@
 <Annotation Id="2752" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2788,7 +2788,7 @@
 <Annotation Id="2753" Type="Lookup" StartNode="347" EndNode="356">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2804,7 +2804,7 @@
 <Annotation Id="2755" Type="Lookup" StartNode="295" EndNode="304">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">1.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2820,7 +2820,7 @@
 <Annotation Id="2387" Type="Lookup" StartNode="368" EndNode="375">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2830,7 +2830,7 @@
 <Annotation Id="2388" Type="Lookup" StartNode="368" EndNode="375">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">1.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2840,7 +2840,7 @@
 <Annotation Id="2389" Type="Lookup" StartNode="368" EndNode="375">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2856,7 +2856,7 @@
 <Annotation Id="2391" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2866,7 +2866,7 @@
 <Annotation Id="2392" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2876,7 +2876,7 @@
 <Annotation Id="2393" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2886,7 +2886,7 @@
 <Annotation Id="2394" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2896,7 +2896,7 @@
 <Annotation Id="2395" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2906,7 +2906,7 @@
 <Annotation Id="2396" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2916,7 +2916,7 @@
 <Annotation Id="2397" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.6643356643356644</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2926,7 +2926,7 @@
 <Annotation Id="2398" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2936,7 +2936,7 @@
 <Annotation Id="2399" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2946,7 +2946,7 @@
 <Annotation Id="2400" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.06993006993006994</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2956,7 +2956,7 @@
 <Annotation Id="2401" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.04195804195804196</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2966,7 +2966,7 @@
 <Annotation Id="2402" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2976,7 +2976,7 @@
 <Annotation Id="2403" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2986,7 +2986,7 @@
 <Annotation Id="2404" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.006993006993006993</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -2996,7 +2996,7 @@
 <Annotation Id="2405" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3006,7 +3006,7 @@
 <Annotation Id="2406" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3016,7 +3016,7 @@
 <Annotation Id="2407" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3026,7 +3026,7 @@
 <Annotation Id="2408" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3036,7 +3036,7 @@
 <Annotation Id="2409" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3046,7 +3046,7 @@
 <Annotation Id="2410" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3056,7 +3056,7 @@
 <Annotation Id="2411" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3066,7 +3066,7 @@
 <Annotation Id="2412" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3076,7 +3076,7 @@
 <Annotation Id="2413" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3086,7 +3086,7 @@
 <Annotation Id="2414" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3096,7 +3096,7 @@
 <Annotation Id="2415" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3106,7 +3106,7 @@
 <Annotation Id="2416" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3116,7 +3116,7 @@
 <Annotation Id="2417" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3126,7 +3126,7 @@
 <Annotation Id="2418" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3136,7 +3136,7 @@
 <Annotation Id="2419" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3146,7 +3146,7 @@
 <Annotation Id="2420" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3156,7 +3156,7 @@
 <Annotation Id="2421" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3166,7 +3166,7 @@
 <Annotation Id="2422" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3176,7 +3176,7 @@
 <Annotation Id="2423" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3186,7 +3186,7 @@
 <Annotation Id="2424" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.04195804195804196</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3196,7 +3196,7 @@
 <Annotation Id="2425" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3206,7 +3206,7 @@
 <Annotation Id="2426" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3216,7 +3216,7 @@
 <Annotation Id="2427" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3226,7 +3226,7 @@
 <Annotation Id="2428" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0979020979020979</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3236,7 +3236,7 @@
 <Annotation Id="2429" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3246,7 +3246,7 @@
 <Annotation Id="2430" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3256,7 +3256,7 @@
 <Annotation Id="2431" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3266,7 +3266,7 @@
 <Annotation Id="2432" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3276,7 +3276,7 @@
 <Annotation Id="2433" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3286,7 +3286,7 @@
 <Annotation Id="2434" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3296,7 +3296,7 @@
 <Annotation Id="2435" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3306,7 +3306,7 @@
 <Annotation Id="2436" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.006993006993006993</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3316,7 +3316,7 @@
 <Annotation Id="2437" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3326,7 +3326,7 @@
 <Annotation Id="2438" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3336,7 +3336,7 @@
 <Annotation Id="2439" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3346,7 +3346,7 @@
 <Annotation Id="2440" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3356,7 +3356,7 @@
 <Annotation Id="2441" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3366,7 +3366,7 @@
 <Annotation Id="2442" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3376,7 +3376,7 @@
 <Annotation Id="2443" Type="Lookup" StartNode="595" EndNode="601">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3392,7 +3392,7 @@
 <Annotation Id="2445" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">2.7936359171461657E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3402,7 +3402,7 @@
 <Annotation Id="2446" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3412,7 +3412,7 @@
 <Annotation Id="2447" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3422,7 +3422,7 @@
 <Annotation Id="2448" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3432,7 +3432,7 @@
 <Annotation Id="2449" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">3.604691505995053E-5</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3442,7 +3442,7 @@
 <Annotation Id="2450" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3452,7 +3452,7 @@
 <Annotation Id="2451" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3462,7 +3462,7 @@
 <Annotation Id="2452" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3472,7 +3472,7 @@
 <Annotation Id="2453" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3482,7 +3482,7 @@
 <Annotation Id="2454" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">4.505864382493816E-6</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3492,7 +3492,7 @@
 <Annotation Id="2455" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.9652507738822077</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3502,7 +3502,7 @@
 <Annotation Id="2456" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3512,7 +3512,7 @@
 <Annotation Id="2457" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">6.308210135491343E-5</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3522,7 +3522,7 @@
 <Annotation Id="2458" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">9.011728764987632E-6</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3532,7 +3532,7 @@
 <Annotation Id="2459" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">1.8023457529975264E-5</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3542,7 +3542,7 @@
 <Annotation Id="2460" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3552,7 +3552,7 @@
 <Annotation Id="2461" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3562,7 +3562,7 @@
 <Annotation Id="2462" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3572,7 +3572,7 @@
 <Annotation Id="2463" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3582,7 +3582,7 @@
 <Annotation Id="2464" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3592,7 +3592,7 @@
 <Annotation Id="2465" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3602,7 +3602,7 @@
 <Annotation Id="2466" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3612,7 +3612,7 @@
 <Annotation Id="2467" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3622,7 +3622,7 @@
 <Annotation Id="2468" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3632,7 +3632,7 @@
 <Annotation Id="2469" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3642,7 +3642,7 @@
 <Annotation Id="2470" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3652,7 +3652,7 @@
 <Annotation Id="2471" Type="Lookup" StartNode="548" EndNode="552">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">4.505864382493816E-6</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3668,7 +3668,7 @@
 <Annotation Id="2473" Type="Lookup" StartNode="595" EndNode="603">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3684,7 +3684,7 @@
 <Annotation Id="2475" Type="Lookup" StartNode="709" EndNode="718">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">1.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3700,7 +3700,7 @@
 <Annotation Id="2477" Type="Lookup" StartNode="377" EndNode="384">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3710,7 +3710,7 @@
 <Annotation Id="2478" Type="Lookup" StartNode="377" EndNode="384">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">1.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3720,7 +3720,7 @@
 <Annotation Id="2479" Type="Lookup" StartNode="377" EndNode="384">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3736,7 +3736,7 @@
 <Annotation Id="2481" Type="Lookup" StartNode="571" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">1.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3752,7 +3752,7 @@
 <Annotation Id="2483" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.1282051282051282</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3762,7 +3762,7 @@
 <Annotation Id="2484" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">8.547008547008547E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3772,7 +3772,7 @@
 <Annotation Id="2485" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.011111111111111112</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3782,7 +3782,7 @@
 <Annotation Id="2486" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.002564102564102564</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3792,7 +3792,7 @@
 <Annotation Id="2487" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.03162393162393162</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3802,7 +3802,7 @@
 <Annotation Id="2488" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3812,7 +3812,7 @@
 <Annotation Id="2489" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.002564102564102564</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3822,7 +3822,7 @@
 <Annotation Id="2490" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3832,7 +3832,7 @@
 <Annotation Id="2491" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3842,7 +3842,7 @@
 <Annotation Id="2492" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3852,7 +3852,7 @@
 <Annotation Id="2493" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3862,7 +3862,7 @@
 <Annotation Id="2494" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3872,7 +3872,7 @@
 <Annotation Id="2495" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0017094017094017094</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3882,7 +3882,7 @@
 <Annotation Id="2496" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0017094017094017094</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3892,7 +3892,7 @@
 <Annotation Id="2497" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">8.547008547008547E-4</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3902,7 +3902,7 @@
 <Annotation Id="2498" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3912,7 +3912,7 @@
 <Annotation Id="2499" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3922,7 +3922,7 @@
 <Annotation Id="2500" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3932,7 +3932,7 @@
 <Annotation Id="2501" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3942,7 +3942,7 @@
 <Annotation Id="2502" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3952,7 +3952,7 @@
 <Annotation Id="2503" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3962,7 +3962,7 @@
 <Annotation Id="2504" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3972,7 +3972,7 @@
 <Annotation Id="2505" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3982,7 +3982,7 @@
 <Annotation Id="2506" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.004273504273504274</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -3992,7 +3992,7 @@
 <Annotation Id="2507" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4002,7 +4002,7 @@
 <Annotation Id="2508" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4012,7 +4012,7 @@
 <Annotation Id="2509" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4022,7 +4022,7 @@
 <Annotation Id="2510" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4032,7 +4032,7 @@
 <Annotation Id="2511" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4042,7 +4042,7 @@
 <Annotation Id="2512" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4052,7 +4052,7 @@
 <Annotation Id="2513" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4062,7 +4062,7 @@
 <Annotation Id="2514" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4072,7 +4072,7 @@
 <Annotation Id="2515" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4082,7 +4082,7 @@
 <Annotation Id="2516" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4092,7 +4092,7 @@
 <Annotation Id="2517" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4102,7 +4102,7 @@
 <Annotation Id="2518" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4112,7 +4112,7 @@
 <Annotation Id="2519" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4122,7 +4122,7 @@
 <Annotation Id="2520" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4132,7 +4132,7 @@
 <Annotation Id="2521" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4142,7 +4142,7 @@
 <Annotation Id="2522" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4152,7 +4152,7 @@
 <Annotation Id="2523" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4162,7 +4162,7 @@
 <Annotation Id="2524" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4172,7 +4172,7 @@
 <Annotation Id="2525" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.017094017094017096</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4182,7 +4182,7 @@
 <Annotation Id="2526" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0017094017094017094</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4192,7 +4192,7 @@
 <Annotation Id="2527" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4202,7 +4202,7 @@
 <Annotation Id="2528" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4212,7 +4212,7 @@
 <Annotation Id="2529" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4222,7 +4222,7 @@
 <Annotation Id="2530" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4232,7 +4232,7 @@
 <Annotation Id="2531" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4242,7 +4242,7 @@
 <Annotation Id="2532" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4252,7 +4252,7 @@
 <Annotation Id="2533" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.5965811965811966</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4262,7 +4262,7 @@
 <Annotation Id="2534" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4272,7 +4272,7 @@
 <Annotation Id="2535" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4282,7 +4282,7 @@
 <Annotation Id="2536" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4292,7 +4292,7 @@
 <Annotation Id="2537" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4302,7 +4302,7 @@
 <Annotation Id="2538" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.11452991452991453</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4312,7 +4312,7 @@
 <Annotation Id="2539" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4322,7 +4322,7 @@
 <Annotation Id="2540" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4332,7 +4332,7 @@
 <Annotation Id="2541" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4342,7 +4342,7 @@
 <Annotation Id="2542" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4352,7 +4352,7 @@
 <Annotation Id="2543" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4362,7 +4362,7 @@
 <Annotation Id="2544" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4372,7 +4372,7 @@
 <Annotation Id="2545" Type="Lookup" StartNode="575" EndNode="581">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4388,7 +4388,7 @@
 <Annotation Id="2547" Type="Lookup" StartNode="48" EndNode="55">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.9938118811881188</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4398,7 +4398,7 @@
 <Annotation Id="2548" Type="Lookup" StartNode="48" EndNode="55">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4414,7 +4414,7 @@
 <Annotation Id="2550" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4424,7 +4424,7 @@
 <Annotation Id="2551" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.004524886877828055</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4434,7 +4434,7 @@
 <Annotation Id="2552" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4444,7 +4444,7 @@
 <Annotation Id="2553" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.04524886877828054</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4454,7 +4454,7 @@
 <Annotation Id="2554" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4464,7 +4464,7 @@
 <Annotation Id="2555" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4474,7 +4474,7 @@
 <Annotation Id="2556" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4484,7 +4484,7 @@
 <Annotation Id="2557" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4494,7 +4494,7 @@
 <Annotation Id="2558" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
@@ -4504,7 +4504,7 @@
 <Annotation Id="2559" Type="Lookup" StartNode="295" EndNode="298">
 <Feature>
   <Name className="java.lang.String">score</Name>
-  <Value className="java.math.BigDecimal">0.0</Value>
+  <Value className="java.lang.Double">0.0</Value>
 </Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
