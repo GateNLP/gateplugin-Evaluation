@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="3">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">createSourceType</Name>
+  <Value className="java.lang.String">W</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">corpus</Name>
+  <Value className="java.lang.String">Web.HON.Eng</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">language</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02-disambig</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbUrl</Name>
+  <Value className="java.lang.String">http://www.weblogdofraga.blogspot.co.uk/2007/08/unmasking-medical-millionaire-myth-sara.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needAllContent</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">locationCountry</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbSnippet</Name>
+  <Value className="java.lang.String"> Unmasking the Medical Millionaire Myth Sara Wallace Rudder Physicians tend to reach their income peak when they have been in practice between 5 and 10 years, and then decrease in subsequent years as ...</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbLanguage</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-findContent</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">http://www.weblogdofraga.blogspot.co.uk/2007/08/unmasking-medical-millionaire-myth-sara.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbDomain</Name>
+  <Value className="java.lang.String">blogspot.co.uk</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">images</Name>
+  <Value className="java.lang.String">http://img2.blogblog.com/img/icon18_edit_allbkg.gif|http://img1.blogblog.com/img/icon18_wrench_allbkg.png|http://3.bp.blogspot.com/-ZdPKkz8ex2Q/TbMW9MahyGI/AAAAAAAAAms/YiSnKw6i8bU/s240/foto.JPG|http://www.honcode.ch/HONcode/Seal/HONConduct281875_s.gif</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">idType</Name>
+  <Value className="java.lang.String">WebUrl</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needBoilerPipe</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-mimirIndexing</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">containsImages</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">hesClassification</Name>
+  <Value className="java.lang.String">patient</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-basic-annots</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createGuessedEncoding</Name>
+  <Value className="java.lang.String">UTF-8</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">domain</Name>
+  <Value className="java.lang.String">blogspot.co.uk</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-umls-disambiguate</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbTitle</Name>
+  <Value className="java.lang.String">WEBLOG DO FRAGA</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">publisher</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbId</Name>
+  <Value className="java.lang.String">http%3A%2F%2Fwww.weblogdofraga.blogspot.co.uk%2F2007%2F08%2Funmasking-medical-millionaire-myth-sara.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">locationCity</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbSourceMD5</Name>
+  <Value className="java.lang.String">f253fd9c30d61c79bdb10e879341e8d3</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">authors</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needPubmedContent</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">tags.names</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-umls-extgaz</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cbdUrl</Name>
+  <Value className="java.lang.String">http://www.weblogdofraga.blogspot.co.uk/2007/08/unmasking-medical-millionaire-myth-sara.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needDefaultMeta</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">title</Name>
+  <Value className="java.lang.String">WEBLOG DO FRAGA</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">MimeType</Name>
+  <Value className="java.lang.String">text/html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needWikipediaMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">http://www.weblogdofraga.blogspot.co.uk/2007/08/unmasking-medical-millionaire-myth-sara.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02-apply</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">health_topic_terms</Name>
+  <Value className="java.lang.String">medical treatment|physicians|long term care|requirement|medicines|health professional|school|comparability|primary care|continuing care|surgery|stabilisers|housing|health literacy|health benefits|use by dates|strategy|patients|women|stroke|risk assessment|heart|tuberculosis|lung cancer|breast cancer|cancer screening|colorectal cancer|prostate cancer|cancer|diabetes|oophorectomy|cognitive impairment|asthma|guideline|infectious disease|preventable disease|chronic diseases|therapy|depression|bird|bird flu|human flu|flu|directive|specification|organ|calcium|vitamin|prevention|acute|myocardial infarction|prostatitis|prostate|prostatism|alcoholism|alcohol|sex|weight|cirrhosis|sexuality|virus|diagnostic errors|vaccine|vaccines|vaccination|protein|obesity|blood pressure|blood|brachytherapy|menopause|estrogen|hormone|antioxidant|osteoporosis|stress|sugars|prostatectomy|treatment|soap|nos|labelling|hiv|libido|testosterone|immunity|immunization|immunisation|dyspnea|irradiation|markers|alzheimer|promotion|dieting|diet|smoking|nursing home|nurses|research|angina|cytokines|men|elderly people|elderly|mri|smokeless tobacco|tobacco|cigarette|androgen|consumer|rules|suicide|nutrients|opioids|opioid|genetic disorder|atrial fibrillation|conception|incidence|sodium|circumcision|disabilities|disabled|cannabis|psychosis|assessment|prescribing|cigar|completeness|policy|windows</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needPubmedMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">categories</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbRev</Name>
+  <Value className="java.lang.String">1-58433d5cf66efcf1647e847c3475ee0b</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbHost</Name>
+  <Value className="java.lang.String">www.weblogdofraga.blogspot.co.uk</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createDate</Name>
+  <Value className="java.lang.String">2013-05-12,15:01:00</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02features</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-annotate-stopwords</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createFileName</Name>
+  <Value className="java.lang.String">W_blogspot.co.uk_f253fd9c30d61c79bdb10e879341e8d3.xml</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-drugbank-extgaz</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator5</Name>
+  <Value className="java.lang.String">lh49</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator4</Name>
+  <Value className="java.lang.String">lh11</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator3</Name>
+  <Value className="java.lang.String">lh71</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-MAIN</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator2</Name>
+  <Value className="java.lang.String">lh38</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator1</Name>
+  <Value className="java.lang.String">lh44</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">url</Name>
+  <Value className="java.lang.String">http://www.weblogdofraga.blogspot.co.uk/2007/08/unmasking-medical-millionaire-myth-sara.html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">tags.codes</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbRelevancyScore</Name>
+  <Value className="java.lang.String">60.5274672039398</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">couchDBType</Name>
+  <Value className="java.lang.String">web</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="safe.preprocessing">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="ConsensusAuto">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Key">
+</AnnotationSet>
+
+</GateDocument>

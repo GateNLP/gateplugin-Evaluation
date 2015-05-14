@@ -1,0 +1,1512 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="3">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">createSourceType</Name>
+  <Value className="java.lang.String">K</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needPubmedContent</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-umls-extgaz</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needDefaultMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">wpTitle</Name>
+  <Value className="java.lang.String">Kidney cancer</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">language</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02-disambig</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">MimeType</Name>
+  <Value className="java.lang.String">text/x-mediawiki</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">wpLanguage</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needWikipediaMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">created from String</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needAllContent</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02-apply</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">wpTimestamp</Name>
+  <Value className="java.lang.String">2012-10-21T20:56:17Z</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needPubmedMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-findContent</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">https://en.wikipedia.org/wiki/Kidney cancer</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createDate</Name>
+  <Value className="java.lang.String">2013-05-12,14:08:58</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02features</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-annotate-stopwords</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createFileName</Name>
+  <Value className="java.lang.String">K_Kidney+cancer.xml</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-drugbank-extgaz</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needBoilerPipe</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator5</Name>
+  <Value className="java.lang.String">lh71</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator4</Name>
+  <Value className="java.lang.String">lh45</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator3</Name>
+  <Value className="java.lang.String">lh52</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-MAIN</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator2</Name>
+  <Value className="java.lang.String">lh44</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-mimirIndexing</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator1</Name>
+  <Value className="java.lang.String">lh38</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">url</Name>
+  <Value className="java.lang.String">https://en.wikipedia.org/wiki/Kidney cancer</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">HONLabel.language</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-basic-annots</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">HONLabel.targetAudience</Name>
+  <Value className="java.lang.String">patient</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">domain</Name>
+  <Value className="java.lang.String">en.wikipedia.org</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-umls-disambiguate</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createLanguage</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes><Node id="0"/>             <Node id="13"/>              <Node id="27"/>      <Node id="33"/>                                 <Node id="66"/>      <Node id="72"/>                                 <Node id="105"/>             <Node id="118"/>     <Node id="123"/>                    <Node id="143"/>  <Node id="145"/>   <Node id="148"/>      <Node id="154"/>                         <Node id="179"/>              <Node id="193"/>            <Node id="205"/>                                                       <Node id="260"/>      <Node id="266"/>                                    <Node id="302"/>             <Node id="315"/>          <Node id="325"/>   <Node id="328"/>     <Node id="333"/>   <Node id="336"/>                                                                                                                                                                                        <Node id="520"/>      <Node id="526"/>                                                                                                                                  <Node id="656"/>             <Node id="669"/>  <Node id="671"/>                                <Node id="703"/>                                                                       <Node id="774"/>                    <Node id="794"/>   <Node id="797"/>                <Node id="813"/>                               <Node id="844"/>                              <Node id="874"/>            <Node id="886"/>             <Node id="899"/>   <Node id="902"/>         <Node id="911"/>                   <Node id="930"/>                    <Node id="950"/>     <Node id="955"/>                      <Node id="977"/>                              <Node id="1007"/>             <Node id="1020"/>          <Node id="1030"/>                       <Node id="1053"/> <Node id="1054"/>                          <Node id="1080"/>   <Node id="1083"/>        <Node id="1091"/>   <Node id="1094"/>              <Node id="1108"/> <Node id="1109"/>                <Node id="1125"/>                        <Node id="1149"/>                  <Node id="1167"/>                                           <Node id="1210"/>     <Node id="1215"/>                                                                        <Node id="1287"/>             <Node id="1300"/>                                  <Node id="1334"/>      <Node id="1340"/>                           <Node id="1367"/>      <Node id="1373"/>                                                            <Node id="1433"/>       <Node id="1440"/>                 <Node id="1457"/>                         <Node id="1482"/> <Node id="1483"/>                           <Node id="1510"/> <Node id="1511"/>                  <Node id="1529"/> <Node id="1530"/>              <Node id="1544"/> <Node id="1545"/>        <Node id="1553"/>     <Node id="1558"/>              <Node id="1572"/>     <Node id="1577"/>               <Node id="1592"/>        <Node id="1600"/>            <Node id="1612"/>      <Node id="1618"/>      <Node id="1624"/>        <Node id="1632"/>      <Node id="1638"/>                                      <Node id="1676"/>          <Node id="1686"/>        <Node id="1694"/>              <Node id="1708"/>                                            <Node id="1752"/>      <Node id="1758"/>  <Node id="1760"/>             <Node id="1773"/>                   <Node id="1792"/>      <Node id="1798"/>                                 <Node id="1831"/>            <Node id="1843"/>         <Node id="1852"/>            <Node id="1864"/>        <Node id="1872"/>       <Node id="1879"/>        <Node id="1887"/>            <Node id="1899"/>                <Node id="1915"/>                        <Node id="1939"/> <Node id="1940"/>              <Node id="1954"/>       <Node id="1961"/>       <Node id="1968"/>        <Node id="1976"/>            <Node id="1988"/>                                                                                <Node id="2068"/>                  <Node id="2086"/> <Node id="2087"/>      <Node id="2093"/>       <Node id="2100"/>                   <Node id="2119"/>                               <Node id="2150"/>         <Node id="2159"/>                               <Node id="2190"/>         <Node id="2199"/>  <Node id="2201"/>                <Node id="2217"/>  <Node id="2219"/>           <Node id="2230"/>                         <Node id="2255"/>              <Node id="2269"/>                 <Node id="2286"/>    <Node id="2290"/>        <Node id="2298"/>       <Node id="2305"/>                                                                                                                                       <Node id="2440"/>             <Node id="2453"/>                                                                                           <Node id="2544"/>             <Node id="2557"/>                                                                           <Node id="2632"/>       <Node id="2639"/>                                                                                                                                                                                     <Node id="2820"/>             <Node id="2833"/>                                                                                           <Node id="2924"/>             <Node id="2937"/>                                                                                               <Node id="3032"/>             <Node id="3045"/>                                                                          <Node id="3119"/>             <Node id="3132"/>                               <Node id="3163"/>      <Node id="3169"/>                        <Node id="3193"/>             <Node id="3206"/>                           <Node id="3233"/>      <Node id="3239"/>                                                                       <Node id="3310"/>      <Node id="3316"/>                                                                                                    <Node id="3416"/>             <Node id="3429"/>                                                                                                                                                                                                                                 <Node id="3654"/>             <Node id="3667"/>                                                                                                                                                                                                       <Node id="3866"/>             <Node id="3879"/>                                                                                          <Node id="3969"/>         <Node id="3978"/>     <Node id="3983"/>        <Node id="3991"/>                                                            <Node id="4051"/>       <Node id="4058"/>                                    <Node id="4094"/>             <Node id="4107"/>         <Node id="4116"/>              <Node id="4130"/>                                           <Node id="4173"/>           <Node id="4184"/>                              <Node id="4214"/>                 <Node id="4231"/>    <Node id="4235"/>               <Node id="4250"/>                                                       <Node id="4305"/>                   <Node id="4324"/>                                                                            <Node id="4400"/>             <Node id="4413"/>                                                                                                                    <Node id="4529"/>              <Node id="4543"/>                                                   <Node id="4594"/>      <Node id="4600"/>                                               <Node id="4647"/>       <Node id="4654"/>                                             <Node id="4699"/>      <Node id="4705"/>                                    <Node id="4741"/>       <Node id="4748"/>                                                                                                            <Node id="4856"/>      <Node id="4862"/>                                                                                                                                                                                    <Node id="5042"/>                <Node id="5058"/>                                                           <Node id="5117"/>             <Node id="5130"/>          <Node id="5140"/>      <Node id="5146"/>                                                                                                                                                                                                                                        <Node id="5378"/>             <Node id="5391"/>                                                                                                                                <Node id="5519"/>          <Node id="5529"/>              <Node id="5543"/>            <Node id="5555"/>             <Node id="5568"/>         <Node id="5577"/>             <Node id="5590"/>         <Node id="5599"/>                <Node id="5615"/>        <Node id="5623"/>  <Node id="5625"/>      <Node id="5631"/>                                     <Node id="5668"/>          <Node id="5678"/>                                                                                                             <Node id="5787"/>                  <Node id="5805"/>                                                                                          <Node id="5895"/>     <Node id="5900"/>            <Node id="5912"/>             <Node id="5925"/>                                                                                                                                                                                  <Node id="6103"/>             <Node id="6116"/>                                                      <Node id="6170"/>              <Node id="6184"/>                          <Node id="6210"/>     <Node id="6215"/>  <Node id="6217"/>      <Node id="6223"/>        <Node id="6231"/>      <Node id="6237"/>                                                       <Node id="6292"/>    <Node id="6296"/>                                                                 <Node id="6361"/>     <Node id="6366"/>  <Node id="6368"/>     <Node id="6373"/>                                                                                                                                                   <Node id="6520"/>     <Node id="6525"/>  <Node id="6527"/>      <Node id="6533"/>                               <Node id="6564"/>                       <Node id="6587"/>     <Node id="6592"/>     <Node id="6597"/>                                                               <Node id="6660"/>                   <Node id="6679"/>                                               <Node id="6726"/>             <Node id="6739"/>                                                      <Node id="6793"/>             <Node id="6806"/>                                    <Node id="6842"/>      <Node id="6848"/>      <Node id="6854"/>             <Node id="6867"/>                                                                                          </TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+<Annotation Id="15213" Type="Disease" StartNode="0" EndNode="13">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15214" Type="Disease" StartNode="27" EndNode="33">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15215" Type="Anatomy" StartNode="66" EndNode="72">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022646</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15216" Type="Disease" StartNode="105" EndNode="118">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15217" Type="Disease" StartNode="123" EndNode="143">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1861854</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15218" Type="Disease" StartNode="145" EndNode="148">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3160732</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15219" Type="Anatomy" StartNode="193" EndNode="205">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0227666</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15220" Type="Disease" StartNode="260" EndNode="266">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15221" Type="Disease" StartNode="302" EndNode="315">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15222" Type="Anatomy" StartNode="520" EndNode="526">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022646</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15223" Type="Disease" StartNode="656" EndNode="669">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15224" Type="Disease" StartNode="671" EndNode="703">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1266042</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15225" Type="Disease" StartNode="797" EndNode="813">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0346255</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15226" Type="Disease" StartNode="886" EndNode="899">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15227" Type="Disease" StartNode="930" EndNode="950">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1861854</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15228" Type="Disease" StartNode="955" EndNode="977">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1335749</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15229" Type="Disease" StartNode="1007" EndNode="1020">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15230" Type="Disease" StartNode="1030" EndNode="1053">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3151392</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15231" Type="Disease" StartNode="1054" EndNode="1080">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0334331</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15232" Type="Disease" StartNode="1083" EndNode="1091">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0334331</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15233" Type="Disease" StartNode="1210" EndNode="1215">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3273930</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15234" Type="Disease" StartNode="1287" EndNode="1300">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0879615</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15235" Type="Disease" StartNode="1334" EndNode="1340">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15236" Type="Disease" StartNode="1367" EndNode="1373">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3273930</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15237" Type="Anatomy" StartNode="1433" EndNode="1440">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022646</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15238" Type="Disease" StartNode="1558" EndNode="1572">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007140</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15239" Type="Disease" StartNode="1577" EndNode="1592">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007095</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15240" Type="Anatomy" StartNode="1600" EndNode="1612">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0227666</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15241" Type="Disease" StartNode="1618" EndNode="1624">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15242" Type="Anatomy" StartNode="1632" EndNode="1638">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022646</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15243" Type="Disease" StartNode="1676" EndNode="1686">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C2939420</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15244" Type="Disease" StartNode="1694" EndNode="1708">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1306459</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15245" Type="Disease" StartNode="1760" EndNode="1773">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15246" Type="Anatomy" StartNode="1792" EndNode="1798">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022646</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15247" Type="Anatomy" StartNode="1831" EndNode="1843">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022674</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15248" Type="Anatomy" StartNode="1852" EndNode="1864">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0227666</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15249" Type="Disease" StartNode="1872" EndNode="1879">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15250" Type="Anatomy" StartNode="1887" EndNode="1899">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022674</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15251" Type="Disease" StartNode="1915" EndNode="1939">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0206681</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15252" Type="Disease" StartNode="1940" EndNode="1954">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C2750272</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15253" Type="Disease" StartNode="1961" EndNode="1968">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15254" Type="Disease" StartNode="2068" EndNode="2086">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1406663</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15255" Type="Disease" StartNode="2087" EndNode="2093">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15256" Type="Disease" StartNode="2100" EndNode="2119">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0000734</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15257" Type="Disease" StartNode="2190" EndNode="2199">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0015672</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15258" Type="Disease" StartNode="2201" EndNode="2217">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1971624</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15259" Type="Disease" StartNode="2219" EndNode="2230">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850472</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15260" Type="Disease" StartNode="2255" EndNode="2269">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0700590</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15261" Type="Disease" StartNode="2286" EndNode="2290">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C2675800</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15262" Type="Anatomy" StartNode="2298" EndNode="2305">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0000726</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15263" Type="Disease" StartNode="2440" EndNode="2453">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15264" Type="Disease" StartNode="2544" EndNode="2557">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15265" Type="Disease" StartNode="2632" EndNode="2639">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15266" Type="Disease" StartNode="2820" EndNode="2833">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15267" Type="Disease" StartNode="2924" EndNode="2937">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15268" Type="Disease" StartNode="3032" EndNode="3045">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15269" Type="Disease" StartNode="3119" EndNode="3132">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15270" Type="Disease" StartNode="3163" EndNode="3169">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15271" Type="Disease" StartNode="3193" EndNode="3206">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15272" Type="Disease" StartNode="3233" EndNode="3239">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15273" Type="Disease" StartNode="3310" EndNode="3316">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15274" Type="Disease" StartNode="3416" EndNode="3429">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15275" Type="Disease" StartNode="3654" EndNode="3667">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15276" Type="Disease" StartNode="3866" EndNode="3879">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15277" Type="Drug" StartNode="3969" EndNode="3978">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1725174</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15278" Type="Drug" StartNode="3983" EndNode="3991">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3160266</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15279" Type="Disease" StartNode="4051" EndNode="4058">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3280128</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15280" Type="Disease" StartNode="4116" EndNode="4130">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1408246</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15281" Type="Disease" StartNode="4214" EndNode="4231">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0855197</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15282" Type="Disease" StartNode="4235" EndNode="4250">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3281211</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15283" Type="Disease" StartNode="4305" EndNode="4324">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0020538</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15284" Type="Disease" StartNode="4400" EndNode="4413">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15285" Type="Disease" StartNode="4529" EndNode="4543">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15286" Type="Disease" StartNode="4594" EndNode="4600">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15287" Type="Investigation" StartNode="4647" EndNode="4654">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0543467</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15288" Type="Anatomy" StartNode="4699" EndNode="4705">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022646</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15289" Type="Investigation" StartNode="4741" EndNode="4748">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0543467</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15290" Type="Disease" StartNode="4856" EndNode="4862">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15291" Type="Disease" StartNode="5042" EndNode="5058">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0543478</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15292" Type="Disease" StartNode="5117" EndNode="5130">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15293" Type="Disease" StartNode="5140" EndNode="5146">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15294" Type="Disease" StartNode="5378" EndNode="5391">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15295" Type="Drug" StartNode="5519" EndNode="5529">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0541315</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15296" Type="Drug" StartNode="5543" EndNode="5555">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1707080</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15297" Type="Drug" StartNode="5568" EndNode="5577">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1516119</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15298" Type="Drug" StartNode="5590" EndNode="5599">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1701859</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15299" Type="Drug" StartNode="5615" EndNode="5623">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1700874</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15300" Type="Drug" StartNode="5625" EndNode="5631">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3265883</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15301" Type="Drug" StartNode="5668" EndNode="5678">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0593974</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15302" Type="Disease" StartNode="5787" EndNode="5805">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1521726</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15303" Type="Disease" StartNode="5895" EndNode="5900">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3273930</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15304" Type="Disease" StartNode="5912" EndNode="5925">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15305" Type="Disease" StartNode="6103" EndNode="6116">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15306" Type="Disease" StartNode="6170" EndNode="6184">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15307" Type="Disease" StartNode="6210" EndNode="6215">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0027708</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15308" Type="Disease" StartNode="6217" EndNode="6223">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3273930</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15309" Type="Disease" StartNode="6231" EndNode="6237">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3273930</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15310" Type="Anatomy" StartNode="6292" EndNode="6296">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0042149</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15311" Type="Disease" StartNode="6361" EndNode="6366">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0027708</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15312" Type="Disease" StartNode="6368" EndNode="6373">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3273930</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15313" Type="Disease" StartNode="6520" EndNode="6525">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0027708</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15314" Type="Disease" StartNode="6527" EndNode="6533">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3273930</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15315" Type="Disease" StartNode="6564" EndNode="6587">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0000731</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15316" Type="Anatomy" StartNode="6592" EndNode="6597">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1522097</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15317" Type="Disease" StartNode="6660" EndNode="6679">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0042065</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15318" Type="Disease" StartNode="6726" EndNode="6739">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15319" Type="Disease" StartNode="6793" EndNode="6806">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15320" Type="Disease" StartNode="6842" EndNode="6848">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15321" Type="Disease" StartNode="6854" EndNode="6867">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="safe.preprocessing">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="ConsensusAuto">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Key">
+<Annotation Id="15374" Type="Investigation" StartNode="902" EndNode="911">
+</Annotation>
+<Annotation Id="15375" Type="Disease" StartNode="2924" EndNode="2937">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15376" Type="Disease" StartNode="3032" EndNode="3045">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15377" Type="Disease" StartNode="3119" EndNode="3132">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15378" Type="Disease" StartNode="3163" EndNode="3169">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15379" Type="Disease" StartNode="3193" EndNode="3206">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15380" Type="Disease" StartNode="3233" EndNode="3239">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15381" Type="Disease" StartNode="3310" EndNode="3316">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15382" Type="Disease" StartNode="3416" EndNode="3429">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15383" Type="Disease" StartNode="2219" EndNode="2230">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850472</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15384" Type="Disease" StartNode="2255" EndNode="2269">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0700590</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15385" Type="Disease" StartNode="2286" EndNode="2290">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C2675800</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15386" Type="Disease" StartNode="2440" EndNode="2453">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15387" Type="Disease" StartNode="2544" EndNode="2557">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15388" Type="Disease" StartNode="2632" EndNode="2639">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15389" Type="Disease" StartNode="2820" EndNode="2833">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15390" Type="Disease" StartNode="1940" EndNode="1954">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C2750272</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15391" Type="Disease" StartNode="1915" EndNode="1939">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0206681</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15392" Type="Disease" StartNode="2068" EndNode="2086">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1406663</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15393" Type="Disease" StartNode="1961" EndNode="1968">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15394" Type="Disease" StartNode="2100" EndNode="2119">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0000734</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15395" Type="Disease" StartNode="2087" EndNode="2093">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15396" Type="Disease" StartNode="2201" EndNode="2217">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1971624</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15397" Type="Disease" StartNode="2190" EndNode="2199">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0015672</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15398" Type="Disease" StartNode="1694" EndNode="1708">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1306459</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15399" Type="Disease" StartNode="1676" EndNode="1686">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C2939420</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15400" Type="Disease" StartNode="1760" EndNode="1773">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15401" Type="Disease" StartNode="1872" EndNode="1879">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15402" Type="Disease" StartNode="5787" EndNode="5805">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1521726</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15403" Type="Disease" StartNode="6103" EndNode="6116">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15404" Type="Disease" StartNode="6170" EndNode="6184">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15405" Type="Disease" StartNode="5895" EndNode="5900">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3273930</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15406" Type="Disease" StartNode="5912" EndNode="5925">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15407" Type="Disease" StartNode="5140" EndNode="5146">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15408" Type="Disease" StartNode="5378" EndNode="5391">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15409" Type="Disease" StartNode="5042" EndNode="5058">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0543478</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15410" Type="Disease" StartNode="5117" EndNode="5130">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15411" Type="Disease" StartNode="4594" EndNode="4600">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15412" Type="Disease" StartNode="4529" EndNode="4543">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15413" Type="Disease" StartNode="4400" EndNode="4413">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15414" Type="Disease" StartNode="4305" EndNode="4324">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0020538</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15415" Type="Disease" StartNode="4856" EndNode="4862">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15416" Type="Disease" StartNode="3866" EndNode="3879">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15417" Type="Disease" StartNode="3654" EndNode="3667">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15418" Type="Disease" StartNode="4235" EndNode="4250">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3281211</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15419" Type="Disease" StartNode="4214" EndNode="4231">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0855197</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15420" Type="Disease" StartNode="4116" EndNode="4130">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1408246</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15421" Type="Disease" StartNode="4051" EndNode="4058">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3280128</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15422" Type="Disease" StartNode="1149" EndNode="1167">
+</Annotation>
+<Annotation Id="15423" Type="Disease" StartNode="844" EndNode="874">
+</Annotation>
+<Annotation Id="15424" Type="Disease" StartNode="1094" EndNode="1108">
+</Annotation>
+<Annotation Id="15425" Type="Disease" StartNode="1109" EndNode="1125">
+</Annotation>
+<Annotation Id="15426" Type="Disease" StartNode="774" EndNode="794">
+</Annotation>
+<Annotation Id="15427" Type="Disease" StartNode="154" EndNode="179">
+</Annotation>
+<Annotation Id="15428" Type="Disease" StartNode="325" EndNode="328">
+</Annotation>
+<Annotation Id="15429" Type="Disease" StartNode="333" EndNode="336">
+</Annotation>
+<Annotation Id="15430" Type="Disease" StartNode="6842" EndNode="6848">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15431" Type="Disease" StartNode="6793" EndNode="6806">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15432" Type="Disease" StartNode="6854" EndNode="6867">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15433" Type="Disease" StartNode="6564" EndNode="6587">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0000731</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15434" Type="Disease" StartNode="6726" EndNode="6739">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15435" Type="Disease" StartNode="6660" EndNode="6679">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0042065</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15436" Type="Disease" StartNode="6368" EndNode="6373">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3273930</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15437" Type="Disease" StartNode="6361" EndNode="6366">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0027708</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15438" Type="Disease" StartNode="6527" EndNode="6533">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3273930</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15439" Type="Disease" StartNode="6520" EndNode="6525">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0027708</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15440" Type="Disease" StartNode="6217" EndNode="6223">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3273930</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15441" Type="Disease" StartNode="6210" EndNode="6215">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0027708</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15442" Type="Disease" StartNode="6231" EndNode="6237">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3273930</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15443" Type="Disease" StartNode="1287" EndNode="1300">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0879615</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15444" Type="Disease" StartNode="1210" EndNode="1215">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3273930</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15445" Type="Disease" StartNode="1083" EndNode="1091">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0334331</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15446" Type="Disease" StartNode="1054" EndNode="1080">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0334331</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15447" Type="Disease" StartNode="1030" EndNode="1053">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3151392</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15448" Type="Disease" StartNode="1007" EndNode="1020">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15449" Type="Disease" StartNode="955" EndNode="977">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1335749</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15450" Type="Disease" StartNode="930" EndNode="950">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1861854</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15451" Type="Disease" StartNode="1618" EndNode="1624">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15452" Type="Disease" StartNode="1577" EndNode="1592">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007095</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15453" Type="Disease" StartNode="1558" EndNode="1572">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007140</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15454" Type="Disease" StartNode="1367" EndNode="1373">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3273930</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15455" Type="Disease" StartNode="4173" EndNode="4184">
+</Annotation>
+<Annotation Id="15456" Type="Disease" StartNode="1334" EndNode="1340">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15457" Type="Disease" StartNode="123" EndNode="143">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1861854</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15458" Type="Disease" StartNode="4094" EndNode="4107">
+</Annotation>
+<Annotation Id="15459" Type="Disease" StartNode="145" EndNode="148">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3160732</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15460" Type="Disease" StartNode="2150" EndNode="2159">
+</Annotation>
+<Annotation Id="15461" Type="Disease" StartNode="105" EndNode="118">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15462" Type="Disease" StartNode="0" EndNode="13">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15463" Type="Disease" StartNode="27" EndNode="33">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15464" Type="Disease" StartNode="797" EndNode="813">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0346255</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15465" Type="Disease" StartNode="886" EndNode="899">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15466" Type="Disease" StartNode="656" EndNode="669">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15467" Type="Disease" StartNode="1545" EndNode="1553">
+</Annotation>
+<Annotation Id="15468" Type="Disease" StartNode="671" EndNode="703">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1266042</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15469" Type="Disease" StartNode="1530" EndNode="1544">
+</Annotation>
+<Annotation Id="15470" Type="Disease" StartNode="302" EndNode="315">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1378703</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15471" Type="Disease" StartNode="1511" EndNode="1529">
+</Annotation>
+<Annotation Id="15472" Type="Disease" StartNode="1483" EndNode="1510">
+</Annotation>
+<Annotation Id="15473" Type="Disease" StartNode="1457" EndNode="1482">
+</Annotation>
+<Annotation Id="15474" Type="Disease" StartNode="260" EndNode="266">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15475" Type="Drug" StartNode="5519" EndNode="5529">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0541315</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15476" Type="Drug" StartNode="5543" EndNode="5555">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1707080</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15477" Type="Drug" StartNode="5568" EndNode="5577">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1516119</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15478" Type="Drug" StartNode="5590" EndNode="5599">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1701859</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15479" Type="Drug" StartNode="5615" EndNode="5623">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1700874</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15480" Type="Drug" StartNode="5625" EndNode="5631">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3265883</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15481" Type="Drug" StartNode="5668" EndNode="5678">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0593974</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15482" Type="Drug" StartNode="3969" EndNode="3978">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1725174</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15483" Type="Drug" StartNode="3983" EndNode="3991">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C3160266</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15484" Type="Anatomy" StartNode="6592" EndNode="6597">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1522097</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15485" Type="Anatomy" StartNode="520" EndNode="526">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022646</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15486" Type="Anatomy" StartNode="193" EndNode="205">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0227666</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15487" Type="Anatomy" StartNode="1887" EndNode="1899">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022674</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15488" Type="Anatomy" StartNode="4699" EndNode="4705">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022646</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15489" Type="Anatomy" StartNode="1852" EndNode="1864">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0227666</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15490" Type="Anatomy" StartNode="66" EndNode="72">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022646</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15491" Type="Anatomy" StartNode="1792" EndNode="1798">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022646</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15492" Type="Anatomy" StartNode="1831" EndNode="1843">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022674</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15493" Type="Anatomy" StartNode="6292" EndNode="6296">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0042149</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15494" Type="Anatomy" StartNode="1632" EndNode="1638">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022646</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15495" Type="Anatomy" StartNode="1600" EndNode="1612">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0227666</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15496" Type="Anatomy" StartNode="1752" EndNode="1758">
+</Annotation>
+<Annotation Id="15497" Type="Anatomy" StartNode="1433" EndNode="1440">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0022646</Value>
+</Feature>
+</Annotation>
+<Annotation Id="15498" Type="Anatomy" StartNode="1976" EndNode="1988">
+</Annotation>
+<Annotation Id="15499" Type="Anatomy" StartNode="2298" EndNode="2305">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0000726</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+</GateDocument>

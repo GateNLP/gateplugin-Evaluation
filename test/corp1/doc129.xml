@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="3">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">createSourceType</Name>
+  <Value className="java.lang.String">W</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbDescription</Name>
+  <Value className="java.lang.String">National Foundation for Celiac Awareness (NFCA) is a non-profit organization dedicated to raising awareness of celiac disease and other gluten-related disorders and improving quality of life for those on a lifelong gluten-free diet.</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">corpus</Name>
+  <Value className="java.lang.String">Web.HON.Eng</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">language</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02-disambig</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbUrl</Name>
+  <Value className="java.lang.String">http://www.celiaccentral.org/celiac-disease-in-the-news/Celiac-in-the-News/161/vobid--1672/</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needAllContent</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">locationCountry</Name>
+  <Value className="java.lang.String">USA</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbSnippet</Name>
+  <Value className="java.lang.String">National Foundation for Celiac Awareness (NFCA) is a non-profit organization dedicated to raising awareness of celiac disease and other gluten-related disorders and improving quality of life for those on a lifelong gluten-free diet.</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbLanguage</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-findContent</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">id</Name>
+  <Value className="java.lang.String">http://www.celiaccentral.org/celiac-disease-in-the-news/Celiac-in-the-News/161/vobid--1672/</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbDomain</Name>
+  <Value className="java.lang.String">celiaccentral.org</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">images</Name>
+  <Value className="java.lang.String">/SiteData/images/Crunchmast/7fcf4b53f1177eaf/CrunchmasterGFCrackers.jpg|/SiteData/images/r1RUDI126L/09a48abbfb278298/r1-RUDI-126_Lost&amp;Found_OnlineAds_145X145.png|http://www.hon.ch/HONcode/Seal/HONConduct467242_s1.gif|/SiteData/images/image001/1ec45028b379c493/image001.jpg|/SiteData/images/li/c5fe37e10f72d645/li.gif|/SiteData/images/americas-best-charities-award/d9d7336ec3c33b737b64c27a2615ab01/americas-best-charities-award.jpg|/SiteData/images/CFC/f4ee9139f9f9afd3/CFC.gif|/SiteData/images/enjoylifef/a7e816ef6f0f9e82/enjoylifefoods.jpg|/SiteData/images/HMR/8fe15512e025dd70/HMR.gif|http://www.shareasale.com/image/21701/Triumph_125x125_12.gif|/SiteData/images/FMB_NFCA_F/810aff7a8688295e/FMB_NFCA_Final(3).jpg|/SiteData/images/youtube-35/87e921d42681def8/youtube-35.png|http://pixel.quantserve.com/pixel/p-b4S3gnURFP-bM.gif|/SiteData/images/fb/935c0aaae3444d04/fb.gif|/SiteData/images/tw/5462f7c5809dce76/tw.gif</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">idType</Name>
+  <Value className="java.lang.String">WebUrl</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needBoilerPipe</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-mimirIndexing</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">containsImages</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">hesClassification</Name>
+  <Value className="java.lang.String">patient</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-basic-annots</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createGuessedEncoding</Name>
+  <Value className="java.lang.String">UTF-8</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">domain</Name>
+  <Value className="java.lang.String">celiaccentral.org</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-umls-disambiguate</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbTitle</Name>
+  <Value className="java.lang.String"> Studies Promise Deeper Understanding of Celiac | NFCA </Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">publisher</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbId</Name>
+  <Value className="java.lang.String">http%3A%2F%2Fwww.celiaccentral.org%2Fceliac-disease-in-the-news%2FCeliac-in-the-News%2F161%2Fvobid--1672%2F</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">locationCity</Name>
+  <Value className="java.lang.String">Ambler</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbSourceMD5</Name>
+  <Value className="java.lang.String">30321a92b85fe78792be3d9a99c67daa</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">authors</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needPubmedContent</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">tags.names</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-umls-extgaz</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cbdUrl</Name>
+  <Value className="java.lang.String">http://www.celiaccentral.org/celiac-disease-in-the-news/Celiac-in-the-News/161/vobid--1672/</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needDefaultMeta</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">title</Name>
+  <Value className="java.lang.String">Studies Promise Deeper Understanding of Celiac | NFCA</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">MimeType</Name>
+  <Value className="java.lang.String">text/html</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needWikipediaMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">http://www.celiaccentral.org/celiac-disease-in-the-news/Celiac-in-the-News/161/vobid--1672/</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02-apply</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">health_topic_terms</Name>
+  <Value className="java.lang.String">medical treatment|lead|research|projects|therapy|specification|trigger|development|diabetes|children|heart|openness|funding|families|family|completeness|checklist|gluten|quality improvement|treatment|relative|physicians</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">needPubmedMeta</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">categories</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbRev</Name>
+  <Value className="java.lang.String">8-7a16fe06665f44959f36b7913ef98967</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbHost</Name>
+  <Value className="java.lang.String">www.celiaccentral.org</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createDate</Name>
+  <Value className="java.lang.String">2013-05-12,15:03:13</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-ml02features</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-annotate-stopwords</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">createFileName</Name>
+  <Value className="java.lang.String">W_celiaccentral.org_30321a92b85fe78792be3d9a99c67daa.xml</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-drugbank-extgaz</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator5</Name>
+  <Value className="java.lang.String">lh45</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator4</Name>
+  <Value className="java.lang.String">lh71</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator3</Name>
+  <Value className="java.lang.String">lh52</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-MAIN</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator2</Name>
+  <Value className="java.lang.String">lh38</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">safe.asname.annotator1</Name>
+  <Value className="java.lang.String">lh44</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">url</Name>
+  <Value className="java.lang.String">http://www.celiaccentral.org/celiac-disease-in-the-news/Celiac-in-the-News/161/vobid--1672/</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">tags.codes</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">cdbRelevancyScore</Name>
+  <Value className="java.lang.String">8.20007612466606</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">couchDBType</Name>
+  <Value className="java.lang.String">web</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>                                                                                                                                                                                                                                                                                                                                                                  <Node id="354"/>      <Node id="360"/>                                                                                                                                                                                                                                                                                                                    <Node id="668"/>              <Node id="682"/>                                                                                                     <Node id="783"/>              <Node id="797"/>                                                                                                    <Node id="897"/>              <Node id="911"/>                                                                                                                    <Node id="1027"/>               <Node id="1042"/>                                                                                                                                                         <Node id="1195"/>              <Node id="1209"/>                                                                                                                                          <Node id="1347"/>     <Node id="1352"/>                                                                                                                                                                                                                                                                                                                                <Node id="1672"/>              <Node id="1686"/>                                                                               <Node id="1765"/>                    <Node id="1785"/>                                                                           <Node id="1860"/>              <Node id="1874"/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <Node id="2387"/>              <Node id="2401"/>   <Node id="2404"/>                  <Node id="2422"/>                                                                                                                                          <Node id="2560"/>      <Node id="2566"/>                                   <Node id="2601"/>              <Node id="2615"/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+<Annotation Id="4002" Type="Disease" StartNode="668" EndNode="682">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4003" Type="Disease" StartNode="783" EndNode="797">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4004" Type="Disease" StartNode="897" EndNode="911">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4005" Type="Disease" StartNode="1027" EndNode="1042">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0011854</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4006" Type="Disease" StartNode="1195" EndNode="1209">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4007" Type="Anatomy" StartNode="1347" EndNode="1352">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0018787</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4008" Type="Disease" StartNode="1672" EndNode="1686">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4009" Type="Disease" StartNode="2387" EndNode="2401">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4010" Type="Disease" StartNode="2404" EndNode="2422">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4011" Type="Disease" StartNode="2601" EndNode="2615">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="safe.preprocessing">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="ConsensusAuto">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Key">
+<Annotation Id="4032" Type="Disease" StartNode="1195" EndNode="1209">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4033" Type="Disease" StartNode="1860" EndNode="1874">
+</Annotation>
+<Annotation Id="4034" Type="Disease" StartNode="354" EndNode="360">
+</Annotation>
+<Annotation Id="4035" Type="Disease" StartNode="1027" EndNode="1042">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0011854</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4036" Type="Disease" StartNode="897" EndNode="911">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4037" Type="Disease" StartNode="1765" EndNode="1785">
+</Annotation>
+<Annotation Id="4038" Type="Disease" StartNode="783" EndNode="797">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4039" Type="Disease" StartNode="668" EndNode="682">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4040" Type="Disease" StartNode="2601" EndNode="2615">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4041" Type="Drug" StartNode="2560" EndNode="2566">
+</Annotation>
+<Annotation Id="4042" Type="Anatomy" StartNode="1347" EndNode="1352">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0018787</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4029" Type="Disease" StartNode="2404" EndNode="2422">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4030" Type="Disease" StartNode="2387" EndNode="2401">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+<Annotation Id="4031" Type="Disease" StartNode="1672" EndNode="1686">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0007570</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+</GateDocument>

@@ -1,0 +1,1367 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument version="3">
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTrueMissingStrict</Name>
+  <Value className="java.lang.Integer">81</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionIncorrectStrict</Name>
+  <Value className="java.lang.Integer">10</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionFMeasureLenient</Name>
+  <Value className="java.lang.Double">0.2926829268292683</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionCorrectPartial</Name>
+  <Value className="java.lang.Integer">0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionPrecisionLenient</Name>
+  <Value className="java.lang.Double">0.7536231884057971</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionSingleCorrectAccuracyStrict</Name>
+  <Value className="java.lang.Double">0.18</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionPrecisionStrict</Name>
+  <Value className="java.lang.Double">0.782608695652174</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">deleteNonNNPLookups</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-preprocess-en-twitter</Name>
+  <Value className="java.lang.String">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionIncorrectPartial</Name>
+  <Value className="java.lang.Integer">0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionSingleCorrectAccuracyStrict</Name>
+  <Value className="java.lang.Double">0.51</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">run-preprocess-en</Name>
+  <Value className="java.lang.String">true</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionFMeasureStrict</Name>
+  <Value className="java.lang.Double">0.6035502958579881</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionCorrectStrict</Name>
+  <Value className="java.lang.Integer">51</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionRecallLenient</Name>
+  <Value className="java.lang.Double">0.52</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTrueMissingLenient</Name>
+  <Value className="java.lang.Integer">38</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTrueSpuriousLenient</Name>
+  <Value className="java.lang.Integer">7</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTrueSpuriousStrict</Name>
+  <Value className="java.lang.Integer">8</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionFMeasureLenient</Name>
+  <Value className="java.lang.Double">0.6153846153846154</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionPrecisionStrict</Name>
+  <Value className="java.lang.Double">0.7391304347826086</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">lang</Name>
+  <Value className="java.lang.String">en</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">MatchesAnnots</Name>
+  <Value className="gate.corpora.ObjectWrapper"><![CDATA[<?xml version='1.0' encoding='UTF-8'?><gate.corpora.ObjectWrapper><value class="map"><entry><null/><list/></entry></value></gate.corpora.ObjectWrapper>]]></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionCorrectStrict</Name>
+  <Value className="java.lang.Integer">18</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionResponses</Name>
+  <Value className="java.lang.Integer">69</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionRecallStrict</Name>
+  <Value className="java.lang.Double">0.18</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionResponses</Name>
+  <Value className="java.lang.Integer">23</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionSingleCorrectAccuracyLenient</Name>
+  <Value className="java.lang.Double">0.18</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionFMeasureStrict</Name>
+  <Value className="java.lang.Double">0.2926829268292683</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionRecallLenient</Name>
+  <Value className="java.lang.Double">0.18</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionSingleCorrectAccuracyLenient</Name>
+  <Value className="java.lang.Double">0.52</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">docType</Name>
+  <Value className="java.lang.String">generic</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTargets</Name>
+  <Value className="java.lang.Integer">100</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTrueSpuriousLenient</Name>
+  <Value className="java.lang.Integer">4</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionTrueMissingStrict</Name>
+  <Value className="java.lang.Integer">39</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTargets</Name>
+  <Value className="java.lang.Integer">100</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionIncorrectStrict</Name>
+  <Value className="java.lang.Integer">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTrueMissingLenient</Name>
+  <Value className="java.lang.Integer">81</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionPrecisionLenient</Name>
+  <Value className="java.lang.Double">0.782608695652174</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">keyOverlapsOnly</Name>
+  <Value className="java.lang.Boolean">false</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionTrueSpuriousStrict</Name>
+  <Value className="java.lang.Integer">4</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">LodieCoref</Name>
+  <Value className="gate.corpora.ObjectWrapper"><![CDATA[<?xml version='1.0' encoding='UTF-8'?><gate.corpora.ObjectWrapper><value class="map"><entry><null/><list><list><int>64855</int></list><list><int>64851</int></list><list><int>64724</int></list><list><int>64669</int></list><list><int>63524</int></list><list><int>63085</int></list><list><int>62775</int></list><list><int>62648</int></list><list><int>62582</int></list><list><int>62537</int></list><list><int>62535</int></list><list><int>62408</int></list><list><int>62343</int></list><list><int>62260</int></list><list><int>62251</int></list><list><int>62000</int></list><list><int>61964</int></list><list><int>61880</int></list><list><int>61753</int></list><list><int>61746</int></list><list><int>61619</int></list><list><int>61569</int></list><list><int>61549</int></list><list><int>61041</int></list><list><int>60914</int></list><list><int>60882</int></list><list><int>60839</int></list><list><int>60808</int></list><list><int>60681</int></list><list><int>60657</int></list><list><int>60637</int></list><list><int>60617</int></list><list><int>60324</int></list><list><int>60270</int></list><list><int>60250</int></list><list><int>60175</int></list><list><int>60173</int></list><list><int>59254</int></list><list><int>59251</int></list><list><int>58171</int></list><list><int>58044</int></list><list><int>58033</int></list><list><int>57977</int></list><list><int>57684</int></list><list><int>57630</int></list><list><int>57503</int></list><list><int>57210</int></list><list><int>57156</int></list><list><int>56828</int></list><list><int>56658</int></list><list><int>56464</int></list><list><int>56460</int></list><list><int>55810</int></list><list><int>55807</int></list><list><int>55735</int></list><list><int>55075</int></list><list><int>55073</int></list><list><int>54778</int></list><list><int>54704</int></list><list><int>54342</int></list><list><int>54292</int></list><list><int>54105</int></list><list><int>54085</int></list><list><int>54065</int></list><list><int>54038</int></list><list><int>53911</int></list><list><int>53784</int></list><list><int>53245</int></list><list><int>53118</int></list><list><int>52766</int></list><list><int>52589</int></list><list><int>51533</int></list><list><int>51433</int></list><list><int>51092</int></list><list><int>51080</int></list><list><int>50953</int></list><list><int>50826</int></list><list><int>50138</int></list><list><int>50136</int></list><list><int>49843</int></list><list><int>49789</int></list><list><int>49662</int></list><list><int>49652</int></list><list><int>49525</int></list><list><int>49398</int></list><list><int>49364</int></list><list><int>49328</int></list><list><int>49201</int></list><list><int>49132</int></list><list><int>48942</int></list><list><int>48703</int></list><list><int>48561</int></list><list><int>47617</int></list><list><int>47549</int></list><list><int>47165</int></list><list><int>47004</int></list><list><int>46954</int></list><list><int>46892</int></list><list><int>46838</int></list><list><int>46785</int></list><list><int>46224</int></list><list><int>46097</int></list><list><int>45858</int></list><list><int>45805</int></list><list><int>45675</int></list><list><int>45364</int></list><list><int>45346</int></list><list><int>45144</int></list><list><int>44829</int></list><list><int>44798</int></list><list><int>44482</int></list><list><int>43425</int></list><list><int>42738</int></list><list><int>41704</int></list><list><int>41686</int></list></list></entry></value></gate.corpora.ObjectWrapper>]]></Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.response.Shef.MentionIncorrectPartial</Name>
+  <Value className="java.lang.Integer">0</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionRecallStrict</Name>
+  <Value className="java.lang.Double">0.51</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">evaluateTagging.reference.Ref.MentionCorrectPartial</Name>
+  <Value className="java.lang.Integer">1</Value>
+</Feature>
+<Feature>
+  <Name className="java.lang.String">filter-prescoring.nrRemovedByAnniePerson</Name>
+  <Value className="java.lang.Integer">420</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes><Node id="0"/>      <Node id="6"/>                         <Node id="31"/>     <Node id="36"/>               <Node id="51"/>      <Node id="57"/>                         <Node id="82"/>       <Node id="89"/>                                                                                                                                      <Node id="223"/>     <Node id="228"/>                                           <Node id="271"/>     <Node id="276"/>                                                           <Node id="335"/>      <Node id="341"/>                             <Node id="370"/>      <Node id="376"/>                                                                        <Node id="448"/>      <Node id="454"/>                                      <Node id="492"/>     <Node id="497"/>                                                                                                                                                               <Node id="656"/>       <Node id="663"/>                                                                                                     <Node id="764"/>      <Node id="770"/>                                                             <Node id="831"/>       <Node id="838"/>                                                          <Node id="896"/>     <Node id="901"/>                          <Node id="927"/>                    <Node id="947"/>             <Node id="960"/>              <Node id="974"/>                                        <Node id="1014"/>       <Node id="1021"/>                             <Node id="1050"/>             <Node id="1063"/>                <Node id="1079"/>       <Node id="1086"/>                                  <Node id="1120"/>                <Node id="1136"/>                       <Node id="1159"/>                 <Node id="1176"/>                            <Node id="1204"/>                                 <Node id="1237"/>                <Node id="1253"/>            <Node id="1265"/>                                 <Node id="1298"/>       <Node id="1305"/>                                                                                                                                                                           <Node id="1476"/>       <Node id="1483"/>                    <Node id="1503"/>               <Node id="1518"/>                                                                                                                                                                                                                                                                                    <Node id="1794"/>          <Node id="1804"/>   <Node id="1807"/>     <Node id="1812"/>                                                                       <Node id="1883"/>       <Node id="1890"/>                                                                                                                                                                                                                                                                           <Node id="2157"/>       <Node id="2164"/>                   <Node id="2183"/>                         <Node id="2208"/>     <Node id="2213"/>     <Node id="2218"/>                                                                          <Node id="2292"/>      <Node id="2298"/>                                                            <Node id="2358"/>              <Node id="2372"/>          <Node id="2382"/>       <Node id="2389"/>                                                                                    <Node id="2473"/>       <Node id="2480"/>                                                                                   <Node id="2563"/>              <Node id="2577"/>                                                                                                                                                                                        <Node id="2761"/>               <Node id="2776"/>      <Node id="2782"/>       <Node id="2789"/>                                             <Node id="2834"/>  <Node id="2836"/>              <Node id="2850"/>       <Node id="2857"/>                                                         <Node id="2914"/>  <Node id="2916"/>                       <Node id="2939"/>         <Node id="2948"/>                      <Node id="2970"/>       <Node id="2977"/>                                                                                  <Node id="3059"/>              <Node id="3073"/>         <Node id="3082"/>                           <Node id="3109"/>  <Node id="3111"/>      <Node id="3117"/>                                                                    <Node id="3185"/>       <Node id="3192"/>                                                                                                    <Node id="3292"/>     <Node id="3297"/>                                                                                                    <Node id="3397"/>    <Node id="3401"/>                                                            <Node id="3461"/>       <Node id="3468"/>                                                                                                                              <Node id="3594"/>       <Node id="3601"/>                                                                             <Node id="3678"/>             <Node id="3691"/>     <Node id="3696"/>       <Node id="3703"/>                                          <Node id="3745"/>     <Node id="3750"/>                       <Node id="3773"/>       <Node id="3780"/>                                             <Node id="3825"/>        <Node id="3833"/>    <Node id="3837"/>       <Node id="3844"/>                                        <Node id="3884"/>           <Node id="3895"/>                                                       <Node id="3950"/>    <Node id="3954"/>                                                                     <Node id="4023"/>     <Node id="4028"/>                                                                                                                                                         <Node id="4181"/>       <Node id="4188"/>                                                           <Node id="4247"/>   <Node id="4250"/>   <Node id="4253"/>                                              <Node id="4299"/>                      <Node id="4321"/>                                                                                                     <Node id="4422"/>     <Node id="4427"/>                                                                                                                                           <Node id="4566"/>     <Node id="4571"/>   <Node id="4574"/>     <Node id="4579"/>                                                                                                    <Node id="4679"/>       <Node id="4686"/>                                                                                                    <Node id="4786"/>     <Node id="4791"/>                                                                                                               <Node id="4902"/>      <Node id="4908"/>                                                                                              <Node id="5002"/>       <Node id="5009"/>                                                  <Node id="5059"/>      <Node id="5065"/>        <Node id="5073"/>      <Node id="5079"/>           <Node id="5090"/>        <Node id="5098"/>                 <Node id="5115"/>       <Node id="5122"/>      <Node id="5128"/>       <Node id="5135"/>                                                            <Node id="5195"/>     <Node id="5200"/>                                                                                                                                                               <Node id="5359"/>       <Node id="5366"/>                                                         <Node id="5423"/>       <Node id="5430"/>                                                                                                                                                                      <Node id="5596"/>     <Node id="5601"/>                                                                                                         <Node id="5706"/>       <Node id="5713"/>                                              <Node id="5759"/>     <Node id="5764"/>                                 <Node id="5797"/>     <Node id="5802"/>      <Node id="5808"/>       <Node id="5815"/>                                                                                                                                                                                                             <Node id="6020"/>     <Node id="6025"/>                                                                                                                                           <Node id="6164"/>       <Node id="6171"/>                                                                                                                                                                                                                                                                                                                           <Node id="6486"/>      <Node id="6492"/>                     <Node id="6513"/>        <Node id="6521"/>                      <Node id="6543"/>            <Node id="6555"/>                                   <Node id="6590"/>     <Node id="6595"/>                                                                           <Node id="6670"/>     <Node id="6675"/>                                                                                                                                                   <Node id="6822"/>       <Node id="6829"/>                                                                                                                                                                                                    <Node id="7025"/>     <Node id="7030"/>                                                                          <Node id="7104"/>     <Node id="7109"/>                                                                                                          <Node id="7215"/>            <Node id="7227"/>                                     <Node id="7264"/>      <Node id="7270"/>         <Node id="7279"/>                <Node id="7295"/>                                                                                                                                                  <Node id="7441"/>     <Node id="7446"/>                                                                                                                                                    <Node id="7594"/>       <Node id="7601"/>  <Node id="7603"/>       <Node id="7610"/>         <Node id="7619"/>             <Node id="7632"/>       <Node id="7639"/>            <Node id="7651"/>                                                                           <Node id="7726"/>     <Node id="7731"/>                                                                                                                                                                                                                             <Node id="7952"/>       <Node id="7959"/>                                                                                   <Node id="8042"/>                <Node id="8058"/>                                                                   <Node id="8125"/>       <Node id="8132"/>                                <Node id="8164"/>               <Node id="8179"/>    <Node id="8183"/>                      <Node id="8205"/>                    <Node id="8225"/>      <Node id="8231"/>            <Node id="8243"/>                                                   </TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Shef">
+<Annotation Id="92321" Type="Mention" StartNode="4574" EndNode="4579">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/William_Declan_Lucey</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92323" Type="Mention" StartNode="7279" EndNode="7295">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Irish_Nationwide_Building_Society</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92322" Type="Mention" StartNode="2157" EndNode="2164">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92325" Type="Mention" StartNode="8183" EndNode="8205">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Irish_Life_and_Permanent</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92324" Type="Mention" StartNode="1120" EndNode="1136">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Anglo_Irish_Bank</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92327" Type="Mention" StartNode="2183" EndNode="2208">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Moody's_Investors_Service</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92326" Type="Mention" StartNode="2782" EndNode="2789">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92329" Type="Mention" StartNode="1050" EndNode="1063">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92328" Type="Mention" StartNode="1298" EndNode="1305">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92331" Type="Mention" StartNode="2761" EndNode="2776">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Joaquín_Almunia</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92330" Type="Mention" StartNode="8042" EndNode="8058">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Irish_Nationwide_Building_Society</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92333" Type="Mention" StartNode="8164" EndNode="8179">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Bank_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92332" Type="Mention" StartNode="3884" EndNode="3895">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Daniel_Gros</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92335" Type="Mention" StartNode="4299" EndNode="4321">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Trinity_College,_Dublin</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92334" Type="Mention" StartNode="927" EndNode="947">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Irish_Stock_Exchange</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92337" Type="Mention" StartNode="5115" EndNode="5122">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92336" Type="Mention" StartNode="1503" EndNode="1518">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Bank_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92339" Type="Mention" StartNode="6513" EndNode="6521">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/M&amp;T_Bank</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92338" Type="Mention" StartNode="1204" EndNode="1237">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Irish_Nationwide_Building_Society</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92341" Type="Mention" StartNode="5359" EndNode="5366">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92340" Type="Mention" StartNode="2939" EndNode="2948">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Olli_Rehn</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92343" Type="Mention" StartNode="6822" EndNode="6829">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="92342" Type="Mention" StartNode="2473" EndNode="2480">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Ref">
+<Annotation Id="33289" Type="Mention" StartNode="5115" EndNode="5122">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Patrick_Lenihan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33290" Type="Mention" StartNode="5359" EndNode="5366">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Patrick_Lenihan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33291" Type="Mention" StartNode="2970" EndNode="2977">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33292" Type="Mention" StartNode="2382" EndNode="2389">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33293" Type="Mention" StartNode="8225" EndNode="8243">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Central_Bank_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33294" Type="Mention" StartNode="2850" EndNode="2857">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33295" Type="Mention" StartNode="3461" EndNode="3468">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33296" Type="Mention" StartNode="3837" EndNode="3844">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33297" Type="Mention" StartNode="1014" EndNode="1021">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33298" Type="Mention" StartNode="1883" EndNode="1890">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33299" Type="Mention" StartNode="1204" EndNode="1237">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Irish_Nationwide_Building_Society</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33300" Type="Mention" StartNode="5423" EndNode="5430">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33301" Type="Mention" StartNode="370" EndNode="376">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Europe</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33302" Type="Mention" StartNode="51" EndNode="57">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Dublin</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33303" Type="Mention" StartNode="0" EndNode="6">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Europe</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33304" Type="Mention" StartNode="1476" EndNode="1483">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33305" Type="Mention" StartNode="6486" EndNode="6492">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Poland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33306" Type="Mention" StartNode="3082" EndNode="3109">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/International_Monetary_Fund</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33307" Type="Mention" StartNode="448" EndNode="454">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Greece</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33308" Type="Mention" StartNode="5128" EndNode="5135">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33309" Type="Mention" StartNode="3185" EndNode="3192">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33310" Type="Mention" StartNode="1794" EndNode="1804">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Eamon_Ryan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33311" Type="Mention" StartNode="764" EndNode="770">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Europe</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33312" Type="Mention" StartNode="2782" EndNode="2789">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Patrick_Lenihan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33313" Type="Mention" StartNode="2761" EndNode="2776">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Joaquín_Almunia</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33314" Type="Mention" StartNode="6822" EndNode="6829">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Leonard_Lenihan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33315" Type="Mention" StartNode="2834" EndNode="2836">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/European_Union</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33316" Type="Mention" StartNode="8125" EndNode="8132">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33317" Type="Mention" StartNode="3884" EndNode="3895">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Daniel_Gros</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33318" Type="Mention" StartNode="3111" EndNode="3117">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Greece</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33319" Type="Mention" StartNode="4250" EndNode="4253">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/International_Monetary_Fund</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33320" Type="Mention" StartNode="3773" EndNode="3780">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33321" Type="Mention" StartNode="7594" EndNode="7601">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33322" Type="Mention" StartNode="2914" EndNode="2916">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/European_Union</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33323" Type="Mention" StartNode="960" EndNode="974">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/European_Union</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33324" Type="Mention" StartNode="5002" EndNode="5009">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33325" Type="Mention" StartNode="656" EndNode="663">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33326" Type="Mention" StartNode="271" EndNode="276">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Spain</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33327" Type="Mention" StartNode="5073" EndNode="5079">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Greece</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33328" Type="Mention" StartNode="2157" EndNode="2164">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Deirdre_Lenihan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33329" Type="Mention" StartNode="1298" EndNode="1305">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Patrick_Lenihan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33330" Type="Mention" StartNode="1120" EndNode="1136">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Anglo_Irish_Bank</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33331" Type="Mention" StartNode="335" EndNode="341">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Dublin</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33332" Type="Mention" StartNode="5706" EndNode="5713">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33333" Type="Mention" StartNode="831" EndNode="838">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33334" Type="Mention" StartNode="4247" EndNode="4250">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Eu-</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33335" Type="Mention" StartNode="3059" EndNode="3073">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/European_Union</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33336" Type="Mention" StartNode="1079" EndNode="1086">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33337" Type="Mention" StartNode="8183" EndNode="8205">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Irish_Life_and_Permanent</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33338" Type="Mention" StartNode="7952" EndNode="7959">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33339" Type="Mention" StartNode="5808" EndNode="5815">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33340" Type="Mention" StartNode="4902" EndNode="4908">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Germany</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33341" Type="Mention" StartNode="2939" EndNode="2948">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Olli_Rehn</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33342" Type="Mention" StartNode="2358" EndNode="2372">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/European_Union</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33343" Type="Mention" StartNode="1050" EndNode="1063">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33344" Type="Mention" StartNode="7619" EndNode="7632">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33345" Type="Mention" StartNode="2213" EndNode="2218">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Spain</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33346" Type="Mention" StartNode="1159" EndNode="1176">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Allied_Irish_Bank_(GB)</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33347" Type="Mention" StartNode="4679" EndNode="4686">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33348" Type="Mention" StartNode="2563" EndNode="2577">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/European_Union</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33349" Type="Mention" StartNode="3678" EndNode="3691">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33350" Type="Mention" StartNode="6164" EndNode="6171">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33351" Type="Mention" StartNode="927" EndNode="947">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Irish_Stock_Exchange</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33352" Type="Mention" StartNode="2292" EndNode="2298">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Europe</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33353" Type="Mention" StartNode="2473" EndNode="2480">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Donal_Lenihan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33354" Type="Mention" StartNode="3397" EndNode="3401">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Olli_Rehn</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33355" Type="Mention" StartNode="7264" EndNode="7270">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Dublin</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33356" Type="Mention" StartNode="5090" EndNode="5098">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Portugal</Value>
+</Feature>
+</Annotation>
+<Annotation Id="33357" Type="Mention" StartNode="2183" EndNode="2208">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Moody's_Investors_Service</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Original markups">
+</AnnotationSet>
+
+<!-- Named annotation set -->
+
+<AnnotationSet Name="Key">
+<Annotation Id="146" Type="Mention" StartNode="0" EndNode="6">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Europe</Value>
+</Feature>
+</Annotation>
+<Annotation Id="147" Type="Mention" StartNode="31" EndNode="36">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="148" Type="Mention" StartNode="82" EndNode="89">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="149" Type="Mention" StartNode="223" EndNode="228">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="150" Type="Mention" StartNode="271" EndNode="276">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Spain</Value>
+</Feature>
+</Annotation>
+<Annotation Id="151" Type="Mention" StartNode="335" EndNode="341">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Dublin</Value>
+</Feature>
+</Annotation>
+<Annotation Id="152" Type="Mention" StartNode="370" EndNode="376">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Europe</Value>
+</Feature>
+</Annotation>
+<Annotation Id="153" Type="Mention" StartNode="448" EndNode="454">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Greece</Value>
+</Feature>
+</Annotation>
+<Annotation Id="154" Type="Mention" StartNode="656" EndNode="663">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="155" Type="Mention" StartNode="492" EndNode="497">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="156" Type="Mention" StartNode="764" EndNode="770">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Europe</Value>
+</Feature>
+</Annotation>
+<Annotation Id="157" Type="Mention" StartNode="896" EndNode="901">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="158" Type="Mention" StartNode="831" EndNode="838">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="159" Type="Mention" StartNode="960" EndNode="974">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/European_Union</Value>
+</Feature>
+</Annotation>
+<Annotation Id="160" Type="Mention" StartNode="927" EndNode="947">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Irish_Stock_Exchange</Value>
+</Feature>
+</Annotation>
+<Annotation Id="161" Type="Mention" StartNode="1014" EndNode="1021">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="162" Type="Mention" StartNode="1079" EndNode="1086">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="163" Type="Mention" StartNode="1050" EndNode="1063">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="164" Type="Mention" StartNode="1204" EndNode="1237">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Irish_Nationwide_Building_Society</Value>
+</Feature>
+</Annotation>
+<Annotation Id="165" Type="Mention" StartNode="1120" EndNode="1136">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Anglo_Irish_Bank</Value>
+</Feature>
+</Annotation>
+<Annotation Id="166" Type="Mention" StartNode="1298" EndNode="1305">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="167" Type="Mention" StartNode="1476" EndNode="1483">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="168" Type="Mention" StartNode="1253" EndNode="1265">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Central_Bank_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="169" Type="Mention" StartNode="1794" EndNode="1804">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Eamon_Ryan</Value>
+</Feature>
+</Annotation>
+<Annotation Id="170" Type="Mention" StartNode="1503" EndNode="1518">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Bank_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="171" Type="Mention" StartNode="2157" EndNode="2164">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="172" Type="Mention" StartNode="1807" EndNode="1812">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="173" Type="Mention" StartNode="1883" EndNode="1890">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="174" Type="Mention" StartNode="2213" EndNode="2218">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Spain</Value>
+</Feature>
+</Annotation>
+<Annotation Id="175" Type="Mention" StartNode="2292" EndNode="2298">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Europe</Value>
+</Feature>
+</Annotation>
+<Annotation Id="176" Type="Mention" StartNode="2183" EndNode="2208">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Moody's_Investors_Service</Value>
+</Feature>
+</Annotation>
+<Annotation Id="177" Type="Mention" StartNode="2473" EndNode="2480">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="178" Type="Mention" StartNode="2382" EndNode="2389">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="179" Type="Mention" StartNode="2358" EndNode="2372">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/European_Union</Value>
+</Feature>
+</Annotation>
+<Annotation Id="180" Type="Mention" StartNode="2782" EndNode="2789">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="181" Type="Mention" StartNode="2761" EndNode="2776">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Joaquín_Almunia</Value>
+</Feature>
+</Annotation>
+<Annotation Id="182" Type="Mention" StartNode="2563" EndNode="2577">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/European_Union</Value>
+</Feature>
+</Annotation>
+<Annotation Id="183" Type="Mention" StartNode="2970" EndNode="2977">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="184" Type="Mention" StartNode="2939" EndNode="2948">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Olli_Rehn</Value>
+</Feature>
+</Annotation>
+<Annotation Id="185" Type="Mention" StartNode="2850" EndNode="2857">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="186" Type="Mention" StartNode="3185" EndNode="3192">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="187" Type="Mention" StartNode="3111" EndNode="3117">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Greece</Value>
+</Feature>
+</Annotation>
+<Annotation Id="188" Type="Mention" StartNode="3082" EndNode="3109">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/International_Monetary_Fund</Value>
+</Feature>
+</Annotation>
+<Annotation Id="189" Type="Mention" StartNode="3059" EndNode="3073">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/European_Union</Value>
+</Feature>
+</Annotation>
+<Annotation Id="190" Type="Mention" StartNode="3594" EndNode="3601">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="191" Type="Mention" StartNode="3678" EndNode="3691">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
+</Feature>
+</Annotation>
+<Annotation Id="192" Type="Mention" StartNode="3696" EndNode="3703">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/United_Kingdom</Value>
+</Feature>
+</Annotation>
+<Annotation Id="193" Type="Mention" StartNode="3292" EndNode="3297">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="194" Type="Mention" StartNode="3397" EndNode="3401">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Olli_Rehn</Value>
+</Feature>
+</Annotation>
+<Annotation Id="195" Type="Mention" StartNode="3461" EndNode="3468">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="196" Type="Mention" StartNode="3837" EndNode="3844">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="197" Type="Mention" StartNode="3884" EndNode="3895">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Daniel_Gros</Value>
+</Feature>
+</Annotation>
+<Annotation Id="198" Type="Mention" StartNode="3950" EndNode="3954">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Daniel_Gros</Value>
+</Feature>
+</Annotation>
+<Annotation Id="199" Type="Mention" StartNode="3745" EndNode="3750">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="200" Type="Mention" StartNode="3773" EndNode="3780">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="201" Type="Mention" StartNode="3825" EndNode="3833">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
+</Feature>
+</Annotation>
+<Annotation Id="202" Type="Mention" StartNode="4422" EndNode="4427">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Anglo_Irish_Bank</Value>
+</Feature>
+</Annotation>
+<Annotation Id="203" Type="Mention" StartNode="4574" EndNode="4579">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+</Annotation>
+<Annotation Id="204" Type="Mention" StartNode="4566" EndNode="4571">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Anglo_Irish_Bank</Value>
+</Feature>
+</Annotation>
+<Annotation Id="205" Type="Mention" StartNode="4181" EndNode="4188">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="206" Type="Mention" StartNode="4023" EndNode="4028">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="207" Type="Mention" StartNode="4299" EndNode="4321">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Trinity_College,_Dublin</Value>
+</Feature>
+</Annotation>
+<Annotation Id="208" Type="Mention" StartNode="5002" EndNode="5009">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="209" Type="Mention" StartNode="4902" EndNode="4908">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Germany</Value>
+</Feature>
+</Annotation>
+<Annotation Id="210" Type="Mention" StartNode="5073" EndNode="5079">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Greece</Value>
+</Feature>
+</Annotation>
+<Annotation Id="211" Type="Mention" StartNode="5059" EndNode="5065">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Europe</Value>
+</Feature>
+</Annotation>
+<Annotation Id="212" Type="Mention" StartNode="4679" EndNode="4686">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="213" Type="Mention" StartNode="4786" EndNode="4791">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="214" Type="Mention" StartNode="5359" EndNode="5366">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="215" Type="Mention" StartNode="5423" EndNode="5430">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="216" Type="Mention" StartNode="5195" EndNode="5200">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Anglo_Irish_Bank</Value>
+</Feature>
+</Annotation>
+<Annotation Id="217" Type="Mention" StartNode="5115" EndNode="5122">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="218" Type="Mention" StartNode="5128" EndNode="5135">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="219" Type="Mention" StartNode="5090" EndNode="5098">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Portugal</Value>
+</Feature>
+</Annotation>
+<Annotation Id="220" Type="Mention" StartNode="5808" EndNode="5815">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="221" Type="Mention" StartNode="6020" EndNode="6025">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="222" Type="Mention" StartNode="5797" EndNode="5802">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String"></Value>
+</Feature>
+</Annotation>
+<Annotation Id="223" Type="Mention" StartNode="5706" EndNode="5713">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="224" Type="Mention" StartNode="5759" EndNode="5764">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Anglo_Irish_Bank</Value>
+</Feature>
+</Annotation>
+<Annotation Id="225" Type="Mention" StartNode="5596" EndNode="5601">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Anglo_Irish_Bank</Value>
+</Feature>
+</Annotation>
+<Annotation Id="226" Type="Mention" StartNode="6670" EndNode="6675">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="227" Type="Mention" StartNode="6590" EndNode="6595">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="228" Type="Mention" StartNode="6543" EndNode="6555">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Central_Bank_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="229" Type="Mention" StartNode="6486" EndNode="6492">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Poland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="230" Type="Mention" StartNode="6164" EndNode="6171">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="231" Type="Mention" StartNode="7215" EndNode="7227">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Central_Bank_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="232" Type="Mention" StartNode="7104" EndNode="7109">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="233" Type="Mention" StartNode="7025" EndNode="7030">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="234" Type="Mention" StartNode="6822" EndNode="6829">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Brian_Lenihan,_Jnr</Value>
+</Feature>
+</Annotation>
+<Annotation Id="235" Type="Mention" StartNode="7726" EndNode="7731">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Anglo_Irish_Bank</Value>
+</Feature>
+</Annotation>
+<Annotation Id="236" Type="Mention" StartNode="7952" EndNode="7959">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="237" Type="Mention" StartNode="8164" EndNode="8179">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Bank_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="238" Type="Mention" StartNode="8125" EndNode="8132">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="239" Type="Mention" StartNode="7264" EndNode="7270">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Dublin</Value>
+</Feature>
+</Annotation>
+<Annotation Id="240" Type="Mention" StartNode="7594" EndNode="7601">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Republic_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="241" Type="Mention" StartNode="7441" EndNode="7446">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Anglo_Irish_Bank</Value>
+</Feature>
+</Annotation>
+<Annotation Id="242" Type="Mention" StartNode="7619" EndNode="7632">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
+</Feature>
+</Annotation>
+<Annotation Id="243" Type="Mention" StartNode="7603" EndNode="7610">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/United_Kingdom</Value>
+</Feature>
+</Annotation>
+<Annotation Id="244" Type="Mention" StartNode="7639" EndNode="7651">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Central_Bank_of_Ireland</Value>
+</Feature>
+</Annotation>
+<Annotation Id="245" Type="Mention" StartNode="8231" EndNode="8243">
+<Feature>
+  <Name className="java.lang.String">inst</Name>
+  <Value className="java.lang.String">http://dbpedia.org/resource/Central_Bank_of_Ireland</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+
+</GateDocument>
