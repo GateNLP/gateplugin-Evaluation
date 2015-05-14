@@ -870,6 +870,8 @@ public class AnnotationDifferTagging {
             // find the best matching annotation and remember which kind of match we had
             int match = WRONG_VALUE;
             Annotation bestAnn = responseList.get(j);
+            // We initialize responselist(i) with candList.get(0) so the above is identical to
+            // Annotation bestAnn = candList.get(0);
             for(int c = 0; c < candList.size; c++) {
               Annotation tmpResp = candList.get(c);
               logger.debug("Checking annotation for th="+threshold+" at index: "+c+": "+tmpResp);
