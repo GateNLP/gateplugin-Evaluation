@@ -257,11 +257,19 @@
 <AnnotationSet Name="Shef">
 <Annotation Id="2470" Type="Mention" StartNode="108" EndNode="126">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999876572671043</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Khyber_Pakhtunkhwa</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2471" Type="Mention" StartNode="0" EndNode="10">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9838893292387859</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Parachinar</Value>
@@ -274,11 +282,19 @@
 <AnnotationSet Name="Ref">
 <Annotation Id="844" Type="Mention" StartNode="12" EndNode="20">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9929057402219705</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="845" Type="Mention" StartNode="108" EndNode="126">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9460597496554838</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Khyber_Pakhtunkhwa</Value>

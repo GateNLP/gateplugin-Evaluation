@@ -3097,11 +3097,19 @@
 <AnnotationSet Name="Shef">
 <Annotation Id="36336" Type="Mention" StartNode="3577" EndNode="3589">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.4884516261954742</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Broken_Bells_(album)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="36337" Type="Mention" StartNode="86" EndNode="98">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9568610294613104</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/James_Mercer_(musician)</Value>
@@ -3109,11 +3117,19 @@
 </Annotation>
 <Annotation Id="36338" Type="Mention" StartNode="870" EndNode="882">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8803766833753881</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Damon_Albarn</Value>
 </Feature>
 </Annotation>
 <Annotation Id="36339" Type="Mention" StartNode="341" EndNode="355">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999999411150786</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Gnarls_Barkley</Value>
@@ -3121,11 +3137,19 @@
 </Annotation>
 <Annotation Id="36340" Type="Mention" StartNode="192" EndNode="204">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.4884516261954742</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Broken_Bells_(album)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="36341" Type="Mention" StartNode="584" EndNode="596">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9879034594988809</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Danger_Mouse</Value>
@@ -3133,11 +3157,19 @@
 </Annotation>
 <Annotation Id="36330" Type="Mention" StartNode="2688" EndNode="2704">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.4182594983409861</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/The_Ghost_Inside_(band)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="36331" Type="Mention" StartNode="69" EndNode="81">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9566731355859088</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Danger_Mouse</Value>
@@ -3145,11 +3177,19 @@
 </Annotation>
 <Annotation Id="36332" Type="Mention" StartNode="859" EndNode="867">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8948952205571739</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Gorillaz</Value>
 </Feature>
 </Annotation>
 <Annotation Id="36333" Type="Mention" StartNode="415" EndNode="427">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9705694473559044</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Sparklehorse</Value>
@@ -3157,11 +3197,19 @@
 </Annotation>
 <Annotation Id="36334" Type="Mention" StartNode="0" EndNode="12">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.4884516261954742</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Broken_Bells_(album)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="36335" Type="Mention" StartNode="3279" EndNode="3293">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999999411150786</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Gnarls_Barkley</Value>
@@ -3174,11 +3222,19 @@
 <AnnotationSet Name="Ref">
 <Annotation Id="10976" Type="Mention" StartNode="36" EndNode="44">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8634121256398537</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/New_York_City</Value>
 </Feature>
 </Annotation>
 <Annotation Id="10977" Type="Mention" StartNode="899" EndNode="911">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9487711670750952</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Paul_Simonon</Value>
@@ -3186,11 +3242,19 @@
 </Annotation>
 <Annotation Id="10978" Type="Mention" StartNode="2332" EndNode="2340">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9959014942431843</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Portland,_Oregon</Value>
 </Feature>
 </Annotation>
 <Annotation Id="10979" Type="Mention" StartNode="2207" EndNode="2218">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9633407826481897</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Los_Angeles</Value>
@@ -3198,11 +3262,19 @@
 </Annotation>
 <Annotation Id="10980" Type="Mention" StartNode="3279" EndNode="3293">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7424947541250078</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Gnarls_Barkley</Value>
 </Feature>
 </Annotation>
 <Annotation Id="10981" Type="Mention" StartNode="870" EndNode="882">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7166542827126873</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Damon_Albarn</Value>
@@ -3210,11 +3282,19 @@
 </Annotation>
 <Annotation Id="10982" Type="Mention" StartNode="341" EndNode="355">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7424947541250078</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Gnarls_Barkley</Value>
 </Feature>
 </Annotation>
 <Annotation Id="10983" Type="Mention" StartNode="86" EndNode="98">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9631292329036589</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/James_Mercer_(musician)</Value>
@@ -3222,11 +3302,19 @@
 </Annotation>
 <Annotation Id="10984" Type="Mention" StartNode="584" EndNode="596">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7073215245724878</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Danger_Mouse</Value>
 </Feature>
 </Annotation>
 <Annotation Id="10985" Type="Mention" StartNode="69" EndNode="81">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9892809721088527</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Danger_Mouse</Value>
@@ -3234,11 +3322,19 @@
 </Annotation>
 <Annotation Id="10986" Type="Mention" StartNode="2688" EndNode="2704">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999992491255233</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/The_Ghost_Inside_(band)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="10987" Type="Mention" StartNode="3577" EndNode="3589">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6458971696446139</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Broken_Bells</Value>
@@ -3246,11 +3342,19 @@
 </Annotation>
 <Annotation Id="10988" Type="Mention" StartNode="415" EndNode="427">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.935810244715627</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Sparklehorse</Value>
 </Feature>
 </Annotation>
 <Annotation Id="10989" Type="Mention" StartNode="192" EndNode="204">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.38938617867053416</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Broken_Bells</Value>
@@ -3258,17 +3362,29 @@
 </Annotation>
 <Annotation Id="10990" Type="Mention" StartNode="1555" EndNode="1563">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8289215568941212</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
 </Feature>
 </Annotation>
 <Annotation Id="10991" Type="Mention" StartNode="0" EndNode="12">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.38938617867053416</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Broken_Bells</Value>
 </Feature>
 </Annotation>
 <Annotation Id="10992" Type="Mention" StartNode="811" EndNode="840">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.802829634236033</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/The_Good,_the_Bad_&amp;_the_Queen_(song)</Value>

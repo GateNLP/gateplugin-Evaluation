@@ -637,11 +637,19 @@
 <AnnotationSet Name="Shef">
 <Annotation Id="3556" Type="Mention" StartNode="256" EndNode="260">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.992132787242646</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kid_Cudi</Value>
 </Feature>
 </Annotation>
 <Annotation Id="3557" Type="Mention" StartNode="425" EndNode="429">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999999483475086</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kid_Cudi</Value>
@@ -654,11 +662,19 @@
 <AnnotationSet Name="Ref">
 <Annotation Id="1272" Type="Mention" StartNode="425" EndNode="429">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8132109594427259</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kid_Cudi</Value>
 </Feature>
 </Annotation>
 <Annotation Id="1273" Type="Mention" StartNode="256" EndNode="260">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9497016626032289</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kid_Cudi</Value>
@@ -666,11 +682,19 @@
 </Annotation>
 <Annotation Id="1274" Type="Mention" StartNode="207" EndNode="216">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6559034288552823</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Manhattan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="1275" Type="Mention" StartNode="19" EndNode="27">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8353752008092339</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kid_Cudi</Value>
@@ -678,17 +702,29 @@
 </Annotation>
 <Annotation Id="1276" Type="Mention" StartNode="334" EndNode="361">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6962597761507373</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/New_York_County_District_Attorney</Value>
 </Feature>
 </Annotation>
 <Annotation Id="1277" Type="Mention" StartNode="34" EndNode="42">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8074471997629041</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/New_York_City</Value>
 </Feature>
 </Annotation>
 <Annotation Id="1278" Type="Mention" StartNode="140" EndNode="148">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8113217028328604</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kid_Cudi</Value>

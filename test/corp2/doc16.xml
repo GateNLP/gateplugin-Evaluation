@@ -921,11 +921,19 @@
 <AnnotationSet Name="Shef">
 <Annotation Id="8931" Type="Mention" StartNode="164" EndNode="180">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7001315738356324</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Alberto_Contador</Value>
 </Feature>
 </Annotation>
 <Annotation Id="8932" Type="Mention" StartNode="105" EndNode="116">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8199811198104513</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Cadel_Evans</Value>
@@ -933,11 +941,19 @@
 </Annotation>
 <Annotation Id="8933" Type="Mention" StartNode="359" EndNode="383">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9895157541992341</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/World_Anti-Doping_Agency</Value>
 </Feature>
 </Annotation>
 <Annotation Id="8934" Type="Mention" StartNode="232" EndNode="240">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9593788212243721</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Alberto_Contador</Value>
@@ -945,11 +961,19 @@
 </Annotation>
 <Annotation Id="8935" Type="Mention" StartNode="682" EndNode="690">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999959826748035</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Alberto_Contador</Value>
 </Feature>
 </Annotation>
 <Annotation Id="8936" Type="Mention" StartNode="26" EndNode="34">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9593788212243721</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Alberto_Contador</Value>
@@ -962,11 +986,19 @@
 <AnnotationSet Name="Ref">
 <Annotation Id="3904" Type="Mention" StartNode="35" EndNode="44">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7839508187151659</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Melbourne</Value>
 </Feature>
 </Annotation>
 <Annotation Id="3897" Type="Mention" StartNode="503" EndNode="510">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8071676170077803</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Spain</Value>
@@ -974,11 +1006,19 @@
 </Annotation>
 <Annotation Id="3898" Type="Mention" StartNode="391" EndNode="398">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7610747929938513</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Germany</Value>
 </Feature>
 </Annotation>
 <Annotation Id="3899" Type="Mention" StartNode="164" EndNode="180">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9103442005438505</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Alberto_Contador</Value>
@@ -986,11 +1026,19 @@
 </Annotation>
 <Annotation Id="3900" Type="Mention" StartNode="46" EndNode="55">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999999911393328</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Australia</Value>
 </Feature>
 </Annotation>
 <Annotation Id="3901" Type="Mention" StartNode="120" EndNode="129">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999999451600923</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Australia</Value>
@@ -998,11 +1046,19 @@
 </Annotation>
 <Annotation Id="3902" Type="Mention" StartNode="359" EndNode="383">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.49396737090686643</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/World_Anti-Doping_Agency</Value>
 </Feature>
 </Annotation>
 <Annotation Id="3903" Type="Mention" StartNode="105" EndNode="116">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9536630006242904</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Cadel_Evans</Value>

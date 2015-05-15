@@ -1811,17 +1811,29 @@
 <AnnotationSet Name="Shef">
 <Annotation Id="13688" Type="Mention" StartNode="760" EndNode="772">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.5564480145479695</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Queen_Elizabeth_Olympic_Park</Value>
 </Feature>
 </Annotation>
 <Annotation Id="13689" Type="Mention" StartNode="356" EndNode="367">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9729196641598006</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Daniel_Levy_(businessman)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="13690" Type="Mention" StartNode="700" EndNode="703">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.4919808519401549</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/AEG</Value>
@@ -1834,11 +1846,19 @@
 <AnnotationSet Name="Ref">
 <Annotation Id="5248" Type="Mention" StartNode="0" EndNode="9">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6904002588142618</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Tottenham_Hotspur_F.C.</Value>
 </Feature>
 </Annotation>
 <Annotation Id="5249" Type="Mention" StartNode="191" EndNode="202">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6696444378858634</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/2012_Summer_Olympics</Value>
@@ -1846,11 +1866,19 @@
 </Annotation>
 <Annotation Id="5242" Type="Mention" StartNode="660" EndNode="668">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.818232551578115</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
 </Feature>
 </Annotation>
 <Annotation Id="5243" Type="Mention" StartNode="730" EndNode="745">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.5122402027011312</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Millennium_Dome</Value>
@@ -1858,11 +1886,19 @@
 </Annotation>
 <Annotation Id="5244" Type="Mention" StartNode="337" EndNode="346">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7778001002835402</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Tottenham_Hotspur_F.C.</Value>
 </Feature>
 </Annotation>
 <Annotation Id="5245" Type="Mention" StartNode="50" EndNode="56">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8249054767410924</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/London</Value>
@@ -1870,11 +1906,19 @@
 </Annotation>
 <Annotation Id="5246" Type="Mention" StartNode="101" EndNode="110">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7778001002835402</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Tottenham_Hotspur_F.C.</Value>
 </Feature>
 </Annotation>
 <Annotation Id="5247" Type="Mention" StartNode="540" EndNode="548">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6918338279738963</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/West_Ham_United_F.C.</Value>

@@ -2795,11 +2795,19 @@
 <AnnotationSet Name="Shef">
 <Annotation Id="21520" Type="Mention" StartNode="1535" EndNode="1542">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7504226292848962</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Wilson_Álvarez</Value>
 </Feature>
 </Annotation>
 <Annotation Id="21521" Type="Mention" StartNode="1526" EndNode="1534">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9687790203891713</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Janine_Zacharia</Value>
@@ -2807,11 +2815,19 @@
 </Annotation>
 <Annotation Id="21522" Type="Mention" StartNode="147" EndNode="156">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.5782340825942666</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/The_Carolinas</Value>
 </Feature>
 </Annotation>
 <Annotation Id="21523" Type="Mention" StartNode="797" EndNode="809">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9712757152037107</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Gary_Edwards_(photographer)</Value>
@@ -2819,11 +2835,19 @@
 </Annotation>
 <Annotation Id="21524" Type="Mention" StartNode="22" EndNode="35">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7321411695997092</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/East_Coast_of_the_United_States</Value>
 </Feature>
 </Annotation>
 <Annotation Id="21525" Type="Mention" StartNode="1570" EndNode="1578">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9687790203891713</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Janine_Zacharia</Value>
@@ -2831,11 +2855,19 @@
 </Annotation>
 <Annotation Id="21526" Type="Mention" StartNode="1477" EndNode="1491">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9940613071453881</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Daniel_Alvarez_(soccer)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="21515" Type="Mention" StartNode="1885" EndNode="1906">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.35974870963966504</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Subtropical_Storm_Nicole_(2004)</Value>
@@ -2843,11 +2875,19 @@
 </Annotation>
 <Annotation Id="21516" Type="Mention" StartNode="1359" EndNode="1367">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.842042225316323</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Creswell,_Oregon</Value>
 </Feature>
 </Annotation>
 <Annotation Id="21517" Type="Mention" StartNode="1208" EndNode="1216">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.842042225316323</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Creswell,_Oregon</Value>
@@ -2855,11 +2895,19 @@
 </Annotation>
 <Annotation Id="21518" Type="Mention" StartNode="1934" EndNode="1952">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7264525623007513</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Straits_of_Florida</Value>
 </Feature>
 </Annotation>
 <Annotation Id="21519" Type="Mention" StartNode="1558" EndNode="1565">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7504226292848962</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Wilson_Álvarez</Value>
@@ -2872,11 +2920,19 @@
 <AnnotationSet Name="Ref">
 <Annotation Id="7296" Type="Mention" StartNode="1526" EndNode="1534">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999999757660113</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Zacharia,_Kentucky</Value>
 </Feature>
 </Annotation>
 <Annotation Id="7297" Type="Mention" StartNode="1674" EndNode="1686">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7471791120845054</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Jacksonville,_Florida</Value>
@@ -2884,11 +2940,19 @@
 </Annotation>
 <Annotation Id="7298" Type="Mention" StartNode="1934" EndNode="1952">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8792036441216198</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Straits_of_Florida</Value>
 </Feature>
 </Annotation>
 <Annotation Id="7299" Type="Mention" StartNode="1570" EndNode="1578">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999999757660113</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Zacharia,_Kentucky</Value>
@@ -2896,11 +2960,19 @@
 </Annotation>
 <Annotation Id="7300" Type="Mention" StartNode="1192" EndNode="1196">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9668602841837843</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
 </Feature>
 </Annotation>
 <Annotation Id="7301" Type="Mention" StartNode="1885" EndNode="1906">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.35974870963966504</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Subtropical_Storm_Nicole_(2004)</Value>
@@ -2908,11 +2980,19 @@
 </Annotation>
 <Annotation Id="7302" Type="Mention" StartNode="797" EndNode="809">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8101269602080547</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Gary_Edwards_(ice_hockey)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="7303" Type="Mention" StartNode="1477" EndNode="1491">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.34701930737868086</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Daniel_Alvarez_(soccer)</Value>
@@ -2920,11 +3000,19 @@
 </Annotation>
 <Annotation Id="7304" Type="Mention" StartNode="1551" EndNode="1557">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6676207129359065</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Ariela_Massotti</Value>
 </Feature>
 </Annotation>
 <Annotation Id="7295" Type="Mention" StartNode="1157" EndNode="1164">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.3742676064513268</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Atlanta</Value>

@@ -1769,11 +1769,19 @@
 <AnnotationSet Name="Shef">
 <Annotation Id="19412" Type="Mention" StartNode="247" EndNode="258">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8551676202773746</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Paul_Conroy</Value>
 </Feature>
 </Annotation>
 <Annotation Id="19413" Type="Mention" StartNode="1952" EndNode="1965">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9779716178779599</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Adventureland_(film)</Value>
@@ -1781,11 +1789,19 @@
 </Annotation>
 <Annotation Id="19414" Type="Mention" StartNode="8" EndNode="21">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9933301849270242</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Ryan_Reynolds</Value>
 </Feature>
 </Annotation>
 <Annotation Id="19415" Type="Mention" StartNode="573" EndNode="587">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6595461549596591</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Chris_Sparling</Value>
@@ -1793,11 +1809,19 @@
 </Annotation>
 <Annotation Id="19416" Type="Mention" StartNode="498" EndNode="512">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.44856860193285836</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Rodrigo_Cortés</Value>
 </Feature>
 </Annotation>
 <Annotation Id="19417" Type="Mention" StartNode="2313" EndNode="2326">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.42395694869700695</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Ryan_Reynolds</Value>
@@ -1805,17 +1829,29 @@
 </Annotation>
 <Annotation Id="19418" Type="Mention" StartNode="290" EndNode="295">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9499561464999939</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Zippo</Value>
 </Feature>
 </Annotation>
 <Annotation Id="19419" Type="Mention" StartNode="2871" EndNode="2880">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6526015854363743</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Lionsgate_Films</Value>
 </Feature>
 </Annotation>
 <Annotation Id="19420" Type="Mention" StartNode="76" EndNode="89">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9933301849270242</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Ryan_Reynolds</Value>
@@ -1828,11 +1864,19 @@
 <AnnotationSet Name="Ref">
 <Annotation Id="5958" Type="Mention" StartNode="573" EndNode="587">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6595461549596591</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Chris_Sparling</Value>
 </Feature>
 </Annotation>
 <Annotation Id="5959" Type="Mention" StartNode="2313" EndNode="2326">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.768206891431189</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Ryan_Reynolds</Value>
@@ -1840,11 +1884,19 @@
 </Annotation>
 <Annotation Id="5960" Type="Mention" StartNode="76" EndNode="89">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.857660584333887</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Ryan_Reynolds</Value>
 </Feature>
 </Annotation>
 <Annotation Id="5961" Type="Mention" StartNode="1064" EndNode="1069">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.603800544004875</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Iraq</Value>
@@ -1852,11 +1904,19 @@
 </Annotation>
 <Annotation Id="5962" Type="Mention" StartNode="1186" EndNode="1202">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8200428468927682</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/United_States_Department_of_State</Value>
 </Feature>
 </Annotation>
 <Annotation Id="5963" Type="Mention" StartNode="8" EndNode="21">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7892979350713841</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Ryan_Reynolds</Value>
@@ -1864,11 +1924,19 @@
 </Annotation>
 <Annotation Id="5964" Type="Mention" StartNode="991" EndNode="995">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.5479182089969665</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Iraq</Value>
 </Feature>
 </Annotation>
 <Annotation Id="5965" Type="Mention" StartNode="1952" EndNode="1965">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6490074290330501</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Adventureland_(film)</Value>

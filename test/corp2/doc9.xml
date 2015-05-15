@@ -1537,11 +1537,19 @@
 <AnnotationSet Name="Shef">
 <Annotation Id="16384" Type="Mention" StartNode="955" EndNode="970">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7744857177880516</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Round_and_Round_(Tevin_Campbell_song)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="16385" Type="Mention" StartNode="89" EndNode="108">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9790807229913943</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Hemingway's_Whiskey</Value>
@@ -1549,11 +1557,19 @@
 </Annotation>
 <Annotation Id="16386" Type="Mention" StartNode="153" EndNode="162">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999999870183746</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Guy_Clark_(album)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="16387" Type="Mention" StartNode="1553" EndNode="1568">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.509911046353538</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/You_and_Tequila</Value>
@@ -1561,11 +1577,19 @@
 </Annotation>
 <Annotation Id="16388" Type="Mention" StartNode="1324" EndNode="1343">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.679771401290219</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Hemingway's_Whiskey</Value>
 </Feature>
 </Annotation>
 <Annotation Id="16389" Type="Mention" StartNode="170" EndNode="189">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.679771401290219</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Hemingway's_Whiskey</Value>
@@ -1573,11 +1597,19 @@
 </Annotation>
 <Annotation Id="16390" Type="Mention" StartNode="1512" EndNode="1519">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.612053661657624</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kenny_Chesney</Value>
 </Feature>
 </Annotation>
 <Annotation Id="16391" Type="Mention" StartNode="117" EndNode="130">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8960763137145651</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kenny_Chesney</Value>
@@ -1585,17 +1617,29 @@
 </Annotation>
 <Annotation Id="16392" Type="Mention" StartNode="1076" EndNode="1083">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.3651179527311736</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kenny_Chesney</Value>
 </Feature>
 </Annotation>
 <Annotation Id="16393" Type="Mention" StartNode="1623" EndNode="1635">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9947254602292122</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Grace_Potter_and_the_Nocturnals</Value>
 </Feature>
 </Annotation>
 <Annotation Id="16383" Type="Mention" StartNode="1537" EndNode="1549">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9506375824623805</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Deana_Carter</Value>
@@ -1608,11 +1652,19 @@
 <AnnotationSet Name="Ref">
 <Annotation Id="6544" Type="Mention" StartNode="1324" EndNode="1343">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999823797014317</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Hemingway's_Whiskey</Value>
 </Feature>
 </Annotation>
 <Annotation Id="6535" Type="Mention" StartNode="1537" EndNode="1549">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999999976327117</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Deana_Carter</Value>
@@ -1620,11 +1672,19 @@
 </Annotation>
 <Annotation Id="6536" Type="Mention" StartNode="153" EndNode="162">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999998245302218</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Guy_Clark</Value>
 </Feature>
 </Annotation>
 <Annotation Id="6537" Type="Mention" StartNode="73" EndNode="86">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8575945137622991</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kenny_Chesney</Value>
@@ -1632,11 +1692,19 @@
 </Annotation>
 <Annotation Id="6538" Type="Mention" StartNode="170" EndNode="189">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999999954285841</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Hemingway's_Whiskey</Value>
 </Feature>
 </Annotation>
 <Annotation Id="6539" Type="Mention" StartNode="1553" EndNode="1568">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9893030762142895</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/You_and_Tequila</Value>
@@ -1644,11 +1712,19 @@
 </Annotation>
 <Annotation Id="6540" Type="Mention" StartNode="1076" EndNode="1083">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6862078024946032</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kenny_Chesney</Value>
 </Feature>
 </Annotation>
 <Annotation Id="6541" Type="Mention" StartNode="1623" EndNode="1635">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.671182703179444</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Grace_Potter_and_the_Nocturnals</Value>
@@ -1656,11 +1732,19 @@
 </Annotation>
 <Annotation Id="6542" Type="Mention" StartNode="117" EndNode="130">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8677573616298178</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kenny_Chesney</Value>
 </Feature>
 </Annotation>
 <Annotation Id="6543" Type="Mention" StartNode="89" EndNode="108">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999999999999699</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Hemingway's_Whiskey</Value>

@@ -1161,11 +1161,19 @@
 <AnnotationSet Name="Shef">
 <Annotation Id="11643" Type="Mention" StartNode="50" EndNode="60">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8802229484631816</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Tokyo_2010</Value>
 </Feature>
 </Annotation>
 <Annotation Id="11644" Type="Mention" StartNode="629" EndNode="646">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.99732296573097</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kyodo_News</Value>
@@ -1173,17 +1181,29 @@
 </Annotation>
 <Annotation Id="11645" Type="Mention" StartNode="1946" EndNode="1957">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9933153513757855</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Lost_Decade_(Japan)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="11646" Type="Mention" StartNode="1662" EndNode="1665">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7164753018660419</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Consumer_price_index</Value>
 </Feature>
 </Annotation>
 <Annotation Id="11647" Type="Mention" StartNode="547" EndNode="594">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6625077738341327</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Ministry_of_Internal_Affairs_and_Communications</Value>
@@ -1196,11 +1216,19 @@
 <AnnotationSet Name="Ref">
 <Annotation Id="4673" Type="Mention" StartNode="0" EndNode="5">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.820864551316145</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Japan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="4674" Type="Mention" StartNode="50" EndNode="60">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8802229484631816</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Tokyo_2010</Value>
@@ -1208,11 +1236,19 @@
 </Annotation>
 <Annotation Id="4675" Type="Mention" StartNode="1946" EndNode="1957">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.479709455024694</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Lost_Decade_(Japan)</Value>
 </Feature>
 </Annotation>
 <Annotation Id="4676" Type="Mention" StartNode="629" EndNode="646">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.762302223643585</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kyodo_News</Value>
@@ -1220,17 +1256,29 @@
 </Annotation>
 <Annotation Id="4677" Type="Mention" StartNode="1670" EndNode="1675">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8156488052126959</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Tokyo</Value>
 </Feature>
 </Annotation>
 <Annotation Id="4678" Type="Mention" StartNode="1662" EndNode="1665">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.883606465490189</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Corruption_Perceptions_Index</Value>
 </Feature>
 </Annotation>
 <Annotation Id="4679" Type="Mention" StartNode="1928" EndNode="1933">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.818840107110662</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Japan</Value>

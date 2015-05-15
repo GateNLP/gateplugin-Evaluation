@@ -7643,11 +7643,19 @@
 <AnnotationSet Name="Shef">
 <Annotation Id="39556" Type="Mention" StartNode="2634" EndNode="2644">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8700298623840808</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="39557" Type="Mention" StartNode="4478" EndNode="4489">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9670829134743886</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Munir_Ahmad_Khan</Value>
@@ -7655,11 +7663,19 @@
 </Annotation>
 <Annotation Id="39558" Type="Mention" StartNode="105" EndNode="116">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6953529511962538</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Khyber_Pass</Value>
 </Feature>
 </Annotation>
 <Annotation Id="39559" Type="Mention" StartNode="4493" EndNode="4502">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.5245273223746767</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Islamabad</Value>
@@ -7667,11 +7683,19 @@
 </Annotation>
 <Annotation Id="39560" Type="Mention" StartNode="4189" EndNode="4195">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7847849630521504</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Chaman,_Kerman</Value>
 </Feature>
 </Annotation>
 <Annotation Id="39561" Type="Mention" StartNode="51" EndNode="60">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6208365525567591</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Islamabad</Value>
@@ -7679,11 +7703,19 @@
 </Annotation>
 <Annotation Id="39562" Type="Mention" StartNode="4504" EndNode="4508">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6684902519067308</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Fahmida_Riaz</Value>
 </Feature>
 </Annotation>
 <Annotation Id="39563" Type="Mention" StartNode="1348" EndNode="1354">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.815611356391101</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Chaman,_Kerman</Value>
@@ -7691,11 +7723,19 @@
 </Annotation>
 <Annotation Id="39564" Type="Mention" StartNode="1288" EndNode="1298">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.551152053823913</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="39565" Type="Mention" StartNode="4173" EndNode="4184">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6953529511962538</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Khyber_Pass</Value>
@@ -7703,11 +7743,19 @@
 </Annotation>
 <Annotation Id="39566" Type="Mention" StartNode="317" EndNode="326">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6191832969377816</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Islamabad</Value>
 </Feature>
 </Annotation>
 <Annotation Id="39567" Type="Mention" StartNode="4517" EndNode="4525">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.3732899077289275</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Peshawar_cricket_team</Value>
@@ -7715,11 +7763,19 @@
 </Annotation>
 <Annotation Id="39568" Type="Mention" StartNode="4574" EndNode="4584">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9230255935954643</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Parachinar</Value>
 </Feature>
 </Annotation>
 <Annotation Id="39569" Type="Mention" StartNode="4537" EndNode="4545">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.907426770196958</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Mahmood_Khan_Achakzai</Value>
@@ -7727,11 +7783,19 @@
 </Annotation>
 <Annotation Id="39570" Type="Mention" StartNode="1170" EndNode="1181">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6953529511962538</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Khyber_Pass</Value>
 </Feature>
 </Annotation>
 <Annotation Id="39571" Type="Mention" StartNode="143" EndNode="154">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.5569245719421916</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/NATO</Value>
@@ -7739,11 +7803,19 @@
 </Annotation>
 <Annotation Id="39572" Type="Mention" StartNode="2523" EndNode="2535">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9374130451828891</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Rehman_Malik</Value>
 </Feature>
 </Annotation>
 <Annotation Id="39573" Type="Mention" StartNode="3394" EndNode="3409">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9712693351216636</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Paktia_Province</Value>
@@ -7751,11 +7823,19 @@
 </Annotation>
 <Annotation Id="39574" Type="Mention" StartNode="3343" EndNode="3353">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8300794433652425</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="39575" Type="Mention" StartNode="737" EndNode="746">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6202346252207603</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Islamabad</Value>
@@ -7768,11 +7848,19 @@
 <AnnotationSet Name="Ref">
 <Annotation Id="15232" Type="Mention" StartNode="4083" EndNode="4087">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9955340793679004</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15233" Type="Mention" StartNode="1406" EndNode="1419">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9557635438828036</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
@@ -7780,11 +7868,19 @@
 </Annotation>
 <Annotation Id="15234" Type="Mention" StartNode="3360" EndNode="3366">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7804337317069966</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kurram_Valley</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15235" Type="Mention" StartNode="3443" EndNode="3452">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9440197094277726</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
@@ -7792,11 +7888,19 @@
 </Annotation>
 <Annotation Id="15236" Type="Mention" StartNode="3556" EndNode="3565">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9440197094277726</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15237" Type="Mention" StartNode="1348" EndNode="1354">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9899420348351653</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Chaman</Value>
@@ -7804,11 +7908,19 @@
 </Annotation>
 <Annotation Id="15238" Type="Mention" StartNode="3412" EndNode="3416">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8339273265007834</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/NATO</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15239" Type="Mention" StartNode="1733" EndNode="1737">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8328332199568148</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/NATO</Value>
@@ -7816,11 +7928,19 @@
 </Annotation>
 <Annotation Id="15240" Type="Mention" StartNode="2113" EndNode="2121">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9286246422649349</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15241" Type="Mention" StartNode="317" EndNode="326">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8180017025554298</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Islamabad</Value>
@@ -7828,11 +7948,19 @@
 </Annotation>
 <Annotation Id="15242" Type="Mention" StartNode="3088" EndNode="3096">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.46278286361093496</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15243" Type="Mention" StartNode="2523" EndNode="2535">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.7998753388960875</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Rehman_Malik</Value>
@@ -7840,11 +7968,19 @@
 </Annotation>
 <Annotation Id="15244" Type="Mention" StartNode="1456" EndNode="1467">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8367261262698398</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Afghanistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15245" Type="Mention" StartNode="4517" EndNode="4525">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9218354286542614</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Peshawar</Value>
@@ -7852,11 +7988,19 @@
 </Annotation>
 <Annotation Id="15246" Type="Mention" StartNode="4493" EndNode="4502">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8098663892632293</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Islamabad</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15247" Type="Mention" StartNode="737" EndNode="746">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8193452056309118</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Islamabad</Value>
@@ -7864,11 +8008,19 @@
 </Annotation>
 <Annotation Id="15248" Type="Mention" StartNode="143" EndNode="154">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8200535173495335</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/NATO</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15249" Type="Mention" StartNode="4537" EndNode="4545">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.97932821217133</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Achakzai</Value>
@@ -7876,11 +8028,19 @@
 </Annotation>
 <Annotation Id="15250" Type="Mention" StartNode="974" EndNode="985">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8234965329746277</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Afghanistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15251" Type="Mention" StartNode="3959" EndNode="3963">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9436578037322755</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
@@ -7888,11 +8048,19 @@
 </Annotation>
 <Annotation Id="15252" Type="Mention" StartNode="4433" EndNode="4438">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.6266866293660662</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kabul</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15253" Type="Mention" StartNode="1393" EndNode="1397">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8328332199568148</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/NATO</Value>
@@ -7900,11 +8068,19 @@
 </Annotation>
 <Annotation Id="15254" Type="Mention" StartNode="4574" EndNode="4584">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9661621076361083</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Parachinar</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15255" Type="Mention" StartNode="4353" EndNode="4362">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9703874721743911</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
@@ -7912,11 +8088,19 @@
 </Annotation>
 <Annotation Id="15256" Type="Mention" StartNode="0" EndNode="8">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.4057055409238745</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15257" Type="Mention" StartNode="4549" EndNode="4555">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9936983149993351</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Chaman</Value>
@@ -7924,11 +8108,19 @@
 </Annotation>
 <Annotation Id="15258" Type="Mention" StartNode="4074" EndNode="4078">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8339273265007834</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/NATO</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15259" Type="Mention" StartNode="2826" EndNode="2839">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9557635438828036</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
@@ -7936,11 +8128,19 @@
 </Annotation>
 <Annotation Id="15260" Type="Mention" StartNode="2138" EndNode="2142">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9955340793679004</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15261" Type="Mention" StartNode="3917" EndNode="3925">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9064230400281127</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
@@ -7948,11 +8148,19 @@
 </Annotation>
 <Annotation Id="15262" Type="Mention" StartNode="158" EndNode="169">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8424718105953424</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Afghanistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15263" Type="Mention" StartNode="2913" EndNode="2921">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.918425193313837</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
@@ -7960,11 +8168,19 @@
 </Annotation>
 <Annotation Id="15264" Type="Mention" StartNode="1473" EndNode="1482">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9844630755076677</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15265" Type="Mention" StartNode="3592" EndNode="3596">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8339273265007834</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/NATO</Value>
@@ -7972,11 +8188,19 @@
 </Annotation>
 <Annotation Id="15266" Type="Mention" StartNode="1602" EndNode="1611">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9880858606243069</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15267" Type="Mention" StartNode="916" EndNode="924">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9533406387256197</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
@@ -7984,11 +8208,19 @@
 </Annotation>
 <Annotation Id="15268" Type="Mention" StartNode="1827" EndNode="1836">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9882202806301789</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15269" Type="Mention" StartNode="4440" EndNode="4451">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.886046513960593</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Afghanistan</Value>
@@ -7996,11 +8228,19 @@
 </Annotation>
 <Annotation Id="15270" Type="Mention" StartNode="1866" EndNode="1875">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.987213847858511</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15271" Type="Mention" StartNode="3217" EndNode="3228">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8338669221627572</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Afghanistan</Value>
@@ -8008,11 +8248,19 @@
 </Annotation>
 <Annotation Id="15272" Type="Mention" StartNode="230" EndNode="239">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8769491123180225</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15273" Type="Mention" StartNode="2495" EndNode="2522">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9002907535685524</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Ministry_of_Interior_(Pakistan)</Value>
@@ -8020,11 +8268,19 @@
 </Annotation>
 <Annotation Id="15274" Type="Mention" StartNode="4189" EndNode="4195">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9906526727379541</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Chaman</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15275" Type="Mention" StartNode="378" EndNode="387">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8769491123180225</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
@@ -8032,11 +8288,19 @@
 </Annotation>
 <Annotation Id="15213" Type="Mention" StartNode="3995" EndNode="3999">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8339273265007834</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/NATO</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15214" Type="Mention" StartNode="957" EndNode="970">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9557635438828036</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
@@ -8044,11 +8308,19 @@
 </Annotation>
 <Annotation Id="15215" Type="Mention" StartNode="1650" EndNode="1657">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8247932293580417</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Karachi</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15216" Type="Mention" StartNode="2076" EndNode="2084">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.74580501600162</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Al-Qaeda</Value>
@@ -8056,11 +8328,19 @@
 </Annotation>
 <Annotation Id="15217" Type="Mention" StartNode="344" EndNode="348">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8328332199568148</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/NATO</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15218" Type="Mention" StartNode="51" EndNode="60">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8193195948882486</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Islamabad</Value>
@@ -8068,11 +8348,19 @@
 </Annotation>
 <Annotation Id="15219" Type="Mention" StartNode="134" EndNode="138">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9955340793679004</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15220" Type="Mention" StartNode="4024" EndNode="4031">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9156470614820055</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Torkham</Value>
@@ -8080,11 +8368,19 @@
 </Annotation>
 <Annotation Id="15221" Type="Mention" StartNode="3394" EndNode="3409">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.4772511556942016</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Paktia_Province</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15222" Type="Mention" StartNode="4099" EndNode="4110">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8982051034034813</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Afghanistan</Value>
@@ -8092,11 +8388,19 @@
 </Annotation>
 <Annotation Id="15223" Type="Mention" StartNode="1993" EndNode="1997">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8328332199568148</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/NATO</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15224" Type="Mention" StartNode="2169" EndNode="2178">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.974719733409598</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
@@ -8104,11 +8408,19 @@
 </Annotation>
 <Annotation Id="15225" Type="Mention" StartNode="1953" EndNode="1957">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8316475360475035</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/NATO</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15226" Type="Mention" StartNode="3265" EndNode="3273">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.39497008702669617</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
@@ -8116,11 +8428,19 @@
 </Annotation>
 <Annotation Id="15227" Type="Mention" StartNode="2883" EndNode="2887">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9955340793679004</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15228" Type="Mention" StartNode="640" EndNode="649">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9844630755076677</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Pakistan</Value>
@@ -8128,17 +8448,29 @@
 </Annotation>
 <Annotation Id="15229" Type="Mention" StartNode="1332" EndNode="1343">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8234965329746277</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Afghanistan</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15230" Type="Mention" StartNode="3003" EndNode="3007">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8328332199568148</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/NATO</Value>
 </Feature>
 </Annotation>
 <Annotation Id="15231" Type="Mention" StartNode="635" EndNode="639">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8197953564919903</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>

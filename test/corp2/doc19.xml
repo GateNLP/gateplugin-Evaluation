@@ -803,11 +803,19 @@
 <AnnotationSet Name="Shef">
 <Annotation Id="2870" Type="Mention" StartNode="368" EndNode="375">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9913813502017939</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kurmanbek_Bakiyev</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2871" Type="Mention" StartNode="295" EndNode="304">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9911421337276487</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Ata-Zhurt</Value>
@@ -815,17 +823,29 @@
 </Annotation>
 <Annotation Id="2872" Type="Mention" StartNode="709" EndNode="718">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9744919653259059</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Ata-Zhurt</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2873" Type="Mention" StartNode="377" EndNode="384">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9913813502017939</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kurmanbek_Bakiyev</Value>
 </Feature>
 </Annotation>
 <Annotation Id="2874" Type="Mention" StartNode="48" EndNode="55">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.994895593906266</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Bishkek</Value>
@@ -838,11 +858,19 @@
 <AnnotationSet Name="Ref">
 <Annotation Id="1248" Type="Mention" StartNode="548" EndNode="552">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9888349251754744</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/United_States</Value>
 </Feature>
 </Annotation>
 <Annotation Id="1249" Type="Mention" StartNode="709" EndNode="718">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.46979788062093664</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Ata-Zhurt</Value>
@@ -850,17 +878,29 @@
 </Annotation>
 <Annotation Id="1245" Type="Mention" StartNode="377" EndNode="384">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999928752007703</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kurmanbek_Bakiyev</Value>
 </Feature>
 </Annotation>
 <Annotation Id="1246" Type="Mention" StartNode="295" EndNode="304">
 <Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.8199161774224729</Value>
+</Feature>
+<Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Ata-Zhurt</Value>
 </Feature>
 </Annotation>
 <Annotation Id="1247" Type="Mention" StartNode="368" EndNode="375">
+<Feature>
+  <Name className="java.lang.String">score</Name>
+  <Value className="java.lang.Double">0.9999935215490314</Value>
+</Feature>
 <Feature>
   <Name className="java.lang.String">inst</Name>
   <Value className="java.lang.String">http://dbpedia.org/resource/Kurmanbek_Bakiyev</Value>
