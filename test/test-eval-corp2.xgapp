@@ -2,7 +2,7 @@
   <urlList class="gate.util.persistence.CollectionPersistence">
     <localList>
       <gate.util.persistence.PersistenceManager-URLHolder>
-        <urlString>$relpath$../</urlString>
+        <urlString>$relpath$../../Evaluation/</urlString>
       </gate.util.persistence.PersistenceManager-URLHolder>
       <gate.util.persistence.PersistenceManager-URLHolder>
         <urlString>$gatehome$plugins/ANNIE/</urlString>
@@ -1107,6 +1107,116 @@
                     <localList>
                       <string>inst</string>
                     </localList>
+                    <collectionType>java.util.Arrays$ArrayList</collectionType>
+                  </gate.util.persistence.CollectionPersistence>
+                </entry>
+                <entry>
+                  <string>corpus</string>
+                  <null/>
+                </entry>
+                <entry>
+                  <string>referenceASName</string>
+                  <null/>
+                </entry>
+                <entry>
+                  <string>featureComparison</string>
+                  <gate.plugin.evaluation.api.FeatureComparison>FEATURE_EQUALITY</gate.plugin.evaluation.api.FeatureComparison>
+                </entry>
+                <entry>
+                  <string>nilTreatment</string>
+                  <gate.plugin.evaluation.api.NilTreatment>NO_NILS</gate.plugin.evaluation.api.NilTreatment>
+                </entry>
+                <entry>
+                  <string>responseASName</string>
+                  <string>Shef</string>
+                </entry>
+                <entry>
+                  <string>evaluationId</string>
+                  <string>corp2-score</string>
+                </entry>
+                <entry>
+                  <string>outputASPrefix</string>
+                  <null/>
+                </entry>
+                <entry>
+                  <string>featureNameNilCluster</string>
+                  <string></string>
+                </entry>
+                <entry>
+                  <string>outputDirectoryUrl</string>
+                  <gate.util.persistence.PersistenceManager-URLHolder>
+                    <urlString>$relpath$../test/</urlString>
+                  </gate.util.persistence.PersistenceManager-URLHolder>
+                </entry>
+                <entry>
+                  <string>listIdFeatureName</string>
+                  <string></string>
+                </entry>
+                <entry>
+                  <string>keyASName</string>
+                  <string>Key</string>
+                </entry>
+                <entry>
+                  <string>containmentType</string>
+                  <gate.plugin.evaluation.api.ContainmentType>OVERLAPPING</gate.plugin.evaluation.api.ContainmentType>
+                </entry>
+                <entry>
+                  <string>containingASNameAndType</string>
+                  <string></string>
+                </entry>
+                <entry>
+                  <string>whichThresholds</string>
+                  <gate.plugin.evaluation.api.ThresholdsToUse>USE_ALLROUNDED</gate.plugin.evaluation.api.ThresholdsToUse>
+                </entry>
+                <entry>
+                  <string>annotationTypes</string>
+                  <gate.util.persistence.CollectionPersistence>
+                    <localList>
+                      <string>Mention</string>
+                    </localList>
+                    <collectionType>java.util.ArrayList</collectionType>
+                  </gate.util.persistence.CollectionPersistence>
+                </entry>
+              </localMap>
+            </runtimeParams>
+            <resourceType>gate.plugin.evaluation.resources.EvaluateTagging</resourceType>
+            <resourceName>EvaluateTagging:corp2-score</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>nilValue</string>
+                  <string></string>
+                </entry>
+                <entry>
+                  <string>scoreFeatureName</string>
+                  <string>score</string>
+                </entry>
+                <entry>
+                  <string>document</string>
+                  <null/>
+                </entry>
+                <entry>
+                  <string>featureNames</string>
+                  <gate.util.persistence.CollectionPersistence>
+                    <localList>
+                      <string>inst</string>
+                    </localList>
                     <collectionType>java.util.ArrayList</collectionType>
                   </gate.util.persistence.CollectionPersistence>
                 </entry>
@@ -1198,6 +1308,7 @@
       <localList>
         <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence/pr"/>
         <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[2]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[3]/pr"/>
       </localList>
       <collectionType>java.util.ArrayList</collectionType>
     </prList>

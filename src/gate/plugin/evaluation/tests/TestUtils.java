@@ -26,6 +26,7 @@ public class TestUtils {
   // mantissa of double (64 bit), but with 3 bits taken away, i.e. 52-3 bits for the mantissa,
   // i.e. 2^49 
   public static final double EPS = 1.7763568394002505e-15;
+  public static final double EPS4 = 1e-4;
   
   // create a string with 1000 blanks which we will use as document content for many documents
   // dynamically created in the tests

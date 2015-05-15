@@ -60,6 +60,9 @@ public class TestTagging2 {
     */
     //logger.setLevel(Level.INFO);
     if(!Gate.isInitialised()) {
+      if(System.getProperty("gate.home") != null) {
+        Gate.setGateHome(new File(System.getProperty("gate.home")));
+      }
       Gate.runInSandbox(true);
       Gate.init();
     }

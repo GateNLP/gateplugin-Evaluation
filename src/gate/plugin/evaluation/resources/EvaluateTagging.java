@@ -901,9 +901,15 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
           EvalStatsTagging es
   ) {
     StringBuilder sb = new StringBuilder();
+    String avg = "micro";
+    if(es instanceof EvalStatsTaggingMacro) {
+      avg = "macro";
+    }
     sb.append(expandedEvaluationId); sb.append("\t");
     if(docName == null) {
-      sb.append("[doc:all:micro]");
+      sb.append("[doc:all:");
+      sb.append(avg);
+      sb.append("]");
     } else {
       sb.append(docName);
     }
@@ -915,7 +921,9 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     }
     sb.append("\t");
     if(annotationType == null || annotationType.isEmpty()) {
-      sb.append("[type:all:micro]");
+      sb.append("[type:all:");
+      sb.append(avg);
+      sb.append("]");
     } else {
       sb.append(annotationType);
     }

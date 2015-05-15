@@ -121,6 +121,7 @@
     <junit fork="true" showoutput="true" printsummary="yes" maxmemory="1G" > 
       <classpath refid="run.classpath" />
       <sysproperty key="some.property" value="${classes.dir}" />
+      <sysproperty key="gate.home" value="${gate.home}" />
       <formatter type="xml" />
       <!-- <formatter type="plain" usefile="false" />-->
       <formatter type="plain" />
