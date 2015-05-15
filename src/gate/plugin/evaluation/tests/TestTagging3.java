@@ -112,6 +112,10 @@ public class TestTagging3 {
     assertEquals("precision strict",0.982652,es_allTypes.getPrecisionStrict(),EPS4);
     assertEquals("recall lenient",0.774683,es_allTypes.getRecallStrict(),EPS4);
     assertEquals("f1.0 strict",0.866362,es_allTypes.getFMeasureStrict(1.0),EPS4);
+    EvalStatsTagging es_Anatomy = corp1orig.getEvalStatsTagging("Anatomy");
+    assertEquals("precision strict",0.98913043,es_Anatomy.getPrecisionStrict(),EPS4);
+    assertEquals("recall lenient",0.869980,es_Anatomy.getRecallStrict(),EPS4);
+    assertEquals("f1.0 strict",0.925737,es_Anatomy.getFMeasureStrict(1.0),EPS4);
     
   }  
   
