@@ -38,6 +38,7 @@ import org.apache.log4j.Appender;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
 import static org.junit.Assert.*;
 
 /**
@@ -63,7 +64,10 @@ public class TestTagging3 {
     appender.setLayout(new PatternLayout("%-5p [%t]: %m%n"));
     logger.addAppender(appender);
     */
-    //logger.setLevel(Level.INFO);
+    Logger rootLogger = Logger.getRootLogger();
+    rootLogger.setLevel(Level.INFO);
+    logger.setLevel(Level.DEBUG);
+
     if(!Gate.isInitialised()) {
       if(System.getProperty("gate.home") != null) {
         Gate.setGateHome(new File(System.getProperty("gate.home")));
@@ -94,13 +98,11 @@ public class TestTagging3 {
   public void testCorp1() throws ResourceInstantiationException, ExecutionException, PersistenceException, IOException {
     logger.debug("Running test testCorp1");
     File pipelineFile = new File(testingDir,"test-eval-corp1.xgapp");
-    System.out.println("Trying to load from "+pipelineFile);
     CorpusController controller = (CorpusController)PersistenceManager.loadObjectFromFile(pipelineFile);
     // access the PRs that are in the controller
     EvaluateTagging corp1orig = null;
     
     for(ProcessingResource pr : controller.getPRs()) {
-      System.out.println("Found PR "+pr.getName());
       if(pr.getName().equals("EvaluateTagging:corp1:orig")) {
         corp1orig = (EvaluateTagging)pr;
       }
@@ -125,6 +127,46 @@ public class TestTagging3 {
     assertEquals("f1.0 strict",0.796969,es_Drug.getFMeasureStrict(1.0),EPS4);
     
     // 
+  }
+  
+  @Test
+  public void testCorp2() throws ResourceInstantiationException, ExecutionException, PersistenceException, IOException {
+    logger.debug("Running test testCorp2");
+    File pipelineFile = new File(testingDir,"test-eval-corp2.xgapp");
+    CorpusController controller = (CorpusController)PersistenceManager.loadObjectFromFile(pipelineFile);
+    // access the PRs that are in the controller
+    EvaluateTagging corp2normal = null;
+    EvaluateTagging corp2score  = null;
+    EvaluateTagging corp2list = null;
+    
+    for(ProcessingResource pr : controller.getPRs()) {
+      if(pr.getName().equals("EvaluateTagging:corp2-normal")) {
+        corp2normal = (EvaluateTagging)pr;
+      }
+      if(pr.getName().equals("EvaluateTagging:corp2-score")) {
+        corp2score = (EvaluateTagging)pr;
+      }
+      if(pr.getName().equals("EvaluateTagging:corp2-list")) {
+        corp2list = (EvaluateTagging)pr;
+      }
+    }
+    assertNotNull(corp2normal);
+    assertNotNull(corp2score);
+    assertNotNull(corp2list);
+    controller.execute();
+    // now check if the expected evaluation statistics are there
+    EvalStatsTagging es_normal = corp2normal.getEvalStatsTagging("");
+    assertEquals("precision strict",0.46739130434783,es_normal.getPrecisionStrict(),EPS4);
+    assertEquals("recall strict",0.18587896253602,es_normal.getRecallStrict(),EPS4);
+    assertEquals("f1.0 strict",0.2659793814433,es_normal.getFMeasureStrict(1.0),EPS4);
+    assertEquals("accuracy strict",0.18587896253602,es_normal.getSingleCorrectAccuracyStrict(),EPS4);
+    assertEquals("precision lenient",0.51449275362319,es_normal.getPrecisionLenient(),EPS4);
+    assertEquals("recall lenient",0.20461095100865,es_normal.getRecallLenient(),EPS4);
+    assertEquals("f1.0 lenient",0.29278350515464,es_normal.getFMeasureLenient(1.0),EPS4);
+    assertEquals("accuracy lenient",0.20461095100865,es_normal.getSingleCorrectAccuracyLenient(),EPS4);
+    
+    // 
+
     
   }  
   
