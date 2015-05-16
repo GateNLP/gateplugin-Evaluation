@@ -498,7 +498,7 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
     if(type.isEmpty()) {
       featurePrefixResponseT += "[ALL].";
     } else {
-      featurePrefixResponseT += type;
+      featurePrefixResponseT += (type + ".");
     }
     docFm.put(featurePrefixResponseT+"FMeasureStrict", es.getFMeasureStrict(1.0));
     docFm.put(featurePrefixResponseT+"FMeasureLenient", es.getFMeasureLenient(1.0));
@@ -831,8 +831,8 @@ public class EvaluateTagging extends AbstractLanguageAnalyser
       nilTreatment = NilTreatment.NO_NILS;
     }
     
-    featurePrefixResponse = initialFeaturePrefixResponse + getResponseASName() + ".";
-    featurePrefixReference = initialFeaturePrefixReference + getReferenceASName() + ".";
+    featurePrefixResponse = initialFeaturePrefixResponse + getEvaluationId() + "." + getResponseASName();
+    featurePrefixReference = initialFeaturePrefixReference + getEvaluationId() + "." + getReferenceASName();
 
     mainTsvPrintStream = getOutputStream(null);
     // Output the initial header line
