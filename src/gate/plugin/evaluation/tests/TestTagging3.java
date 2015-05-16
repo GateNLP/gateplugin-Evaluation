@@ -165,6 +165,70 @@ public class TestTagging3 {
     assertEquals("f1.0 lenient",0.29278350515464,es_normal.getFMeasureLenient(1.0),EPS4);
     assertEquals("accuracy lenient",0.20461095100865,es_normal.getSingleCorrectAccuracyLenient(),EPS4);
     
+    EvalStatsTagging es_score = corp2score.getEvalStatsTagging("");
+    assertEquals("precision strict",0.46739130434783,es_score.getPrecisionStrict(),EPS4);
+    assertEquals("recall strict",0.18587896253602,es_score.getRecallStrict(),EPS4);
+    assertEquals("f1.0 strict",0.2659793814433,es_score.getFMeasureStrict(1.0),EPS4);
+    assertEquals("accuracy strict",0.18587896253602,es_score.getSingleCorrectAccuracyStrict(),EPS4);
+    assertEquals("precision lenient",0.51449275362319,es_score.getPrecisionLenient(),EPS4);
+    assertEquals("recall lenient",0.20461095100865,es_score.getRecallLenient(),EPS4);
+    assertEquals("f1.0 lenient",0.29278350515464,es_score.getFMeasureLenient(1.0),EPS4);
+    assertEquals("accuracy lenient",0.20461095100865,es_score.getSingleCorrectAccuracyLenient(),EPS4);
+    
+    es_score = corp2score.getByThEvalStatsTagging("").get(0.94);
+    assertNotNull(es_score);
+    assertEquals("precision strict",0.48387096774194,es_score.getPrecisionStrict(),EPS4);
+    assertEquals("recall strict",0.06484149855908,es_score.getRecallStrict(),EPS4);
+    assertEquals("f1.0 strict",0.1143583227446,es_score.getFMeasureStrict(1.0),EPS4);
+    // assertEquals("accuracy strict",0,es_score.getSingleCorrectAccuracyStrict(),EPS4);  // BUG???
+    assertEquals("precision lenient",0.53763440860215,es_score.getPrecisionLenient(),EPS4);
+    assertEquals("recall lenient",0.07204610951009,es_score.getRecallLenient(),EPS4);
+    assertEquals("f1.0 lenient",0.12706480304956,es_score.getFMeasureLenient(1.0),EPS4);
+    // assertEquals("accuracy lenient",0,es_score.getSingleCorrectAccuracyLenient(),EPS4); // BUG?
+    
+    EvalStatsTagging es_list_default = corp2list.getEvalStatsTagging("");
+    assertEquals("precision strict",0.39404352806415,es_list_default.getPrecisionStrict(),EPS4);
+    assertEquals("recall strict",0.49567723342939,es_list_default.getRecallStrict(),EPS4);
+    assertEquals("f1.0 strict",0.43905552010211,es_list_default.getFMeasureStrict(1.0),EPS4);
+    assertEquals("accuracy strict",0.49567723342939,es_list_default.getSingleCorrectAccuracyStrict(),EPS4);
+    assertEquals("precision lenient",0.42497136311569,es_list_default.getPrecisionLenient(),EPS4);
+    assertEquals("recall lenient",0.53458213256484,es_list_default.getRecallLenient(),EPS4);
+    assertEquals("f1.0 lenient",0.47351627313338,es_list_default.getFMeasureLenient(1.0),EPS4);
+    assertEquals("accuracy lenient",0.53458213256484,es_list_default.getSingleCorrectAccuracyLenient(),EPS4);
+    
+    es_list_default = corp2list.getByThEvalStatsTagging("").get(0.81);
+    assertNotNull(es_score);
+    assertEquals("precision strict",0.63434343434343,es_list_default.getPrecisionStrict(),EPS4);
+    assertEquals("recall strict",0.45244956772334,es_list_default.getRecallStrict(),EPS4);
+    assertEquals("f1.0 strict",0.52817493692178,es_list_default.getFMeasureStrict(1.0),EPS4);
+    // assertEquals("accuracy strict",0,es_score.getSingleCorrectAccuracyStrict(),EPS4);  // BUG???
+    assertEquals("precision lenient",0.67474747474747,es_list_default.getPrecisionLenient(),EPS4);
+    assertEquals("recall lenient",0.48126801152738,es_list_default.getRecallLenient(),EPS4);
+    assertEquals("f1.0 lenient",0.56181665264929,es_list_default.getFMeasureLenient(1.0),EPS4);
+    // assertEquals("accuracy lenient",0,es_score.getSingleCorrectAccuracyLenient(),EPS4); // BUG?
+
+    
+    
+    
+    // also make sure that the document features are set correctly
+    // get some arbitrary document
+    Document d1 = null;
+    for(Document d : controller.getCorpus()) {
+      // need startsWith because GATE appends that random nonsense
+      if(d.getName().startsWith("doc11.xml")) {
+        d1 = d;
+      }
+    }
+    assertNotNull(d1);
+    FeatureMap fmd1 = d1.getFeatures();
+    assertEquals(0.33333333333333,(Double)fmd1.get("evaluateTagging.response.corp2-normal.Shef.Mention.PrecisionStrict"),EPS4);
+    assertEquals(0.17647058823529,(Double)fmd1.get("evaluateTagging.response.corp2-normal.Shef.Mention.RecallStrict"),EPS4);
+    assertEquals(0.23076923076923,(Double)fmd1.get("evaluateTagging.response.corp2-normal.Shef.Mention.FMeasureStrict"),EPS4);
+
+    assertEquals(0.75,(Double)fmd1.get("evaluateTagging.reference.corp2-normal.Ref.Mention.PrecisionStrict"),EPS4);
+    assertEquals(0.35294117647059,(Double)fmd1.get("evaluateTagging.reference.corp2-normal.Ref.Mention.RecallStrict"),EPS4);
+    assertEquals(0.48,(Double)fmd1.get("evaluateTagging.reference.corp2-normal.Ref.Mention.FMeasureStrict"),EPS4);
+    
     // 
 
     
