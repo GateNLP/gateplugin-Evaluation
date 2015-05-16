@@ -3,246 +3,6 @@
 <!-- The document's features-->
 
 <GateDocumentFeatures>
-<Feature>
-  <Name className="java.lang.String">createSourceType</Name>
-  <Value className="java.lang.String">W</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbDescription</Name>
-  <Value className="java.lang.String">Health related issues, views, reviews and analysis are posted. </Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">corpus</Name>
-  <Value className="java.lang.String">Web.HON.Eng</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">language</Name>
-  <Value className="java.lang.String">en</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-ml02-disambig</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbUrl</Name>
-  <Value className="java.lang.String">http://clinispot.blogspot.com/2011/10/if-you-can-tolerate-take-aspirin-to.html</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needAllContent</Name>
-  <Value className="java.lang.String">false</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">locationCountry</Name>
-  <Value className="java.lang.String">India</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbSnippet</Name>
-  <Value className="java.lang.String">Health related issues, views, reviews and analysis are posted. </Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbLanguage</Name>
-  <Value className="java.lang.String">en</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-findContent</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">id</Name>
-  <Value className="java.lang.String">http://clinispot.blogspot.com/2011/10/if-you-can-tolerate-take-aspirin-to.html</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbDomain</Name>
-  <Value className="java.lang.String">blogspot.com</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">images</Name>
-  <Value className="java.lang.String">http://img1.blogblog.com/img/icon18_wrench_allbkg.png|http://www.linkedin.com/img/webpromo/btn_myprofile_160x33.gif|http://www.Bloggernity.com/images/80x15.png|http://banners.blogexplosion.com/button1.gif|http://trafficg.com/buttons/88x31_trafficg2.1.gif|http://buttons.googlesyndication.com/fusion/add.gif|http://twitterbuttons.sociableblog.com/images/FB16.png|http://www.blogarama.com/images/button.gif|http://www.indiblogger.in/badges/medium_red.png|http://img.blogsavenue.com/banner/2389.gif|http://www.bloglisting.net/images/bloglistings_button.gif|http://www.blogrankings.com/img_6065.gif|http://twitterbuttons.sociableblog.com/images/button_2.png|http://www.linkwithin.com/pixel.png|http://us.i1.yimg.com/us.yimg.com/i/us/my/addtomyyahoo4.gif|http://www.hon.ch/HONcode/Seal/HONConduct375378_s.gif|http://www.blogengage.com/images/blog_engage_promo_1.jpg|http://i219.photobucket.com/albums/cc286/7kranthiswaroop/thenvelope.gif|http://www.blogged.com/icons/vn_prahalladp_1532855.gif|http://img.zemanta.com/zemified_e.png?x-id=bacba79c-162d-4011-8dba-f23d42f80a12|http://www.scrubtheweb.com/abs/linkexchange/easy.gif|http://feeds.feedburner.com/~fc/CliniSpot?bg=99CCFF&amp;fg=444444&amp;anim=1&amp;label=listeners|http://www.ontoplist.com/images/ontoplist9.jpg?id=4c7fb830250d1|http://images.spicypage.com/badgets/voteformyblog_90x52.gif|http://www.feedburner.com/fb/images/pub/i_heart_fb.gif|http://static.bloglines.com/images/lang/default/sub_modern1.gif|http://www.bloghub.com/images/88x31.gif|http://bloggers.com/u/71517/p/img_01.png|http://myblogbits.googlepages.com/Best-on-Blogspot-88x31.png|http://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Colon_cancer.jpg/300px-Colon_cancer.jpg|http://www.blogadda.com/images/blogadda.png|http://2.bp.blogspot.com/-K_vkgzcKkkA/UFsVmyblLpI/AAAAAAAABkM/RaUE3zOHfEY/s1600/clician%2527s.png</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">idType</Name>
-  <Value className="java.lang.String">WebUrl</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needBoilerPipe</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-mimirIndexing</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">containsImages</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">hesClassification</Name>
-  <Value className="java.lang.String">patient</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-basic-annots</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">createGuessedEncoding</Name>
-  <Value className="java.lang.String">UTF-8</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">domain</Name>
-  <Value className="java.lang.String">blogspot.com</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-umls-disambiguate</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbTitle</Name>
-  <Value className="java.lang.String">If You can Tolerate Take Aspirin to Prevent Cancer in Lynch Syndrome ~ From A Clinician's Bioscope</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">publisher</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbId</Name>
-  <Value className="java.lang.String">http%3A%2F%2Fclinispot.blogspot.com%2F2011%2F10%2Fif-you-can-tolerate-take-aspirin-to.html</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">locationCity</Name>
-  <Value className="java.lang.String">Paradip</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbSourceMD5</Name>
-  <Value className="java.lang.String">62aa97cac10c9cad8062f4a25b6e8f9b</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">authors</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needPubmedContent</Name>
-  <Value className="java.lang.String">false</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">health_topics</Name>
-  <Value className="java.lang.String">Cancer|People with disabilities|Prevention and promotion</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">tags.names</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-umls-extgaz</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cbdUrl</Name>
-  <Value className="java.lang.String">http://clinispot.blogspot.com/2011/10/if-you-can-tolerate-take-aspirin-to.html</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needDefaultMeta</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">title</Name>
-  <Value className="java.lang.String">If You can Tolerate Take Aspirin to Prevent Cancer in Lynch Syndrome ~ From A Clinician's Bioscope</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">MimeType</Name>
-  <Value className="java.lang.String">text/html</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needWikipediaMeta</Name>
-  <Value className="java.lang.String">false</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">gate.SourceURL</Name>
-  <Value className="java.lang.String">http://clinispot.blogspot.com/2011/10/if-you-can-tolerate-take-aspirin-to.html</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-ml02-apply</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">health_topic_terms</Name>
-  <Value className="java.lang.String">prevention|breast cancer|colorectal cancer|cancer|down syndrome|hereditary nonpolyposis|patients|initiatives|research|placebo|comparability|standardization|standard|urethra|penis|assessment</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needPubmedMeta</Name>
-  <Value className="java.lang.String">false</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">categories</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbRev</Name>
-  <Value className="java.lang.String">4-4aefa7d678e3c606ac40c71ca7bce282</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbHost</Name>
-  <Value className="java.lang.String">clinispot.blogspot.com</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">createDate</Name>
-  <Value className="java.lang.String">2013-05-12,15:03:41</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-ml02features</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-annotate-stopwords</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">createFileName</Name>
-  <Value className="java.lang.String">W_blogspot.com_62aa97cac10c9cad8062f4a25b6e8f9b.xml</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-drugbank-extgaz</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator5</Name>
-  <Value className="java.lang.String">lh11</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator4</Name>
-  <Value className="java.lang.String">lh71</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator3</Name>
-  <Value className="java.lang.String">lh52</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-MAIN</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator2</Name>
-  <Value className="java.lang.String">lh38</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator1</Name>
-  <Value className="java.lang.String">lh44</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">url</Name>
-  <Value className="java.lang.String">http://clinispot.blogspot.com/2011/10/if-you-can-tolerate-take-aspirin-to.html</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">tags.codes</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbRelevancyScore</Name>
-  <Value className="java.lang.String">12.3025601417257</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">couchDBType</Name>
-  <Value className="java.lang.String">web</Value>
-</Feature>
 </GateDocumentFeatures>
 <!-- The document content area with serialized nodes -->
 
@@ -250,30 +10,6 @@
 <!-- The default annotation set -->
 
 <AnnotationSet>
-<Annotation Id="5536" Type="Drug" StartNode="2096" EndNode="2103">
-<Feature>
-  <Name className="java.lang.String">cui</Name>
-  <Value className="java.lang.String">C0004057</Value>
-</Feature>
-</Annotation>
-<Annotation Id="5537" Type="Drug" StartNode="2145" EndNode="2152">
-<Feature>
-  <Name className="java.lang.String">cui</Name>
-  <Value className="java.lang.String">C0004057</Value>
-</Feature>
-</Annotation>
-<Annotation Id="5538" Type="Disease" StartNode="2160" EndNode="2185">
-<Feature>
-  <Name className="java.lang.String">cui</Name>
-  <Value className="java.lang.String">C0017181</Value>
-</Feature>
-</Annotation>
-<Annotation Id="5539" Type="Disease" StartNode="2190" EndNode="2207">
-<Feature>
-  <Name className="java.lang.String">cui</Name>
-  <Value className="java.lang.String">C2937358</Value>
-</Feature>
-</Annotation>
 <Annotation Id="5521" Type="Drug" StartNode="434" EndNode="441">
 <Feature>
   <Name className="java.lang.String">cui</Name>
@@ -362,6 +98,30 @@
 <Feature>
   <Name className="java.lang.String">cui</Name>
   <Value className="java.lang.String">C1333990</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5536" Type="Drug" StartNode="2096" EndNode="2103">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0004057</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5537" Type="Drug" StartNode="2145" EndNode="2152">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0004057</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5538" Type="Disease" StartNode="2160" EndNode="2185">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0017181</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5539" Type="Disease" StartNode="2190" EndNode="2207">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C2937358</Value>
 </Feature>
 </Annotation>
 </AnnotationSet>

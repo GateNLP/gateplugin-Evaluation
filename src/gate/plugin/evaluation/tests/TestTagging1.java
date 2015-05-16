@@ -69,6 +69,9 @@ public class TestTagging1 {
     rootLogger.addAppender(appender);
     
     if(!Gate.isInitialised()) {
+      if(System.getProperty("gate.home") != null) {
+        Gate.setGateHome(new File(System.getProperty("gate.home")));
+      }
       Gate.runInSandbox(true);
       Gate.init();
     }

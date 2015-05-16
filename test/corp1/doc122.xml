@@ -3,246 +3,6 @@
 <!-- The document's features-->
 
 <GateDocumentFeatures>
-<Feature>
-  <Name className="java.lang.String">createSourceType</Name>
-  <Value className="java.lang.String">W</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbDescription</Name>
-  <Value className="java.lang.String">Content info</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">corpus</Name>
-  <Value className="java.lang.String">Web.HON.Eng</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">language</Name>
-  <Value className="java.lang.String">en</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-ml02-disambig</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbUrl</Name>
-  <Value className="java.lang.String">http://www.cancer.ca/en/get-involved/support-us/how-your-donations-help/?region=nl</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needAllContent</Name>
-  <Value className="java.lang.String">false</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">locationCountry</Name>
-  <Value className="java.lang.String">Canada</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbSnippet</Name>
-  <Value className="java.lang.String">Content info</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbLanguage</Name>
-  <Value className="java.lang.String">en</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-findContent</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">id</Name>
-  <Value className="java.lang.String">http://www.cancer.ca/en/get-involved/support-us/how-your-donations-help/?region=nl</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbDomain</Name>
-  <Value className="java.lang.String">cancer.ca</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">images</Name>
-  <Value className="java.lang.String">/~/media/CCS/Design/Images/logo_ccs75th.png|/~/media/CCS/Design/Partners/logo_imagine_canada.jpg|/~/media/cancer.ca/CW/get involved/getinvolved.jpg|/~/media/cancer.ca/ON/impact stories/Sharon-Sandhawalia-thumbnail-2012-ON.jpg|/~/media/CCS/Design/Partners/image004.jpg</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">idType</Name>
-  <Value className="java.lang.String">WebUrl</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needBoilerPipe</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-mimirIndexing</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">containsImages</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">hesClassification</Name>
-  <Value className="java.lang.String">patient</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-basic-annots</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">createGuessedEncoding</Name>
-  <Value className="java.lang.String">UTF-8</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">domain</Name>
-  <Value className="java.lang.String">cancer.ca</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-umls-disambiguate</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbTitle</Name>
-  <Value className="java.lang.String"> How your donations help </Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">publisher</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbId</Name>
-  <Value className="java.lang.String">http%3A%2F%2Fwww.cancer.ca%2Fen%2Fget-involved%2Fsupport-us%2Fhow-your-donations-help%2F%3Fregion%3Dnl</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">locationCity</Name>
-  <Value className="java.lang.String">Toronto</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbSourceMD5</Name>
-  <Value className="java.lang.String">b2d50d34a3d051aae7f556bc5d52a0ba</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">authors</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needPubmedContent</Name>
-  <Value className="java.lang.String">false</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">health_topics</Name>
-  <Value className="java.lang.String">Cancer</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">tags.names</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-umls-extgaz</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cbdUrl</Name>
-  <Value className="java.lang.String">http://www.cancer.ca/en/get-involved/support-us/how-your-donations-help/?region=nl</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needDefaultMeta</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">title</Name>
-  <Value className="java.lang.String">How your donations help</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">MimeType</Name>
-  <Value className="java.lang.String">text/html</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needWikipediaMeta</Name>
-  <Value className="java.lang.String">false</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">gate.SourceURL</Name>
-  <Value className="java.lang.String">http://www.cancer.ca/en/get-involved/support-us/how-your-donations-help/?region=nl</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-ml02-apply</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">health_topic_terms</Name>
-  <Value className="java.lang.String">decision support|cancer|research|prevention|comparability|funding|lead|policy|projects|caregiver|smoking|treatment|patient safety|initiatives|patients|mobility</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needPubmedMeta</Name>
-  <Value className="java.lang.String">false</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">categories</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbRev</Name>
-  <Value className="java.lang.String">1-a4d9da8773030eb48045715b9e983e87</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbHost</Name>
-  <Value className="java.lang.String">www.cancer.ca</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">createDate</Name>
-  <Value className="java.lang.String">2013-05-12,15:00:58</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-ml02features</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-annotate-stopwords</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">createFileName</Name>
-  <Value className="java.lang.String">W_cancer.ca_b2d50d34a3d051aae7f556bc5d52a0ba.xml</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-drugbank-extgaz</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator5</Name>
-  <Value className="java.lang.String">lh11</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator4</Name>
-  <Value className="java.lang.String">lh49</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator3</Name>
-  <Value className="java.lang.String">lh71</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-MAIN</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator2</Name>
-  <Value className="java.lang.String">lh38</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator1</Name>
-  <Value className="java.lang.String">lh44</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">url</Name>
-  <Value className="java.lang.String">http://www.cancer.ca/en/get-involved/support-us/how-your-donations-help/?region=nl</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">tags.codes</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbRelevancyScore</Name>
-  <Value className="java.lang.String">4.53565563156781</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">couchDBType</Name>
-  <Value className="java.lang.String">web</Value>
-</Feature>
 </GateDocumentFeatures>
 <!-- The document content area with serialized nodes -->
 
@@ -250,6 +10,24 @@
 <!-- The default annotation set -->
 
 <AnnotationSet>
+<Annotation Id="5981" Type="Disease" StartNode="3020" EndNode="3028">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0238884</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5982" Type="Disease" StartNode="3029" EndNode="3035">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0006826</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5983" Type="Disease" StartNode="3113" EndNode="3125">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1707251</Value>
+</Feature>
+</Annotation>
 <Annotation Id="5984" Type="Disease" StartNode="3227" EndNode="3233">
 <Feature>
   <Name className="java.lang.String">cui</Name>
@@ -374,24 +152,6 @@
 <Feature>
   <Name className="java.lang.String">cui</Name>
   <Value className="java.lang.String">C0006826</Value>
-</Feature>
-</Annotation>
-<Annotation Id="5981" Type="Disease" StartNode="3020" EndNode="3028">
-<Feature>
-  <Name className="java.lang.String">cui</Name>
-  <Value className="java.lang.String">C0238884</Value>
-</Feature>
-</Annotation>
-<Annotation Id="5982" Type="Disease" StartNode="3029" EndNode="3035">
-<Feature>
-  <Name className="java.lang.String">cui</Name>
-  <Value className="java.lang.String">C0006826</Value>
-</Feature>
-</Annotation>
-<Annotation Id="5983" Type="Disease" StartNode="3113" EndNode="3125">
-<Feature>
-  <Name className="java.lang.String">cui</Name>
-  <Value className="java.lang.String">C1707251</Value>
 </Feature>
 </Annotation>
 </AnnotationSet>
