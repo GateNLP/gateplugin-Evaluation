@@ -3,242 +3,6 @@
 <!-- The document's features-->
 
 <GateDocumentFeatures>
-<Feature>
-  <Name className="java.lang.String">createSourceType</Name>
-  <Value className="java.lang.String">W</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">corpus</Name>
-  <Value className="java.lang.String">Web.HON.Eng</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">language</Name>
-  <Value className="java.lang.String">en</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-ml02-disambig</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbUrl</Name>
-  <Value className="java.lang.String">http://www.diabetescounselling.com.au/forums/topic/ups-and-downs-of-d/</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needAllContent</Name>
-  <Value className="java.lang.String">false</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">locationCountry</Name>
-  <Value className="java.lang.String">Australia</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbSnippet</Name>
-  <Value className="java.lang.String"> Diabetes Wellbeing and Mental Health This topic contains 0 replies, has 1 voice, and was last updated by nae680 4 years, 7 months ago . I have had diabetes for 21yrs T1 diagnosed at 7yrs old. The fir...</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbLanguage</Name>
-  <Value className="java.lang.String">en</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-findContent</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">id</Name>
-  <Value className="java.lang.String">http://www.diabetescounselling.com.au/forums/topic/ups-and-downs-of-d/</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbDomain</Name>
-  <Value className="java.lang.String">diabetescounselling.com.au</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">images</Name>
-  <Value className="java.lang.String">http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/ribbon_youtube.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/logo.jpg|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/bubble_twitter.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/ribbon_scoop.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/bubble_facebook.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/bubble_youtube.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/ribbon_facebook.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/bubble_scoop.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/HONConduct531511_s1.gif|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/ribbon_twitter.png|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/bubble_pinterest.png|http://www.gravatar.com/avatar/4530e6bbfd93c28335b674343d71aad4?d=http://www.diabetescounselling.com.au/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg&amp;s=14&amp;r=G|http://www.gravatar.com/avatar/4530e6bbfd93c28335b674343d71aad4?d=http://www.diabetescounselling.com.au/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg&amp;s=80&amp;r=G|http://www.diabetescounselling.com.au/wp-content/themes/DiabetesCounselling/images/ribbon_pinterest.png</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">idType</Name>
-  <Value className="java.lang.String">WebUrl</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needBoilerPipe</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-mimirIndexing</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">containsImages</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">hesClassification</Name>
-  <Value className="java.lang.String">patient</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-basic-annots</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">createGuessedEncoding</Name>
-  <Value className="java.lang.String">UTF-8</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">domain</Name>
-  <Value className="java.lang.String">diabetescounselling.com.au</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-umls-disambiguate</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbTitle</Name>
-  <Value className="java.lang.String">Topic: Ups and downs of D | Diabetes Counselling</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">publisher</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbId</Name>
-  <Value className="java.lang.String">http%3A%2F%2Fwww.diabetescounselling.com.au%2Fforums%2Ftopic%2Fups-and-downs-of-d%2F</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">locationCity</Name>
-  <Value className="java.lang.String">Adelaide</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbSourceMD5</Name>
-  <Value className="java.lang.String">eb4ce061beb8e9fe9d6b780f389a43e5</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">authors</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needPubmedContent</Name>
-  <Value className="java.lang.String">false</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">health_topics</Name>
-  <Value className="java.lang.String">Other non-communicable diseases</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">tags.names</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-umls-extgaz</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cbdUrl</Name>
-  <Value className="java.lang.String">http://www.diabetescounselling.com.au/forums/topic/ups-and-downs-of-d/</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needDefaultMeta</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">title</Name>
-  <Value className="java.lang.String">Topic: Ups and downs of D | Diabetes Counselling</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">MimeType</Name>
-  <Value className="java.lang.String">text/html</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needWikipediaMeta</Name>
-  <Value className="java.lang.String">false</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">gate.SourceURL</Name>
-  <Value className="java.lang.String">http://www.diabetescounselling.com.au/forums/topic/ups-and-downs-of-d/</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-ml02-apply</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">health_topic_terms</Name>
-  <Value className="java.lang.String">diabetes|mental health|puberty|hormone|evaluation|teenage|friend|assessment|child|nurses|postnatal depression|depression|projects|funding|chronic diseases|preventable disease|prevention|families|family|men|education</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">needPubmedMeta</Name>
-  <Value className="java.lang.String">false</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">categories</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbRev</Name>
-  <Value className="java.lang.String">1-7567266aefd4298cca501266957d5685</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbHost</Name>
-  <Value className="java.lang.String">www.diabetescounselling.com.au</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">createDate</Name>
-  <Value className="java.lang.String">2013-05-12,15:03:17</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-ml02features</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-annotate-stopwords</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">createFileName</Name>
-  <Value className="java.lang.String">W_diabetescounselling.com.au_eb4ce061beb8e9fe9d6b780f389a43e5.xml</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-drugbank-extgaz</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator5</Name>
-  <Value className="java.lang.String">lh49</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator4</Name>
-  <Value className="java.lang.String">lh45</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator3</Name>
-  <Value className="java.lang.String">lh71</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">run-MAIN</Name>
-  <Value className="java.lang.String">true</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator2</Name>
-  <Value className="java.lang.String">lh44</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">safe.asname.annotator1</Name>
-  <Value className="java.lang.String">lh38</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">url</Name>
-  <Value className="java.lang.String">http://www.diabetescounselling.com.au/forums/topic/ups-and-downs-of-d/</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">tags.codes</Name>
-  <Value className="java.lang.String"></Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">cdbRelevancyScore</Name>
-  <Value className="java.lang.String">9.51853133548299</Value>
-</Feature>
-<Feature>
-  <Name className="java.lang.String">couchDBType</Name>
-  <Value className="java.lang.String">web</Value>
-</Feature>
 </GateDocumentFeatures>
 <!-- The document content area with serialized nodes -->
 
@@ -246,42 +10,6 @@
 <!-- The default annotation set -->
 
 <AnnotationSet>
-<Annotation Id="5712" Type="Disease" StartNode="4978" EndNode="4993">
-<Feature>
-  <Name className="java.lang.String">cui</Name>
-  <Value className="java.lang.String">C0008679</Value>
-</Feature>
-</Annotation>
-<Annotation Id="5713" Type="Disease" StartNode="5089" EndNode="5097">
-<Feature>
-  <Name className="java.lang.String">cui</Name>
-  <Value className="java.lang.String">C1850547</Value>
-</Feature>
-</Annotation>
-<Annotation Id="5714" Type="Disease" StartNode="5118" EndNode="5126">
-<Feature>
-  <Name className="java.lang.String">cui</Name>
-  <Value className="java.lang.String">C1850547</Value>
-</Feature>
-</Annotation>
-<Annotation Id="5715" Type="Disease" StartNode="5153" EndNode="5161">
-<Feature>
-  <Name className="java.lang.String">cui</Name>
-  <Value className="java.lang.String">C1850547</Value>
-</Feature>
-</Annotation>
-<Annotation Id="5716" Type="Disease" StartNode="5298" EndNode="5306">
-<Feature>
-  <Name className="java.lang.String">cui</Name>
-  <Value className="java.lang.String">C1850547</Value>
-</Feature>
-</Annotation>
-<Annotation Id="5717" Type="Drug" StartNode="5344" EndNode="5347">
-<Feature>
-  <Name className="java.lang.String">cui</Name>
-  <Value className="java.lang.String">C0872896</Value>
-</Feature>
-</Annotation>
 <Annotation Id="5706" Type="Disease" StartNode="1593" EndNode="1596">
 <Feature>
   <Name className="java.lang.String">cui</Name>
@@ -316,6 +44,42 @@
 <Feature>
   <Name className="java.lang.String">cui</Name>
   <Value className="java.lang.String">C0221074</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5712" Type="Disease" StartNode="4978" EndNode="4993">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0008679</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5713" Type="Disease" StartNode="5089" EndNode="5097">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5714" Type="Disease" StartNode="5118" EndNode="5126">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5715" Type="Disease" StartNode="5153" EndNode="5161">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5716" Type="Disease" StartNode="5298" EndNode="5306">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C1850547</Value>
+</Feature>
+</Annotation>
+<Annotation Id="5717" Type="Drug" StartNode="5344" EndNode="5347">
+<Feature>
+  <Name className="java.lang.String">cui</Name>
+  <Value className="java.lang.String">C0872896</Value>
 </Feature>
 </Annotation>
 </AnnotationSet>
