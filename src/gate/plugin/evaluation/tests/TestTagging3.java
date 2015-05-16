@@ -110,12 +110,21 @@ public class TestTagging3 {
     // now check if the expected evaluation statistics are there
     EvalStatsTagging es_allTypes = corp1orig.getEvalStatsTagging("");
     assertEquals("precision strict",0.982652,es_allTypes.getPrecisionStrict(),EPS4);
-    assertEquals("recall lenient",0.774683,es_allTypes.getRecallStrict(),EPS4);
+    assertEquals("recall strict",0.774683,es_allTypes.getRecallStrict(),EPS4);
     assertEquals("f1.0 strict",0.866362,es_allTypes.getFMeasureStrict(1.0),EPS4);
+    assertEquals("precision lenient", 0.985614,es_allTypes.getPrecisionLenient(),EPS4);
+    assertEquals("recall lenient",0.7770180,es_allTypes.getRecallLenient(),EPS4);
+    assertEquals("f1.0 lenient", 0.86897323,es_allTypes.getFMeasureLenient(1.0),EPS4);
     EvalStatsTagging es_Anatomy = corp1orig.getEvalStatsTagging("Anatomy");
     assertEquals("precision strict",0.98913043,es_Anatomy.getPrecisionStrict(),EPS4);
     assertEquals("recall lenient",0.869980,es_Anatomy.getRecallStrict(),EPS4);
     assertEquals("f1.0 strict",0.925737,es_Anatomy.getFMeasureStrict(1.0),EPS4);
+    EvalStatsTagging es_Drug = corp1orig.getEvalStatsTagging("Drug");
+    assertEquals("precision strict",0.9740740,es_Drug.getPrecisionStrict(),EPS4);
+    assertEquals("recall lenient",0.6743589,es_Drug.getRecallStrict(),EPS4);
+    assertEquals("f1.0 strict",0.796969,es_Drug.getFMeasureStrict(1.0),EPS4);
+    
+    // 
     
   }  
   
