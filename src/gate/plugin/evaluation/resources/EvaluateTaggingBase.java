@@ -17,6 +17,7 @@ import gate.AnnotationSet;
 import gate.Utils;
 import gate.annotation.ImmutableAnnotationSetImpl;
 import gate.creole.AbstractLanguageAnalyser;
+import gate.creole.ControllerAwarePR;
 import gate.creole.metadata.CreoleParameter;
 import gate.creole.metadata.Optional;
 import gate.creole.metadata.RunTime;
@@ -44,8 +45,13 @@ import org.apache.log4j.Logger;
  * processing that is common.
  * @author Johann Petrak
  */
-public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser  {
+public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser 
+  implements ControllerAwarePR {
 
+  // NOTE: this implements ControllerAwarePR so that we can pass around an instance 
+  // of EvaluateTaggingBase which is either EvaluateTagging or EvaluateTagging4Lists
+  // and still invoke the controller callbacks or execute on that instance.
+  
   /////////////////////////////////////////////////////////////////////////
   /// PR PARAMETERS COMMON TO EvaluateTagging and EvaluateTagging4Lists
   /////////////////////////////////////////////////////////////////////////

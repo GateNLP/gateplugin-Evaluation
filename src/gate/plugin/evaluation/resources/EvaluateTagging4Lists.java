@@ -529,12 +529,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       correctnessTableStrict.setColumnLabel(1, expandedResponseSetName+":wrong");
     }
     
-    // If a score feature name is specified, we need to do either by score or list-based
-    // evaluation. In both cases we need a data structure to hold one by-threshold-object per 
-    // type.
-    if(!expandedScoreFeatureName.isEmpty()) {
-      evalStatsByThreshold = new HashMap<String, ByThEvalStatsTagging>();
-    }
+    evalStatsByThreshold = new HashMap<String, ByThEvalStatsTagging>();
     
     
     typesPlusEmpty.addAll(getAnnotationTypes());

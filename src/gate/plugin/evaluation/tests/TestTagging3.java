@@ -128,7 +128,7 @@ public class TestTagging3 {
     
     // 
   }
-  
+  /*
   @Test
   public void testCorp2() throws ResourceInstantiationException, ExecutionException, PersistenceException, IOException {
     logger.debug("Running test testCorp2");
@@ -233,5 +233,5 @@ public class TestTagging3 {
 
     
   }  
-  
+  */
 }

@@ -27,6 +27,7 @@ import static gate.Utils.*;
 import gate.creole.ExecutionException;
 import gate.plugin.evaluation.api.EvalStatsTagging;
 import gate.plugin.evaluation.resources.EvaluateTagging;
+import gate.plugin.evaluation.resources.EvaluateTagging4Lists;
 import static gate.plugin.evaluation.tests.TestUtils.*;
 import java.io.OutputStreamWriter;
 import org.apache.log4j.Appender;
@@ -47,7 +48,7 @@ public class TestTagging2 {
   ////////////////////////////
   private File pluginHome;
   private File testingDir;
-  private EvaluateTagging prListEval1;
+  private EvaluateTagging4Lists prListEval1;
   private static final Logger logger = Logger.getLogger(TestTagging1.class);
   @Before
   public void setup() throws GateException, IOException {
@@ -82,9 +83,9 @@ public class TestTagging2 {
     parms.put("outputDirectoryUrl",testingDir.toURI().toURL());
     parms.put("responseASName","Resp");
     parms.put("scoreFeatureName", "s");  // score feature is "s"
-    parms.put("listIdFeatureName","ids");
-    prListEval1 = (EvaluateTagging)Factory.createResource(
-            "gate.plugin.evaluation.resources.EvaluateTagging", 
+    parms.put("edgeName","ids");
+    prListEval1 = (EvaluateTagging4Lists)Factory.createResource(
+            "gate.plugin.evaluation.resources.EvaluateTagging4Lists", 
             parms, 
             Factory.newFeatureMap(), 
             "EvaluateTagging1");

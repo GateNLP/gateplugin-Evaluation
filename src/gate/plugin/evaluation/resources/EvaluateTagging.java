@@ -126,7 +126,7 @@ public class EvaluateTagging extends EvaluateTaggingBase
   
   String expandedFeatureNameNilCluster;
 
-  
+  protected boolean doScoreEvaluation = false;
   
   protected static final Logger logger = Logger.getLogger(EvaluateTagging.class);
   
@@ -259,9 +259,11 @@ public class EvaluateTagging extends EvaluateTaggingBase
     );
     EvalStatsTagging es = docDiffer.getEvalStatsTagging();
 
-    ByThEvalStatsTagging bth = evalStatsByThreshold.get(type);
-    AnnotationDifferTagging.calculateByThEvalStatsTagging(
-              keySet, responseSet, featureSet, featureComparison, expandedScoreFeatureName, bth.getWhichThresholds(), bth);
+    if(doScoreEvaluation) {
+      ByThEvalStatsTagging bth = evalStatsByThreshold.get(type);
+      AnnotationDifferTagging.calculateByThEvalStatsTagging(
+                keySet, responseSet, featureSet, featureComparison, expandedScoreFeatureName, bth.getWhichThresholds(), bth);
+    }
     
     // Store the counts and measures as document feature values
     FeatureMap docFm = document.getFeatures();
@@ -508,6 +510,10 @@ public class EvaluateTagging extends EvaluateTaggingBase
       correctnessTableStrict.setColumnLabel(1, expandedResponseSetName+":wrong");
     }
     
+    if(!expandedScoreFeatureName.isEmpty()) {
+      evalStatsByThreshold = new HashMap<String, ByThEvalStatsTagging>();
+      doScoreEvaluation = true;
+    }
     
     typesPlusEmpty.addAll(getAnnotationTypes());
     for(String t : typesPlusEmpty) {

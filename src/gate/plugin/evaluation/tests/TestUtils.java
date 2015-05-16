@@ -10,6 +10,7 @@ import gate.creole.ExecutionException;
 import gate.creole.ResourceInstantiationException;
 import gate.plugin.evaluation.api.FeatureComparison;
 import gate.plugin.evaluation.resources.EvaluateTagging;
+import gate.plugin.evaluation.resources.EvaluateTaggingBase;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -75,7 +76,7 @@ public class TestUtils {
   }
   
   
-  public static void runETPR(EvaluateTagging pr, Document... docs) throws ExecutionException {
+  public static void runETPR(EvaluateTaggingBase pr, Document... docs) throws ExecutionException {
     pr.controllerExecutionStarted(null);
     for(Document d : docs) {
       pr.setDocument(d);
