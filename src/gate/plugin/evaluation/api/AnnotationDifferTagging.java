@@ -47,7 +47,7 @@ import org.apache.log4j.Logger;
  * for creating a {@link ByThEvalStatsTagging} for a set of thresholds.
  * <p>
  * This class also supports finding the best matches from response lists: a response list is 
- * represented by an annotation which contains a special "idList" feature. The "idList" feature
+ * represented by an annotation which contains a special "edge" feature. The "edge" feature
  * is a list of annotation ids which are considered to be all response candidates. Each response
  * candidate must have a score feature and the response candidate list is used sorted by descending 
  * score. When evaluating the response lists, this class will find, for each candidate list,
@@ -93,29 +93,26 @@ public class AnnotationDifferTagging {
     return evalStats;
   }
 
-  // This is only used if we have a threshold feature;
-  protected ByThEvalStatsTagging evalStatsTaggingByThreshold;
-
-  /**
-   * Get counters by thresholds for all the scores we have seen.
-   *
-   * This will only return non-null if a score feature was specified when the
-   * AnnotationDifferTagging object was created.
-   *
-   * @return The map with all seen scores mapped to their EvalStatsTagging.
-   */
-  public ByThEvalStatsTagging getEvalPRFStatsByThreshold() {
-    return evalStatsTaggingByThreshold;
-  }
-
   private AnnotationDifferTagging() {
   }
   
   private Set<String> features;
+  
+  /**
+   * Returns the set of features for this differ.
+   * If no features were used, returns an empty set.
+   * @return 
+   */
   public Set<String> getFeatureSet() { return features; }
   
   private FeatureComparison featureComparison;
+  
+  /**
+   * Returns the feature comparison method name for this differ.
+   * @return 
+   */
   public FeatureComparison getFeatureComparison() { return featureComparison; }
+  
   /**
    * Create a differ for the two sets and the given, potentially empty/null list of features.
    *
@@ -131,14 +128,8 @@ public class AnnotationDifferTagging {
    * @param targets A set of annotations which are regarded to be correct.
    * @param responses A set of annotations for which we asses how well they match the targets. A
    * response strictly matches a target if it a) is coextensive with the target, b) the types are
-   * equal and c) they features match according to the features list (see below).
-   * @param features If null, the features match if all features that are in the target are also in
-   * the response and have the same value as in the target. If an empty list, no features are
-   * compared. Otherwise, the features in this list must have identical values in the target and in
-   * the response. This also means that if a feature specified in this list is not present in the
-   * target, it also must be not present in the response. (NOTE: this is different from how the old
-   * AnnotationDiffer worked where if a feature was missing in the target it was never used for the
-   * comparison at all).
+   * equal and c) they features match according to the features list and comparison method.
+   * @param features TODO
    */
   public AnnotationDifferTagging(
           AnnotationSet targets,
@@ -146,11 +137,14 @@ public class AnnotationDifferTagging {
           Set<String> features,
           FeatureComparison fcm
   ) {
+    // same as calling the constructor for using no threshold feature (null) and no threshold 
+    // value (NaN).
     this(targets,responses,features,fcm,null,Double.NaN);
   }
 
   /**
-   * Create a differ that will also calculate the stats by score thresholds. This does the same as
+   * Create a differ that will calculate the stats for a specific score threshold. 
+   * This does the same as
    * the constructor AnnotationDiffer(targets,responses,features) but will in addition also expect
    * every response to have a feature with the name given by the thresholdFeature parameter. This
    * feature is expected to contain a value that can be converted to a double and which will be
@@ -159,12 +153,7 @@ public class AnnotationDifferTagging {
    * differ will update the NavigableMap passed to the constructor to add an EvalStatsTagging object
    * for each score that is encountered in the responses set.
    * <p>
-   * In order to create the statistics for several documents a single NavigableMap has to be used
-   * for every AnnotationDiffer that is used for each document. Every time a new AnnotationDiffer
-   * compares a new pair of sets, that NavigableMap will incrementally get updated with the new
-   * counts. If either the thresholdFeature is empty or null or the byThresholdEvalStats object is
-   * null, no statistics by thresholds will be calculated. If the thresholdFeature is empty or null
-   * but a map is passed to the AnnotationDiffer, the map will remain unchanged.
+   * If the thresholdFeature is empty or null no statistics by threshold will be calculated. 
    *
    * @param targets
    * @param responses
@@ -180,14 +169,6 @@ public class AnnotationDifferTagging {
           String scoreFeature,
           double thresholdValue
   ) {
-    //this.targets = targets;
-    //this.responses = responses;
-    //this.thresholdFeature = thresholdFeature;
-    //this.byThresholdEvalStats = byThresholdEvalStats;
-    //this.features = features;
-    //if(features != null) {
-    //  featuresSet = new HashSet<String>(features);
-    //}
     this.features = features;
     this.featureComparison = fcmp;
     evalStats = calculateDiff(targets, responses, features, fcmp, scoreFeature, thresholdValue, null);
@@ -200,12 +181,20 @@ public class AnnotationDifferTagging {
    * object (and it will be returned), otherwise a new object will be created for the statistics
    * and returned. An exception will be thrown if a byThresholdEvalStats object is passed to this
    * method and its ThresholdsToUse setting is different from the one passed to this method. 
+   * <p>
+   * Depending on which ThresholdsToUse value is used, this will first find all the thresholds
+   * to use from the responses set and then calculate the statistics for each of these thresholds.
+   * If an existing ByThEvalStatsTagging was passed on to this method, the calculated 
+   * ByThEvalStatsTagging statistics are added to the existing statistics and the modified object
+   * is returned. 
+   * 
    * @param targets
    * @param responses
-   * @param features
+   * @param featureSet
    * @param fcmp
    * @param scoreFeature
-   * @param byThresholdEvalStats
+   * @param thToUse
+   * @param existingByThresholdEvalStats
    * @return 
    */
   public static ByThEvalStatsTagging calculateByThEvalStatsTagging(
@@ -271,13 +260,21 @@ public class AnnotationDifferTagging {
     return byThresholdEvalStats;
   }
   
+  /**
+   * Create a list of candidate response lists for carrying out list-based evaluations.
+   * @param candidatesSet
+   * @param listAnnotations
+   * @param edgeFeature
+   * @param scoreFeature
+   * @return 
+   */
   public static List<CandidateList> createCandidateLists(AnnotationSet candidatesSet, 
-          AnnotationSet listAnnotations, String listIdFeature, String scoreFeature) {
+          AnnotationSet listAnnotations, String edgeFeature, String scoreFeature) {
     // for each response, create an actual sorted list of candidate annotations and also store the 
     // minimum and maximum score.
     List<CandidateList> responseCandidates = new ArrayList<CandidateList>(listAnnotations.size());
     for(Annotation ann : listAnnotations) {
-      CandidateList cl = new CandidateList(candidatesSet, ann, listIdFeature, scoreFeature);
+      CandidateList cl = new CandidateList(candidatesSet, ann, edgeFeature, scoreFeature);
       if(cl.size > 0) {
         responseCandidates.add(cl);
       }
@@ -286,6 +283,20 @@ public class AnnotationDifferTagging {
     
   }
   
+  
+  /**
+   * TODO!!!!
+   * @param targets
+   * @param listAnnotations
+   * @param responseCandidatesLists
+   * @param featureSet
+   * @param fcmp
+   * @param listIdFeature
+   * @param scoreFeature
+   * @param thToUse
+   * @param existingByThresholdEvalStats
+   * @return 
+   */
   public static ByThEvalStatsTagging calculateListByThEvalStatsTagging(
           AnnotationSet targets,
           AnnotationSet listAnnotations,  
@@ -358,6 +369,18 @@ public class AnnotationDifferTagging {
     return byThresholdEvalStats;
   }  
   
+  /**
+   * TODO!!!
+   * @param targets
+   * @param listAnnotations
+   * @param responseCandidatesLists
+   * @param featureSet
+   * @param fcmp
+   * @param listIdFeature
+   * @param scoreFeature
+   * @param threshold
+   * @return 
+   */
   public static AnnotationDifferTagging calculateEvalStatsTagging4List(
           AnnotationSet targets,
           AnnotationSet listAnnotations,  
@@ -375,53 +398,7 @@ public class AnnotationDifferTagging {
     return tmpAD;
   }
 
-  //protected Collection<Annotation> targets;
-  //protected Collection<Annotation> responses;
-  //protected String thresholdFeature;
-  //protected ByThEvalStatsTagging byThresholdEvalStats;
-  //protected List<String> features;
-  // protected Set<String> featuresSet;
-
-  /**
-   * Interface representing a pairing between a key annotation and a response one.
-   */
-  protected static interface Pairing {
-
-    /**
-     * Gets the key annotation of the pairing. Can be <tt>null</tt> (for spurious matches).
-     *
-     * @return an {@link Annotation} object.
-     */
-    public Annotation getKey();
-
-    public int getResponseIndex();
-
-    public int getValue();
-
-    public int getKeyIndex();
-
-    public int getScore();
-
-    public void setType(int i);
-
-    public void remove();
-
-    /**
-     * Gets the response annotation of the pairing. Can be <tt>null</tt> (for missing matches).
-     *
-     * @return an {@link Annotation} object.
-     */
-    public Annotation getResponse();
-
-    /**
-     * Gets the type of the pairing, one of {@link #CORRECT_TYPE},
-     * {@link #PARTIALLY_CORRECT_TYPE}, {@link #SPURIOUS_TYPE} or {@link #MISSING_TYPE},
-     *
-     * @return an <tt>int</tt> value.
-     */
-    public int getType();
-  }
-
+  
   // the sets we record in case the threshold is NaN
   private AnnotationSet correctStrictAnns,
           correctPartialAnns,
@@ -490,6 +467,24 @@ public class AnnotationDifferTagging {
     addAnnsWithTypeSuffix(outSet, getTrueSpuriousLenientAnnotations(), prefix+"_SL",null);
   }
 
+  /**
+   * Add changes between a reference and response set to contingency tables.
+   * This is a utility function to add correct/wrong counts to the two contingency 
+   * tables passed. The first table is for the changes according to strict correctness, the 
+   * second table is for the changes according to lenient correctness. 
+   * Each table is expected to have two rows indicating the reference set being correct and 
+   * wrong and two columns indicating the response set being correct and wrong. So the count 
+   * in cell (1,1) represents the number of times an annotation was correct in both the reference
+   * and response sets, in cell (1,2) (row 1, column 2) represents the number of times an annotation
+   * was correct in the reference set and wrong in the response set etc.
+   * <p>
+   * It is possible to only pass one of the two table objects.
+   * 
+   * @param responses
+   * @param reference
+   * @param tableStrict
+   * @param tableLenient 
+   */
   public static void addChangesToContingenyTables(
           AnnotationDifferTagging responses,
           AnnotationDifferTagging reference, 
@@ -693,31 +688,8 @@ public class AnnotationDifferTagging {
   // bad:  CS -> CP, IS -> IP
   }
 
-  private static AnnotationSet getOverlappingAnnsNotIn(AnnotationSet from, Annotation ann, 
-          AnnotationSet notIn, Set<String> fs, FeatureComparison fc) {
-    AnnotationSet tmpSet = new AnnotationSetImpl(from.getDocument());
-    tmpSet.addAll(gate.Utils.getOverlappingAnnotations(from, ann));
-    // now make sure that none of the annotations in tmpSet occurs in notIn
-    Iterator<Annotation> it = tmpSet.iterator();
-    while(it.hasNext()) {
-      Annotation a = it.next();
-      AnnotationSet coexts = gate.Utils.getCoextensiveAnnotations(notIn, a, a.getType());
-      for(Annotation c : coexts) {
-        // if c matches a, remove a, i.e. do it.remove()
-        //System.out.println("DEBUG: set is "+fs+" method is "+fc);
-        //System.out.println("DEBUG: Comparing for exclusion: "+a+" WITH "+c);
-        if(isAnnotationsMatch(a,c,fs,fc)) {
-          //System.out.println("DEBUG: FOUND A MATCH!!!!");
-          it.remove();
-          break;
-        }
-      }
-    }
-    return tmpSet;
-  }
   
-  
-  // TODO: the following is for calculating McNemar's test
+  // TODO!!!: the following is for calculating McNemar's test
   /**
    * This returns a 2x2 contingency table with the counts for both correct, both incorrect and
    * different correctness. This method only makes sense if the correctness and incorrectness can be
@@ -732,16 +704,8 @@ public class AnnotationDifferTagging {
   //  ContingencyTableInteger toIncrement, AnnotationDifferTagging responseDiffer, AnnotationDifferTagging referenceDiffer) {
   //  
   //}
-  private static void addAnnsWithTypeSuffix(AnnotationSet outSet, Collection<Annotation> inAnns, String suffix, String changeInd) {
-    for (Annotation ann : inAnns) {
-      FeatureMap fm = gate.Utils.toFeatureMap(ann.getFeatures());
-      if(changeInd!=null && !changeInd.isEmpty()) {
-        fm.put("_eval.change",changeInd);
-      }
-      gate.Utils.addAnn(outSet, ann, ann.getType() + suffix, fm);
-    }
-  }
-
+  
+  
   // this contains the final choices calculated by this object.
   protected List<Pairing> choices = new ArrayList<Pairing>();
 
@@ -855,7 +819,7 @@ public class AnnotationDifferTagging {
 
         
         Annotation resAnn = null;
-        PairingImpl choice = null;
+        Pairing choice = null;
         // If we process candidate lists, do not just compare with the response
         // annotation from the list but instead compare with all candidates still in the list
         // and use the first exact match, if none is found, the first partial match, if none
@@ -875,7 +839,7 @@ public class AnnotationDifferTagging {
             for(int c = 0; c < candList.size; c++) {
               Annotation tmpResp = candList.get(c);
               logger.debug("Checking annotation for th="+threshold+" at index: "+c+": "+tmpResp);
-              if(isAnnotationsMatch(keyAnn,tmpResp,features,fcmp)) {
+              if(isAnnotationsMatch(keyAnn,tmpResp,features,fcmp,true)) {
                 // if we are coextensive, then we can stop: can't get any better!
                 if(keyAnn.coextensive(tmpResp)) {
                   logger.debug("Found correct match!!");
@@ -900,7 +864,7 @@ public class AnnotationDifferTagging {
               }
             } // for
             responseList.set(j, bestAnn);
-            choice = new PairingImpl(i,j,match);
+            choice = new Pairing(i,j,match);
           }
         } else {
         
@@ -908,20 +872,20 @@ public class AnnotationDifferTagging {
           choice = null;
           if (keyAnn.coextensive(resAnn)) {
             //we have full overlap -> CORRECT or WRONG
-            if (isAnnotationsMatch(keyAnn, resAnn, features, fcmp)) {
+            if (isAnnotationsMatch(keyAnn, resAnn, features, fcmp, false)) {
               //we have a full match
-              choice = new PairingImpl(i, j, CORRECT_VALUE);
+              choice = new Pairing(i, j, CORRECT_VALUE);
             } else {
             //the two annotations are coextensive but don't match
               //we have a missmatch
-              choice = new PairingImpl(i, j, MISMATCH_VALUE);
+              choice = new Pairing(i, j, MISMATCH_VALUE);
             }
           } else if (keyAnn.overlaps(resAnn)) {
             //we have partial overlap -> PARTIALLY_CORRECT or WRONG
-            if (isAnnotationsMatch(keyAnn, resAnn, features, fcmp)) {
-              choice = new PairingImpl(i, j, PARTIALLY_CORRECT_VALUE);
+            if (isAnnotationsMatch(keyAnn, resAnn, features, fcmp, false)) {
+              choice = new Pairing(i, j, PARTIALLY_CORRECT_VALUE);
             } else {
-              choice = new PairingImpl(i, j, WRONG_VALUE);
+              choice = new Pairing(i, j, WRONG_VALUE);
             }
           }
         }
@@ -942,7 +906,7 @@ public class AnnotationDifferTagging {
     finalChoices = new ArrayList<Pairing>();
 
     while (!possibleChoices.isEmpty()) {
-      PairingImpl bestChoice = (PairingImpl) possibleChoices.remove(0);
+      Pairing bestChoice = (Pairing) possibleChoices.remove(0);
       // TODO: 
       bestChoice.consume();
       finalChoices.add(bestChoice);
@@ -953,7 +917,7 @@ public class AnnotationDifferTagging {
             correctStrictAnns.add(bestChoice.getResponse());
           }
           es.addCorrectStrict(1);
-          bestChoice.setType(CORRECT_TYPE);
+          bestChoice.setPairingType(CORRECT_TYPE);
           break;
         }
         case PARTIALLY_CORRECT_VALUE: {  // correct but only opverlap, not coextensive
@@ -962,13 +926,13 @@ public class AnnotationDifferTagging {
             correctPartialAnns.add(bestChoice.getResponse());
           }
           es.addCorrectPartial(1);
-          bestChoice.setType(PARTIALLY_CORRECT_TYPE);
+          bestChoice.setPairingType(PARTIALLY_CORRECT_TYPE);
           break;
         }
         case MISMATCH_VALUE: { // coextensive and not correct
           if (bestChoice.getKey() != null && bestChoice.getResponse() != null) {
             es.addIncorrectStrict(1);
-            bestChoice.setType(MISMATCH_TYPE);
+            bestChoice.setPairingType(MISMATCH_TYPE);
             if (createAdditionalData) {
               incorrectStrictAnns.add(bestChoice.getResponse());
             }
@@ -985,7 +949,7 @@ public class AnnotationDifferTagging {
             if (createAdditionalData) {
               incorrectPartialAnns.add(bestChoice.getResponse());
             }
-            bestChoice.setType(MISMATCH_TYPE);
+            bestChoice.setPairingType(MISMATCH_TYPE);
           } else if (bestChoice.getKey() == null) {
             // this is a responseAnns which overlaps with a keyAnns but does not have a keyAnns??
             logger.debug("DEBUG: GOT a WRONG_VALUE (overlapping and not correct) with no key " + bestChoice);
@@ -1008,8 +972,8 @@ public class AnnotationDifferTagging {
         if (createAdditionalData) {
           trueMissingLenientAnns.add((keyList.get(i)));
         }
-        Pairing choice = new PairingImpl(i, -1, WRONG_VALUE);
-        choice.setType(MISSING_TYPE);
+        Pairing choice = new Pairing(i, -1, WRONG_VALUE);
+        choice.setPairingType(MISSING_TYPE);
         finalChoices.add(choice);
       }
     }
@@ -1025,8 +989,8 @@ public class AnnotationDifferTagging {
         if (createAdditionalData) {
           trueSpuriousLenientAnns.add(responseList.get(i));
           spuriousAnnSet.add(responseList.get(i));
-          PairingImpl choice = new PairingImpl(-1, i, WRONG_VALUE);
-          choice.setType(SPURIOUS_TYPE);
+          Pairing choice = new Pairing(-1, i, WRONG_VALUE);
+          choice.setPairingType(SPURIOUS_TYPE);
           finalChoices.add(choice);
         }
       }
@@ -1039,7 +1003,7 @@ public class AnnotationDifferTagging {
     // We can only do this if we have the sets which will only happen if there is no threshold
     if (createAdditionalData) {
       for (Pairing p : finalChoices) {
-        if (p.getType() == CORRECT_TYPE) {
+        if (p.getPairingType() == CORRECT_TYPE) {
           Annotation t = p.getKey();
           AnnotationSet ol = gate.Utils.getOverlappingAnnotations(spuriousAnnSet, t);
           if (ol.size() == 0) {
@@ -1047,7 +1011,7 @@ public class AnnotationDifferTagging {
             singleCorrectStrictAnns.add(p.getResponse());
           }
           //logger.debug("DEBUG have a correct strict choice, overlapping: "+ol.size()+" key is "+t);
-        } else if (p.getType() == PARTIALLY_CORRECT_TYPE) {
+        } else if (p.getPairingType() == PARTIALLY_CORRECT_TYPE) {
           Annotation t = p.getKey();
           AnnotationSet ol = gate.Utils.getOverlappingAnnotations(spuriousAnnSet, t);
           if (ol.size() == 0) {
@@ -1092,15 +1056,27 @@ public class AnnotationDifferTagging {
    * @param features
    * @return
    */
-  public static boolean isAnnotationsMatch(Annotation key, Annotation response, Set<String> features, FeatureComparison fcmp) {
-    if (!key.getType().equals(response.getType())) {
-      return false;
+  public static boolean isAnnotationsMatch(Annotation key, Annotation response, Set<String> features, 
+          FeatureComparison fcmp, boolean is4List) {
+    // If we compare candidates for a list-based evaluation, we do not care about the type of 
+    // the candidate ann
+    if(!is4List) {
+      // TODO: this should instead check if the type of the key annotation matches the type
+      // of the response annotation as mappend in the type specifications! 
+      if (!key.getType().equals(response.getType())) {
+        return false;
+      }
     }
     if (features == null) {
-      // check if the key Ann is compatible with the response ann
-      FeatureMap fmk = key.getFeatures();
-      FeatureMap fmr = key.getFeatures();
-      return fmr.subsumes(fmk);
+      // NOTE: originally we gave features==null a different meaning from features=[]:
+      // The idea was to check if whatever features there are, check if they are compatible.
+      // However, this behaviour is confusing and it is nearly impossible to choose between
+      // null and [] in a PR parameter, so we decided to make both null and [] in the same way:
+      // not care about any features at all
+      // FeatureMap fmk = key.getFeatures();
+      // FeatureMap fmr = key.getFeatures();
+      // return fmr.subsumes(fmk);
+      return true;
     } else {
       if (features.isEmpty()) {
         return true;
@@ -1132,51 +1108,6 @@ public class AnnotationDifferTagging {
     }
   }
   
-  /**
-   * Performs some basic checks over the internal data structures from the last run.
-   *
-   * @throws Exception
-   */
-  void sanityCheck() throws Exception {
-    //all keys and responses should have at most one choice left
-    for (List<Pairing> choices : keyChoices) {
-      if (choices != null) {
-        if (choices.size() > 1) {
-          throw new Exception("Multiple choices found!");
-        } else if (!choices.isEmpty()) {
-          //size must be 1
-          Pairing aChoice = choices.get(0);
-          //the SAME choice should be found for the associated response
-          List<?> otherChoices = responseChoices.get(aChoice.getResponseIndex());
-          if (otherChoices == null
-                  || otherChoices.size() != 1
-                  || otherChoices.get(0) != aChoice) {
-            throw new Exception("Reciprocity error!");
-          }
-        }
-      }
-    }
-
-    for (List<Pairing> choices : responseChoices) {
-      if (choices != null) {
-        if (choices.size() > 1) {
-          throw new Exception("Multiple choices found!");
-        } else if (!choices.isEmpty()) {
-          //size must be 1
-          Pairing aChoice = choices.get(0);
-          //the SAME choice should be found for the associated response
-          List<?> otherChoices = keyChoices.get(aChoice.getKeyIndex());
-          if (otherChoices == null) {
-            throw new Exception("Reciprocity error : null!");
-          } else if (otherChoices.size() != 1) {
-            throw new Exception("Reciprocity error: not 1!");
-          } else if (otherChoices.get(0) != aChoice) {
-            throw new Exception("Reciprocity error: different!");
-          }
-        }
-      }
-    }
-  }
 
   /**
    * Adds a new pairing to the internal data structures.
@@ -1198,9 +1129,9 @@ public class AnnotationDifferTagging {
    * Represents a pairing of a key annotation with a response annotation and the associated score
    * for that pairing.
    */
-  public class PairingImpl implements Pairing {
+  public class Pairing  {
 
-    PairingImpl(int keyIndex, int responseIndex, int value) {
+    Pairing(int keyIndex, int responseIndex, int value) {
       this.keyIndex = keyIndex;
       this.responseIndex = responseIndex;
       this.value = value;
@@ -1209,13 +1140,13 @@ public class AnnotationDifferTagging {
 
     public String toString() {
       StringBuilder sb = new StringBuilder();
-      switch (getType()) {
+      switch (getPairingType()) {
         case CORRECT_TYPE: sb.append("CORRECT: "); break;
         case PARTIALLY_CORRECT_TYPE: sb.append("PARTIAL: "); break;
         case MISSING_TYPE: sb.append("MISSING: "); break;
         case SPURIOUS_TYPE: sb.append("SPURIOUS: "); break;
         case MISMATCH_TYPE: sb.append("INCORRECT: "); break;
-        default: sb.append("UNKNOWN: "); sb.append(getType());
+        default: sb.append("UNKNOWN: "); sb.append(getPairingType());
       }
       sb.append(", T=");
       sb.append(getKey());
@@ -1225,7 +1156,6 @@ public class AnnotationDifferTagging {
     }
     
     
-    @Override
     public int getScore() {
       if (scoreCalculated) {
         return score;
@@ -1235,39 +1165,38 @@ public class AnnotationDifferTagging {
       }
     }
 
-    @Override
     public int getKeyIndex() {
       return this.keyIndex;
     }
 
-    @Override
     public int getResponseIndex() {
       return this.responseIndex;
     }
 
-    @Override
     public int getValue() {
       return this.value;
     }
 
-    @Override
     public Annotation getKey() {
       return keyIndex == -1 ? null : keyList.get(keyIndex);
     }
 
-    @Override
     public Annotation getResponse() {
       return responseIndex == -1 ? null
               : responseList.get(responseIndex);
     }
 
-    @Override
-    public int getType() {
+    /**
+     * Gets the pairing type, one of {@link #CORRECT_TYPE},
+     * {@link #PARTIALLY_CORRECT_TYPE}, {@link #SPURIOUS_TYPE} or {@link #MISSING_TYPE}.
+     * 
+     * @return an int value representign the pairing type.
+     */
+    public int getPairingType() {
       return type;
     }
 
-    @Override
-    public void setType(int type) {
+    public void setPairingType(int type) {
       this.type = type;
     }
 
@@ -1298,7 +1227,6 @@ public class AnnotationDifferTagging {
     /**
      * Removes this choice from the two lists it belongs to
      */
-    @Override
     public void remove() {
       List<Pairing> fromKey = keyChoices.get(keyIndex);
       fromKey.remove(this);
@@ -1307,7 +1235,7 @@ public class AnnotationDifferTagging {
     }
 
     /**
-     * Calculates the score for this choice as: type - sum of all the types of all OTHER mutually
+     * Calculates the score for this choice as: pairing-type - sum of all the pairing-types of all OTHER mutually
      * exclusive choices
      */
     void calculateScore() {
@@ -1372,7 +1300,7 @@ public class AnnotationDifferTagging {
       int res = first.getScore() - second.getScore();
       //compare by type
       if (res == 0) {
-        res = first.getType() - second.getType();
+        res = first.getPairingType() - second.getPairingType();
       }
       //compare by completeness (a wrong match with both key and response
       //is "better" than one with only key or response
@@ -1386,40 +1314,6 @@ public class AnnotationDifferTagging {
     }
   }
 
-  /**
-   * Compares two choices based on start offset of key (or response if key not present) and type if
-   * offsets are equal.
-   */
-  public static class PairingOffsetComparator implements Comparator<Pairing> {
-
-    /**
-     * Compares two choices based on start offset of key (or response if key not present) and type
-     * if offsets are equal.
-     */
-    @Override
-    public int compare(Pairing first, Pairing second) {
-      Annotation key1 = first.getKey();
-      Annotation key2 = second.getKey();
-      Annotation res1 = first.getResponse();
-      Annotation res2 = second.getResponse();
-      Long start1 = key1 == null ? null : key1.getStartNode().getOffset();
-      if (start1 == null) {
-        start1 = res1.getStartNode().getOffset();
-      }
-      Long start2 = key2 == null ? null : key2.getStartNode().getOffset();
-      if (start2 == null) {
-        start2 = res2.getStartNode().getOffset();
-      }
-      int res = start1.compareTo(start2);
-      if (res == 0) {
-        //compare by type
-        res = second.getType() - first.getType();
-      }
-
-      return res;
-    }
-
-  }
 
   /**
    * Type for correct pairings (when the key and response match completely)
@@ -1654,6 +1548,60 @@ public class AnnotationDifferTagging {
     return ret;
   }
 
+
+  /**
+   * Return the set of annotations which overlap with an annotation not matchin an annotation in
+   * another set.
+   * This returns the subset of annotations from the annotation set "from" which overlap with the
+   * given annotation "ann" but are not a) coextensive with an annotation in the set "notIn" AND
+   * match that annotation based on the given features and feature comparison method. 
+   * <p> 
+   * This method is only used for the utility method to create indicator annotations for
+   * the changes between the reference and response set.
+   * 
+   * @param from
+   * @param ann
+   * @param notIn
+   * @param fs
+   * @param fc
+   * @return 
+   */
+  private static AnnotationSet getOverlappingAnnsNotIn(AnnotationSet from, Annotation ann, 
+          AnnotationSet notIn, Set<String> fs, FeatureComparison fc) {
+    AnnotationSet tmpSet = new AnnotationSetImpl(from.getDocument());
+    tmpSet.addAll(gate.Utils.getOverlappingAnnotations(from, ann));
+    // now make sure that none of the annotations in tmpSet occurs in notIn
+    Iterator<Annotation> it = tmpSet.iterator();
+    while(it.hasNext()) {
+      Annotation a = it.next();
+      AnnotationSet coexts = gate.Utils.getCoextensiveAnnotations(notIn, a, a.getType());
+      for(Annotation c : coexts) {
+        // if c matches a, remove a, i.e. do it.remove()
+        //System.out.println("DEBUG: set is "+fs+" method is "+fc);
+        //System.out.println("DEBUG: Comparing for exclusion: "+a+" WITH "+c);
+        if(isAnnotationsMatch(a,c,fs,fc,false)) {
+          //System.out.println("DEBUG: FOUND A MATCH!!!!");
+          it.remove();
+          break;
+        }
+      }
+    }
+    return tmpSet;
+  }
+  
+  private static void addAnnsWithTypeSuffix(AnnotationSet outSet, Collection<Annotation> inAnns, String suffix, String changeInd) {
+    for (Annotation ann : inAnns) {
+      FeatureMap fm = gate.Utils.toFeatureMap(ann.getFeatures());
+      if(changeInd!=null && !changeInd.isEmpty()) {
+        fm.put("_eval.change",changeInd);
+      }
+      gate.Utils.addAnn(outSet, ann, ann.getType() + suffix, fm);
+    }
+  }
+
+
+  
+  
   
 
 }

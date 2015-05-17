@@ -371,7 +371,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       docFm.put(featurePrefixReferenceT + "Targets", res.getTargets());
       docFm.put(featurePrefixReferenceT + "Responses", res.getResponses());
     }
-    
+    /* TODO!!!! TEMPORARILY REMOVED SO WE CAN COMPILE THE REST
     if(mainTsvPrintStream != null) {
       // a line for the response stats for that document
       mainTsvPrintStream.println(outputTsvLine(document.getName(), type, expandedResponseSetName, es));
@@ -379,6 +379,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
         mainTsvPrintStream.println(outputTsvLine(document.getName(), type, expandedReferenceSetName, res));
       }
     }
+    */
   }
   
   
@@ -473,26 +474,6 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     
     if(getAnnotationTypes() == null || getAnnotationTypes().isEmpty()) {
       throw new GateRuntimeException("List of annotation types to use is not specified or empty!");
-    }
-    // TODO!!!
-    //annotationTypeSpecs = new ArrayList<AnnotationTypeSpec>(getAnnotationTypes().size());
-    for(String t : getAnnotationTypes()) {
-      if(t == null || t.isEmpty()) {
-        throw new GateRuntimeException("List of annotation types to use contains a null or empty type name!");
-      } else {
-        // convert the entry to a AnnotationTypeSpec object
-        String k = "";
-        String r = "";
-        if(t.contains("|")) {
-          String tmp[] = t.split("\\|",2);
-          k = tmp[0];
-          r = tmp[1];
-        } else {
-          k = t;
-          r = t;
-        }
-        // TODO: left off here!!
-      }
     }
     
     if(getFeatureNames() != null) {
@@ -614,7 +595,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     
     // TODO: think of a way of how to add the interpolated precision strict interpolated precision
     // lenient to the by thresholds lines!!!
-    
+    /* TODO TEMPORARILY REMOVED 
     // output for each of the types ...
     for(String type : getAnnotationTypes()) {
       //System.out.println("DEBUG: alldocumentsStats="+allDocumentsStats+" type="+type+" expandedResponseSetName="+expandedResponseSetName);
@@ -667,6 +648,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       outputContingencyTable(System.out, correctnessTableStrict);      
       outputContingencyTable(System.out, correctnessTableLenient);
     }
+    */
 
   }
   

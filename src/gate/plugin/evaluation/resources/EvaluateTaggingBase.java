@@ -10,6 +10,8 @@
  */
 package gate.plugin.evaluation.resources;
 
+import gate.plugin.evaluation.api.AnnotationTypeSpecs;
+import gate.plugin.evaluation.api.AnnotationTypeSpec;
 import gate.plugin.evaluation.api.ContainmentType;
 import gate.plugin.evaluation.api.NilTreatment;
 import gate.Annotation;
@@ -33,8 +35,10 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.apache.log4j.Logger;
 
@@ -100,6 +104,8 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   public void setAnnotationTypes(List<String> name) { annotationTypes = name; }
   public List<String> getAnnotationTypes() { return annotationTypes; }
   
+  // TODO: clarify the exact meaning of this parameter when a) the list is empty, for 
+  // feature equality and feature subsumption, and when b) the parameter is null.
   protected List<String> featureNames;
   protected Set<String> featureSet;
   @CreoleParameter (comment="A list of feature names to use for comparison, can be empty. First is used as the id feature, if necessary.")
@@ -182,7 +188,7 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   public ThresholdsToUse getWhichThresholds() { return whichThresholds; }
   
   
-  protected List<AnnotationTypeSpec> annotationTypeSpecs;
+  protected AnnotationTypeSpecs annotationTypeSpecs;
   
   protected String expandedKeySetName;
   protected String expandedResponseSetName;
@@ -276,25 +282,7 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
     if(getAnnotationTypes() == null || getAnnotationTypes().isEmpty()) {
       throw new GateRuntimeException("List of annotation types to use is not specified or empty!");
     }
-    annotationTypeSpecs = new ArrayList<AnnotationTypeSpec>(getAnnotationTypes().size());
-    for(String t : getAnnotationTypes()) {
-      if(t == null || t.isEmpty()) {
-        throw new GateRuntimeException("List of annotation types to use contains a null or empty type name!");
-      } else {
-        // convert the entry to a AnnotationTypeSpec object
-        String k = "";
-        String r = "";
-        if(t.contains("|")) {
-          String tmp[] = t.split("\\|",2);
-          k = tmp[0];
-          r = tmp[1];
-        } else {
-          k = t;
-          r = t;
-        }
-        // TODO: left off here!!
-      }
-    }
+    annotationTypeSpecs = new AnnotationTypeSpecs(getAnnotationTypes());
     
     if(getFeatureNames() != null) {
       for(String t : getFeatureNames()) {
@@ -315,7 +303,10 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
       // check if we have duplicate entries in the featureNames
       if(featureNameSet.size() != featureNames.size()) {
         throw new GateRuntimeException("Duplicate feature in the feature name list");
-      }
+      }      
+    } else {
+      // we treat null the same as an empty feature list: do not care about any features at all
+      featureSet = new HashSet<String>();
     }
     
     
@@ -329,6 +320,18 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
     
     featurePrefixResponse = initialFeaturePrefixResponse + getResponseASName() + ".";
     featurePrefixReference = initialFeaturePrefixReference + getReferenceASName() + ".";
+    
+    
+    mainTsvPrintStream = getOutputStream(null);
+    // Output the initial header line
+    if(mainTsvPrintStream != null) {
+      mainTsvPrintStream.print("evaluationId"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("docName"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("setName"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("annotationType"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.println(EvalStatsTagging.getTSVHeaders());
+    }
+    
 
   }
   
@@ -372,13 +375,13 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
    * If an null/empty annotation type is passed, the type "[type:all:micro]" is used instead.
    * If a null document name is passed, the name "[doc:all:micro]" is used instead.
    * @param docName
-   * @param annotationType
+   * @param typeSpec
    * @param es
    * @return 
    */
   protected String outputTsvLine(
           String docName,
-          String annotationType,
+          AnnotationTypeSpec typeSpec,
           String setName,
           EvalStatsTagging es
   ) {
@@ -396,10 +399,10 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
       sb.append(setName);
     }
     sb.append("\t");
-    if(annotationType == null || annotationType.isEmpty()) {
+    if(typeSpec == null) {
       sb.append("[type:all:micro]");
     } else {
-      sb.append(annotationType);
+      sb.append(typeSpec);
     }
     sb.append("\t");
     sb.append(es.getTSVLine());
@@ -465,29 +468,8 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   
   
   
-  
-  protected static class AnnotationTypeSpec {
-    public String keyType = "";
-    public String keyElementType = "";
-    public String responseType = "";
-    public String responseElementType = "";
-    public String toString() {
-      String k = keyType;
-      String r = responseType;
-      if(!keyElementType.isEmpty()) {
-        k += "["+keyElementType+"]";
-      }
-      if(!responseElementType.isEmpty()) {
-        r += "["+responseElementType+"]";
-      }
-      if(k.equals(r)) {
-        return k;
-      } else {
-        return k+"|"+r;
-      }
-    }
-  }
 
+  
   
   
 }

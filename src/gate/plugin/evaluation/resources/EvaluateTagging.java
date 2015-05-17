@@ -10,6 +10,7 @@
  */
 package gate.plugin.evaluation.resources;
 
+import gate.plugin.evaluation.api.AnnotationTypeSpec;
 import gate.plugin.evaluation.api.ContainmentType;
 import gate.plugin.evaluation.api.NilTreatment;
 import gate.Annotation;
@@ -20,7 +21,6 @@ import gate.FeatureMap;
 import gate.Resource;
 import gate.Utils;
 import gate.annotation.AnnotationSetImpl;
-import gate.annotation.ImmutableAnnotationSetImpl;
 import gate.creole.ControllerAwarePR;
 import gate.creole.CustomDuplication;
 import gate.creole.ExecutionException;
@@ -30,16 +30,11 @@ import gate.creole.metadata.CreoleResource;
 import gate.creole.metadata.Optional;
 import gate.creole.metadata.RunTime;
 import gate.plugin.evaluation.api.AnnotationDifferTagging;
-import gate.plugin.evaluation.api.AnnotationDifferTagging.CandidateList;
 import gate.plugin.evaluation.api.ByThEvalStatsTagging;
 import gate.plugin.evaluation.api.ContingencyTableInteger;
 import gate.plugin.evaluation.api.EvalStatsTagging;
 import gate.plugin.evaluation.api.EvalStatsTaggingMacro;
-import gate.util.Files;
 import gate.util.GateRuntimeException;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -66,25 +61,13 @@ public class EvaluateTagging extends EvaluateTaggingBase
 
   // maybe not supported for list based PR even if we eventually support it for the normal one?
   public String featureNameNilCluster;
-  @CreoleParameter(comment = "", defaultValue = "")
+  @CreoleParameter(comment = "(NOT IMPLEMENTED YET) The feature containing the nil cluster name or id", defaultValue = "")
   @RunTime
   @Optional  
   public void setFeatureNameNilCluster(String value) { featureNameNilCluster = value; }
   public String getFeatureNameNilCluster() { return featureNameNilCluster; }
   public String getExpandedFeatureNameNilCluster() { return Utils.replaceVariablesInString(getFeatureNameNilCluster()); }
-  
-  
-  
-  // maybe not supported for list based PR even if we eventually support it for the normal one?
-  /*
-  public String featureNameNilCluster;
-  @CreoleParameter(comment = "", defaultValue = "")
-  @RunTime
-  @Optional  
-  public void setFeatureNameNilCluster(String value) { featureNameNilCluster = value; }
-  public String getFeatureNameNilCluster() { return featureNameNilCluster; }
-  public String getExpandedFeatureNameNilCluster() { return Utils.replaceVariablesInString(getFeatureNameNilCluster()); }
-  */
+  String expandedFeatureNameNilCluster;
   
   // TODO: maybe separate parameter for user-specified score thresholds which would allow 
   // to evaluate for one specific singe score too?
@@ -120,12 +103,14 @@ public class EvaluateTagging extends EvaluateTaggingBase
 
   // This will be initialized at the start of the run and be incremented in the AnnotationDifferTagging
   // for each document.
-  // This stores, for each type, the ByThEvalStatsTagging object for that type. The empty string
+  // This stores, for each typeSpec, the ByThEvalStatsTagging object for that typeSpec. The empty string
   // is used for the object that has the values over all types combined.
+  // If no score feature is specified (no by threshold evaluation), this field stays null.
   protected Map<String,ByThEvalStatsTagging> evalStatsByThreshold;
   
-  String expandedFeatureNameNilCluster;
 
+  // Indicates that evaluation by score threshold is done. If this is true, the evalStatsByThreshold
+  // field is non-null after initialization.
   protected boolean doScoreEvaluation = false;
   
   protected static final Logger logger = Logger.getLogger(EvaluateTagging.class);
@@ -138,49 +123,47 @@ public class EvaluateTagging extends EvaluateTaggingBase
       initializeForRunning();
     }
     
-    // Per document initialization
-    
-    // Prepare the annotation sets
-    
-    
-    // run the whole thing once for each type and also for the sets where all the specified types
-    // are contained.
-    
-    // First do it for all types together, but only if more than one type was specified
     AnnotationSet keySet = null;
     AnnotationSet responseSet = null;
     AnnotationSet referenceSet = null;
-    Set<String> typeSet = new HashSet<String>();
-    Set<String> typeSet4ListAnns = new HashSet<String>();
     
     if(getAnnotationTypes().size() > 1) {
-      // TODO: more flexible annotation types!
-      typeSet.addAll(getAnnotationTypes());
-      keySet = document.getAnnotations(expandedKeySetName).get(typeSet);
-      responseSet = document.getAnnotations(expandedResponseSetName).get(typeSet);
+      keySet = document.getAnnotations(expandedKeySetName).get(annotationTypeSpecs.getKeyTypes());
+      responseSet = document.getAnnotations(expandedResponseSetName).get(annotationTypeSpecs.getResponseTypes());
       if(!expandedReferenceSetName.isEmpty()) {        
-        referenceSet = document.getAnnotations(expandedReferenceSetName).get(typeSet);
+        referenceSet = document.getAnnotations(expandedReferenceSetName).get(annotationTypeSpecs.getResponseTypes());
       }
-      evaluateForType(keySet,responseSet,referenceSet,"");
+      evaluateForType(keySet,responseSet,referenceSet,null);
     }
-    // now do it for each type seperately
-    for(String type : getAnnotationTypes()) {
-      keySet = document.getAnnotations(expandedKeySetName).get(type);
-      String origType = type;
-      responseSet = document.getAnnotations(expandedResponseSetName).get(type);
+    // now do it for each typeSpec seperately
+    for(AnnotationTypeSpec typeSpec : annotationTypeSpecs.getSpecs()) {
+      keySet = document.getAnnotations(expandedKeySetName).get(typeSpec.getKeyType());
+      responseSet = document.getAnnotations(expandedResponseSetName).get(typeSpec.getResponseType());
       if(!expandedReferenceSetName.isEmpty()) {
-        referenceSet = document.getAnnotations(expandedReferenceSetName).get(type);
+        referenceSet = document.getAnnotations(expandedReferenceSetName).get(typeSpec.getResponseType());
       }
-      evaluateForType(keySet,responseSet,referenceSet,origType);      
+      evaluateForType(keySet,responseSet,referenceSet,typeSpec);      
     }
     
     
   }
   
   // TODO: need to allow for key and response types, and for lists, list element types too!
+  /**
+   * Do the evaluation for one typeSpec, described by a AnnotationTypeSpec instance.
+   * If typeSpec is null, create the evaluation over all types.
+   * @param keySet
+   * @param responseSet
+   * @param referenceSet
+   * @param typeSpec 
+   */
   protected void evaluateForType(
           AnnotationSet keySet, AnnotationSet responseSet, AnnotationSet referenceSet,
-          String type) {
+          AnnotationTypeSpec typeSpec) {
+    
+    // For accessing the type->EvalStats map we use the string type still ...
+    String type = "";
+    if(typeSpec != null) { type = typeSpec.getKeyType(); }
     AnnotationSet containingSet = null;
     String containingSetName = "";
     String containingType = "";
@@ -197,7 +180,7 @@ public class EvaluateTagging extends EvaluateTaggingBase
       ContainmentType ct = containmentType;
       if(ct == null) ct = ContainmentType.OVERLAPPING;
       responseSet = selectOverlappingBy(responseSet,containingSet,ct);
-      // TODO: at the moment this will never be true since we have changed the single type to a list
+      // TODO: at the moment this will never be true since we have changed the single typeSpec to a list
       // of types. Think about when to not do this ...
       if(containingSetName.equals(expandedKeySetName) && containingType.equals(annotationTypes)) {
         // no need to do anything for the key set
@@ -208,19 +191,9 @@ public class EvaluateTagging extends EvaluateTaggingBase
       if(referenceSet != null) {
         referenceSet = selectOverlappingBy(referenceSet,containingSet,ct);
       }
-    } // have a containing set and type
+    } // have a containing set and typeSpec
     
     
-    // TODO: to get the best candidate we need to have the candidates already sorted!
-    // So we should better do the evaluation over the top element after the candidate lists 
-    // have been created and we should refactor things so that creating the candidate lists
-    // is a separate step!
-    // Then we create the candidate lists here, then pass the already created candidate lists
-    // to the static method for calculating the lists evaluation!
-    AnnotationSet listAnns = null;
-    AnnotationSet listAnnsReference = null;
-    List<CandidateList> candList = null;
-
     // Now depending on the NIL processing strategy, do something with those annotations which 
     // are identified as nil in the key and response sets.
     // NO_NILS: do nothing, all keys and responses are taken as is. If there are special NIL
@@ -268,10 +241,10 @@ public class EvaluateTagging extends EvaluateTaggingBase
     // Store the counts and measures as document feature values
     FeatureMap docFm = document.getFeatures();
     String featurePrefixResponseT = featurePrefixResponse;
-    if(type.isEmpty()) {
+    if(typeSpec == null) {
       featurePrefixResponseT += "[ALL].";
     } else {
-      featurePrefixResponseT += (type + ".");
+      featurePrefixResponseT += (typeSpec + ".");
     }
     docFm.put(featurePrefixResponseT+"FMeasureStrict", es.getFMeasureStrict(1.0));
     docFm.put(featurePrefixResponseT+"FMeasureLenient", es.getFMeasureLenient(1.0));
@@ -293,8 +266,10 @@ public class EvaluateTagging extends EvaluateTaggingBase
     docFm.put(featurePrefixResponseT+"Responses", es.getResponses());
     
     
-    logger.debug("DEBUG: type is "+type);
+    logger.debug("DEBUG: type is "+typeSpec);
     logger.debug("DEBUG: all document stats types "+allDocumentsStats.keySet());
+    System.out.println("DEBUG: all document stats types "+allDocumentsStats.keySet());
+    System.out.println("Getting: "+type);
     allDocumentsStats.get(type).add(es);
     
     // Now if we have parameters to record the matchings, get the information from the docDiffer
@@ -336,10 +311,10 @@ public class EvaluateTagging extends EvaluateTaggingBase
       
       // add document features for the reference set
       String featurePrefixReferenceT = featurePrefixReference;
-      if(type.isEmpty()) {
+      if(typeSpec == null) {
         featurePrefixReferenceT += "[ALL].";
       } else {
-        featurePrefixReferenceT += (type + ".");
+        featurePrefixReferenceT += (typeSpec + ".");
       }
       docFm.put(featurePrefixReferenceT + "FMeasureStrict", res.getFMeasureStrict(1.0));
       docFm.put(featurePrefixReferenceT + "FMeasureLenient", res.getFMeasureLenient(1.0));
@@ -363,9 +338,9 @@ public class EvaluateTagging extends EvaluateTaggingBase
     
     if(mainTsvPrintStream != null) {
       // a line for the response stats for that document
-      mainTsvPrintStream.println(outputTsvLine(document.getName(), type, expandedResponseSetName, es));
+      mainTsvPrintStream.println(outputTsvLine(document.getName(), typeSpec, expandedResponseSetName, es));
       if(res != null) {
-        mainTsvPrintStream.println(outputTsvLine(document.getName(), type, expandedReferenceSetName, res));
+        mainTsvPrintStream.println(outputTsvLine(document.getName(), typeSpec, expandedReferenceSetName, res));
       }
     }
   }
@@ -373,16 +348,16 @@ public class EvaluateTagging extends EvaluateTaggingBase
   
   
   /**
-   * Return the evaluation statistics for the given type or over all types if an empty String is
-   * passed.
-   * If a type name is passed which was not used for the evaluation, null is returned.
+   * Return the evaluation statistics for the given typeSpec or over all types if an empty String is
+ passed.
+   * If a typeSpec name is passed which was not used for the evaluation, null is returned.
    * @param type
    * @return 
    */
   public EvalStatsTagging getEvalStatsTagging(String type) { 
-    // if there was only one type specified, then the type-specific evalstats is also the 
+    // if there was only one typeSpec specified, then the typeSpec-specific evalstats is also the 
     // overall evalstats and we will not have created a separate evalstats for "". In that case,
-    // if the overall evalstats are requested, we return the one for the one and only type.
+    // if the overall evalstats are requested, we return the one for the one and only typeSpec.
     if(type.equals("") && getAnnotationTypes().size() == 1) {
       return allDocumentsStats.get(getAnnotationTypes().get(0));
     }
@@ -390,10 +365,10 @@ public class EvaluateTagging extends EvaluateTaggingBase
   }
   
   /**
-   * Return the evaluation statistics for the reference set for the given type or over all types if an empty String is
-   * passed.
-   * If a type name is passed which was not used for the evaluation, null is returned. If no reference
-   * set was specified, null is returned.
+   * Return the evaluation statistics for the reference set for the given typeSpec or over all types if an empty String is
+ passed.
+   * If a typeSpec name is passed which was not used for the evaluation, null is returned. If no reference
+ set was specified, null is returned.
    * @param type
    * @return 
    */
@@ -401,9 +376,9 @@ public class EvaluateTagging extends EvaluateTaggingBase
     if(getReferenceASName() == null || getReferenceASName().isEmpty()) {
       return null;
     }
-    // if there was only one type specified, then the type-specific evalstats is also the 
+    // if there was only one typeSpec specified, then the typeSpec-specific evalstats is also the 
     // overall evalstats and we will not have created a separate evalstats for "". In that case,
-    // if the overall evalstats are requested, we return the one for the one and only type.
+    // if the overall evalstats are requested, we return the one for the one and only typeSpec.
     if(type.equals("") && getAnnotationTypes().size() == 1) {
       return allDocumentsReferenceStats.get(getAnnotationTypes().get(0));
     }
@@ -411,15 +386,15 @@ public class EvaluateTagging extends EvaluateTaggingBase
   }
   
   /**
-   * Get the evaluation statistics by threshold for the given type or over all types if an empty
-   * String is passed.
+   * Get the evaluation statistics by threshold for the given typeSpec or over all types if an empty
+ String is passed.
    * @param type
    * @return 
    */
   public ByThEvalStatsTagging getByThEvalStatsTagging(String type) {
-    // if there was only one type specified, then the type-specific evalstats is also the 
+    // if there was only one typeSpec specified, then the typeSpec-specific evalstats is also the 
     // overall evalstats and we will not have created a separate evalstats for "". In that case,
-    // if the overall evalstats are requested, we return the one for the one and only type.
+    // if the overall evalstats are requested, we return the one for the one and only typeSpec.
     if(type.equals("") && getAnnotationTypes().size() == 1) {
       return evalStatsByThreshold.get(getAnnotationTypes().get(0));
     }
@@ -438,6 +413,8 @@ public class EvaluateTagging extends EvaluateTaggingBase
   private AnnotationSet removeNilAnns(AnnotationSet set) {
     String nilStr = "";
     if(getNilValue() != null) { nilStr = getNilValue(); }
+    // NOTE: this method only gets invoked if feature names is non-null and contains at least
+    // one element (does not make sense to invoke it otherwise!)
     String idFeature = getFeatureNames().get(0);
     Set<Annotation> nils = new HashSet<Annotation>();
     for (Annotation ann : set) {
@@ -456,44 +433,16 @@ public class EvaluateTagging extends EvaluateTaggingBase
   protected void initializeForRunning() {
     super.initializeForRunning();
     
-    annotationTypeSpecs = new ArrayList<AnnotationTypeSpec>(getAnnotationTypes().size());
-    for(String t : getAnnotationTypes()) {
-      if(t == null || t.isEmpty()) {
-        throw new GateRuntimeException("List of annotation types to use contains a null or empty type name!");
-      } else {
-        // convert the entry to a AnnotationTypeSpec object
-        String k = "";
-        String r = "";
-        if(t.contains("|")) {
-          String tmp[] = t.split("\\|",2);
-          k = tmp[0];
-          r = tmp[1];
-        } else {
-          k = t;
-          r = t;
-        }
-        // TODO: left off here!!
-      }
-    }
-    
-    if(getFeatureNames() != null) {
-      for(String t : getFeatureNames()) {
-        if(t == null || t.isEmpty()) {
-          throw new GateRuntimeException("List of feature names to use contains a null or empty type name!");
-        }      
-      }
-    }
-      
     List<String> typesPlusEmpty = new ArrayList<String>();
     if(getAnnotationTypes().size() > 1) {
       typesPlusEmpty.add("");
     }
 
-    //create the data structure that hold an evalstats object over all documents for each type 
+    //create the data structure that hold an evalstats object over all documents for each typeSpec 
     allDocumentsStats = new HashMap<String, EvalStatsTagging>();
     
     // if we also have a reference set, create the data structure that holds an evalstats object
-    // over all documents for each type. This is left null if no reference set is specified!    
+    // over all documents for each typeSpec. This is left null if no reference set is specified!    
     if(!expandedReferenceSetName.isEmpty()) {
       allDocumentsReferenceStats = new HashMap<String, EvalStatsTagging>();
       correctnessTableStrict = new ContingencyTableInteger(2, 2);
@@ -527,46 +476,6 @@ public class EvaluateTagging extends EvaluateTaggingBase
       }
       
     }
-    
-    // If the featureNames list is null, this has the special meaning that the features in 
-    // the key/target annotation should be used. In that case the featureNameSet will also 
-    // be left null. Otherwise the list will get converted to a set.
-    // Convert the feature list into a set
-    if(featureNames != null) {
-      Set<String> featureNameSet = new HashSet<String>();
-      featureNameSet.addAll(featureNames);
-      // check if we have duplicate entries in the featureNames
-      if(featureNameSet.size() != featureNames.size()) {
-        throw new GateRuntimeException("Duplicate feature in the feature name list");
-      }
-    }
-    
-    
-    // Establish the default containment type if it was not specified. 
-    if(getContainmentType() == null) {
-      containmentType = ContainmentType.OVERLAPPING;
-    }
-    if(getNilTreatment() == null) {
-      nilTreatment = NilTreatment.NO_NILS;
-    }
-    
-    featurePrefixResponse = initialFeaturePrefixResponse + getEvaluationId() + "." + getResponseASName() + ".";
-    featurePrefixReference = initialFeaturePrefixReference + getEvaluationId() + "." + getReferenceASName() + ".";
-
-    mainTsvPrintStream = getOutputStream(null);
-    // Output the initial header line
-    if(mainTsvPrintStream != null) {
-      mainTsvPrintStream.print("evaluationId"); mainTsvPrintStream.print("\t");
-      mainTsvPrintStream.print("docName"); mainTsvPrintStream.print("\t");
-      mainTsvPrintStream.print("setName"); mainTsvPrintStream.print("\t");
-      mainTsvPrintStream.print("annotationType"); mainTsvPrintStream.print("\t");
-      mainTsvPrintStream.println(EvalStatsTagging.getTSVHeaders());
-    }
-    /** not used yet
-    if(doListEvaluation || doScoreEvaluation) {
-      scoreDistPrintStream = getOutputStream("-scores");
-    }
-    */
   }
   
   
@@ -575,64 +484,6 @@ public class EvaluateTagging extends EvaluateTaggingBase
     if(mainTsvPrintStream != null) {
       mainTsvPrintStream.close();    
     }
-    /** not used yet
-    if(scoreDistPrintStream != null) {
-      scoreDistPrintStream.close();
-    }
-    */
-  }
-  
-  
-  // Output the complete EvalStats object, but in a format that makes it easier to grep
-  // out the lines one is interested in based on threshold and type
-  public void outputEvalStatsForType(PrintStream out, EvalStatsTagging es, String type, String set) {
-    EvaluateTagging.outputEvalStatsForType(out,es,type,set,expandedEvaluationId);
-  }
-    
-  public static void outputEvalStatsForType(PrintStream out, EvalStatsTagging es, String type, String set, String expandedEvaluationId) {
-    
-    String ts = "none";
-    double th = es.getThreshold();
-    if(!Double.isNaN(th)) {
-      if(Double.isInfinite(th)) {
-        ts="inf";
-      } else {
-        ts = "" + r4(th);
-      }
-    }
-    ts = ", th="+ts+", ";
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Precision Strict: "+r4(es.getPrecisionStrict()));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Recall Strict: "+r4(es.getRecallStrict()));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"F1.0 Strict: "+r4(es.getFMeasureStrict(1.0)));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Accuracy Strict: "+r4(es.getSingleCorrectAccuracyStrict()));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Precision Lenient: "+r4(es.getPrecisionLenient()));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Recall Lenient: "+r4(es.getRecallLenient()));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"F1.0 Lenient: "+r4(es.getFMeasureLenient(1.0)));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Accuracy Lenient: "+r4(es.getSingleCorrectAccuracyLenient()));
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Targets: "+es.getTargets());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Responses: "+es.getResponses());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Correct Strict: "+es.getCorrectStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Correct Partial: "+es.getCorrectPartial());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Incorrect Strict: "+es.getIncorrectStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Incorrect Partial: "+es.getIncorrectPartial());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Missing Strict: "+es.getMissingStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Missing Strict: "+es.getTrueMissingStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Missing Lenient: "+es.getMissingLenient());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Missing Lenient: "+es.getTrueMissingLenient());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Spurious Strict: "+es.getSpuriousStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Spurious Strict: "+es.getTrueSpuriousStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Spurious Lenient: "+es.getSpuriousLenient());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"True Spurious Lenient: "+es.getTrueSpuriousLenient());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Single Correct Strict: "+es.getSingleCorrectStrict());
-    out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Single Correct Lenient: "+es.getSingleCorrectLenient());
-  }
-  
-  // TODO: make this work per type once we collect the tables per type!
-  public void outputContingencyTable(PrintStream out, ContingencyTableInteger table) {
-    out.println(expandedEvaluationId+" "+table.getName()+"correct/correct: "+table.get(0, 0));
-    out.println(expandedEvaluationId+" "+table.getName()+"correct/wrong: "+table.get(0, 1));
-    out.println(expandedEvaluationId+" "+table.getName()+"wrong/correct: "+table.get(1, 0));
-    out.println(expandedEvaluationId+" "+table.getName()+"wrong/wrong: "+table.get(1, 1));    
   }
   
   
@@ -642,35 +493,35 @@ public class EvaluateTagging extends EvaluateTaggingBase
     // lenient to the by thresholds lines!!!
     
     // output for each of the types ...
-    for(String type : getAnnotationTypes()) {
-      //System.out.println("DEBUG: alldocumentsStats="+allDocumentsStats+" type="+type+" expandedResponseSetName="+expandedResponseSetName);
-      outputEvalStatsForType(System.out, allDocumentsStats.get(type), type, expandedResponseSetName);
-      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, type, getResponseASName(), allDocumentsStats.get(type))); }
+    for(AnnotationTypeSpec typeSpec : annotationTypeSpecs.getSpecs()) {
+      //System.out.println("DEBUG: alldocumentsStats="+allDocumentsStats+" typeSpec="+typeSpec+" expandedResponseSetName="+expandedResponseSetName);
+      outputEvalStatsForType(System.out, allDocumentsStats.get(typeSpec.getKeyType()), typeSpec.toString(), expandedResponseSetName);
+      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, typeSpec, getResponseASName(), allDocumentsStats.get(typeSpec.getKeyType()))); }
       if(!expandedReferenceSetName.isEmpty()) {
-        outputEvalStatsForType(System.out, allDocumentsReferenceStats.get(type), type, expandedReferenceSetName);
-        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, type, expandedReferenceSetName, allDocumentsReferenceStats.get(type))); }
+        outputEvalStatsForType(System.out, allDocumentsReferenceStats.get(typeSpec.getKeyType()), typeSpec.toString(), expandedReferenceSetName);
+        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, typeSpec, expandedReferenceSetName, allDocumentsReferenceStats.get(typeSpec.getKeyType()))); }
       }
       if(evalStatsByThreshold != null) {
-        ByThEvalStatsTagging bthes = evalStatsByThreshold.get(type);
+        ByThEvalStatsTagging bthes = evalStatsByThreshold.get(typeSpec.getKeyType());
         for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
-          outputEvalStatsForType(System.out, bthes.get(th), type, expandedResponseSetName);
-          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, type, expandedResponseSetName, bthes.get(th))); }
+          outputEvalStatsForType(System.out, bthes.get(th), typeSpec.toString(), expandedResponseSetName);
+          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, typeSpec, expandedResponseSetName, bthes.get(th))); }
         }
       }
     }
-    // If there was more than one type, also output the summary stats over all types
+    // If there was more than one typeSpec, also output the summary stats over all types
     if(getAnnotationTypes().size() > 1) {
       outputEvalStatsForType(System.out, allDocumentsStats.get(""), "all(micro)", expandedResponseSetName);
-      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", expandedResponseSetName, allDocumentsStats.get(""))); }
+      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, null, expandedResponseSetName, allDocumentsStats.get(""))); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
         outputEvalStatsForType(System.out, allDocumentsReferenceStats.get(""), "all(micro)", expandedReferenceSetName);
-        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", expandedReferenceSetName, allDocumentsReferenceStats.get(""))); }
+        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, null, expandedReferenceSetName, allDocumentsReferenceStats.get(""))); }
       }      
       if(evalStatsByThreshold != null) {
         ByThEvalStatsTagging bthes = evalStatsByThreshold.get("");
         for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
           outputEvalStatsForType(System.out, bthes.get(th), "all(micro)", expandedResponseSetName);
-          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", expandedResponseSetName, bthes.get(th))); }
+          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, null, expandedResponseSetName, bthes.get(th))); }
         }        
       }
       EvalStatsTaggingMacro esm = new EvalStatsTaggingMacro();
@@ -678,14 +529,14 @@ public class EvaluateTagging extends EvaluateTaggingBase
         esm.add(allDocumentsStats.get(type));
       }
       outputEvalStatsForType(System.out, esm, "all(macro)", expandedResponseSetName);
-      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", expandedResponseSetName, esm)); }
+      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, null, expandedResponseSetName, esm)); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
         esm = new EvalStatsTaggingMacro();
         for(String type : getAnnotationTypes()) {
           esm.add(allDocumentsReferenceStats.get(type));
         }
         outputEvalStatsForType(System.out, esm, "all(macro)", expandedReferenceSetName);
-        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", expandedReferenceSetName, esm)); }
+        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, null, expandedReferenceSetName, esm)); }
       }
     }
       
