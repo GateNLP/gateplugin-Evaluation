@@ -228,14 +228,16 @@ public class EvaluateTagging extends EvaluateTaggingBase
             keySet,
             responseSet,
             featureSet,
-            featureComparison
+            featureComparison,
+            annotationTypeSpecs
     );
     EvalStatsTagging es = docDiffer.getEvalStatsTagging();
 
     if(doScoreEvaluation) {
       ByThEvalStatsTagging bth = evalStatsByThreshold.get(type);
       AnnotationDifferTagging.calculateByThEvalStatsTagging(
-                keySet, responseSet, featureSet, featureComparison, expandedScoreFeatureName, bth.getWhichThresholds(), bth);
+                keySet, responseSet, featureSet, featureComparison, expandedScoreFeatureName, 
+              bth.getWhichThresholds(), bth, annotationTypeSpecs);
     }
     
     // Store the counts and measures as document feature values
@@ -289,7 +291,8 @@ public class EvaluateTagging extends EvaluateTaggingBase
               keySet,
               referenceSet,
               featureSet,
-              featureComparison
+              featureComparison,
+              annotationTypeSpecs
       );
       res = docRefDiffer.getEvalStatsTagging();
       allDocumentsReferenceStats.get(type).add(res);

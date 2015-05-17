@@ -265,7 +265,8 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
             keySet,
             responseSet,
             featureSet,
-            featureComparison
+            featureComparison,
+            null // TODO CHECK should not need the annotation type specs here!
     );
     EvalStatsTagging es = docDiffer.getEvalStatsTagging();
 
@@ -325,7 +326,8 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
               keySet,
               referenceSet,
               featureSet,
-              featureComparison
+              featureComparison,
+              null // TODO CHECK should not need the annotation type specs here
       );
       res = docRefDiffer.getEvalStatsTagging();
       allDocumentsReferenceStats.get(type).add(res);

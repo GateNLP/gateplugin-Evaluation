@@ -135,11 +135,12 @@ public class AnnotationDifferTagging {
           AnnotationSet targets,
           AnnotationSet responses,
           Set<String> features,
-          FeatureComparison fcm
+          FeatureComparison fcm,
+          AnnotationTypeSpecs annotationTypeSpecs
   ) {
     // same as calling the constructor for using no threshold feature (null) and no threshold 
     // value (NaN).
-    this(targets,responses,features,fcm,null,Double.NaN);
+    this(targets,responses,features,fcm,null,Double.NaN, annotationTypeSpecs);
   }
 
   /**
@@ -167,11 +168,13 @@ public class AnnotationDifferTagging {
           Set<String> features,
           FeatureComparison fcmp,
           String scoreFeature,
-          double thresholdValue
+          double thresholdValue,
+          AnnotationTypeSpecs annotationTypeSpecs
   ) {
     this.features = features;
     this.featureComparison = fcmp;
-    evalStats = calculateDiff(targets, responses, features, fcmp, scoreFeature, thresholdValue, null);
+    evalStats = calculateDiff(targets, responses, features, fcmp, scoreFeature, 
+            thresholdValue, null, annotationTypeSpecs);
   }
   
   /**
@@ -204,7 +207,8 @@ public class AnnotationDifferTagging {
           FeatureComparison fcmp,
           String scoreFeature,
           ThresholdsToUse thToUse,
-          ByThEvalStatsTagging existingByThresholdEvalStats
+          ByThEvalStatsTagging existingByThresholdEvalStats,
+          AnnotationTypeSpecs annotationTypeSpecs
   ) {
     ByThEvalStatsTagging byThresholdEvalStats = null;
     if(existingByThresholdEvalStats == null) {
@@ -251,7 +255,8 @@ public class AnnotationDifferTagging {
       AnnotationDifferTagging tmpAD = new AnnotationDifferTagging();
       tmpAD.createAdditionalData = false;
       for (double t : thresholds) {
-        EvalStatsTagging es = tmpAD.calculateDiff(targets, responses, featureSet, fcmp, scoreFeature, t, null);
+        EvalStatsTagging es = tmpAD.calculateDiff(targets, responses, featureSet, fcmp, 
+                scoreFeature, t, null, annotationTypeSpecs);
         newMap.put(t, es);
       }
       // add the new map to our Map
@@ -360,7 +365,10 @@ public class AnnotationDifferTagging {
     tmpAD.createAdditionalData = false;
     for(double th : thresholds) {
       logger.debug("DEBUG: running differ for th "+th+" nr targets is "+targets.size()+" nr responseCands is "+responseCandidatesLists.size());
-      EvalStatsTagging es = tmpAD.calculateDiff(targets, listAnnotations, featureSet, fcmp, scoreFeature, th, responseCandidatesLists);
+      // TODO!!! CHECK: can we ignore the annotation type specs here??? Because we handle lists?
+      EvalStatsTagging es = tmpAD.calculateDiff(
+              targets, listAnnotations, featureSet, fcmp, scoreFeature, 
+              th, responseCandidatesLists, null);
       logger.debug("DEBUG: got stats: "+es);
       newMap.put(th, es);      
     }
@@ -389,11 +397,14 @@ public class AnnotationDifferTagging {
           FeatureComparison fcmp,
           String listIdFeature,
           String scoreFeature,
-          double threshold
+          double threshold,
+          AnnotationTypeSpecs annotationTypeSpecs
   ) {
     AnnotationDifferTagging tmpAD = new AnnotationDifferTagging();
     //tmpAD.createAdditionalData = false;
-    EvalStatsTagging es = tmpAD.calculateDiff(targets, listAnnotations, featureSet, fcmp, scoreFeature, threshold, responseCandidatesLists);
+    EvalStatsTagging es = tmpAD.calculateDiff(
+            targets, listAnnotations, featureSet, fcmp, scoreFeature, 
+            threshold, responseCandidatesLists, annotationTypeSpecs);
     tmpAD.evalStats = es;
     return tmpAD;
   }
@@ -732,7 +743,8 @@ public class AnnotationDifferTagging {
           FeatureComparison fcmp,
           String scoreFeature, // if not null, the name of a score feature
           double threshold, // if not NaN, we will calculate the stats only for responses with score >= threshold
-          List<CandidateList> candidateLists
+          List<CandidateList> candidateLists, 
+          AnnotationTypeSpecs typeSpecs
   ) {
     logger.debug("DEBUG: calculating the differences for threshold "+threshold);
     EvalStatsTagging es = new EvalStatsTagging(threshold);
@@ -839,7 +851,7 @@ public class AnnotationDifferTagging {
             for(int c = 0; c < candList.size; c++) {
               Annotation tmpResp = candList.get(c);
               logger.debug("Checking annotation for th="+threshold+" at index: "+c+": "+tmpResp);
-              if(isAnnotationsMatch(keyAnn,tmpResp,features,fcmp,true)) {
+              if(isAnnotationsMatch(keyAnn,tmpResp,features,fcmp,true,typeSpecs)) {
                 // if we are coextensive, then we can stop: can't get any better!
                 if(keyAnn.coextensive(tmpResp)) {
                   logger.debug("Found correct match!!");
@@ -872,7 +884,7 @@ public class AnnotationDifferTagging {
           choice = null;
           if (keyAnn.coextensive(resAnn)) {
             //we have full overlap -> CORRECT or WRONG
-            if (isAnnotationsMatch(keyAnn, resAnn, features, fcmp, false)) {
+            if (isAnnotationsMatch(keyAnn, resAnn, features, fcmp, false, typeSpecs)) {
               //we have a full match
               choice = new Pairing(i, j, CORRECT_VALUE);
             } else {
@@ -882,7 +894,7 @@ public class AnnotationDifferTagging {
             }
           } else if (keyAnn.overlaps(resAnn)) {
             //we have partial overlap -> PARTIALLY_CORRECT or WRONG
-            if (isAnnotationsMatch(keyAnn, resAnn, features, fcmp, false)) {
+            if (isAnnotationsMatch(keyAnn, resAnn, features, fcmp, false, typeSpecs)) {
               choice = new Pairing(i, j, PARTIALLY_CORRECT_VALUE);
             } else {
               choice = new Pairing(i, j, WRONG_VALUE);
@@ -1057,14 +1069,20 @@ public class AnnotationDifferTagging {
    * @return
    */
   public static boolean isAnnotationsMatch(Annotation key, Annotation response, Set<String> features, 
-          FeatureComparison fcmp, boolean is4List) {
+          FeatureComparison fcmp, boolean is4List, AnnotationTypeSpecs typeSpecs ) {
     // If we compare candidates for a list-based evaluation, we do not care about the type of 
     // the candidate ann
     if(!is4List) {
       // TODO: this should instead check if the type of the key annotation matches the type
       // of the response annotation as mappend in the type specifications! 
-      if (!key.getType().equals(response.getType())) {
-        return false;
+      if(typeSpecs == null) {
+        if (!key.getType().equals(response.getType())) {
+          return false;
+        }
+      } else {
+        if(!key.getType().equals(typeSpecs.getKeyType(response.getType()))) {
+          return false;
+        }
       }
     }
     if (features == null) {
@@ -1579,7 +1597,7 @@ public class AnnotationDifferTagging {
         // if c matches a, remove a, i.e. do it.remove()
         //System.out.println("DEBUG: set is "+fs+" method is "+fc);
         //System.out.println("DEBUG: Comparing for exclusion: "+a+" WITH "+c);
-        if(isAnnotationsMatch(a,c,fs,fc,false)) {
+        if(isAnnotationsMatch(a,c,fs,fc,false,null)) {
           //System.out.println("DEBUG: FOUND A MATCH!!!!");
           it.remove();
           break;
