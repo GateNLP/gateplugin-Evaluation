@@ -130,6 +130,8 @@ public class AnnotationDifferTagging {
    * response strictly matches a target if it a) is coextensive with the target, b) the types are
    * equal and c) they features match according to the features list and comparison method.
    * @param features TODO
+   * @param fcm
+   * @param annotationTypeSpecs an AnnotationTypeSpecs instance or null if key and response types should be equal
    */
   public AnnotationDifferTagging(
           AnnotationSet targets,
@@ -159,8 +161,10 @@ public class AnnotationDifferTagging {
    * @param targets
    * @param responses
    * @param features
-   * @param thresholdFeature
-   * @param byThresholdEvalStats
+   * @param fcmp
+   * @param scoreFeature
+   * @param thresholdValue
+   * @param annotationTypeSpecs
    */
   public AnnotationDifferTagging(
           AnnotationSet targets,
@@ -198,6 +202,7 @@ public class AnnotationDifferTagging {
    * @param scoreFeature
    * @param thToUse
    * @param existingByThresholdEvalStats
+   * @param annotationTypeSpecs
    * @return 
    */
   public static ByThEvalStatsTagging calculateByThEvalStatsTagging(
@@ -387,6 +392,7 @@ public class AnnotationDifferTagging {
    * @param listIdFeature
    * @param scoreFeature
    * @param threshold
+   * @param annotationTypeSpecs
    * @return 
    */
   public static AnnotationDifferTagging calculateEvalStatsTagging4List(
@@ -467,6 +473,7 @@ public class AnnotationDifferTagging {
    * strictly correct response for the annotation type Mention will get annotated as Mention_CS_R
    *
    * @param outSet
+   * @param prefix
    */
   public void addIndicatorAnnotations(AnnotationSet outSet, String prefix) {
     if(prefix==null) { prefix = ""; }

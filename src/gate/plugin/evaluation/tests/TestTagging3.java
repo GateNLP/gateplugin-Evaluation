@@ -101,13 +101,18 @@ public class TestTagging3 {
     CorpusController controller = (CorpusController)PersistenceManager.loadObjectFromFile(pipelineFile);
     // access the PRs that are in the controller
     EvaluateTagging corp1orig = null;
+    EvaluateTagging corp1renamed = null;
     
     for(ProcessingResource pr : controller.getPRs()) {
       if(pr.getName().equals("EvaluateTagging:corp1:orig")) {
         corp1orig = (EvaluateTagging)pr;
       }
+      if(pr.getName().equals("EvaluateTagging:corp1:renamed")) {
+        corp1renamed = (EvaluateTagging)pr;
+      }
     }
     assertNotNull(corp1orig);
+    assertNotNull(corp1renamed);
     controller.execute();
     // now check if the expected evaluation statistics are there
     EvalStatsTagging es_allTypes = corp1orig.getEvalStatsTagging("");
@@ -126,7 +131,24 @@ public class TestTagging3 {
     assertEquals("recall lenient",0.6743589,es_Drug.getRecallStrict(),EPS4);
     assertEquals("f1.0 strict",0.796969,es_Drug.getFMeasureStrict(1.0),EPS4);
     
-    // 
+    // now check if the second PR, where we carry out the evaluation on the set with the 
+    // renamed types also gets the same values.
+    es_allTypes = corp1renamed.getEvalStatsTagging("");
+    assertEquals("precision strict",0.982652,es_allTypes.getPrecisionStrict(),EPS4);
+    assertEquals("recall strict",0.774683,es_allTypes.getRecallStrict(),EPS4);
+    assertEquals("f1.0 strict",0.866362,es_allTypes.getFMeasureStrict(1.0),EPS4);
+    assertEquals("precision lenient", 0.985614,es_allTypes.getPrecisionLenient(),EPS4);
+    assertEquals("recall lenient",0.7770180,es_allTypes.getRecallLenient(),EPS4);
+    assertEquals("f1.0 lenient", 0.86897323,es_allTypes.getFMeasureLenient(1.0),EPS4);
+    es_Anatomy = corp1renamed.getEvalStatsTagging("Anatomy");
+    assertEquals("precision strict",0.98913043,es_Anatomy.getPrecisionStrict(),EPS4);
+    assertEquals("recall lenient",0.869980,es_Anatomy.getRecallStrict(),EPS4);
+    assertEquals("f1.0 strict",0.925737,es_Anatomy.getFMeasureStrict(1.0),EPS4);
+    es_Drug = corp1renamed.getEvalStatsTagging("Drug");
+    assertEquals("precision strict",0.9740740,es_Drug.getPrecisionStrict(),EPS4);
+    assertEquals("recall lenient",0.6743589,es_Drug.getRecallStrict(),EPS4);
+    assertEquals("f1.0 strict",0.796969,es_Drug.getFMeasureStrict(1.0),EPS4);
+    
   }
   /*
   @Test

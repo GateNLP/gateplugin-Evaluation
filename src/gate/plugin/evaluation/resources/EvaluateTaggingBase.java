@@ -283,6 +283,7 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
       throw new GateRuntimeException("List of annotation types to use is not specified or empty!");
     }
     annotationTypeSpecs = new AnnotationTypeSpecs(getAnnotationTypes());
+    System.out.println("DEBUG got type specs: "+annotationTypeSpecs);
     
     if(getFeatureNames() != null) {
       for(String t : getFeatureNames()) {

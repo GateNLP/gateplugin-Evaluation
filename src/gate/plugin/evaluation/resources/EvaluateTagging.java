@@ -127,11 +127,15 @@ public class EvaluateTagging extends EvaluateTaggingBase
     AnnotationSet responseSet = null;
     AnnotationSet referenceSet = null;
     
+    HashSet<String> keyTypes = new HashSet<String>();
+    HashSet<String> responseTypes = new HashSet<String>();
+    keyTypes.addAll(annotationTypeSpecs.getKeyTypes());
+    responseTypes.addAll(annotationTypeSpecs.getResponseTypes());
     if(getAnnotationTypes().size() > 1) {
-      keySet = document.getAnnotations(expandedKeySetName).get(annotationTypeSpecs.getKeyTypes());
-      responseSet = document.getAnnotations(expandedResponseSetName).get(annotationTypeSpecs.getResponseTypes());
+      keySet = document.getAnnotations(expandedKeySetName).get(keyTypes);
+      responseSet = document.getAnnotations(expandedResponseSetName).get(responseTypes);
       if(!expandedReferenceSetName.isEmpty()) {        
-        referenceSet = document.getAnnotations(expandedReferenceSetName).get(annotationTypeSpecs.getResponseTypes());
+        referenceSet = document.getAnnotations(expandedReferenceSetName).get(responseTypes);
       }
       evaluateForType(keySet,responseSet,referenceSet,null);
     }
@@ -270,8 +274,10 @@ public class EvaluateTagging extends EvaluateTaggingBase
     
     logger.debug("DEBUG: type is "+typeSpec);
     logger.debug("DEBUG: all document stats types "+allDocumentsStats.keySet());
-    System.out.println("DEBUG: all document stats types "+allDocumentsStats.keySet());
-    System.out.println("Getting: "+type);
+    //System.out.println("DEBUG: all document stats types "+allDocumentsStats.keySet());
+    //System.out.println("Getting: "+type);
+    //System.out.println("DEBUG: allDocumentStats: "+allDocumentsStats);
+    //System.out.println("DEBUG trying to add stats: "+es);
     allDocumentsStats.get(type).add(es);
     
     // Now if we have parameters to record the matchings, get the information from the docDiffer
@@ -361,8 +367,8 @@ public class EvaluateTagging extends EvaluateTaggingBase
     // if there was only one typeSpec specified, then the typeSpec-specific evalstats is also the 
     // overall evalstats and we will not have created a separate evalstats for "". In that case,
     // if the overall evalstats are requested, we return the one for the one and only typeSpec.
-    if(type.equals("") && getAnnotationTypes().size() == 1) {
-      return allDocumentsStats.get(getAnnotationTypes().get(0));
+    if(type.equals("") && annotationTypeSpecs.size() == 1) {
+      return allDocumentsStats.get(annotationTypeSpecs.getKeyTypes().get(0));
     }
     return allDocumentsStats.get(type); 
   }
@@ -382,8 +388,8 @@ public class EvaluateTagging extends EvaluateTaggingBase
     // if there was only one typeSpec specified, then the typeSpec-specific evalstats is also the 
     // overall evalstats and we will not have created a separate evalstats for "". In that case,
     // if the overall evalstats are requested, we return the one for the one and only typeSpec.
-    if(type.equals("") && getAnnotationTypes().size() == 1) {
-      return allDocumentsReferenceStats.get(getAnnotationTypes().get(0));
+    if(type.equals("") && annotationTypeSpecs.size() == 1) {
+      return allDocumentsReferenceStats.get(annotationTypeSpecs.getKeyTypes().get(0));
     }
     return allDocumentsReferenceStats.get(type);     
   }
@@ -398,8 +404,8 @@ public class EvaluateTagging extends EvaluateTaggingBase
     // if there was only one typeSpec specified, then the typeSpec-specific evalstats is also the 
     // overall evalstats and we will not have created a separate evalstats for "". In that case,
     // if the overall evalstats are requested, we return the one for the one and only typeSpec.
-    if(type.equals("") && getAnnotationTypes().size() == 1) {
-      return evalStatsByThreshold.get(getAnnotationTypes().get(0));
+    if(type.equals("") && annotationTypeSpecs.size() == 1) {
+      return evalStatsByThreshold.get(annotationTypeSpecs.getKeyTypes().get(0));
     }
     return evalStatsByThreshold.get(type);
   }
@@ -467,7 +473,7 @@ public class EvaluateTagging extends EvaluateTaggingBase
       doScoreEvaluation = true;
     }
     
-    typesPlusEmpty.addAll(getAnnotationTypes());
+    typesPlusEmpty.addAll(annotationTypeSpecs.getKeyTypes());
     for(String t : typesPlusEmpty) {
       logger.debug("DEBUG: initializing alldocument stats for type "+t);
       allDocumentsStats.put(t,new EvalStatsTagging());
@@ -513,7 +519,7 @@ public class EvaluateTagging extends EvaluateTaggingBase
       }
     }
     // If there was more than one typeSpec, also output the summary stats over all types
-    if(getAnnotationTypes().size() > 1) {
+    if(annotationTypeSpecs.size() > 1) {
       outputEvalStatsForType(System.out, allDocumentsStats.get(""), "all(micro)", expandedResponseSetName);
       if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, null, expandedResponseSetName, allDocumentsStats.get(""))); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
@@ -528,14 +534,14 @@ public class EvaluateTagging extends EvaluateTaggingBase
         }        
       }
       EvalStatsTaggingMacro esm = new EvalStatsTaggingMacro();
-      for(String type : getAnnotationTypes()) {
+      for(String type : annotationTypeSpecs.getKeyTypes()) {
         esm.add(allDocumentsStats.get(type));
       }
       outputEvalStatsForType(System.out, esm, "all(macro)", expandedResponseSetName);
       if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, null, expandedResponseSetName, esm)); }
       if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
         esm = new EvalStatsTaggingMacro();
-        for(String type : getAnnotationTypes()) {
+        for(String type : annotationTypeSpecs.getKeyTypes()) {
           esm.add(allDocumentsReferenceStats.get(type));
         }
         outputEvalStatsForType(System.out, esm, "all(macro)", expandedReferenceSetName);
