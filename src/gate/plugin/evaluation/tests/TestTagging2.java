@@ -35,7 +35,7 @@ import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 /**
  * Second test, mainly testing the PR, not the back-end API.
@@ -270,32 +270,31 @@ public class TestTagging2 {
     
     //logger.debug("All documents, all ths: \n"+prListEval1.getByThEvalStatsTagging()+"\n");
     
-    es = prListEval1.getByThEvalStatsTagging().get(1.0);
-    assertEquals(null,es);
-        
-    /*
+
     es = prListEval1.getByThEvalStatsTagging().get(0.9);
-    assertEquals("targets",1,es.getTargets());
-    assertEquals("responses",1,es.getResponses());
-    assertEquals("correct strict",0,es.getCorrectStrict());
-    assertEquals("correct partial",0,es.getCorrectPartial());
-    assertEquals("incorrect strict",1,es.getIncorrectStrict());
-    assertEquals("true missing strict",0,es.getTrueMissingStrict());
-    assertEquals("true spurious strict",0,es.getTrueSpuriousStrict());
-    assertEquals("precision strict",0.0,es.getPrecisionStrict(),EPS);
-    assertEquals("precision lenient",0.0,es.getPrecisionLenient(),EPS);
-    assertEquals("recall strict",0.0,es.getRecallStrict(),EPS);
-    assertEquals("recall lenient",0.0,es.getRecallLenient(),EPS);    
-    
-    es = prListEval1.getByThEvalStatsTagging().get(0.8);
-    logger.debug("DEBUG: test02 for 0.8: \n"+es.toString());
-    assertEquals("targets",1,es.getTargets());
-    assertEquals("responses",1,es.getResponses());
+    assertNotNull(es);
+    assertEquals("targets",2,es.getTargets());
+    assertEquals("responses",2,es.getResponses());
     assertEquals("correct strict",0,es.getCorrectStrict());
     assertEquals("correct partial",1,es.getCorrectPartial());
-    assertEquals("incorrect strict",0,es.getIncorrectStrict());
+    assertEquals("incorrect strict",1,es.getIncorrectStrict());
     assertEquals("true missing strict",1,es.getTrueMissingStrict());
     assertEquals("true spurious strict",1,es.getTrueSpuriousStrict());
+    assertEquals("precision strict",0.0,es.getPrecisionStrict(),EPS);
+    assertEquals("precision lenient",0.5,es.getPrecisionLenient(),EPS);
+    assertEquals("recall strict",0.0,es.getRecallStrict(),EPS);
+    assertEquals("recall lenient",0.5,es.getRecallLenient(),EPS);    
+    
+    es = prListEval1.getByThEvalStatsTagging().get(0.8);
+    assertNotNull(es);
+    logger.debug("DEBUG: test02 for 0.8: \n"+es.toString());
+    assertEquals("targets",2,es.getTargets());
+    assertEquals("responses",2,es.getResponses());
+    assertEquals("correct strict",0,es.getCorrectStrict());
+    assertEquals("correct partial",2,es.getCorrectPartial());
+    assertEquals("incorrect strict",0,es.getIncorrectStrict());
+    assertEquals("true missing strict",2,es.getTrueMissingStrict());
+    assertEquals("true spurious strict",2,es.getTrueSpuriousStrict());
     assertEquals("true missing lenient",0,es.getTrueMissingLenient());
     assertEquals("true spurious lenient",0,es.getTrueSpuriousLenient());
     assertEquals("precision strict",0.0,es.getPrecisionStrict(),EPS);
@@ -304,10 +303,25 @@ public class TestTagging2 {
     assertEquals("recall lenient",1.0,es.getRecallLenient(),EPS);    
     
     es = prListEval1.getByThEvalStatsTagging().get(0.7);
+    assertNotNull(es);
     logger.debug("DEBUG: test02 for 0.7: \n"+es.toString());
-    assertEquals("targets",1,es.getTargets());
-    assertEquals("responses",1,es.getResponses());
+    assertEquals("targets",2,es.getTargets());
+    assertEquals("responses",2,es.getResponses());
     assertEquals("correct strict",1,es.getCorrectStrict());
+    assertEquals("correct partial",1,es.getCorrectPartial());
+    assertEquals("incorrect strict",0,es.getIncorrectStrict());
+    assertEquals("true missing strict",1,es.getTrueMissingStrict());
+    assertEquals("true spurious strict",1,es.getTrueSpuriousStrict());
+    assertEquals("precision strict",0.5,es.getPrecisionStrict(),EPS);
+    assertEquals("precision lenient",1.0,es.getPrecisionLenient(),EPS);
+    assertEquals("recall strict",0.5,es.getRecallStrict(),EPS);
+    assertEquals("recall lenient",1.0,es.getRecallLenient(),EPS);    
+    
+    es = prListEval1.getByThEvalStatsTagging().get(0.6);
+    assertNotNull(es);
+    assertEquals("targets",2,es.getTargets());
+    assertEquals("responses",2,es.getResponses());
+    assertEquals("correct strict",2,es.getCorrectStrict());
     assertEquals("correct partial",0,es.getCorrectPartial());
     assertEquals("incorrect strict",0,es.getIncorrectStrict());
     assertEquals("true missing strict",0,es.getTrueMissingStrict());
@@ -316,8 +330,7 @@ public class TestTagging2 {
     assertEquals("precision lenient",1.0,es.getPrecisionLenient(),EPS);
     assertEquals("recall strict",1.0,es.getRecallStrict(),EPS);
     assertEquals("recall lenient",1.0,es.getRecallLenient(),EPS);    
-    */
-  
+
   }
   
   
