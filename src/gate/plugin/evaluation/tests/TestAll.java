@@ -20,7 +20,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
   TestTagging1.class,
-  //TestTagging2.class,
+  TestTagging2.class,
   TestTagging3.class
 })
 public class TestAll {

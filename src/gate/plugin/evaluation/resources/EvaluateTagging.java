@@ -27,9 +27,11 @@ import gate.creole.ExecutionException;
 import gate.creole.ResourceInstantiationException;
 import gate.creole.metadata.CreoleParameter;
 import gate.creole.metadata.CreoleResource;
+import gate.creole.metadata.HiddenCreoleParameter;
 import gate.creole.metadata.Optional;
 import gate.creole.metadata.RunTime;
 import gate.plugin.evaluation.api.AnnotationDifferTagging;
+import gate.plugin.evaluation.api.AnnotationTypeSpecs;
 import gate.plugin.evaluation.api.ByThEvalStatsTagging;
 import gate.plugin.evaluation.api.ContingencyTableInteger;
 import gate.plugin.evaluation.api.EvalStatsTagging;
@@ -59,11 +61,20 @@ public class EvaluateTagging extends EvaluateTaggingBase
   /// PR PARAMETERS: all the ones common to Tagging and Tagging4Lists are in the TaggingBase class
   ///////////////////
 
+  protected List<String> annotationTypes;
+  @CreoleParameter (comment="The annotation types to use for evaluations, at least one type must be given",defaultValue="Mention")
+  @RunTime
+  public void setAnnotationTypes(List<String> name) { annotationTypes = name; }
+  public List<String> getAnnotationTypes() { return annotationTypes; }
+  
+
+  
   // maybe not supported for list based PR even if we eventually support it for the normal one?
   public String featureNameNilCluster;
   @CreoleParameter(comment = "(NOT IMPLEMENTED YET) The feature containing the nil cluster name or id", defaultValue = "")
   @RunTime
   @Optional  
+  @HiddenCreoleParameter
   public void setFeatureNameNilCluster(String value) { featureNameNilCluster = value; }
   public String getFeatureNameNilCluster() { return featureNameNilCluster; }
   public String getExpandedFeatureNameNilCluster() { return Utils.replaceVariablesInString(getFeatureNameNilCluster()); }
@@ -186,7 +197,7 @@ public class EvaluateTagging extends EvaluateTaggingBase
       responseSet = selectOverlappingBy(responseSet,containingSet,ct);
       // TODO: at the moment this will never be true since we have changed the single typeSpec to a list
       // of types. Think about when to not do this ...
-      if(containingSetName.equals(expandedKeySetName) && containingType.equals(annotationTypes)) {
+      if(containingSetName.equals(expandedKeySetName) && containingType.equals(type)) {
         // no need to do anything for the key set
       } else {
         keySet = selectOverlappingBy(keySet,containingSet,ct);
@@ -441,7 +452,8 @@ public class EvaluateTagging extends EvaluateTaggingBase
   
   protected void initializeForRunning() {
     super.initializeForRunning();
-    
+    //System.out.println("DEBUG: running tagging initialize");
+
     List<String> typesPlusEmpty = new ArrayList<String>();
     if(getAnnotationTypes().size() > 1) {
       typesPlusEmpty.add("");
@@ -467,6 +479,14 @@ public class EvaluateTagging extends EvaluateTaggingBase
       correctnessTableStrict.setColumnLabel(0, expandedResponseSetName+":correct");
       correctnessTableStrict.setColumnLabel(1, expandedResponseSetName+":wrong");
     }
+    
+    if(getAnnotationTypes() == null || getAnnotationTypes().isEmpty()) {
+      throw new GateRuntimeException("List of annotation types to use is not specified or empty!");
+    }
+    annotationTypeSpecs = new AnnotationTypeSpecs(getAnnotationTypes());
+    System.out.println("DEBUG got type specs: "+annotationTypeSpecs);
+    
+    
     
     if(!expandedScoreFeatureName.isEmpty()) {
       evalStatsByThreshold = new HashMap<String, ByThEvalStatsTagging>();

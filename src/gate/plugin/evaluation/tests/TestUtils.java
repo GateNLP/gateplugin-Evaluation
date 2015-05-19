@@ -72,10 +72,9 @@ public class TestUtils {
   }
   
   public static void addListAnn(AnnotationSet set, int from, int to, String typeWithoutList, List<Integer> annIds) {
-    addAnn(set,from,to,typeWithoutList+"List",featureMap("ids",annIds));
+    addAnn(set,from,to,typeWithoutList,featureMap("ids",annIds));
   }
-  
-  
+    
   public static void runETPR(EvaluateTaggingBase pr, Document... docs) throws ExecutionException {
     pr.controllerExecutionStarted(null);
     for(Document d : docs) {

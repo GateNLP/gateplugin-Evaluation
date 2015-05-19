@@ -98,12 +98,6 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   public void setContainmentType(ContainmentType ct) { ct = containmentType; }
   public ContainmentType getContainmentType() { return containmentType; }
   
-  protected List<String> annotationTypes;
-  @CreoleParameter (comment="The annotation types to use for evaluations, at least one type must be given",defaultValue="Mention")
-  @RunTime
-  public void setAnnotationTypes(List<String> name) { annotationTypes = name; }
-  public List<String> getAnnotationTypes() { return annotationTypes; }
-  
   // TODO: clarify the exact meaning of this parameter when a) the list is empty, for 
   // feature equality and feature subsumption, and when b) the parameter is null.
   protected List<String> featureNames;
@@ -262,7 +256,8 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   // does not work correctly with the controller callbacks. 
   protected void initializeForRunning() {
 
-    
+    //System.out.println("DEBUG: running base initialize");
+
     expandedKeySetName = getStringOrElse(getExpandedKeyASName(), "");
     expandedResponseSetName = getStringOrElse(getExpandedResponseASName(),"");
     expandedReferenceSetName = getStringOrElse(getExpandedReferenceASName(),"");
@@ -278,12 +273,6 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
       }
     }
     expandedScoreFeatureName = getStringOrElse(getExpandedScoreFeatureName(),"");
-    
-    if(getAnnotationTypes() == null || getAnnotationTypes().isEmpty()) {
-      throw new GateRuntimeException("List of annotation types to use is not specified or empty!");
-    }
-    annotationTypeSpecs = new AnnotationTypeSpecs(getAnnotationTypes());
-    System.out.println("DEBUG got type specs: "+annotationTypeSpecs);
     
     if(getFeatureNames() != null) {
       for(String t : getFeatureNames()) {

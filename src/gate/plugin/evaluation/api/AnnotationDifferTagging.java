@@ -279,12 +279,14 @@ public class AnnotationDifferTagging {
    * @return 
    */
   public static List<CandidateList> createCandidateLists(AnnotationSet candidatesSet, 
-          AnnotationSet listAnnotations, String edgeFeature, String scoreFeature) {
+          AnnotationSet listAnnotations, String edgeFeature, String scoreFeature, String elementType,
+          boolean filterNils, String nilValue,String idFeature) {
     // for each response, create an actual sorted list of candidate annotations and also store the 
     // minimum and maximum score.
     List<CandidateList> responseCandidates = new ArrayList<CandidateList>(listAnnotations.size());
     for(Annotation ann : listAnnotations) {
-      CandidateList cl = new CandidateList(candidatesSet, ann, edgeFeature, scoreFeature);
+      CandidateList cl = new CandidateList(candidatesSet, ann, edgeFeature, scoreFeature, 
+              elementType,filterNils,nilValue,idFeature);
       if(cl.size > 0) {
         responseCandidates.add(cl);
       }
@@ -317,7 +319,8 @@ public class AnnotationDifferTagging {
           String listIdFeature,
           String scoreFeature,
           ThresholdsToUse thToUse,
-          ByThEvalStatsTagging existingByThresholdEvalStats
+          ByThEvalStatsTagging existingByThresholdEvalStats,
+          AnnotationTypeSpecs typeSpecs
   ) {
     ByThEvalStatsTagging byThresholdEvalStats = null;
     if(existingByThresholdEvalStats == null) {
@@ -373,7 +376,7 @@ public class AnnotationDifferTagging {
       // TODO!!! CHECK: can we ignore the annotation type specs here??? Because we handle lists?
       EvalStatsTagging es = tmpAD.calculateDiff(
               targets, listAnnotations, featureSet, fcmp, scoreFeature, 
-              th, responseCandidatesLists, null);
+              th, responseCandidatesLists, typeSpecs);
       logger.debug("DEBUG: got stats: "+es);
       newMap.put(th, es);      
     }
@@ -750,9 +753,17 @@ public class AnnotationDifferTagging {
           FeatureComparison fcmp,
           String scoreFeature, // if not null, the name of a score feature
           double threshold, // if not NaN, we will calculate the stats only for responses with score >= threshold
-          List<CandidateList> candidateLists, 
+          List<CandidateList> candidateLists, // if not null, we do list evaluation
           AnnotationTypeSpecs typeSpecs
   ) {
+    
+    // NOTE: for list evaluation, the list annotation type has to now match the key annotation
+    // type, not the candidate annotation type. In other words, the candidate annotation type
+    // does not matter at all for the comparison - as soon as an annotation is a candidate,
+    // it is used. 
+    
+    // NOTE: currentl we do not allow multi-type list based evaluation!!
+    
     logger.debug("DEBUG: calculating the differences for threshold "+threshold);
     EvalStatsTagging es = new EvalStatsTagging(threshold);
 
@@ -847,8 +858,19 @@ public class AnnotationDifferTagging {
         // However to decide if we should attempt a match at all, we first compare the 
         // range if the list annotation with the key annotation. Only if they overlap, we 
         // go through the candidates.
+        // NOTE: this will only consider list annotation which match the type of the key 
+        // annotation according to the type specs
         if(candidateLists != null) {
           CandidateList candList = candidateLists.get(candidateIndices.get(j));
+          // check already at this point that the candidate list has a type
+          // that matches the key, based on the type specifications we got!
+          String candType = candList.getListAnnotation().getType();
+          String keyType = keyAnn.getType();
+          //System.out.println("DEBUG: checking cand type "+candType+" against key type "+keyType+" typeSpecs "+typeSpecs);
+          if(!typeSpecs.getKeyType(candType).equals(keyType)) {
+            continue;
+          }
+          
           if(keyAnn.overlaps(candList.getListAnnotation())) {
             // find the best matching annotation and remember which kind of match we had
             int match = WRONG_VALUE;
@@ -1437,9 +1459,15 @@ public class AnnotationDifferTagging {
     // will all the candidate annotations, sorted by the value of the specified score feature.
     // The constructor also optionally takes a HashSet<Double> which will be extended to contain all the 
     // scores seen in this list (unless the parameter is null)
-    public CandidateList(AnnotationSet annSet, Annotation listAnn, String listIdFeature, String scoreFeature) {
+    // NOTE: if the elementType is null, we do not check that the element type matches the 
+    // type of the candidate annotation, otherwise only candidates with elementType as type
+    // get included in the list!
+    public CandidateList(AnnotationSet annSet, Annotation listAnn, String listIdFeature, 
+            String scoreFeature, String elementType, boolean filterNils, String nilValue,
+            String idFeature) {
       this.scoreFeature = scoreFeature;
       this.listAnn = listAnn;
+      this.type = listAnn.getType();
       // First get the list of ids
       Object val = listAnn.getFeatures().get(listIdFeature);
       if(!(val instanceof List<?>)) {
@@ -1453,7 +1481,20 @@ public class AnnotationDifferTagging {
         cands = new ArrayList<Annotation>(ids.size());
         for(Integer id : ids) {
           logger.debug("DEBUG: trying to get annotation for id "+id);
-          cands.add(annSet.get(id));
+          Annotation cand = annSet.get(id);
+          if(cand == null) {
+            throw new GateRuntimeException("Something is wrong: no candidate for id="+id+" for list ann="+listAnn);
+          }
+          if(elementType==null || cand.getType().equals(elementType)) {
+            if(filterNils) {
+              String nilFValue = (String)cand.getFeatures().get(idFeature);
+              if(!nilFValue.equals(nilValue)) {
+                cands.add(cand);
+              }
+            } else {
+              cands.add(cand);
+            }
+          }
         }
         ByScoreComparator comp = new ByScoreComparator(scoreFeature);
         Collections.sort(cands,comp);
@@ -1473,6 +1514,7 @@ public class AnnotationDifferTagging {
     private List<Annotation> cands;
     private Annotation listAnn; 
     private String scoreFeature;
+    private String type;
     
     public void setThreshold(double th) {
       logger.debug("DEBUG: candidatelist setting threshold to "+th+" size before="+size);

@@ -324,7 +324,19 @@ public class ByThEvalStatsTagging implements NavigableMap<Double,EvalStatsTaggin
   }
 
   
-  
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("Thresholds to use: ");
+    sb.append(getWhichThresholds());
+    sb.append("\n");
+    NavigableMap<Double,EvalStatsTagging> map = getByThresholdEvalStats();
+    for(double th : map.navigableKeySet()) {
+      sb.append(map.get(th));
+      sb.append("\n");
+    }
+    return sb.toString();
+  }
   
   
 }
