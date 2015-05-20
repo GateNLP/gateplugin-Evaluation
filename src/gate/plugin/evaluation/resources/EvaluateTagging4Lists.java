@@ -35,6 +35,7 @@ import gate.plugin.evaluation.api.AnnotationTypeSpecs;
 import gate.plugin.evaluation.api.ByThEvalStatsTagging;
 import gate.plugin.evaluation.api.ContingencyTableInteger;
 import gate.plugin.evaluation.api.EvalStatsTagging;
+import static gate.plugin.evaluation.resources.EvaluateTagging.initialFeaturePrefixResponse;
 import gate.util.GateRuntimeException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -104,12 +105,14 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
   protected double scoreThreshold;
   @CreoleParameter(comment="A specific score threshold to use",defaultValue="0.5",disjunction="THORRANK",priority=1)
   @RunTime
+  @Optional
   public void setScoreThreshold(Double value) { scoreThreshold = value; }
   public Double getScoreThreshold() { return scoreThreshold; }
   
   protected int rankThreshold;
   @CreoleParameter(comment="A spacific rank threshold to use",defaultValue="100",disjunction="THORRANK",priority=2)
   @RunTime
+  @Optional
   public void setRankThreshold(Integer value) { rankThreshold = value; }
   public Integer getRankThreshold() { return rankThreshold; }
   
@@ -142,7 +145,12 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
   protected ByThEvalStatsTagging evalStatsByThreshold;
   protected EvalStatsTagging allDocumentsStats;
   
+  AnnotationTypeSpecs annotationTypeSpecs4Best;
+  
   String expandedEdgeName;
+  
+  protected static final String initialFeaturePrefixResponse = "evaluateTagging4Lists.response.";
+  protected static final String initialFeaturePrefixReference = "evaluateTagging4Lists.reference.";
   
   protected static final Logger logger = Logger.getLogger(EvaluateTagging4Lists.class);
   
@@ -223,18 +231,20 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     responseSet = new AnnotationSetImpl(listAnns.getDocument());
     for(CandidateList cl : candList) {
       responseSet.add(cl.get(0));
+      //System.out.println("DEBUG: adding annotation: "+cl.get(0));
     }
     //System.out.println("DEBUG: after creation of actual responses, respsize="+responseSet.size());
-    
     
     AnnotationDifferTagging docDiffer = new AnnotationDifferTagging(
             keySet,
             responseSet,
             featureSet,
             featureComparison,
-            annotationTypeSpecs
+            annotationTypeSpecs4Best  // for this eval, we need to compare key with element type, not list type!
     );
     EvalStatsTagging es = docDiffer.getEvalStatsTagging();
+    //System.out.println("DEBUG: after differ for normal: featureSet="+featureSet+" typeSpecs="+annotationTypeSpecs+" featComp="+featureComparison);
+    //System.out.println("DEBUG: after differ for normal: keys="+keySet.size()+" resp="+responseSet.size()+"\nEvalStats="+es);
 
     ByThEvalStatsTagging bth = evalStatsByThreshold;
     AnnotationDifferTagging.calculateListByThEvalStatsTagging(
@@ -244,7 +254,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
               expandedEdgeName, expandedScoreFeatureName, 
               bth.getWhichThresholds(), bth,
               annotationTypeSpecs);      
-    
+
     // Store the counts and measures as document feature values
     FeatureMap docFm = document.getFeatures();
     String featurePrefixResponseT = featurePrefixResponse;
@@ -269,8 +279,8 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     docFm.put(featurePrefixResponseT+"Responses", es.getResponses());
     
     
-    logger.debug("DEBUG: type is "+type);
-    logger.debug("DEBUG: all document stats types "+allDocumentsStats);
+    //logger.debug("DEBUG: type is "+type);
+    //logger.debug("DEBUG: all document stats types "+allDocumentsStats);
     allDocumentsStats.add(es);
     
     // Now if we have parameters to record the matchings, get the information from the docDiffer
@@ -283,7 +293,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     
     if(mainTsvPrintStream != null) {
       // a line for the response stats for that document
-      mainTsvPrintStream.println(outputTsvLine(document.getName(), typeSpec, expandedResponseSetName, es));
+      mainTsvPrintStream.println(outputTsvLine("list-best", document.getName(), typeSpec, expandedResponseSetName, es));
     }
   }
   
@@ -343,12 +353,22 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     super.initializeForRunning();
     //System.out.println("DEBUG: running tagging4lists initialize");
     expandedEdgeName = getStringOrElse(getExpandedEdgeName(),"");
+    expandedScoreFeatureName = getStringOrElse(getExpandedScoreFeatureName(),"");
+    
     
     if(getExpandedListType() == null || getExpandedListType().isEmpty()) {
       throw new GateRuntimeException("List annotation type is not specified or empty!");
     }
     if(getExpandedElementType() == null || getExpandedElementType().isEmpty()) {
       throw new GateRuntimeException("Element annotation type is not specified or empty!");
+    }
+    
+    if(expandedScoreFeatureName == null || expandedScoreFeatureName.isEmpty()) {
+      throw new GateRuntimeException("Score feature name is not specified or empty!");
+    }
+    
+    if(getExpandedKeyType() == null || getExpandedKeyType().isEmpty()) {
+      throw new GateRuntimeException("Key annotation type is not specified or empty!");
     }
     
     if(getFeatureNames() != null) {
@@ -390,6 +410,10 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     types.add(getExpandedKeyType()+"="+getExpandedListType());
     annotationTypeSpecs = new AnnotationTypeSpecs(types);
     
+    types = new ArrayList<String>();
+    types.add(getExpandedKeyType()+"="+getExpandedElementType());
+    annotationTypeSpecs4Best = new AnnotationTypeSpecs(types);
+    
     // Establish the default containment type if it was not specified. 
     if(getContainmentType() == null) {
       containmentType = ContainmentType.OVERLAPPING;
@@ -399,21 +423,16 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     }
     
     if(!(getExpandedReferenceASName() == null || getExpandedReferenceASName().isEmpty())) {
-      throw new GateRuntimeException("Reference set cannot be used with List evaluation (yet?)");
+      System.err.println("WARNING: Reference set cannot be used with List evaluation (yet?), ignored!");
+      expandedReferenceSetName = null;
+      referenceASName = null;
     } 
     
-    featurePrefixResponse = initialFeaturePrefixResponse + getResponseASName() + ".";
-    featurePrefixReference = initialFeaturePrefixReference + getReferenceASName() + ".";
+    featurePrefixResponse = initialFeaturePrefixResponse + getExpandedEvaluationId() + "." + getResponseASName() + "." ;
+    featurePrefixReference = initialFeaturePrefixReference + getExpandedEvaluationId() + "." + getReferenceASName() + ".";
+    
+    
 
-    mainTsvPrintStream = getOutputStream(null);
-    // Output the initial header line
-    if(mainTsvPrintStream != null) {
-      mainTsvPrintStream.print("evaluationId"); mainTsvPrintStream.print("\t");
-      mainTsvPrintStream.print("docName"); mainTsvPrintStream.print("\t");
-      mainTsvPrintStream.print("setName"); mainTsvPrintStream.print("\t");
-      mainTsvPrintStream.print("annotationType"); mainTsvPrintStream.print("\t");
-      mainTsvPrintStream.println(EvalStatsTagging.getTSVHeaders());
-    }
   }
   
   
@@ -436,49 +455,19 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     
     // TODO: think of a way of how to add the interpolated precision strict interpolated precision
     // lenient to the by thresholds lines!!!
-    /* TODO TEMPORARILY REMOVED 
-    // output for each of the types ...
-    for(String type : getAnnotationTypes()) {
-      // for list eval, this is the only thing we create!
-      //if(evalStatsByThreshold != null) {
-        ByThEvalStatsTagging bthes = evalStatsByThreshold.get(type);
-        for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
-          outputEvalStatsForType(System.out, bthes.get(th), type, expandedResponseSetName);
-          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, type, expandedResponseSetName, bthes.get(th))); }
-        }
-      //}
+    ByThEvalStatsTagging bthes = evalStatsByThreshold;
+    AnnotationTypeSpec typeSpecNormal = new AnnotationTypeSpec(getExpandedKeyType(),getExpandedElementType());
+    AnnotationTypeSpec typeSpecList = new AnnotationTypeSpec(getExpandedKeyType(),getExpandedListType());
+    outputEvalStatsForType(System.out, allDocumentsStats, typeSpecNormal.toString(), expandedResponseSetName);
+    if(mainTsvPrintStream != null) { 
+      mainTsvPrintStream.println(
+              outputTsvLine("list-best", null, typeSpecNormal, getResponseASName(), allDocumentsStats)); }
+    for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
+      outputEvalStatsForType(System.out, bthes.get(th), typeSpecList.toString(), expandedResponseSetName);
+      if(mainTsvPrintStream != null) { 
+        mainTsvPrintStream.println(
+                outputTsvLine("list-score", null, typeSpecList, expandedResponseSetName, bthes.get(th))); }
     }
-    // summary stats for the lists
-    // If there was more than one type, also output the summary stats over all types
-    if(getAnnotationTypes().size() > 1) {
-      if(evalStatsByThreshold != null) {
-        ByThEvalStatsTagging bthes = evalStatsByThreshold.get("");
-        for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
-          outputEvalStatsForType(System.out, bthes.get(th), "all(micro)", expandedResponseSetName);
-          if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", expandedResponseSetName, bthes.get(th))); }
-        }        
-      }
-      EvalStatsTaggingMacro esm = new EvalStatsTaggingMacro();
-      for(String type : getAnnotationTypes()) {
-        esm.add(allDocumentsStats.get(type));
-      }
-      outputEvalStatsForType(System.out, esm, "all(macro)", expandedResponseSetName);
-      if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", expandedResponseSetName, esm)); }
-      if(!getStringOrElse(getReferenceASName(), "").isEmpty()) {
-        esm = new EvalStatsTaggingMacro();
-        for(String type : getAnnotationTypes()) {
-          esm.add(allDocumentsReferenceStats.get(type));
-        }
-        outputEvalStatsForType(System.out, esm, "all(macro)", expandedReferenceSetName);
-        if(mainTsvPrintStream != null) { mainTsvPrintStream.println(outputTsvLine(null, "", expandedReferenceSetName, esm)); }
-      }
-    }
-      
-    if(!expandedReferenceSetName.isEmpty()) {
-      outputContingencyTable(System.out, correctnessTableStrict);      
-      outputContingencyTable(System.out, correctnessTableLenient);
-    }
-    */
 
   }
   

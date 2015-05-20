@@ -196,8 +196,6 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   protected String expandedNilValue;
   protected String expandedEvaluationId;
   
-  protected static final String initialFeaturePrefixResponse = "evaluateTagging.response.";
-  protected static final String initialFeaturePrefixReference = "evaluateTagging.reference.";
   
   protected String featurePrefixResponse;
   protected String featurePrefixReference;
@@ -308,14 +306,11 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
       nilTreatment = NilTreatment.NO_NILS;
     }
     
-    featurePrefixResponse = initialFeaturePrefixResponse + getResponseASName() + ".";
-    featurePrefixReference = initialFeaturePrefixReference + getReferenceASName() + ".";
-    
-    
     mainTsvPrintStream = getOutputStream(null);
     // Output the initial header line
     if(mainTsvPrintStream != null) {
       mainTsvPrintStream.print("evaluationId"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("evaluationType"); mainTsvPrintStream.print("\t");
       mainTsvPrintStream.print("docName"); mainTsvPrintStream.print("\t");
       mainTsvPrintStream.print("setName"); mainTsvPrintStream.print("\t");
       mainTsvPrintStream.print("annotationType"); mainTsvPrintStream.print("\t");
@@ -364,12 +359,15 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
    * the given annotation type, and the given document name. 
    * If an null/empty annotation type is passed, the type "[type:all:micro]" is used instead.
    * If a null document name is passed, the name "[doc:all:micro]" is used instead.
+   * @param evalType
    * @param docName
    * @param typeSpec
+   * @param setName
    * @param es
    * @return 
    */
   protected String outputTsvLine(
+          String evalType,
           String docName,
           AnnotationTypeSpec typeSpec,
           String setName,
@@ -377,6 +375,7 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   ) {
     StringBuilder sb = new StringBuilder();
     sb.append(expandedEvaluationId); sb.append("\t");
+    sb.append(evalType); sb.append("\t");
     if(docName == null) {
       sb.append("[doc:all:micro]");
     } else {

@@ -30,6 +30,7 @@ import gate.creole.ExecutionException;
 import gate.persist.PersistenceException;
 import gate.plugin.evaluation.api.EvalStatsTagging;
 import gate.plugin.evaluation.resources.EvaluateTagging;
+import gate.plugin.evaluation.resources.EvaluateTagging4Lists;
 import static gate.plugin.evaluation.tests.TestUtils.*;
 import gate.util.GateRuntimeException;
 import gate.util.persistence.PersistenceManager;
@@ -150,7 +151,7 @@ public class TestTagging3 {
     assertEquals("f1.0 strict",0.796969,es_Drug.getFMeasureStrict(1.0),EPS4);
     
   }
-  /*
+  
   @Test
   public void testCorp2() throws ResourceInstantiationException, ExecutionException, PersistenceException, IOException {
     logger.debug("Running test testCorp2");
@@ -159,7 +160,7 @@ public class TestTagging3 {
     // access the PRs that are in the controller
     EvaluateTagging corp2normal = null;
     EvaluateTagging corp2score  = null;
-    EvaluateTagging corp2list = null;
+    EvaluateTagging4Lists corp2list = null;
     
     for(ProcessingResource pr : controller.getPRs()) {
       if(pr.getName().equals("EvaluateTagging:corp2-normal")) {
@@ -168,14 +169,29 @@ public class TestTagging3 {
       if(pr.getName().equals("EvaluateTagging:corp2-score")) {
         corp2score = (EvaluateTagging)pr;
       }
-      if(pr.getName().equals("EvaluateTagging:corp2-list")) {
-        corp2list = (EvaluateTagging)pr;
+      if(pr.getName().equals("EvaluateTagging4Lists:corp2-list")) {
+        corp2list = (EvaluateTagging4Lists)pr;
       }
+    }
+    // make sure we clear all document features before running the evaluation!
+    for(Document d : controller.getCorpus()) {
+      d.getFeatures().clear();
     }
     assertNotNull(corp2normal);
     assertNotNull(corp2score);
     assertNotNull(corp2list);
     controller.execute();
+    
+    Document doc11 = null;
+    for(Document d : controller.getCorpus()) {
+      // need startsWith because GATE appends that random nonsense
+      if(d.getName().startsWith("doc11.xml")) {
+        doc11 = d;
+      }
+    }
+    assertNotNull(doc11);
+    
+    
     // now check if the expected evaluation statistics are there
     EvalStatsTagging es_normal = corp2normal.getEvalStatsTagging("");
     assertEquals("precision strict",0.46739130434783,es_normal.getPrecisionStrict(),EPS4);
@@ -207,8 +223,21 @@ public class TestTagging3 {
     assertEquals("recall lenient",0.07204610951009,es_score.getRecallLenient(),EPS4);
     assertEquals("f1.0 lenient",0.12706480304956,es_score.getFMeasureLenient(1.0),EPS4);
     // assertEquals("accuracy lenient",0,es_score.getSingleCorrectAccuracyLenient(),EPS4); // BUG?
+
+    // also make sure that the document features are set correctly
+    // get some arbitrary document
+    FeatureMap fmd1 = doc11.getFeatures();
+    assertEquals(0.33333333333333,(Double)fmd1.get("evaluateTagging.response.corp2-normal.Shef.Mention.PrecisionStrict"),EPS4);
+    assertEquals(0.17647058823529,(Double)fmd1.get("evaluateTagging.response.corp2-normal.Shef.Mention.RecallStrict"),EPS4);
+    assertEquals(0.23076923076923,(Double)fmd1.get("evaluateTagging.response.corp2-normal.Shef.Mention.FMeasureStrict"),EPS4);
+
+    assertEquals(0.75,(Double)fmd1.get("evaluateTagging.reference.corp2-normal.Ref.Mention.PrecisionStrict"),EPS4);
+    assertEquals(0.35294117647059,(Double)fmd1.get("evaluateTagging.reference.corp2-normal.Ref.Mention.RecallStrict"),EPS4);
+    assertEquals(0.48,(Double)fmd1.get("evaluateTagging.reference.corp2-normal.Ref.Mention.FMeasureStrict"),EPS4);
+
+    // BEGINNING OF CHECKING THE ACTUAL LIST-BASED EVALUATION VALUES
     
-    EvalStatsTagging es_list_default = corp2list.getEvalStatsTagging("");
+    EvalStatsTagging es_list_default = corp2list.getEvalStatsTagging();
     assertEquals("precision strict",0.39404352806415,es_list_default.getPrecisionStrict(),EPS4);
     assertEquals("recall strict",0.49567723342939,es_list_default.getRecallStrict(),EPS4);
     assertEquals("f1.0 strict",0.43905552010211,es_list_default.getFMeasureStrict(1.0),EPS4);
@@ -218,7 +247,7 @@ public class TestTagging3 {
     assertEquals("f1.0 lenient",0.47351627313338,es_list_default.getFMeasureLenient(1.0),EPS4);
     assertEquals("accuracy lenient",0.53458213256484,es_list_default.getSingleCorrectAccuracyLenient(),EPS4);
     
-    es_list_default = corp2list.getByThEvalStatsTagging("").get(0.81);
+    es_list_default = corp2list.getByThEvalStatsTagging().get(0.81);
     assertNotNull(es_score);
     assertEquals("precision strict",0.63434343434343,es_list_default.getPrecisionStrict(),EPS4);
     assertEquals("recall strict",0.45244956772334,es_list_default.getRecallStrict(),EPS4);
@@ -232,28 +261,10 @@ public class TestTagging3 {
     
     
     
-    // also make sure that the document features are set correctly
-    // get some arbitrary document
-    Document d1 = null;
-    for(Document d : controller.getCorpus()) {
-      // need startsWith because GATE appends that random nonsense
-      if(d.getName().startsWith("doc11.xml")) {
-        d1 = d;
-      }
-    }
-    assertNotNull(d1);
-    FeatureMap fmd1 = d1.getFeatures();
-    assertEquals(0.33333333333333,(Double)fmd1.get("evaluateTagging.response.corp2-normal.Shef.Mention.PrecisionStrict"),EPS4);
-    assertEquals(0.17647058823529,(Double)fmd1.get("evaluateTagging.response.corp2-normal.Shef.Mention.RecallStrict"),EPS4);
-    assertEquals(0.23076923076923,(Double)fmd1.get("evaluateTagging.response.corp2-normal.Shef.Mention.FMeasureStrict"),EPS4);
-
-    assertEquals(0.75,(Double)fmd1.get("evaluateTagging.reference.corp2-normal.Ref.Mention.PrecisionStrict"),EPS4);
-    assertEquals(0.35294117647059,(Double)fmd1.get("evaluateTagging.reference.corp2-normal.Ref.Mention.RecallStrict"),EPS4);
-    assertEquals(0.48,(Double)fmd1.get("evaluateTagging.reference.corp2-normal.Ref.Mention.FMeasureStrict"),EPS4);
     
     // 
 
     
   }  
-  */
+  
 }

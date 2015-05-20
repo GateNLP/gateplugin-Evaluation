@@ -1465,6 +1465,9 @@ public class AnnotationDifferTagging {
     public CandidateList(AnnotationSet annSet, Annotation listAnn, String listIdFeature, 
             String scoreFeature, String elementType, boolean filterNils, String nilValue,
             String idFeature) {
+      if(scoreFeature == null || scoreFeature.isEmpty()) {
+        throw new GateRuntimeException("Parameter scoreFeature must not be null or empty!");
+      }
       this.scoreFeature = scoreFeature;
       this.listAnn = listAnn;
       this.type = listAnn.getType();
