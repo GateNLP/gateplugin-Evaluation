@@ -261,31 +261,32 @@ public class EvaluateTagging extends EvaluateTaggingBase
     
     // Store the counts and measures as document feature values
     FeatureMap docFm = document.getFeatures();
-    String featurePrefixResponseT = featurePrefixResponse;
-    if(typeSpec == null) {
-      featurePrefixResponseT += "[ALL].";
-    } else {
-      featurePrefixResponseT += (typeSpec + ".");
+    if (getAddDocumentFeatures()) {
+      String featurePrefixResponseT = featurePrefixResponse;
+      if (typeSpec == null) {
+        featurePrefixResponseT += "[ALL].";
+      } else {
+        featurePrefixResponseT += (typeSpec + ".");
+      }
+      docFm.put(featurePrefixResponseT + "FMeasureStrict", es.getFMeasureStrict(1.0));
+      docFm.put(featurePrefixResponseT + "FMeasureLenient", es.getFMeasureLenient(1.0));
+      docFm.put(featurePrefixResponseT + "PrecisionStrict", es.getPrecisionStrict());
+      docFm.put(featurePrefixResponseT + "PrecisionLenient", es.getPrecisionLenient());
+      docFm.put(featurePrefixResponseT + "RecallStrict", es.getRecallStrict());
+      docFm.put(featurePrefixResponseT + "RecallLenient", es.getRecallLenient());
+      docFm.put(featurePrefixResponseT + "SingleCorrectAccuracyStrict", es.getSingleCorrectAccuracyStrict());
+      docFm.put(featurePrefixResponseT + "SingleCorrectAccuracyLenient", es.getSingleCorrectAccuracyLenient());
+      docFm.put(featurePrefixResponseT + "CorrectStrict", es.getCorrectStrict());
+      docFm.put(featurePrefixResponseT + "CorrectPartial", es.getCorrectPartial());
+      docFm.put(featurePrefixResponseT + "IncorrectStrict", es.getIncorrectStrict());
+      docFm.put(featurePrefixResponseT + "IncorrectPartial", es.getIncorrectPartial());
+      docFm.put(featurePrefixResponseT + "TrueMissingStrict", es.getTrueMissingStrict());
+      docFm.put(featurePrefixResponseT + "TrueMissingLenient", es.getTrueMissingLenient());
+      docFm.put(featurePrefixResponseT + "TrueSpuriousStrict", es.getTrueSpuriousStrict());
+      docFm.put(featurePrefixResponseT + "TrueSpuriousLenient", es.getTrueSpuriousLenient());
+      docFm.put(featurePrefixResponseT + "Targets", es.getTargets());
+      docFm.put(featurePrefixResponseT + "Responses", es.getResponses());
     }
-    docFm.put(featurePrefixResponseT+"FMeasureStrict", es.getFMeasureStrict(1.0));
-    docFm.put(featurePrefixResponseT+"FMeasureLenient", es.getFMeasureLenient(1.0));
-    docFm.put(featurePrefixResponseT+"PrecisionStrict", es.getPrecisionStrict());
-    docFm.put(featurePrefixResponseT+"PrecisionLenient", es.getPrecisionLenient());
-    docFm.put(featurePrefixResponseT+"RecallStrict", es.getRecallStrict());
-    docFm.put(featurePrefixResponseT+"RecallLenient", es.getRecallLenient());
-    docFm.put(featurePrefixResponseT+"SingleCorrectAccuracyStrict", es.getSingleCorrectAccuracyStrict());
-    docFm.put(featurePrefixResponseT+"SingleCorrectAccuracyLenient", es.getSingleCorrectAccuracyLenient());
-    docFm.put(featurePrefixResponseT+"CorrectStrict", es.getCorrectStrict());
-    docFm.put(featurePrefixResponseT+"CorrectPartial", es.getCorrectPartial());
-    docFm.put(featurePrefixResponseT+"IncorrectStrict", es.getIncorrectStrict());
-    docFm.put(featurePrefixResponseT+"IncorrectPartial", es.getIncorrectPartial());
-    docFm.put(featurePrefixResponseT+"TrueMissingStrict", es.getTrueMissingStrict());
-    docFm.put(featurePrefixResponseT+"TrueMissingLenient", es.getTrueMissingLenient());
-    docFm.put(featurePrefixResponseT+"TrueSpuriousStrict", es.getTrueSpuriousStrict());
-    docFm.put(featurePrefixResponseT+"TrueSpuriousLenient", es.getTrueSpuriousLenient());
-    docFm.put(featurePrefixResponseT+"Targets", es.getTargets());
-    docFm.put(featurePrefixResponseT+"Responses", es.getResponses());
-    
     
     logger.debug("DEBUG: type is "+typeSpec);
     logger.debug("DEBUG: all document stats types "+allDocumentsStats.keySet());
@@ -334,32 +335,33 @@ public class EvaluateTagging extends EvaluateTaggingBase
       AnnotationDifferTagging.addChangesToContingenyTables(docDiffer, docRefDiffer, correctnessTableStrict, correctnessTableLenient);
       
       // add document features for the reference set
-      String featurePrefixReferenceT = featurePrefixReference;
-      if(typeSpec == null) {
-        featurePrefixReferenceT += "[ALL].";
-      } else {
-        featurePrefixReferenceT += (typeSpec + ".");
+      if (getAddDocumentFeatures()) {
+        String featurePrefixReferenceT = featurePrefixReference;
+        if (typeSpec == null) {
+          featurePrefixReferenceT += "[ALL].";
+        } else {
+          featurePrefixReferenceT += (typeSpec + ".");
+        }
+        docFm.put(featurePrefixReferenceT + "FMeasureStrict", res.getFMeasureStrict(1.0));
+        docFm.put(featurePrefixReferenceT + "FMeasureLenient", res.getFMeasureLenient(1.0));
+        docFm.put(featurePrefixReferenceT + "PrecisionStrict", res.getPrecisionStrict());
+        docFm.put(featurePrefixReferenceT + "PrecisionLenient", res.getPrecisionLenient());
+        docFm.put(featurePrefixReferenceT + "RecallStrict", res.getRecallStrict());
+        docFm.put(featurePrefixReferenceT + "RecallLenient", res.getRecallLenient());
+        docFm.put(featurePrefixReferenceT + "SingleCorrectAccuracyStrict", res.getSingleCorrectAccuracyStrict());
+        docFm.put(featurePrefixReferenceT + "SingleCorrectAccuracyLenient", res.getSingleCorrectAccuracyLenient());
+        docFm.put(featurePrefixReferenceT + "CorrectStrict", res.getCorrectStrict());
+        docFm.put(featurePrefixReferenceT + "CorrectPartial", res.getCorrectPartial());
+        docFm.put(featurePrefixReferenceT + "IncorrectStrict", res.getIncorrectStrict());
+        docFm.put(featurePrefixReferenceT + "IncorrectPartial", res.getIncorrectPartial());
+        docFm.put(featurePrefixReferenceT + "TrueMissingStrict", res.getTrueMissingStrict());
+        docFm.put(featurePrefixReferenceT + "TrueMissingLenient", res.getTrueMissingLenient());
+        docFm.put(featurePrefixReferenceT + "TrueSpuriousStrict", res.getTrueSpuriousStrict());
+        docFm.put(featurePrefixReferenceT + "TrueSpuriousLenient", res.getTrueSpuriousLenient());
+        docFm.put(featurePrefixReferenceT + "Targets", res.getTargets());
+        docFm.put(featurePrefixReferenceT + "Responses", res.getResponses());
       }
-      docFm.put(featurePrefixReferenceT + "FMeasureStrict", res.getFMeasureStrict(1.0));
-      docFm.put(featurePrefixReferenceT + "FMeasureLenient", res.getFMeasureLenient(1.0));
-      docFm.put(featurePrefixReferenceT + "PrecisionStrict", res.getPrecisionStrict());
-      docFm.put(featurePrefixReferenceT + "PrecisionLenient", res.getPrecisionLenient());
-      docFm.put(featurePrefixReferenceT + "RecallStrict", res.getRecallStrict());
-      docFm.put(featurePrefixReferenceT + "RecallLenient", res.getRecallLenient());
-      docFm.put(featurePrefixReferenceT + "SingleCorrectAccuracyStrict", res.getSingleCorrectAccuracyStrict());
-      docFm.put(featurePrefixReferenceT + "SingleCorrectAccuracyLenient", res.getSingleCorrectAccuracyLenient());
-      docFm.put(featurePrefixReferenceT + "CorrectStrict", res.getCorrectStrict());
-      docFm.put(featurePrefixReferenceT + "CorrectPartial", res.getCorrectPartial());
-      docFm.put(featurePrefixReferenceT + "IncorrectStrict", res.getIncorrectStrict());
-      docFm.put(featurePrefixReferenceT + "IncorrectPartial", res.getIncorrectPartial());
-      docFm.put(featurePrefixReferenceT + "TrueMissingStrict", res.getTrueMissingStrict());
-      docFm.put(featurePrefixReferenceT + "TrueMissingLenient", res.getTrueMissingLenient());
-      docFm.put(featurePrefixReferenceT + "TrueSpuriousStrict", res.getTrueSpuriousStrict());
-      docFm.put(featurePrefixReferenceT + "TrueSpuriousLenient", res.getTrueSpuriousLenient());
-      docFm.put(featurePrefixReferenceT + "Targets", res.getTargets());
-      docFm.put(featurePrefixReferenceT + "Responses", res.getResponses());
     }
-    
     if(mainTsvPrintStream != null) {
       // a line for the response stats for that document
       mainTsvPrintStream.println(outputTsvLine("normal", document.getName(), typeSpec, expandedResponseSetName, es));

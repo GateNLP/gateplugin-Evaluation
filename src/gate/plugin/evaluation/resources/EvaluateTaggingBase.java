@@ -169,17 +169,18 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   public String getEvaluationId() { return evaluationId == null ? "" : evaluationId; }
   public String getExpandedEvaluationId() { return Utils.replaceVariablesInString(getEvaluationId()); }
      
-  // Maybe add an option to specify your own and then allow a list of values in a separate field?
-  // Or always use the list if it is non-empty, ignoring the setting here?
-  // If we allow thresholds to be specified, then we could also do single-thresholds analyses
-  // especially for lists, where we analyse e.g. what we get if we take the best for threshold
-  // > something or for rank < N. 
   protected ThresholdsToUse whichThresholds;
   @CreoleParameter(comment="",defaultValue="USE_ALL")
   @RunTime
   @Optional  
   public void setWhichThresholds(ThresholdsToUse value) { whichThresholds = value; }
   public ThresholdsToUse getWhichThresholds() { return whichThresholds; }
+
+  protected boolean addDocumentFeatures = true;
+  @CreoleParameter(comment="If document features should be added for per-document evaluation results",defaultValue="true")
+  @RunTime
+  public void setAddDocumentFeatures(Boolean value) { addDocumentFeatures = value; }
+  public Boolean getAddDocumentFeatures() { return addDocumentFeatures; }
   
   
   protected AnnotationTypeSpecs annotationTypeSpecs;
@@ -316,7 +317,7 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
       mainTsvPrintStream.print("annotationType"); mainTsvPrintStream.print("\t");
       mainTsvPrintStream.println(EvalStatsTagging.getTSVHeaders());
     }
-    
+    if(getAddDocumentFeatures() == null) { setAddDocumentFeatures(true); }
 
   }
   
