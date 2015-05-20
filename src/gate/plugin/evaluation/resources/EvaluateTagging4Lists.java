@@ -247,6 +247,8 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     //System.out.println("DEBUG: after differ for normal: keys="+keySet.size()+" resp="+responseSet.size()+"\nEvalStats="+es);
 
     ByThEvalStatsTagging bth = evalStatsByThreshold;
+    // if we only evaluate for a particular score or rank, do that, otherwise do the whole 
+    // ByTh thing
     AnnotationDifferTagging.calculateListByThEvalStatsTagging(
               keySet,
               document.getAnnotations(expandedResponseSetName),
@@ -257,27 +259,28 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
 
     // Store the counts and measures as document feature values
     FeatureMap docFm = document.getFeatures();
-    String featurePrefixResponseT = featurePrefixResponse;
-    featurePrefixResponseT += type;
-    docFm.put(featurePrefixResponseT+"FMeasureStrict", es.getFMeasureStrict(1.0));
-    docFm.put(featurePrefixResponseT+"FMeasureLenient", es.getFMeasureLenient(1.0));
-    docFm.put(featurePrefixResponseT+"PrecisionStrict", es.getPrecisionStrict());
-    docFm.put(featurePrefixResponseT+"PrecisionLenient", es.getPrecisionLenient());
-    docFm.put(featurePrefixResponseT+"RecallStrict", es.getRecallStrict());
-    docFm.put(featurePrefixResponseT+"RecallLenient", es.getRecallLenient());
-    docFm.put(featurePrefixResponseT+"SingleCorrectAccuracyStrict", es.getSingleCorrectAccuracyStrict());
-    docFm.put(featurePrefixResponseT+"SingleCorrectAccuracyLenient", es.getSingleCorrectAccuracyLenient());
-    docFm.put(featurePrefixResponseT+"CorrectStrict", es.getCorrectStrict());
-    docFm.put(featurePrefixResponseT+"CorrectPartial", es.getCorrectPartial());
-    docFm.put(featurePrefixResponseT+"IncorrectStrict", es.getIncorrectStrict());
-    docFm.put(featurePrefixResponseT+"IncorrectPartial", es.getIncorrectPartial());
-    docFm.put(featurePrefixResponseT+"TrueMissingStrict", es.getTrueMissingStrict());
-    docFm.put(featurePrefixResponseT+"TrueMissingLenient", es.getTrueMissingLenient());
-    docFm.put(featurePrefixResponseT+"TrueSpuriousStrict", es.getTrueSpuriousStrict());
-    docFm.put(featurePrefixResponseT+"TrueSpuriousLenient", es.getTrueSpuriousLenient());
-    docFm.put(featurePrefixResponseT+"Targets", es.getTargets());
-    docFm.put(featurePrefixResponseT+"Responses", es.getResponses());
-    
+    if (getAddDocumentFeatures()) {
+      String featurePrefixResponseT = featurePrefixResponse;
+      featurePrefixResponseT += type;
+      docFm.put(featurePrefixResponseT + "FMeasureStrict", es.getFMeasureStrict(1.0));
+      docFm.put(featurePrefixResponseT + "FMeasureLenient", es.getFMeasureLenient(1.0));
+      docFm.put(featurePrefixResponseT + "PrecisionStrict", es.getPrecisionStrict());
+      docFm.put(featurePrefixResponseT + "PrecisionLenient", es.getPrecisionLenient());
+      docFm.put(featurePrefixResponseT + "RecallStrict", es.getRecallStrict());
+      docFm.put(featurePrefixResponseT + "RecallLenient", es.getRecallLenient());
+      docFm.put(featurePrefixResponseT + "SingleCorrectAccuracyStrict", es.getSingleCorrectAccuracyStrict());
+      docFm.put(featurePrefixResponseT + "SingleCorrectAccuracyLenient", es.getSingleCorrectAccuracyLenient());
+      docFm.put(featurePrefixResponseT + "CorrectStrict", es.getCorrectStrict());
+      docFm.put(featurePrefixResponseT + "CorrectPartial", es.getCorrectPartial());
+      docFm.put(featurePrefixResponseT + "IncorrectStrict", es.getIncorrectStrict());
+      docFm.put(featurePrefixResponseT + "IncorrectPartial", es.getIncorrectPartial());
+      docFm.put(featurePrefixResponseT + "TrueMissingStrict", es.getTrueMissingStrict());
+      docFm.put(featurePrefixResponseT + "TrueMissingLenient", es.getTrueMissingLenient());
+      docFm.put(featurePrefixResponseT + "TrueSpuriousStrict", es.getTrueSpuriousStrict());
+      docFm.put(featurePrefixResponseT + "TrueSpuriousLenient", es.getTrueSpuriousLenient());
+      docFm.put(featurePrefixResponseT + "Targets", es.getTargets());
+      docFm.put(featurePrefixResponseT + "Responses", es.getResponses());
+    }
     
     //logger.debug("DEBUG: type is "+type);
     //logger.debug("DEBUG: all document stats types "+allDocumentsStats);
