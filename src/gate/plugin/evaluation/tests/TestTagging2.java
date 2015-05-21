@@ -121,6 +121,7 @@ public class TestTagging2 {
     addListAnn(resp,0,10,"L",ids);
     runETPR(prListEval1,doc);
     EvalStatsTagging es = prListEval1.getEvalStatsTagging();
+    assertNotNull(es);
     assertEquals("targets",1,es.getTargets());
     assertEquals("responses",1,es.getResponses());
     assertEquals("correct strict",0,es.getCorrectStrict());
@@ -134,6 +135,7 @@ public class TestTagging2 {
     assertEquals("recall lenient",0.0,es.getRecallLenient(),EPS);    
     
     es = prListEval1.getByThEvalStatsTagging().get(0.9);
+    assertNotNull(es);
     assertEquals("targets",1,es.getTargets());
     assertEquals("responses",1,es.getResponses());
     assertEquals("correct strict",0,es.getCorrectStrict());
@@ -147,6 +149,7 @@ public class TestTagging2 {
     assertEquals("recall lenient",0.0,es.getRecallLenient(),EPS);    
     
     es = prListEval1.getByThEvalStatsTagging().get(0.8);
+    assertNotNull(es);
     assertEquals("targets",1,es.getTargets());
     assertEquals("responses",1,es.getResponses());
     assertEquals("correct strict",1,es.getCorrectStrict());
@@ -177,6 +180,7 @@ public class TestTagging2 {
     addListAnn(resp,0,1,"L",ids);
     runETPR(prListEval1,doc);
     EvalStatsTagging es = prListEval1.getEvalStatsTagging();
+    assertNotNull(es);
     assertEquals("targets",1,es.getTargets());
     assertEquals("responses",1,es.getResponses());
     assertEquals("correct strict",0,es.getCorrectStrict());
@@ -190,6 +194,7 @@ public class TestTagging2 {
     assertEquals("recall lenient",0.0,es.getRecallLenient(),EPS);    
 
     es = prListEval1.getByThEvalStatsTagging().get(0.9);
+    assertNotNull(es);
     assertEquals("targets",1,es.getTargets());
     assertEquals("responses",1,es.getResponses());
     assertEquals("correct strict",0,es.getCorrectStrict());
@@ -203,7 +208,8 @@ public class TestTagging2 {
     assertEquals("recall lenient",0.0,es.getRecallLenient(),EPS);    
     
     es = prListEval1.getByThEvalStatsTagging().get(0.8);
-    logger.debug("DEBUG: test02 for 0.8: \n"+es.toString());
+    assertNotNull(es);
+    //logger.debug("DEBUG: test02 for 0.8: \n"+es.toString());
     assertEquals("targets",1,es.getTargets());
     assertEquals("responses",1,es.getResponses());
     assertEquals("correct strict",0,es.getCorrectStrict());
@@ -219,7 +225,8 @@ public class TestTagging2 {
     assertEquals("recall lenient",1.0,es.getRecallLenient(),EPS);    
     
     es = prListEval1.getByThEvalStatsTagging().get(0.7);
-    logger.debug("DEBUG: test02 for 0.7: \n"+es.toString());
+    assertNotNull(es);
+    //logger.debug("DEBUG: test02 for 0.7: \n"+es.toString());
     assertEquals("targets",1,es.getTargets());
     assertEquals("responses",1,es.getResponses());
     assertEquals("correct strict",1,es.getCorrectStrict());

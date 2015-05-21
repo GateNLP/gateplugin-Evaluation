@@ -1185,7 +1185,7 @@
               <localMap>
                 <entry>
                   <string>scoreThreshold</string>
-                  <double>0.5</double>
+                  <string></string>
                 </entry>
                 <entry>
                   <string>nilValue</string>
@@ -1214,7 +1214,7 @@
                 </entry>
                 <entry>
                   <string>rankThreshold</string>
-                  <int>0</int>
+                  <string></string>
                 </entry>
                 <entry>
                   <string>referenceASName</string>

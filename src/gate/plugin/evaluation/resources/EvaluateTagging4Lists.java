@@ -102,19 +102,21 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
   public String getElementType() { return elementType; }
   public String getExpandedElementType() { return Utils.replaceVariablesInString(getElementType()); }
   
-  protected double scoreThreshold;
-  @CreoleParameter(comment="A specific score threshold to use",defaultValue="0.5",disjunction="THORRANK",priority=1)
+  protected String scoreThreshold;
+  protected double scoreThresholdToUse = Double.NaN;
+  @CreoleParameter(comment="A specific score threshold to use, -Infinity can be used",defaultValue="",disjunction="THORRANK",priority=1)
   @RunTime
   @Optional
-  public void setScoreThreshold(Double value) { scoreThreshold = value; }
-  public Double getScoreThreshold() { return scoreThreshold; }
+  public void setScoreThreshold(String value) { scoreThreshold = value; }
+  public String getScoreThreshold() { return scoreThreshold; }
   
-  protected int rankThreshold;
-  @CreoleParameter(comment="A spacific rank threshold to use",defaultValue="100",disjunction="THORRANK",priority=2)
+  protected String rankThreshold;
+  protected Integer rankThresholdToUse = Integer.MAX_VALUE;
+  @CreoleParameter(comment="A spacific rank threshold to use, 'max' can be used",defaultValue="",disjunction="THORRANK",priority=2)
   @RunTime
   @Optional
-  public void setRankThreshold(Integer value) { rankThreshold = value; }
-  public Integer getRankThreshold() { return rankThreshold; }
+  public void setRankThreshold(String value) { rankThreshold = value; }
+  public String getRankThreshold() { return rankThreshold; }
   
   //////////////////// 
   // PR METHODS 
@@ -153,6 +155,11 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
   protected static final String initialFeaturePrefixReference = "evaluateTagging4Lists.reference.";
   
   protected static final Logger logger = Logger.getLogger(EvaluateTagging4Lists.class);
+  
+  // after init, exactly one of these should be true
+  protected boolean evaluate4ScoreTh = false;
+  protected boolean evaluate4RankTh = false;
+  protected boolean evaluate4All = false;
   
   @Override
   public void execute() {
@@ -249,13 +256,38 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     ByThEvalStatsTagging bth = evalStatsByThreshold;
     // if we only evaluate for a particular score or rank, do that, otherwise do the whole 
     // ByTh thing
-    AnnotationDifferTagging.calculateListByThEvalStatsTagging(
+    if(evaluate4ScoreTh) {
+      AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(
+              keySet,
+              document.getAnnotations(expandedResponseSetName),
+              candList,
+              featureSet,
+              featureComparison,
+              expandedEdgeName,
+              expandedScoreFeatureName,
+              scoreThresholdToUse,      // Instead of this, we should use an internal field so we can use -Inf etc.
+              annotationTypeSpecs);
+      ByThEvalStatsTagging tmpEs = new ByThEvalStatsTagging(bth.getWhichThresholds());
+      tmpEs.put(scoreThresholdToUse,ad.getEvalStatsTagging());
+      bth.add(tmpEs);
+      /*
+      EvalStatsTagging tmpes = bth.get(scoreThresholdToUse);
+      if(tmpes==null) {
+        tmpes = ad.getEvalStatsTagging();
+        bth.put(scoreThresholdToUse, tmpes);
+      } else {
+        tmpes.add(ad.getEvalStatsTagging());
+      }
+      */
+    } else {
+      AnnotationDifferTagging.calculateListByThEvalStatsTagging(
               keySet,
               document.getAnnotations(expandedResponseSetName),
               candList, featureSet, featureComparison, 
               expandedEdgeName, expandedScoreFeatureName, 
               bth.getWhichThresholds(), bth,
               annotationTypeSpecs);      
+    }
 
     // Store the counts and measures as document feature values
     FeatureMap docFm = document.getFeatures();
@@ -366,7 +398,29 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       throw new GateRuntimeException("Element annotation type is not specified or empty!");
     }
     
-    if(expandedScoreFeatureName == null || expandedScoreFeatureName.isEmpty()) {
+    if(getScoreThreshold() != null && !getScoreThreshold().isEmpty()) {
+      scoreThresholdToUse = Double.parseDouble(getScoreThreshold());
+      evaluate4ScoreTh = true;
+      evaluate4All = false;
+      evaluate4RankTh = false;
+    } else if(getRankThreshold() != null && !getRankThreshold().isEmpty()) {
+      if(getRankThreshold().toLowerCase().equals("max")) {
+        rankThresholdToUse = Integer.MAX_VALUE;
+      } else {
+        rankThresholdToUse = Integer.parseInt(getRankThreshold());
+      }
+      evaluate4RankTh = true;
+      evaluate4All = false;
+      evaluate4ScoreTh = false;
+      throw new GateRuntimeException("Evaluation by rank instead of score not supported yet");
+    } else {
+      evaluate4All = true;
+      evaluate4ScoreTh = false;
+      evaluate4RankTh = false;
+    }
+    
+    
+    if(!evaluate4RankTh && (expandedScoreFeatureName == null || expandedScoreFeatureName.isEmpty())) {
       throw new GateRuntimeException("Score feature name is not specified or empty!");
     }
     
@@ -433,7 +487,6 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     
     featurePrefixResponse = initialFeaturePrefixResponse + getExpandedEvaluationId() + "." + getResponseASName() + "." ;
     featurePrefixReference = initialFeaturePrefixReference + getExpandedEvaluationId() + "." + getReferenceASName() + ".";
-    
     
 
   }

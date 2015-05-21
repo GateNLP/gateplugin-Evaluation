@@ -416,7 +416,11 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
     double th = es.getThreshold();
     if(!Double.isNaN(th)) {
       if(Double.isInfinite(th)) {
-        ts="inf";
+        if(th < 0) {
+          ts="-Infinity";
+        } else {
+          ts="+Infinity";
+        }
       } else {
         ts = "" + r4(th);
       }
