@@ -25,6 +25,8 @@ import gate.creole.metadata.Optional;
 import gate.creole.metadata.RunTime;
 import gate.plugin.evaluation.api.ContingencyTableInteger;
 import gate.plugin.evaluation.api.EvalStatsTagging;
+import gate.plugin.evaluation.api.EvalStatsTagging4Rank;
+import gate.plugin.evaluation.api.EvalStatsTagging4Score;
 import gate.plugin.evaluation.api.FeatureComparison;
 import gate.plugin.evaluation.api.ThresholdsToUse;
 import gate.util.Files;
@@ -413,19 +415,33 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   public static void outputEvalStatsForType(PrintStream out, EvalStatsTagging es, String type, String set, String expandedEvaluationId) {
     
     String ts = "none";
-    double th = es.getThreshold();
-    if(!Double.isNaN(th)) {
-      if(Double.isInfinite(th)) {
-        if(th < 0) {
-          ts="-Infinity";
+    if (es instanceof EvalStatsTagging4Score) {
+      double th = ((EvalStatsTagging4Score) es).getThreshold();
+      if (!Double.isNaN(th)) {
+        if (Double.isInfinite(th)) {
+          if (th < 0) {
+            ts = "-Infinity";
+          } else {
+            ts = "+Infinity";
+          }
         } else {
-          ts="+Infinity";
+          ts = "" + r4(th);
         }
-      } else {
-        ts = "" + r4(th);
       }
+      ts = ", th=" + ts + ", ";
+    } else if (es instanceof EvalStatsTagging4Rank) {
+      int rank = ((EvalStatsTagging4Rank) es).getRank();
+      if (Integer.MAX_VALUE == rank) {
+        ts = "Max";
+      } else {
+        ts = "" + rank;
+      }
+      ts = ", rank=" + rank + ", ";
+
+    } else {
+      ts = ", ";
     }
-    ts = ", th="+ts+", ";
+    //System.out.println("DEBUG: Type of es is "+es.getClass());
     out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Precision Strict: "+r4(es.getPrecisionStrict()));
     out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"Recall Strict: "+r4(es.getRecallStrict()));
     out.println(expandedEvaluationId+" set="+set+", type="+type+ts+"F1.0 Strict: "+r4(es.getFMeasureStrict(1.0)));

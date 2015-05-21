@@ -35,6 +35,8 @@ import gate.plugin.evaluation.api.AnnotationTypeSpecs;
 import gate.plugin.evaluation.api.ByThEvalStatsTagging;
 import gate.plugin.evaluation.api.ContingencyTableInteger;
 import gate.plugin.evaluation.api.EvalStatsTagging;
+import gate.plugin.evaluation.api.EvalStatsTagging4Rank;
+import gate.plugin.evaluation.api.EvalStatsTagging4Score;
 import static gate.plugin.evaluation.resources.EvaluateTagging.initialFeaturePrefixResponse;
 import gate.util.GateRuntimeException;
 import java.io.PrintStream;
@@ -438,7 +440,11 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       
     
     evalStatsByThreshold = new ByThEvalStatsTagging(getWhichThresholds());
-    allDocumentsStats = new EvalStatsTagging();
+    if(evaluate4RankTh) {  // TODO: eventually also if we evaluate for AllRanks
+      allDocumentsStats = new EvalStatsTagging4Rank(1);
+    } else {
+      allDocumentsStats = new EvalStatsTagging4Score(Double.NaN);      
+    }
     
     // If the featureNames list is null, this has the special meaning that the features in 
     // the key/target annotation should be used. In that case the featureNameSet will also 

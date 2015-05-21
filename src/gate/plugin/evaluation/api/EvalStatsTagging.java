@@ -13,25 +13,13 @@ package gate.plugin.evaluation.api;
 /**
  * A class to hold all the numbers for an evaluation and for calculating
  * various measures from the numbers.
- * In addition to the numbers, a EvalStatsTagging object also contains a confidence
- or score threshold. This is a double value such the the stats object
- represents the numbers if the evaluation was carried out with that 
- threshold, i.e. a response is only considered if the score of the response
- is >= the threshold. If the threshold is NaN then the stats object is not
- * associated with a threshold (usually that means it is a stats object that
- * represents all responses found).
  * 
  * @author Johann Petrak
  */
 public class EvalStatsTagging  {
   
-  protected double threshold = Double.NaN;
-  
   public EvalStatsTagging() {
     
-  }
-  public EvalStatsTagging(double threshold) {
-    this.threshold = threshold;
   }
   
   /**
@@ -42,7 +30,6 @@ public class EvalStatsTagging  {
    */
   // Why we did not implement clone(): http://www.artima.com/intv/bloch13.html
   public EvalStatsTagging(EvalStatsTagging other) {
-    threshold = other.threshold;
     nTargets = other.nTargets;
     nResponses = other.nResponses;
     nCorrectStrict = other.nCorrectStrict;
@@ -53,8 +40,6 @@ public class EvalStatsTagging  {
     nSingleCorrectPartial = other.nSingleCorrectPartial;
     
   }
-  
-  public double getThreshold() { return threshold; }
   
   // increment this EvalStatsTagging object with the counts from another one
   public void add(EvalStatsTagging other) {
@@ -244,7 +229,6 @@ public class EvalStatsTagging  {
   // Default conversion to String simply prints all the counts and measures.
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("Threshold: "); sb.append(getThreshold()); sb.append("\n");
     sb.append("Precision Strict: "); sb.append(getPrecisionStrict()); sb.append("\n");
     sb.append("Recall Strict: "); sb.append(getRecallStrict()); sb.append("\n");
     sb.append("F1.0 Strict: "); sb.append(getFMeasureStrict(1.0)); sb.append("\n");
@@ -278,7 +262,6 @@ public class EvalStatsTagging  {
    */
   public static String getTSVHeaders() {
     StringBuilder sb = new StringBuilder();
-    sb.append("threshold"); sb.append("\t");
     sb.append("precisionStrict"); sb.append("\t");
     sb.append("recallStrict"); sb.append("\t");
     sb.append("F1Strict"); sb.append("\t");
@@ -308,7 +291,6 @@ public class EvalStatsTagging  {
   
   public String getTSVLine() {
     StringBuilder sb = new StringBuilder();
-    sb.append(threshold); sb.append("\t");
     sb.append(getPrecisionStrict()); sb.append("\t");
     sb.append(getRecallStrict()); sb.append("\t");
     sb.append(getFMeasureStrict(1.0)); sb.append("\t");

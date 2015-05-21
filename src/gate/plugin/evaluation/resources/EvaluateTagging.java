@@ -35,6 +35,7 @@ import gate.plugin.evaluation.api.AnnotationTypeSpecs;
 import gate.plugin.evaluation.api.ByThEvalStatsTagging;
 import gate.plugin.evaluation.api.ContingencyTableInteger;
 import gate.plugin.evaluation.api.EvalStatsTagging;
+import gate.plugin.evaluation.api.EvalStatsTagging4Score;
 import gate.plugin.evaluation.api.EvalStatsTaggingMacro;
 import gate.util.GateRuntimeException;
 import java.io.PrintStream;
@@ -502,12 +503,12 @@ public class EvaluateTagging extends EvaluateTaggingBase
     typesPlusEmpty.addAll(annotationTypeSpecs.getKeyTypes());
     for(String t : typesPlusEmpty) {
       logger.debug("DEBUG: initializing alldocument stats for type "+t);
-      allDocumentsStats.put(t,new EvalStatsTagging());
+      allDocumentsStats.put(t,new EvalStatsTagging4Score(Double.NaN));
       if(evalStatsByThreshold != null) {
         evalStatsByThreshold.put(t,new ByThEvalStatsTagging(getWhichThresholds()));
       }    
       if(allDocumentsReferenceStats != null) {
-        allDocumentsReferenceStats.put(t,new EvalStatsTagging());
+        allDocumentsReferenceStats.put(t,new EvalStatsTagging4Score(Double.NaN));
       }
       
     }

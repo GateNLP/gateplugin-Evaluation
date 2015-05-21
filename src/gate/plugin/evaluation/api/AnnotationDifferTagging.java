@@ -79,7 +79,7 @@ public class AnnotationDifferTagging {
   
   protected static final Logger logger = Logger.getLogger(AnnotationDifferTagging.class);
   
-  protected EvalStatsTagging evalStats = new EvalStatsTagging();
+  protected EvalStatsTagging evalStats;
 
   /**
    * Access the counts and evaluation measures calculated by this AnnotationDifferTagging.
@@ -178,7 +178,7 @@ public class AnnotationDifferTagging {
     this.features = features;
     this.featureComparison = fcmp;
     evalStats = calculateDiff(targets, responses, features, fcmp, scoreFeature, 
-            thresholdValue, null, annotationTypeSpecs);
+            thresholdValue, null, null, annotationTypeSpecs);
   }
   
   /**
@@ -261,7 +261,7 @@ public class AnnotationDifferTagging {
       tmpAD.createAdditionalData = false;
       for (double t : thresholds) {
         EvalStatsTagging es = tmpAD.calculateDiff(targets, responses, featureSet, fcmp, 
-                scoreFeature, t, null, annotationTypeSpecs);
+                scoreFeature, t, null, null, annotationTypeSpecs);
         newMap.put(t, es);
       }
       // add the new map to our Map
@@ -376,7 +376,7 @@ public class AnnotationDifferTagging {
       // TODO!!! CHECK: can we ignore the annotation type specs here??? Because we handle lists?
       EvalStatsTagging es = tmpAD.calculateDiff(
               targets, listAnnotations, featureSet, fcmp, scoreFeature, 
-              th, responseCandidatesLists, typeSpecs);
+              th, null, responseCandidatesLists, typeSpecs);
       logger.debug("DEBUG: got stats: "+es);
       newMap.put(th, es);      
     }
@@ -413,7 +413,7 @@ public class AnnotationDifferTagging {
     //tmpAD.createAdditionalData = false;
     EvalStatsTagging es = tmpAD.calculateDiff(
             targets, listAnnotations, featureSet, fcmp, scoreFeature, 
-            threshold, responseCandidatesLists, annotationTypeSpecs);
+            threshold, null, responseCandidatesLists, annotationTypeSpecs);
     tmpAD.evalStats = es;
     return tmpAD;
   }
@@ -753,6 +753,7 @@ public class AnnotationDifferTagging {
           FeatureComparison fcmp,
           String scoreFeature, // if not null, the name of a score feature
           double threshold, // if not NaN, we will calculate the stats only for responses with score >= threshold
+          Integer rank, // if not null, use stats only for responses with rank <= that rank
           List<CandidateList> candidateLists, // if not null, we do list evaluation
           AnnotationTypeSpecs typeSpecs
   ) {
@@ -763,9 +764,13 @@ public class AnnotationDifferTagging {
     // it is used. 
     
     // NOTE: currentl we do not allow multi-type list based evaluation!!
-    
-    logger.debug("DEBUG: calculating the differences for threshold "+threshold);
-    EvalStatsTagging es = new EvalStatsTagging(threshold);
+
+    EvalStatsTagging es;
+    if(rank != null) {
+      es = new EvalStatsTagging4Rank(rank);
+    } else {
+      es = new EvalStatsTagging4Score(threshold);
+    }
 
     if (createAdditionalData) {
       correctStrictAnns = new AnnotationSetImpl(keyAnns.getDocument());

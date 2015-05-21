@@ -88,8 +88,8 @@ public class ByThEvalStatsTagging implements NavigableMap<Double,EvalStatsTaggin
         //System.out.println("DEBUG: same th in both, th="+th);
         thisES.add(otherES);
       } else if(otherES != null && thisES == null) {
-        //System.out.println("DEBUG: other exists, not in this, th="+th);
-        EvalStatsTagging newES = new EvalStatsTagging(otherES);
+        //System.out.println("DEBUG: other exists, not in this, th="+th);        
+        EvalStatsTagging newES = new EvalStatsTagging4Score(otherES);
         // check if there is a next higher evalstats object in this map
         NavigableMap.Entry<Double,EvalStatsTagging> thisHigherEntry = byThresholdEvalStats.higherEntry(th);
         if(thisHigherEntry != null) {
@@ -99,7 +99,7 @@ public class ByThEvalStatsTagging implements NavigableMap<Double,EvalStatsTaggin
         byThresholdEvalStats.put(th, newES);
       } else if(otherES == null && thisES != null) {
         //System.out.println("DEBUG: this exists, not in other, th="+th);
-        EvalStatsTagging newES = new EvalStatsTagging(thisES);
+        EvalStatsTagging newES = new EvalStatsTagging4Score(thisES);
         NavigableMap.Entry<Double,EvalStatsTagging> otherHigherEntry = other.getByThresholdEvalStats().higherEntry(th);
         if(otherHigherEntry != null) {
           //System.out.println("DEBUG: next higher other exists, adding nexthigher th="+otherHigherEntry.getKey());
