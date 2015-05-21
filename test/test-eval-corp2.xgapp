@@ -1268,7 +1268,7 @@
                 </entry>
                 <entry>
                   <string>whichThresholds</string>
-                  <gate.plugin.evaluation.api.ThresholdsToUse>USE_ALLROUNDED</gate.plugin.evaluation.api.ThresholdsToUse>
+                  <gate.plugin.evaluation.api.ThresholdsOrRanksToUse>USE_TH_ALLROUNDED</gate.plugin.evaluation.api.ThresholdsOrRanksToUse>
                 </entry>
                 <entry>
                   <string>keyType</string>

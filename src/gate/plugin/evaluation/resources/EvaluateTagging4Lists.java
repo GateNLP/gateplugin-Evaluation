@@ -32,11 +32,13 @@ import gate.plugin.evaluation.api.AnnotationDifferTagging;
 import gate.plugin.evaluation.api.AnnotationDifferTagging.CandidateList;
 import gate.plugin.evaluation.api.AnnotationTypeSpec;
 import gate.plugin.evaluation.api.AnnotationTypeSpecs;
+import gate.plugin.evaluation.api.ByRankEvalStatsTagging;
 import gate.plugin.evaluation.api.ByThEvalStatsTagging;
 import gate.plugin.evaluation.api.ContingencyTableInteger;
 import gate.plugin.evaluation.api.EvalStatsTagging;
 import gate.plugin.evaluation.api.EvalStatsTagging4Rank;
 import gate.plugin.evaluation.api.EvalStatsTagging4Score;
+import gate.plugin.evaluation.api.ThresholdsOrRanksToUse;
 import static gate.plugin.evaluation.resources.EvaluateTagging.initialFeaturePrefixResponse;
 import gate.util.GateRuntimeException;
 import java.io.PrintStream;
@@ -120,6 +122,15 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
   public void setRankThreshold(String value) { rankThreshold = value; }
   public String getRankThreshold() { return rankThreshold; }
   
+  protected ThresholdsOrRanksToUse whichThresholds;
+  @CreoleParameter(comment="",defaultValue="USE_TH_ALL")
+  @RunTime
+  @Optional  
+  public void setWhichThresholds(ThresholdsOrRanksToUse value) { whichThresholds = value; }
+  public ThresholdsOrRanksToUse getWhichThresholds() { return whichThresholds; }
+
+  
+  
   //////////////////// 
   // PR METHODS 
   ///////////////////
@@ -147,6 +158,11 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
   // This stores, for each type, the ByThEvalStatsTagging object for that type. The empty string
   // is used for the object that has the values over all types combined.
   protected ByThEvalStatsTagging evalStatsByThreshold;
+  protected ByRankEvalStatsTagging evalStatsByRank;  
+  // NOTE: depending on the parameters, one of the two above will be used and the other will be null!
+  
+  // This will either by 4Score for the set of all best scores or 4Rank for the set of 
+  // rank 1 (index 0) entries.
   protected EvalStatsTagging allDocumentsStats;
   
   AnnotationTypeSpecs annotationTypeSpecs4Best;
@@ -233,11 +249,18 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     List<CandidateList> candList = 
               AnnotationDifferTagging.createCandidateLists(
                       document.getAnnotations(expandedResponseSetName),
-                      listAnns, expandedEdgeName, expandedScoreFeatureName,
+                      listAnns, 
+                      expandedEdgeName, 
+                      expandedScoreFeatureName,
+                      // TODO: add a parameter to indicate creation for rank-based evaluation!!
                       getExpandedElementType(),
                       filterNils,getNilValue(),getFeatureNames().get(0));
     // get the highest scored annotation from each list
     responseSet = new AnnotationSetImpl(listAnns.getDocument());
+    // if we evaluate by rank, use rank 1 (position 0) for the evaluation, so this is the 
+    // same for rank and threshold-based evaluations!
+    // However, depending on rank or threshold evaluation, the creation of candList may have
+    // happened differently!
     for(CandidateList cl : candList) {
       responseSet.add(cl.get(0));
       //System.out.println("DEBUG: adding annotation: "+cl.get(0));
@@ -282,6 +305,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       }
       */
     } else {
+      // TODO!! separate options for by particular rank or by range of ranks!!
       AnnotationDifferTagging.calculateListByThEvalStatsTagging(
               keySet,
               document.getAnnotations(expandedResponseSetName),
@@ -438,12 +462,13 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       }
     }
       
-    
-    evalStatsByThreshold = new ByThEvalStatsTagging(getWhichThresholds());
-    if(evaluate4RankTh) {  // TODO: eventually also if we evaluate for AllRanks
+    // If the equivalent thresholdstouse is null, we use the rank!
+    if(evaluate4RankTh || getWhichThresholds().getThresholdsToUse() == null) {  
       allDocumentsStats = new EvalStatsTagging4Rank(1);
+      evalStatsByRank = new ByRankEvalStatsTagging(getWhichThresholds());
     } else {
       allDocumentsStats = new EvalStatsTagging4Score(Double.NaN);      
+      evalStatsByThreshold = new ByThEvalStatsTagging(getWhichThresholds().getThresholdsToUse());
     }
     
     // If the featureNames list is null, this has the special meaning that the features in 
@@ -517,18 +542,26 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     
     // TODO: think of a way of how to add the interpolated precision strict interpolated precision
     // lenient to the by thresholds lines!!!
-    ByThEvalStatsTagging bthes = evalStatsByThreshold;
     AnnotationTypeSpec typeSpecNormal = new AnnotationTypeSpec(getExpandedKeyType(),getExpandedElementType());
     AnnotationTypeSpec typeSpecList = new AnnotationTypeSpec(getExpandedKeyType(),getExpandedListType());
     outputEvalStatsForType(System.out, allDocumentsStats, typeSpecNormal.toString(), expandedResponseSetName);
     if(mainTsvPrintStream != null) { 
       mainTsvPrintStream.println(
               outputTsvLine("list-best", null, typeSpecNormal, getResponseASName(), allDocumentsStats)); }
-    for(double th : bthes.getByThresholdEvalStats().navigableKeySet()) {
-      outputEvalStatsForType(System.out, bthes.get(th), typeSpecList.toString(), expandedResponseSetName);
-      if(mainTsvPrintStream != null) { 
-        mainTsvPrintStream.println(
-                outputTsvLine("list-score", null, typeSpecList, expandedResponseSetName, bthes.get(th))); }
+    if(evalStatsByThreshold != null) {
+      for(double th : evalStatsByThreshold.getByThresholdEvalStats().navigableKeySet()) {
+        outputEvalStatsForType(System.out, evalStatsByThreshold.get(th), typeSpecList.toString(), expandedResponseSetName);
+        if(mainTsvPrintStream != null) { 
+          mainTsvPrintStream.println(
+                  outputTsvLine("list-score", null, typeSpecList, expandedResponseSetName, evalStatsByThreshold.get(th))); }
+      }
+    } else {
+      for(int rank : evalStatsByRank.getByRankEvalStats().navigableKeySet()) {
+        outputEvalStatsForType(System.out, evalStatsByRank.get(rank), typeSpecList.toString(), expandedResponseSetName);
+        if(mainTsvPrintStream != null) { 
+          mainTsvPrintStream.println(
+                  outputTsvLine("list-rank", null, typeSpecList, expandedResponseSetName, evalStatsByRank.get(rank))); }
+      }      
     }
 
   }

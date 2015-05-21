@@ -287,7 +287,7 @@ public class AnnotationDifferTagging {
     for(Annotation ann : listAnnotations) {
       CandidateList cl = new CandidateList(candidatesSet, ann, edgeFeature, scoreFeature, 
               elementType,filterNils,nilValue,idFeature);
-      if(cl.size > 0) {
+      if(cl.size() > 0) {
         responseCandidates.add(cl);
       }
     }
@@ -802,9 +802,10 @@ public class AnnotationDifferTagging {
       // still has entries for the threshold. That candidate may get replaced later ...
       responseList = new ArrayList<Annotation>(responseAnns.size());
       int cidx = 0;
+      // TODO: if we do by rank evaluation, setRank(rank) instead!!!
       for(CandidateList cand : candidateLists) {
         cand.setThreshold(threshold);
-        if(cand.size != 0) {
+        if(cand.size() != 0) {
           responseList.add(cand.get(0));
           candidateIndices.add(cidx);
         } 
@@ -882,7 +883,7 @@ public class AnnotationDifferTagging {
             Annotation bestAnn = responseList.get(j);
             // We initialize responselist(i) with candList.get(0) so the above is identical to
             // Annotation bestAnn = candList.get(0);
-            for(int c = 0; c < candList.size; c++) {
+            for(int c = 0; c < candList.size(); c++) {
               Annotation tmpResp = candList.get(c);
               logger.debug("Checking annotation for th="+threshold+" at index: "+c+": "+tmpResp);
               if(isAnnotationsMatch(keyAnn,tmpResp,features,fcmp,true,typeSpecs)) {
@@ -1467,6 +1468,10 @@ public class AnnotationDifferTagging {
     // NOTE: if the elementType is null, we do not check that the element type matches the 
     // type of the candidate annotation, otherwise only candidates with elementType as type
     // get included in the list!
+    
+    // PLAN: to support ranks: the only difference when creating the object is for those
+    // cases where no score feature is given, we simply do not re-sort the list then.
+    // See below for changes in other methods!
     public CandidateList(AnnotationSet annSet, Annotation listAnn, String listIdFeature, 
             String scoreFeature, String elementType, boolean filterNils, String nilValue,
             String idFeature) {
@@ -1510,13 +1515,16 @@ public class AnnotationDifferTagging {
         smallestScoreIndex = cands.size()-1;
         smallestScore = object2Double(cands.get(smallestScoreIndex).getFeatures().get(scoreFeature));
         highestScore = object2Double(cands.get(0).getFeatures().get(scoreFeature));
-        size = cands.size();
+        theSize = cands.size();
       }
     }
-    public double smallestScore = Double.NaN;
-    public double highestScore = Double.NaN;
-    public int size = 0;
-    public int smallestScoreIndex = -1;
+
+    private int theSize = 0;
+    public int size() { return theSize; }
+    
+    private double smallestScore = Double.NaN;
+    private double highestScore = Double.NaN;
+    private int smallestScoreIndex = -1;
     
     
     private List<Annotation> cands;
@@ -1524,31 +1532,34 @@ public class AnnotationDifferTagging {
     private String scoreFeature;
     private String type;
     
+    // PLAN/TODO: add a method setRank(int rank) which does essentially the same, but
+    // based on the given rank. Note that in that case, there may not be any score feature
+    // at all! Check where we actually use the highest and smalles score values and index???
     public void setThreshold(double th) {
-      logger.debug("DEBUG: candidatelist setting threshold to "+th+" size before="+size);
+      logger.debug("DEBUG: candidatelist setting threshold to "+th+" size before="+theSize);
       logger.debug("DEBUG: highest="+highestScore+" smallest="+smallestScore);
       if (th > highestScore) {
-        size = 0;
+        theSize = 0;
         smallestScore = Double.NaN;
         highestScore = Double.NaN;
         smallestScoreIndex = -1;
       } else {
         // if the threshold is larger than our lowest score, adujst the lowest score, index and size
         // accordingly
-        while (th > smallestScore && size > 0) {
-          size--;
+        while (th > smallestScore && theSize > 0) {
+          theSize--;
           smallestScoreIndex--;
-          if(size>0) {
+          if(theSize>0) {
             smallestScore = object2Double(cands.get(smallestScoreIndex).getFeatures().get(scoreFeature));
           }
         }
-        if (size == 0) {
+        if (theSize == 0) {
           smallestScoreIndex = -1;
           smallestScore = Double.NaN;
           highestScore = Double.NaN;
         } 
       }
-      logger.debug("DEBUG: candidatelist setting threshold to "+th+" size after="+size);
+      logger.debug("DEBUG: candidatelist setting threshold to "+th+" size after="+theSize);
     }
 
     public Annotation get(int index) {

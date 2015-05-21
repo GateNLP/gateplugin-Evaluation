@@ -44,7 +44,7 @@ public class EvalStatsTagging4Score extends EvalStatsTagging {
    */
   // Why we did not implement clone(): http://www.artima.com/intv/bloch13.html
   public EvalStatsTagging4Score(EvalStatsTagging other) {
-    super();
+    super(other);
     if(other instanceof EvalStatsTagging4Score) {
       threshold = ((EvalStatsTagging4Score)other).threshold;
     } else {

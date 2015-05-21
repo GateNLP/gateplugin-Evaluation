@@ -37,6 +37,7 @@ import gate.plugin.evaluation.api.ContingencyTableInteger;
 import gate.plugin.evaluation.api.EvalStatsTagging;
 import gate.plugin.evaluation.api.EvalStatsTagging4Score;
 import gate.plugin.evaluation.api.EvalStatsTaggingMacro;
+import gate.plugin.evaluation.api.ThresholdsToUse;
 import gate.util.GateRuntimeException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -80,6 +81,15 @@ public class EvaluateTagging extends EvaluateTaggingBase
   public String getFeatureNameNilCluster() { return featureNameNilCluster; }
   public String getExpandedFeatureNameNilCluster() { return Utils.replaceVariablesInString(getFeatureNameNilCluster()); }
   String expandedFeatureNameNilCluster;
+  
+  
+  protected ThresholdsToUse whichThresholds;
+  @CreoleParameter(comment="",defaultValue="USE_ALL")
+  @RunTime
+  @Optional  
+  public void setWhichThresholds(ThresholdsToUse value) { whichThresholds = value; }
+  public ThresholdsToUse getWhichThresholds() { return whichThresholds; }
+
   
   // TODO: maybe separate parameter for user-specified score thresholds which would allow 
   // to evaluate for one specific singe score too?

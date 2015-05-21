@@ -171,13 +171,6 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   public String getEvaluationId() { return evaluationId == null ? "" : evaluationId; }
   public String getExpandedEvaluationId() { return Utils.replaceVariablesInString(getEvaluationId()); }
      
-  protected ThresholdsToUse whichThresholds;
-  @CreoleParameter(comment="",defaultValue="USE_ALL")
-  @RunTime
-  @Optional  
-  public void setWhichThresholds(ThresholdsToUse value) { whichThresholds = value; }
-  public ThresholdsToUse getWhichThresholds() { return whichThresholds; }
-
   protected boolean addDocumentFeatures = true;
   @CreoleParameter(comment="If document features should be added for per-document evaluation results",defaultValue="true")
   @RunTime
