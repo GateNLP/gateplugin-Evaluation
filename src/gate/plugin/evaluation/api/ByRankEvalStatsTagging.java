@@ -82,10 +82,12 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
     // Create an ordered set with all the thresholds from both this and other
     //System.out.println("DEBUG: adding other map to this map");
     NavigableSet<Integer> allRanks = new TreeSet<Integer>();
+    //System.out.println("DEBUG: own ranks="+byRankEvalStats.keySet());
     allRanks.addAll(byRankEvalStats.keySet());
+    //System.out.println("DEBUG: other ranks="+other.getByRankEvalStats().keySet());
     allRanks.addAll(other.getByRankEvalStats().keySet());
     for(int rank : allRanks) {
-      //System.out.println("DEBUG: th="+th);
+      //System.out.println("DEBUG: merging rank="+rank);
       EvalStatsTagging thisES = byRankEvalStats.get(rank);
       EvalStatsTagging otherES = other.getByRankEvalStats().get(rank);
       if(thisES != null && otherES != null) {
@@ -93,23 +95,23 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
         thisES.add(otherES);
       } else if(otherES != null && thisES == null) {
         //System.out.println("DEBUG: other exists, not in this, th="+th);        
-        EvalStatsTagging newES = new EvalStatsTagging4Score(otherES);
+        EvalStatsTagging newES = new EvalStatsTagging4Rank(otherES);
         // check if there is a next higher evalstats object in this map
-        NavigableMap.Entry<Integer,EvalStatsTagging> thisLowerEntry = byRankEvalStats.lowerEntry(rank);
-        if(thisLowerEntry != null) {
+        //NavigableMap.Entry<Integer,EvalStatsTagging> thisLowerEntry = byRankEvalStats.lowerEntry(rank);
+        //if(thisLowerEntry != null) {
           //System.out.println("DEBUG: next higher this exists, adding nexthigher th="+thisHigherEntry.getKey());
-          newES.add(thisLowerEntry.getValue());
-        }
+          //newES.add(thisLowerEntry.getValue());
+        //}
         byRankEvalStats.put(rank, newES);
       } else if(otherES == null && thisES != null) {
         //System.out.println("DEBUG: this exists, not in other, th="+th);
-        EvalStatsTagging newES = new EvalStatsTagging4Score(thisES);
-        NavigableMap.Entry<Integer,EvalStatsTagging> otherLowerEntry = other.getByRankEvalStats().lowerEntry(rank);
-        if(otherLowerEntry != null) {
+        //EvalStatsTagging newES = new EvalStatsTagging4Rank(thisES);
+        //NavigableMap.Entry<Integer,EvalStatsTagging> otherLowerEntry = other.getByRankEvalStats().lowerEntry(rank);
+        //if(otherLowerEntry != null) {
           //System.out.println("DEBUG: next higher other exists, adding nexthigher th="+otherHigherEntry.getKey());
-          newES.add(otherLowerEntry.getValue());
-        }
-        byRankEvalStats.put(rank, newES);
+          //newES.add(otherLowerEntry.getValue());
+        //}
+        //byRankEvalStats.put(rank, newES);
       } else {
         throw new GateRuntimeException("Odd error, this should never happen!");
       }

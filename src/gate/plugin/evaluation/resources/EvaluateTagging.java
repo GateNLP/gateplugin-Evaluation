@@ -142,11 +142,14 @@ public class EvaluateTagging extends EvaluateTaggingBase
   protected static final Logger logger = Logger.getLogger(EvaluateTagging.class);
   
   @Override
-  public void execute() {
+  public void execute() throws ExecutionException {
     
     if(needInitialization) {
       needInitialization = false;
       initializeForRunning();
+    }
+    if(isInterrupted()) {
+      throw new ExecutionException("PR was interrupted!"); 
     }
     
     AnnotationSet keySet = null;

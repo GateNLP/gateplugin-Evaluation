@@ -410,9 +410,6 @@ public class AnnotationDifferTagging {
       }
       rankEvalStats = existingByRankEvalStats;
     }
-    if (scoreFeature == null || scoreFeature.isEmpty()) {
-      throw new GateRuntimeException("thresholdFeature must not be null or empty");
-    }
 
     // for each response, create an actual sorted list of candidate annotations and also store the 
     // minimum and maximum score.
@@ -837,6 +834,7 @@ public class AnnotationDifferTagging {
     // does not matter at all for the comparison - as soon as an annotation is a candidate,
     // it is used. 
     // NOTE: currentl we do not allow multi-type list based evaluation!!
+    //System.out.println("DEBUG running calculateDiff for scoreTh"+scoreThreshold+" rankTh="+rankThreshold);
     EvalStatsTagging es;
     if (rankThreshold != null) {
       es = new EvalStatsTagging4Rank(rankThreshold);
@@ -882,7 +880,12 @@ public class AnnotationDifferTagging {
       int cidx = 0;
       // TODO: if we do by rankThreshold evaluation, setRank(rankThreshold) instead!!!
       for (CandidateList cand : candidateLists) {
-        cand.setThreshold(scoreThreshold);
+        if(rankThreshold != null) {
+          cand.setRank(rankThreshold);
+        } else {
+          cand.setThreshold(scoreThreshold);
+        }
+        //System.out.println("DEBUG after setting to "+rankThreshold+"/"+scoreThreshold+" size="+cand.size());
         if (cand.size() != 0) {
           responseList.add(cand.get(0));
           candidateIndices.add(cidx);
@@ -959,7 +962,7 @@ public class AnnotationDifferTagging {
             // Annotation bestAnn = candList.get(0);
             for (int c = 0; c < candList.size(); c++) {
               Annotation tmpResp = candList.get(c);
-              logger.debug("Checking annotation for th=" + scoreThreshold + " at index: " + c + ": " + tmpResp);
+              logger.debug("Checking annotation at index: " + c + ": " + tmpResp);
               if (isAnnotationsMatch(keyAnn, tmpResp, features, fcmp, true, typeSpecs)) {
                 // if we are coextensive, then we can stop: can't get any better!
                 if (keyAnn.coextensive(tmpResp)) {

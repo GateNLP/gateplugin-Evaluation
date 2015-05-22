@@ -39,6 +39,7 @@ import gate.plugin.evaluation.api.EvalStatsTagging;
 import gate.plugin.evaluation.api.EvalStatsTagging4Rank;
 import gate.plugin.evaluation.api.EvalStatsTagging4Score;
 import gate.plugin.evaluation.api.ThresholdsOrRanksToUse;
+import gate.plugin.evaluation.api.ThresholdsToUse;
 import static gate.plugin.evaluation.resources.EvaluateTagging.initialFeaturePrefixResponse;
 import gate.util.GateRuntimeException;
 import java.io.PrintStream;
@@ -181,11 +182,14 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
   protected boolean evaluate4AllRanks = false;
   
   @Override
-  public void execute() {
+  public void execute() throws ExecutionException {
     //System.out.println("DEBUG: running tagging4lists execute");
     if(needInitialization) {
       needInitialization = false;
       initializeForRunning();
+    }
+    if(isInterrupted()) {
+      throw new ExecutionException("PR was interrupted!"); 
     }
     
     //System.out.println("DOC: "+document);
@@ -239,7 +243,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     //System.out.println("DEBUG: after NIL filtering, keysize="+keySet.size());
     
     AnnotationSet listAnns = responseSet;
-    System.out.println("DEBUG evaluating for score feature "+expandedScoreFeatureName);
+    //System.out.println("DEBUG evaluating for score feature "+expandedScoreFeatureName);
     List<CandidateList> candList = 
               AnnotationDifferTagging.createCandidateLists(
                       document.getAnnotations(expandedResponseSetName),
@@ -312,6 +316,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
               rankThresholdToUse,      // Instead of this, we should use an internal field so we can use -Inf etc.
               annotationTypeSpecs);
       ByRankEvalStatsTagging tmpEs = new ByRankEvalStatsTagging(brk.getWhichThresholds());
+      System.out.println("DEBUG adding for rank "+rankThresholdToUse);
       tmpEs.put(rankThresholdToUse,ad.getEvalStatsTagging());
       brk.add(tmpEs);      
     } else if(evaluate4AllRanks) {
@@ -419,7 +424,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
   // This needs to run as part of the first execute, since at the moment, the parametrization
   // does not work correctly with the controller callbacks. 
   protected void initializeForRunning() {
-    
+    System.out.println("DEBUG: reinitializing");
     super.initializeForRunning();
     //System.out.println("DEBUG: running tagging4lists initialize");
     expandedEdgeName = getStringOrElse(getExpandedEdgeName(),"");
@@ -462,7 +467,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     }
     
     
-    if(!evaluate4RankTh && (expandedScoreFeatureName == null || expandedScoreFeatureName.isEmpty())) {
+    if(!evaluate4RankTh && !evaluate4AllRanks && (expandedScoreFeatureName == null || expandedScoreFeatureName.isEmpty())) {
       throw new GateRuntimeException("Score feature name is not specified or empty but not evaluating by rank!");
     }
     
@@ -479,12 +484,25 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     }
       
     // If the equivalent thresholdstouse is null, we use the rank!
-    if(evaluate4RankTh || getWhichThresholds().getThresholdsToUse() == null) {  
-      allDocumentsStats = new EvalStatsTagging4Rank(1);
-      evalStatsByRank = new ByRankEvalStatsTagging(getWhichThresholds());
-    } else {
+    if(evaluate4RankTh || evaluate4AllRanks) {  
+      allDocumentsStats = new EvalStatsTagging4Rank(0);
+      if(evaluate4AllRanks) {
+        evalStatsByRank = new ByRankEvalStatsTagging(getWhichThresholds());
+      } else {
+        // if a specific rank was requested, we still need to initialize this object so we
+        // use RANKS_ALL, meaninig in this context: all the ones we use, which is just that single one
+        evalStatsByRank = new ByRankEvalStatsTagging(ThresholdsOrRanksToUse.USE_RANKS_ALL);
+      }
+      evalStatsByThreshold = null;
+    } else if(evaluate4ScoreTh || evaluate4AllScores) {
       allDocumentsStats = new EvalStatsTagging4Score(Double.NaN);      
-      evalStatsByThreshold = new ByThEvalStatsTagging(getWhichThresholds().getThresholdsToUse());
+      if(evaluate4AllScores) {
+        evalStatsByThreshold = new ByThEvalStatsTagging(getWhichThresholds().getThresholdsToUse());
+      } else {
+        // same trick as for ranks above
+        evalStatsByThreshold = new ByThEvalStatsTagging(ThresholdsToUse.USE_ALL);
+      }
+      evalStatsByRank = null;
     }
     
     // If the featureNames list is null, this has the special meaning that the features in 
