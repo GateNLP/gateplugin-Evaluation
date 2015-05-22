@@ -177,7 +177,8 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
   // after init, exactly one of these should be true
   protected boolean evaluate4ScoreTh = false;
   protected boolean evaluate4RankTh = false;
-  protected boolean evaluate4All = false;
+  protected boolean evaluate4AllScores = false;
+  protected boolean evaluate4AllRanks = false;
   
   @Override
   public void execute() {
@@ -219,8 +220,6 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       ContainmentType ct = containmentType;
       if(ct == null) ct = ContainmentType.OVERLAPPING;
       responseSet = selectOverlappingBy(responseSet,containingSet,ct);
-      // TODO: at the moment this will never be true since we have changed the single type to a list
-      // of types. Think about when to not do this ...
       if(containingSetName.equals(expandedKeySetName) && containingType.equals(type)) {
         // no need to do anything for the key set
       } else {
@@ -239,20 +238,14 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     }
     //System.out.println("DEBUG: after NIL filtering, keysize="+keySet.size());
     
-    // TODO: to get the best candidate we need to have the candidates already sorted!
-    // So we should better do the evaluation over the top element after the candidate lists 
-    // have been created and we should refactor things so that creating the candidate lists
-    // is a separate step!
-    // Then we create the candidate lists here, then pass the already created candidate lists
-    // to the static method for calculating the lists evaluation!
     AnnotationSet listAnns = responseSet;
+    System.out.println("DEBUG evaluating for score feature "+expandedScoreFeatureName);
     List<CandidateList> candList = 
               AnnotationDifferTagging.createCandidateLists(
                       document.getAnnotations(expandedResponseSetName),
                       listAnns, 
                       expandedEdgeName, 
-                      expandedScoreFeatureName,
-                      // TODO: add a parameter to indicate creation for rank-based evaluation!!
+                      expandedScoreFeatureName, // this should be null if we evaluate for ranks                      
                       getExpandedElementType(),
                       filterNils,getNilValue(),getFeatureNames().get(0));
     // get the highest scored annotation from each list
@@ -279,8 +272,10 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     //System.out.println("DEBUG: after differ for normal: keys="+keySet.size()+" resp="+responseSet.size()+"\nEvalStats="+es);
 
     ByThEvalStatsTagging bth = evalStatsByThreshold;
+    ByRankEvalStatsTagging brk = evalStatsByRank;
     // if we only evaluate for a particular score or rank, do that, otherwise do the whole 
     // ByTh thing
+    
     if(evaluate4ScoreTh) {
       AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(
               keySet,
@@ -291,21 +286,12 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
               expandedEdgeName,
               expandedScoreFeatureName,
               scoreThresholdToUse,      // Instead of this, we should use an internal field so we can use -Inf etc.
+              null,
               annotationTypeSpecs);
       ByThEvalStatsTagging tmpEs = new ByThEvalStatsTagging(bth.getWhichThresholds());
       tmpEs.put(scoreThresholdToUse,ad.getEvalStatsTagging());
       bth.add(tmpEs);
-      /*
-      EvalStatsTagging tmpes = bth.get(scoreThresholdToUse);
-      if(tmpes==null) {
-        tmpes = ad.getEvalStatsTagging();
-        bth.put(scoreThresholdToUse, tmpes);
-      } else {
-        tmpes.add(ad.getEvalStatsTagging());
-      }
-      */
-    } else {
-      // TODO!! separate options for by particular rank or by range of ranks!!
+    } else if(evaluate4AllScores) {
       AnnotationDifferTagging.calculateListByThEvalStatsTagging(
               keySet,
               document.getAnnotations(expandedResponseSetName),
@@ -313,6 +299,29 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
               expandedEdgeName, expandedScoreFeatureName, 
               bth.getWhichThresholds(), bth,
               annotationTypeSpecs);      
+    } else if(evaluate4RankTh) {
+      AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(
+              keySet,
+              document.getAnnotations(expandedResponseSetName),
+              candList,
+              featureSet,
+              featureComparison,
+              expandedEdgeName,
+              expandedScoreFeatureName,
+              null,
+              rankThresholdToUse,      // Instead of this, we should use an internal field so we can use -Inf etc.
+              annotationTypeSpecs);
+      ByRankEvalStatsTagging tmpEs = new ByRankEvalStatsTagging(brk.getWhichThresholds());
+      tmpEs.put(rankThresholdToUse,ad.getEvalStatsTagging());
+      brk.add(tmpEs);      
+    } else if(evaluate4AllRanks) {
+      AnnotationDifferTagging.calculateListByRankEvalStatsTagging(
+              keySet,
+              document.getAnnotations(expandedResponseSetName),
+              candList, featureSet, featureComparison, 
+              expandedEdgeName, expandedScoreFeatureName, 
+              brk.getWhichThresholds(), brk,
+              annotationTypeSpecs);            
     }
 
     // Store the counts and measures as document feature values
@@ -427,7 +436,8 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     if(getScoreThreshold() != null && !getScoreThreshold().isEmpty()) {
       scoreThresholdToUse = Double.parseDouble(getScoreThreshold());
       evaluate4ScoreTh = true;
-      evaluate4All = false;
+      evaluate4AllScores = false;
+      evaluate4AllRanks = false;
       evaluate4RankTh = false;
     } else if(getRankThreshold() != null && !getRankThreshold().isEmpty()) {
       if(getRankThreshold().toLowerCase().equals("max")) {
@@ -436,18 +446,24 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
         rankThresholdToUse = Integer.parseInt(getRankThreshold());
       }
       evaluate4RankTh = true;
-      evaluate4All = false;
+      evaluate4AllScores = false;
+      evaluate4AllRanks = false;
       evaluate4ScoreTh = false;
-      throw new GateRuntimeException("Evaluation by rank instead of score not supported yet");
-    } else {
-      evaluate4All = true;
+    } else if(getWhichThresholds().getThresholdsToUse() == null) {
+      evaluate4AllScores = false;
       evaluate4ScoreTh = false;
       evaluate4RankTh = false;
+      evaluate4AllRanks = true;
+    } else {
+      evaluate4AllScores = true;
+      evaluate4ScoreTh = false;
+      evaluate4RankTh = false;
+      evaluate4AllRanks = false;
     }
     
     
     if(!evaluate4RankTh && (expandedScoreFeatureName == null || expandedScoreFeatureName.isEmpty())) {
-      throw new GateRuntimeException("Score feature name is not specified or empty!");
+      throw new GateRuntimeException("Score feature name is not specified or empty but not evaluating by rank!");
     }
     
     if(getExpandedKeyType() == null || getExpandedKeyType().isEmpty()) {
