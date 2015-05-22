@@ -1251,7 +1251,7 @@
                   </gate.util.persistence.PersistenceManager-URLHolder>
                 </entry>
                 <entry>
-                  <string>edgeName</string>
+                  <string>edgeFeatureName</string>
                   <string>ids</string>
                 </entry>
                 <entry>

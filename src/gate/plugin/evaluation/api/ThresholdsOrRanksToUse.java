@@ -34,8 +34,9 @@ public enum ThresholdsOrRanksToUse {
           ThresholdsToUse.USE_51FROM0TO1),
   USE_TH_ALLROUNDED(null,null,ThresholdsToUse.USE_ALLROUNDED), 
   USE_TH_ALL(null,null,ThresholdsToUse.USE_ALL),
-  USE_RANKS_11FROM0TO9(null,new ArrayList<Integer>(Arrays.asList(0,1,2,3,4,5,6,7,8,9)),null),
-  USE_RANKS_11FROM0TO45(null,new ArrayList<Integer>(Arrays.asList(0,5,10,15,20,25,30,35,40,45)),null),
+  USE_RANKS_11FROM0T10(null,new ArrayList<Integer>(Arrays.asList(0,1,2,3,4,5,6,7,8,9,10)),null),
+  USE_RANKS_11FROM0TO50(null,new ArrayList<Integer>(Arrays.asList(0,5,10,15,20,25,30,35,40,45)),null),
+  USE_RANKS_11FROM0TO100(null,new ArrayList<Integer>(Arrays.asList(0,10,20,30,40,50,60,70,80,90,100)),null),
   USE_RANKS_ALL(null,null,null);
   private ThresholdsOrRanksToUse(List<Double> values, List<Integer> ranks, ThresholdsToUse equiv) {
     theThresholds = values;

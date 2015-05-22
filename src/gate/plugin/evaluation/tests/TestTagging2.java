@@ -93,7 +93,7 @@ public class TestTagging2 {
     parms.put("outputDirectoryUrl",testingDir.toURI().toURL());
     parms.put("responseASName","Resp");
     parms.put("scoreFeatureName", "s");  // score feature is "s"
-    parms.put("edgeName","ids");
+    parms.put("edgeFeatureName","ids");
     prListEval1 = (EvaluateTagging4Lists)Factory.createResource(
             "gate.plugin.evaluation.resources.EvaluateTagging4Lists", 
             parms, 

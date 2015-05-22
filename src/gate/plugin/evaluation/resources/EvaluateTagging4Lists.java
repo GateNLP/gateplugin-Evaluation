@@ -78,13 +78,13 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
   
   
 
-  protected String edgeName;
-  @CreoleParameter(comment="",defaultValue="")
+  protected String edgeFeatureName;
+  @CreoleParameter(comment="The name of the feature that contains the list of candidate/element annotation ids",defaultValue="")
   @RunTime
   @Optional  
-  public void setEdgeName(String value) { edgeName = value; }
-  public String getEdgeName() { return edgeName; }
-  public String getExpandedEdgeName() { return Utils.replaceVariablesInString(getEdgeName()); }
+  public void setEdgeFeatureName(String value) { edgeFeatureName = value; }
+  public String getEdgeFeatureName() { return edgeFeatureName; }
+  public String getExpandedEdgeFeatureName() { return Utils.replaceVariablesInString(getEdgeFeatureName()); }
   
   protected String listType;
   @CreoleParameter(comment="The annotation type of the list annotations",defaultValue="LookupList")
@@ -427,7 +427,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     System.out.println("DEBUG: reinitializing");
     super.initializeForRunning();
     //System.out.println("DEBUG: running tagging4lists initialize");
-    expandedEdgeName = getStringOrElse(getExpandedEdgeName(),"");
+    expandedEdgeName = getStringOrElse(getExpandedEdgeFeatureName(),"");
     expandedScoreFeatureName = getStringOrElse(getExpandedScoreFeatureName(),"");
     
     
