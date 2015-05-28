@@ -35,6 +35,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,6 +43,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 
@@ -157,11 +159,22 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   public String getExpandedNilValue() { return Utils.replaceVariablesInString(getNilValue()); }
      
   protected URL outputDirectoryUrl;
-  @CreoleParameter(comment="",defaultValue="")
+  @CreoleParameter(comment="URL of the output directory",defaultValue="",disjunction="outDir",priority=1)
   @RunTime
   @Optional  
   public void setOutputDirectoryUrl(URL value) { outputDirectoryUrl = value; }
   public URL getOutputDirectoryUrl() { return outputDirectoryUrl; }
+     
+  protected String outputDirectoryString;
+  @CreoleParameter(comment="URL of the output directory",defaultValue="",disjunction="outDir",priority=2)
+  @RunTime
+  @Optional  
+  public void setOutputDirectoryString(String value) { outputDirectoryString = value; }
+  public String getOutputDirectoryString() { return outputDirectoryString; }
+  public String getExpandedOutputDirectoryString() { 
+    return Utils.replaceVariablesInString(getOutputDirectoryString());
+  }
+  protected URL expandedOutputDirectoryUrl = null;
      
   protected String evaluationId;
   @CreoleParameter(comment="",defaultValue="")
@@ -217,15 +230,15 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
    * @return 
    */
   protected PrintStream getOutputStream(String suffix) {
-    if(getOutputDirectoryUrl() == null) {
+    if(expandedOutputDirectoryUrl==null) {
       return null;
     }
-    File dir = Files.fileFromURL(getOutputDirectoryUrl());
+    File dir = Files.fileFromURL(expandedOutputDirectoryUrl);
     if(!dir.exists()) {
-      throw new GateRuntimeException("Output directory does not exists: "+getOutputDirectoryUrl());
+      throw new GateRuntimeException("Output directory does not exists: "+expandedOutputDirectoryUrl);
     }
     if(!dir.isDirectory()) {
-      throw new GateRuntimeException("Not a directory: "+getOutputDirectoryUrl());
+      throw new GateRuntimeException("Not a directory: "+expandedOutputDirectoryUrl);
     }
     String fname = getStringOrElse(getEvaluationId(), "").equals("") 
             ? "EvaluateTagging.tsv" : "EvaluateTagging-"+getEvaluationId();
@@ -259,6 +272,15 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
     expandedEvaluationId = getStringOrElse(getExpandedEvaluationId(),"");
     expandedNilValue = getStringOrElse(getExpandedNilValue(),"");
     expandedOutputASPrefix = getStringOrElse(getExpandedOutputASPrefix(),"");
+    if(getOutputDirectoryUrl() != null) {
+      expandedOutputDirectoryUrl = getOutputDirectoryUrl();
+    } else if(getExpandedOutputDirectoryString() != null && !getExpandedOutputDirectoryString().isEmpty()) {
+      try {
+        expandedOutputDirectoryUrl = new File(getExpandedOutputDirectoryString()).toURI().toURL();
+      } catch (MalformedURLException ex) {
+        throw new GateRuntimeException("Invalid outputDirectoryString",ex);
+      }
+    }
     if(!expandedOutputASPrefix.isEmpty()) {
       outputASResName = expandedOutputASPrefix+"_Res";
       if(!expandedReferenceSetName.isEmpty()) {
