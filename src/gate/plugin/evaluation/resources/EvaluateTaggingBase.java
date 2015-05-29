@@ -240,8 +240,8 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
     if(!dir.isDirectory()) {
       throw new GateRuntimeException("Not a directory: "+expandedOutputDirectoryUrl);
     }
-    String fname = getStringOrElse(getEvaluationId(), "").equals("") 
-            ? "EvaluateTagging.tsv" : "EvaluateTagging-"+getEvaluationId();
+    String fname = expandedEvaluationId.equals("") 
+            ? "EvaluateTagging.tsv" : expandedEvaluationId;
     if(suffix != null && !suffix.isEmpty()) {
       fname += "-"+suffix;
     }

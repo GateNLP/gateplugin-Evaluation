@@ -441,6 +441,7 @@ public class AnnotationDifferTagging {
     for (int rank : thresholds) {
       logger.debug("DEBUG: running differ for th " + rank + " nr targets is " + targets.size() + " nr responseCands is " + responseCandidatesLists.size());
       // TODO!!! CHECK: can we ignore the annotation type specs here??? Because we handle lists?
+      
       EvalStatsTagging es = tmpAD.calculateDiff(
               targets, listAnnotations, featureSet, fcmp, 
               scoreFeature,
@@ -962,31 +963,37 @@ public class AnnotationDifferTagging {
             // Annotation bestAnn = candList.get(0);
             for (int c = 0; c < candList.size(); c++) {
               Annotation tmpResp = candList.get(c);
-              logger.debug("Checking annotation at index: " + c + ": " + tmpResp);
+              //logger.debug("Checking annotation at index: " + c + ": " + tmpResp);
               if (isAnnotationsMatch(keyAnn, tmpResp, features, fcmp, true, typeSpecs)) {
                 // if we are coextensive, then we can stop: can't get any better!
                 if (keyAnn.coextensive(tmpResp)) {
-                  logger.debug("Found correct match!!");
+                  //logger.debug("Found correct match!!");
                   match = CORRECT_VALUE;
                   bestAnn = tmpResp;
                   break;
                 } else {
-                  logger.debug("Found a partial match, checking if we can add!");
+                  //logger.debug("Found a partial match, checking if we can add!");
                   // if we did not already find a match, store
                   if (match == WRONG_VALUE || match == MISMATCH_VALUE) {
-                    logger.debug("Found a partial match and adding!");
+                    //logger.debug("Found a partial match and adding!");
                     match = PARTIALLY_CORRECT_VALUE;
                     bestAnn = tmpResp;
                   }
                 }
               } else if (keyAnn.coextensive(tmpResp) && match == WRONG_VALUE) {
-                logger.debug("Found a MISMATCH");
+                //logger.debug("Found a MISMATCH");
                 match = MISMATCH_VALUE;
                 bestAnn = tmpResp;
               } else {
-                logger.debug("Found ODD: match=" + match);
+                // if we get here then 
+                // = there is certainly no match
+                // = the annotation may be overlapping, or if it is coextensive, than
+                //   we already found a coextensive one which is no match previously.
+                // we have to continue until we either find a beter match or are done.
+                //logger.debug("Found ODD: match=" + match);
               }
             } // for
+            logger.debug("Took best match from index "+j+" was "+match);
             responseList.set(j, bestAnn);
             choice = new Pairing(i, j, match);
           }

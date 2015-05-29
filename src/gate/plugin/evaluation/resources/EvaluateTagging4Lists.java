@@ -180,6 +180,9 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
   protected boolean evaluate4RankTh = false;
   protected boolean evaluate4AllScores = false;
   protected boolean evaluate4AllRanks = false;
+  protected String outputASListMaxName;
+  protected String outputASListThName;
+
   
   @Override
   public void execute() throws ExecutionException {
@@ -295,6 +298,10 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       ByThEvalStatsTagging tmpEs = new ByThEvalStatsTagging(bth.getWhichThresholds());
       tmpEs.put(scoreThresholdToUse,ad.getEvalStatsTagging());
       bth.add(tmpEs);
+      if(!outputASListMaxName.isEmpty()) {
+        AnnotationSet outSet = document.getAnnotations(outputASListThName);
+        ad.addIndicatorAnnotations(outSet,"");
+      }      
     } else if(evaluate4AllScores) {
       AnnotationDifferTagging.calculateListByThEvalStatsTagging(
               keySet,
@@ -302,7 +309,27 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
               candList, featureSet, featureComparison, 
               expandedEdgeName, expandedScoreFeatureName, 
               bth.getWhichThresholds(), bth,
-              annotationTypeSpecs);      
+              annotationTypeSpecs);    
+      // now in addition evaluate for the the score -Inf and create a differ object that
+      // contains the indicator annotations for this. 
+      AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(
+              keySet,
+              document.getAnnotations(expandedResponseSetName),
+              candList,
+              featureSet,
+              featureComparison,
+              expandedEdgeName,
+              expandedScoreFeatureName,
+              Double.NEGATIVE_INFINITY,
+              null,
+              annotationTypeSpecs);
+      ByThEvalStatsTagging tmpEs = new ByThEvalStatsTagging(bth.getWhichThresholds());
+      tmpEs.put(Double.NEGATIVE_INFINITY,ad.getEvalStatsTagging());
+      bth.add(tmpEs);      
+      if(!outputASListMaxName.isEmpty()) {
+        AnnotationSet outSet = document.getAnnotations(outputASListMaxName);
+        ad.addIndicatorAnnotations(outSet,"");
+      }      
     } else if(evaluate4RankTh) {
       AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(
               keySet,
@@ -319,6 +346,10 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       System.out.println("DEBUG adding for rank "+rankThresholdToUse);
       tmpEs.put(rankThresholdToUse,ad.getEvalStatsTagging());
       brk.add(tmpEs);      
+      if(!outputASListMaxName.isEmpty()) {
+        AnnotationSet outSet = document.getAnnotations(outputASListThName);
+        ad.addIndicatorAnnotations(outSet,"");
+      }      
     } else if(evaluate4AllRanks) {
       AnnotationDifferTagging.calculateListByRankEvalStatsTagging(
               keySet,
@@ -326,7 +357,28 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
               candList, featureSet, featureComparison, 
               expandedEdgeName, expandedScoreFeatureName, 
               brk.getWhichThresholds(), brk,
-              annotationTypeSpecs);            
+              annotationTypeSpecs);     
+      // now in addition also evaluate for rank max_value and create a differ object that
+      // contains the indicator annotations for this.
+      AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(
+              keySet,
+              document.getAnnotations(expandedResponseSetName),
+              candList,
+              featureSet,
+              featureComparison,
+              expandedEdgeName,
+              expandedScoreFeatureName,
+              null,
+              Integer.MAX_VALUE,      // Instead of this, we should use an internal field so we can use -Inf etc.
+              annotationTypeSpecs);
+      ByRankEvalStatsTagging tmpEs = new ByRankEvalStatsTagging(brk.getWhichThresholds());
+      System.out.println("DEBUG adding for rank "+rankThresholdToUse);
+      tmpEs.put(rankThresholdToUse,ad.getEvalStatsTagging());
+      brk.add(tmpEs);   
+      if(!outputASListMaxName.isEmpty()) {
+        AnnotationSet outSet = document.getAnnotations(outputASListMaxName);
+        ad.addIndicatorAnnotations(outSet,"");
+      }      
     }
 
     // Store the counts and measures as document feature values
@@ -553,7 +605,10 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     featurePrefixResponse = initialFeaturePrefixResponse + getExpandedEvaluationId() + "." + getResponseASName() + "." ;
     featurePrefixReference = initialFeaturePrefixReference + getExpandedEvaluationId() + "." + getReferenceASName() + ".";
     
-
+    if(!expandedOutputASPrefix.isEmpty()) {
+      outputASListMaxName = expandedOutputASPrefix+"_ResListMax";
+      outputASListThName = expandedOutputASPrefix+"_ResListTh";
+    }
   }
   
   
