@@ -608,6 +608,9 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     if(!expandedOutputASPrefix.isEmpty()) {
       outputASListMaxName = expandedOutputASPrefix+"_ResListMax";
       outputASListThName = expandedOutputASPrefix+"_ResListTh";
+    } else {
+      outputASListMaxName = "";
+      outputASListThName = "";
     }
   }
   

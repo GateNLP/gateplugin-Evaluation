@@ -154,7 +154,12 @@ public class EvalStatsTagging  {
   // Precision strict is the portion of responses that are correct strict
   public double getPrecisionStrict() { 
     if(nResponses == 0) {
-      return 1.0;
+      // if there are no targets, then we return 1.0 otherwise we return 0.0
+      if(nTargets == 0) {
+        return 1.0;
+      } else {
+        return 0.0;
+      }
     } else {
       return nCorrectStrict/(double)nResponses;
     }
@@ -162,7 +167,11 @@ public class EvalStatsTagging  {
   
   public double getPrecisionLenient() {
     if(nResponses == 0) {
-      return 1.0;
+      if(nTargets == 0) {
+        return 1.0;
+      } else {
+        return 0.0;
+      }
     } else {
       return getCorrectLenient()/(double)nResponses;
     }    
@@ -172,7 +181,11 @@ public class EvalStatsTagging  {
   // Recall is the portion of targets that have a correct response
   public double getRecallStrict() {
     if(nTargets == 0) {
-      return 0.0;
+      if(nResponses == 0) {
+        return 1.0;
+      } else {
+        return 0.0;        
+      }
     } else {
       return nCorrectStrict/(double)nTargets;
     }
