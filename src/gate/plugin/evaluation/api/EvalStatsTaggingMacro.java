@@ -149,21 +149,18 @@ public class EvalStatsTaggingMacro extends EvalStatsTagging {
   }
   
   /** 
-   * Calculate the average over the values, but only for elements where there is at least 
-   * one target or response.
+   * Calculate the average over the values.
    * @param values
    * @return 
    */
   protected double averageOf(List<Double> values) {
     double sum = 0.0;
-    int i = 0;
     int n = 0;
     for(Double val : values) {
-      if(targetsVals.get(i) > 0 || responsesVals.get(i) > 0) {
+      //if(targetsVals.get(i) > 0 || responsesVals.get(i) > 0) {
         sum += val;
         n++;
-      }
-      i++;
+      //}
     }
     if(n > 0) {
       return sum / n;

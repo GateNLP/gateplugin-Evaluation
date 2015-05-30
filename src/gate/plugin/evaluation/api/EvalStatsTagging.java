@@ -193,7 +193,11 @@ public class EvalStatsTagging  {
   
   public double getRecallLenient() {
     if(nTargets == 0) {
-      return 0.0;
+      if(nResponses == 0) {
+        return 1.0;
+      } else {
+        return 0.0;
+      }
     } else {
       return getCorrectLenient()/(double)nTargets;
     }    
