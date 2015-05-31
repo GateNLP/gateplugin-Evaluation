@@ -283,6 +283,8 @@ public class AnnotationDifferTagging {
    * @param scoreFeature
    * @return
    */
+  // TODO: this method maybe should also gather statistics about how many candidate lists end up 
+  // having 0 or 1 candidates only. 
   public static List<CandidateList> createCandidateLists(AnnotationSet candidatesSet,
           AnnotationSet listAnnotations, String edgeFeature, String scoreFeature, String elementType,
           boolean filterNils, String nilValue, String idFeature) {
@@ -818,6 +820,10 @@ public class AnnotationDifferTagging {
    * Computes a diff between two collections of annotations.
    *
    */
+  // TODO: this should also record on the fly, if we are processing lists, at which rank a 
+  // correct strict or correct partial match was first encountered and otherwise set that rank 
+  // to some special N/A value. This would be useful to calculate a statistic about the average
+  // rank of the correct answer among those list which have a correct answer. 
   private EvalStatsTagging calculateDiff(
           AnnotationSet keyAnns,
           AnnotationSet responseAnns,
@@ -1557,12 +1563,6 @@ public class AnnotationDifferTagging {
     // NOTE: if the elementType is null, we do not check that the element type matches the 
     // type of the candidate annotation, otherwise only candidates with elementType as type
     // get included in the list!
-
-    // PLAN: to support ranks: the only difference when creating the object is for those
-    // cases where no score feature is given, we simply do not re-sort the list then.
-    // See below for changes in other methods!
-    // NOTE: initially, after this, all candidates are visible and the current threshold
-    // is -Infinity
     public CandidateList(AnnotationSet annSet, Annotation listAnn, String listIdFeature,
             String scoreFeature, String elementType, boolean filterNils, String nilValue,
             String idFeature) {
@@ -1615,9 +1615,25 @@ public class AnnotationDifferTagging {
     }
     private int theSize = 0;
 
+    /**
+     * Current visible size of the list, depending onthe threshold that has been set.
+     * After initialization it is the number of all candidates that were annotations (ids which
+     * do not point to annotations are discarded) which match the element type if it was given, 
+     * which is identical to sizeAll()
+     * @return 
+     */
     public int size() {
       return theSize;
     }
+    
+    /**
+     * Return the number of all candidates, irrespective of the threshold.
+     * @return 
+     */
+    public int sizeAll() {
+      return cands.size();
+    }
+    
 
     private double currentThreshold = Double.NEGATIVE_INFINITY;
 

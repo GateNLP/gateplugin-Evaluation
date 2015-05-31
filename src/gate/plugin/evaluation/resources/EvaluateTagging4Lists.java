@@ -343,7 +343,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
               rankThresholdToUse,      // Instead of this, we should use an internal field so we can use -Inf etc.
               annotationTypeSpecs);
       ByRankEvalStatsTagging tmpEs = new ByRankEvalStatsTagging(brk.getWhichThresholds());
-      System.out.println("DEBUG adding for rank "+rankThresholdToUse);
+      //System.out.println("DEBUG adding for rank "+rankThresholdToUse);
       tmpEs.put(rankThresholdToUse,ad.getEvalStatsTagging());
       brk.add(tmpEs);      
       if(!outputASListMaxName.isEmpty()) {
@@ -372,7 +372,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
               Integer.MAX_VALUE,      // Instead of this, we should use an internal field so we can use -Inf etc.
               annotationTypeSpecs);
       ByRankEvalStatsTagging tmpEs = new ByRankEvalStatsTagging(brk.getWhichThresholds());
-      System.out.println("DEBUG adding for rank "+rankThresholdToUse);
+      //System.out.println("DEBUG adding for rank "+rankThresholdToUse);
       tmpEs.put(rankThresholdToUse,ad.getEvalStatsTagging());
       brk.add(tmpEs);   
       if(!outputASListMaxName.isEmpty()) {
@@ -476,7 +476,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
   // This needs to run as part of the first execute, since at the moment, the parametrization
   // does not work correctly with the controller callbacks. 
   protected void initializeForRunning() {
-    System.out.println("DEBUG: reinitializing");
+    //System.out.println("DEBUG: reinitializing");
     super.initializeForRunning();
     //System.out.println("DEBUG: running tagging4lists initialize");
     expandedEdgeName = getStringOrElse(getExpandedEdgeFeatureName(),"");
