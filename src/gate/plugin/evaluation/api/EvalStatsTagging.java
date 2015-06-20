@@ -10,6 +10,22 @@
  */
 package gate.plugin.evaluation.api;
 
+// TODO: add more measures which are commonly used or interesting
+// or document if we use different names
+// TP(true positives) + FP(False Positives) = Responses
+// TP(true positives) + FN(False Negatives) = Targets
+//
+// For the simple tagging case with no features (hence no incorrect):
+// TP is Correct
+// FP is TrueSpurious
+// FN is TrueMissing
+// 
+// If there are incorrects:
+// TP is correct
+// FP is TrueSpurious or Incorrect = Spurious
+// FN is TrueMissing or Incorrect = Missing
+// 
+
 /**
  * A class to hold all the numbers for an evaluation and for calculating
  * various measures from the numbers.

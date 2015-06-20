@@ -422,6 +422,41 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       // a line for the response stats for that document
       mainTsvPrintStream.println(outputTsvLine("list-best", document.getName(), typeSpec, expandedResponseSetName, es));
     }
+    
+    // Now handle the list accuracy and per-list P/R statistics. In the previous code, we wanted
+    // to make sure that the assignment of each match to a key is done equally to what the non-list
+    // tagging evaluation does, so we can estimate the final P/R/F of a tagger that would pick 
+    // from those lists. Now we look at each list separately and just see how well, within each
+    // least the ranking of correct matches is done. Unlike with the previous code, this means 
+    // that the candidates from two different lists can successfully get matched to the same target
+    // and will both be counted as correct or partially correct
+    // This will output a separate tsv file with the following information:
+    // document, evaltype, overlaps with target, have cs match (0/1), have cp match (0/1), rank of first cs match,
+    // rank of first cp match, score of first cs match, score of first cp match. 
+    // If there is no match then rank will be MAXINT and score will be NaN.
+    // The following stats are also calculated:
+    // * accuracy strict and lenient at rank k for k = 0 .. maxRank:
+    //    acc_strict at k is number of LLs where there is a strict match at rank i <= k 
+    //      divided by total LLs that have a strict or partial match
+    //    acc_lenient at k: same for strict or lenient match at i <= k, whichever match comes first
+    // * P/R curve strict/lenient: since we only look at lists that have at least one partial match,
+    //    the possible lenient recall is 100%, strict being lower. We look at precision and recall
+    //    for each rank k 0 ... maxRank. This should work with the EvalStatsTagging4Rank/Score
+    //    objects we already have.
+    // * some distribution statistics about the ranks and scores of the first strict and lenient
+    //   matches: this could initially be done using R based on the data we write. 
+    // 
+    // Strategy: go through all candidate lists, check if it overlaps with a target
+    //   - no: output no-overlap, 0/0 line 
+    //   - yes: check if there is a cp or cs match (or both), remember lowerst ranks and scores for those
+    //      have no match: output overlap, 0/0 line
+    //      have match: output overlap, x/y line
+    //     increment our stats objects.
+    
+    
+    
+    
+    
   }
   
   
