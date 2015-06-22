@@ -1693,6 +1693,15 @@ public class AnnotationDifferTagging {
       }
     }
 
+    /**
+     * Unset any rank or threshold limit that may be in place.
+     */
+    public void clearLimits() {
+      theSize = cands.size();
+      currentThreshold = Double.NEGATIVE_INFINITY;
+    }
+    
+    
     public Annotation get(int index) {
       if (index >= theSize) {
         throw new GateRuntimeException("Attempt to access element larger than the currently set size");

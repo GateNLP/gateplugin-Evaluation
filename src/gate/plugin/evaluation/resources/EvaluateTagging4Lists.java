@@ -447,12 +447,40 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     //   matches: this could initially be done using R based on the data we write. 
     // 
     // Strategy: go through all candidate lists, check if it overlaps with a target
-    //   - no: output no-overlap, 0/0 line 
+    //   - no: output no-overlap, 0/0 line RETHINKING: maybe not output a line?
     //   - yes: check if there is a cp or cs match (or both), remember lowerst ranks and scores for those
-    //      have no match: output overlap, 0/0 line
+    //      have no match: output overlap, 0/0 line: RETHINK, maybe not output a line?
     //      have match: output overlap, x/y line
     //     increment our stats objects.
     
+    for(CandidateList cl : candList) {
+      Annotation ll = cl.getListAnnotation();
+      AnnotationSet tmp1 = Utils.getOverlappingAnnotations(keySet, ll);
+      if(tmp1.size() > 0) {
+        // this is an overlap: we now need to check if any element in the list, if it still
+        // overlaps any of the key anns, is actually a strict or partial match, and which
+        // rank/score we have at the first (in order of decreasing preference) strict/partial match.
+        cl.clearLimits();
+        Annotation firstStrict = null;
+        Annotation firstPartial = null;        
+        int firstPartialIndex = -1;
+        int firstStrictIndex = -1;
+        for(int i = 0; i < cl.sizeAll(); i++) {
+          cl.get(i);
+          if(firstStrict == null) { // still not found a strict match, need to check
+            
+          }
+          if(firstPartial == null) { // still not found a partial match, need to check
+            
+          }          
+        } // for
+        // now we have any first strict or first partial matches
+        
+      } else {
+        // no overlapping key annotation, just count this as a non-overlap 
+        
+      }
+    }
     
     
     
