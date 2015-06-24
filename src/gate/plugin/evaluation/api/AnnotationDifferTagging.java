@@ -1198,8 +1198,6 @@ public class AnnotationDifferTagging {
     // If we compare candidates for a list-based evaluation, we do not care about the type of 
     // the candidate ann
     if (!is4List) {
-      // TODO: this should instead check if the type of the key annotation matches the type
-      // of the response annotation as mappend in the type specifications! 
       if (typeSpecs == null) {
         if (!key.getType().equals(response.getType())) {
           return false;

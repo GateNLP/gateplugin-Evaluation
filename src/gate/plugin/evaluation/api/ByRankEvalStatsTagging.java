@@ -69,6 +69,8 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
   
   /**
    * Add another ByThEvalStatsTagging object to this one.
+   * The purpose of this method is to add a per-document object which already has the correct
+   * by-threshold stats to a global object. 
    * @param other 
    */
   public void add(ByRankEvalStatsTagging other) {

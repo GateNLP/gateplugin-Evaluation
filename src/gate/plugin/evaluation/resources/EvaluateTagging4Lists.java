@@ -34,20 +34,15 @@ import gate.plugin.evaluation.api.AnnotationTypeSpec;
 import gate.plugin.evaluation.api.AnnotationTypeSpecs;
 import gate.plugin.evaluation.api.ByRankEvalStatsTagging;
 import gate.plugin.evaluation.api.ByThEvalStatsTagging;
-import gate.plugin.evaluation.api.ContingencyTableInteger;
 import gate.plugin.evaluation.api.EvalStatsTagging;
 import gate.plugin.evaluation.api.EvalStatsTagging4Rank;
 import gate.plugin.evaluation.api.EvalStatsTagging4Score;
 import gate.plugin.evaluation.api.ThresholdsOrRanksToUse;
 import gate.plugin.evaluation.api.ThresholdsToUse;
-import static gate.plugin.evaluation.resources.EvaluateTagging.initialFeaturePrefixResponse;
 import gate.util.GateRuntimeException;
-import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import org.apache.log4j.Logger;
 
@@ -162,6 +157,10 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
   protected ByRankEvalStatsTagging evalStatsByRank;  
   // NOTE: depending on the parameters, one of the two above will be used and the other will be null!
   
+  
+  // this is for the by-list evaluation
+  protected ByRankEvalStatsTagging byRank4ListAcc;
+  
   // This will either by 4Score for the set of all best scores or 4Rank for the set of 
   // rank 1 (index 0) entries.
   protected EvalStatsTagging allDocumentsStats;
@@ -247,7 +246,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     
     AnnotationSet listAnns = responseSet;
     //System.out.println("DEBUG evaluating for score feature "+expandedScoreFeatureName);
-    List<CandidateList> candList = 
+    List<CandidateList> candLists = 
               AnnotationDifferTagging.createCandidateLists(
                       document.getAnnotations(expandedResponseSetName),
                       listAnns, 
@@ -259,9 +258,9 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     responseSet = new AnnotationSetImpl(listAnns.getDocument());
     // if we evaluate by rank, use rank 1 (position 0) for the evaluation, so this is the 
     // same for rank and threshold-based evaluations!
-    // However, depending on rank or threshold evaluation, the creation of candList may have
+    // However, depending on rank or threshold evaluation, the creation of candLists may have
     // happened differently!
-    for(CandidateList cl : candList) {
+    for(CandidateList cl : candLists) {
       responseSet.add(cl.get(0));
       //System.out.println("DEBUG: adding annotation: "+cl.get(0));
     }
@@ -284,10 +283,9 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     // ByTh thing
     
     if(evaluate4ScoreTh) {
-      AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(
-              keySet,
+      AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(keySet,
               document.getAnnotations(expandedResponseSetName),
-              candList,
+              candLists,
               featureSet,
               featureComparison,
               expandedEdgeName,
@@ -303,19 +301,17 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
         ad.addIndicatorAnnotations(outSet,"");
       }      
     } else if(evaluate4AllScores) {
-      AnnotationDifferTagging.calculateListByThEvalStatsTagging(
-              keySet,
+      AnnotationDifferTagging.calculateListByThEvalStatsTagging(keySet,
               document.getAnnotations(expandedResponseSetName),
-              candList, featureSet, featureComparison, 
+              candLists, featureSet, featureComparison, 
               expandedEdgeName, expandedScoreFeatureName, 
               bth.getWhichThresholds(), bth,
               annotationTypeSpecs);    
       // now in addition evaluate for the the score -Inf and create a differ object that
       // contains the indicator annotations for this. 
-      AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(
-              keySet,
+      AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(keySet,
               document.getAnnotations(expandedResponseSetName),
-              candList,
+              candLists,
               featureSet,
               featureComparison,
               expandedEdgeName,
@@ -331,10 +327,9 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
         ad.addIndicatorAnnotations(outSet,"");
       }      
     } else if(evaluate4RankTh) {
-      AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(
-              keySet,
+      AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(keySet,
               document.getAnnotations(expandedResponseSetName),
-              candList,
+              candLists,
               featureSet,
               featureComparison,
               expandedEdgeName,
@@ -351,19 +346,17 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
         ad.addIndicatorAnnotations(outSet,"");
       }      
     } else if(evaluate4AllRanks) {
-      AnnotationDifferTagging.calculateListByRankEvalStatsTagging(
-              keySet,
+      AnnotationDifferTagging.calculateListByRankEvalStatsTagging(keySet,
               document.getAnnotations(expandedResponseSetName),
-              candList, featureSet, featureComparison, 
+              candLists, featureSet, featureComparison, 
               expandedEdgeName, expandedScoreFeatureName, 
               brk.getWhichThresholds(), brk,
               annotationTypeSpecs);     
       // now in addition also evaluate for rank max_value and create a differ object that
       // contains the indicator annotations for this.
-      AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(
-              keySet,
+      AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(keySet,
               document.getAnnotations(expandedResponseSetName),
-              candList,
+              candLists,
               featureSet,
               featureComparison,
               expandedEdgeName,
@@ -453,10 +446,22 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     //      have match: output overlap, x/y line
     //     increment our stats objects.
     
-    for(CandidateList cl : candList) {
+    ByRankEvalStatsTagging tmpEs = new ByRankEvalStatsTagging(ThresholdsOrRanksToUse.USE_RANKS_ALL);
+    // find what the highest rank is over all the lists that do have a match for this document
+    int maxRankTh = -1;
+    for(CandidateList cl : candLists) {
+      if(cl.sizeAll() > maxRankTh) {
+        maxRankTh = cl.sizeAll();
+      }
+    }
+    // initialize the by threshold object with all thresholds we need
+    for(int r = 0; r<= maxRankTh; r++) {
+      tmpEs.put(r, new EvalStatsTagging4Rank(r));
+    }
+    for(CandidateList cl : candLists) {
       Annotation ll = cl.getListAnnotation();
-      AnnotationSet tmp1 = Utils.getOverlappingAnnotations(keySet, ll);
-      if(tmp1.size() > 0) {
+      AnnotationSet keys = Utils.getOverlappingAnnotations(keySet, ll);
+      if(keys.size() > 0) {
         // this is an overlap: we now need to check if any element in the list, if it still
         // overlaps any of the key anns, is actually a strict or partial match, and which
         // rank/score we have at the first (in order of decreasing preference) strict/partial match.
@@ -466,22 +471,61 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
         int firstPartialIndex = -1;
         int firstStrictIndex = -1;
         for(int i = 0; i < cl.sizeAll(); i++) {
-          cl.get(i);
+          Annotation el = cl.get(i);
           if(firstStrict == null) { // still not found a strict match, need to check
-            
+            // first check if the annotation is coextensive at all
+            for(Annotation k : keys) {
+              if(el.coextensive(k)) {
+                boolean isMatch = 
+                        AnnotationDifferTagging.isAnnotationsMatch(k, el, featureSet, 
+                                featureComparison, true, annotationTypeSpecs);
+                if(isMatch) {
+                  firstStrict = el;
+                  firstStrictIndex = i;
+                }
+              } // if coextensive
+            } // for k
           }
           if(firstPartial == null) { // still not found a partial match, need to check
+            // first check if the annotation is partial
+            for(Annotation k : keys) {
+              if(el.overlaps(k) && !el.coextensive(k)) {
+                boolean isMatch = 
+                        AnnotationDifferTagging.isAnnotationsMatch(k, el, featureSet, 
+                                featureComparison, true, annotationTypeSpecs);
+                if(isMatch) {
+                  firstPartial = el;
+                  firstPartialIndex = i;
+                }
+              } // if coextensive
+            } // for k
             
           }          
         } // for
         // now we have any first strict or first partial matches
-        
+        // if we do have any match (strict or partial) then record the match by threshold in 
+        // the stats objects for this document
+        if(firstPartial != null || firstStrict != null) {
+          // since there is a partial or strict match, we update the stats objects.
+          // This is done in the following way: for all candidates from 0 up until the first match,
+          // an incorrectStrict or incorrectPartial is counted, once a correct strict is reached,
+          // we count correct strict for the rest of thresholds, if we find correct partial, 
+          // we count correct partial until we either reach correct strict or the end.
+          if(firstPartialIndex >= 0) {
+            EvalStatsTagging e = tmpEs.get(firstPartialIndex);
+            
+          }
+        }
       } else {
         // no overlapping key annotation, just count this as a non-overlap 
         
       }
-    }
+    } // for one single candidate list ... 
+    // add the per-document stats objects to the global stats objects
+    // add tmpEs to ...
+    byRank4ListAcc.add(tmpEs);
     
+    // update other global counters 
     
     
     
@@ -675,6 +719,9 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       outputASListMaxName = "";
       outputASListThName = "";
     }
+    
+    byRank4ListAcc = new ByRankEvalStatsTagging(ThresholdsOrRanksToUse.USE_RANKS_ALL);
+    
   }
   
   
