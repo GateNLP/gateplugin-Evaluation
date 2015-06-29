@@ -40,6 +40,7 @@ import gate.plugin.evaluation.api.EvalStatsTagging4Score;
 import gate.plugin.evaluation.api.ThresholdsOrRanksToUse;
 import gate.plugin.evaluation.api.ThresholdsToUse;
 import gate.util.GateRuntimeException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -182,6 +183,18 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
   protected String outputASListMaxName;
   protected String outputASListThName;
 
+
+  protected PrintStream matchesTsvPrintStream;
+  
+  int nrListAnns = 0;
+  int nrListAnnsWithKeys = 0;
+  int nrListAnnsWithoutKeys = 0;
+  int nrListAnnsNoMatch = 0;
+  int nrListAnnsMatchLenient = 0;
+  int nrListAnnsMatchStrict = 0;
+  int nrListAnnsMatchPartial = 0;
+  int nrListAnnsMatchStrictAt0 = 0;
+  int nrListAnnsMatchPartialAt0 = 0;
   
   @Override
   public void execute() throws ExecutionException {
@@ -460,8 +473,10 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     }
     for(CandidateList cl : candLists) {
       Annotation ll = cl.getListAnnotation();
+      nrListAnns += 1;
       AnnotationSet keys = Utils.getOverlappingAnnotations(keySet, ll);
       if(keys.size() > 0) {
+        nrListAnnsWithKeys += 1;
         // this is an overlap: we now need to check if any element in the list, if it still
         // overlaps any of the key anns, is actually a strict or partial match, and which
         // rank/score we have at the first (in order of decreasing preference) strict/partial match.
@@ -506,31 +521,156 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
         // if we do have any match (strict or partial) then record the match by threshold in 
         // the stats objects for this document
         if(firstPartial != null || firstStrict != null) {
+          double scAtStrict = Double.NaN;
+          double scAtPartial = Double.NaN;
+          if(!getExpandedScoreFeatureName().isEmpty()) {
+            if(firstPartial != null) {
+              scAtPartial = (Double)firstPartial.getFeatures().get(getExpandedScoreFeatureName());
+            }
+            if(firstStrict != null) {
+              scAtStrict = (Double)firstStrict.getFeatures().get(getExpandedScoreFeatureName());
+            }
+          } 
+          outputTsvLine4Matches(matchesTsvPrintStream,"list-matches", ll.getId(), document.getName(), 
+                typeSpec, responseSet.getName(), keys.size(), firstStrictIndex, firstPartialIndex, 
+                scAtStrict, scAtPartial);
+          
+          
           // since there is a partial or strict match, we update the stats objects.
           // This is done in the following way: for all candidates from 0 up until the first match,
           // an incorrectStrict or incorrectPartial is counted, once a correct strict is reached,
           // we count correct strict for the rest of thresholds, if we find correct partial, 
           // we count correct partial until we either reach correct strict or the end.
-          if(firstPartialIndex >= 0) {
-            EvalStatsTagging e = tmpEs.get(firstPartialIndex);
-            
+          // In other words: if there is both a correct strict and a correct partial, then:
+          // - if the correct strict has an index lower than the partial, the strict is counted
+          //   for all indices >= that index
+          // - if the correct strict has an index higher than the partial, a partial is counted
+          //   for all indices >= partial and < strict.
+          // So the overal strategy is: count incorrect partial or strict until a partial match
+          // is reached, if any, then continue counting that until a strict match is reached, if 
+          // any, then continue counting that.
+          
+          boolean haveStrict = false;
+          boolean havePartial = false;
+          for (int k = 0; k < cl.sizeAll(); k++) {
+            EvalStatsTagging e = tmpEs.get(k);
+            e.addTargets(1);
+            e.addResponses(1);
+            if (k == firstPartialIndex) {
+              havePartial = true;
+            }
+            if (k == firstStrictIndex) {
+              haveStrict = true;
+            }
+            if (haveStrict) { // already found a strict, go on counting that
+              e.addCorrectStrict(1);
+            } else if (havePartial) {
+              e.addCorrectPartial(1);
+            } else {
+              if (cl.get(k).coextensive(ll)) {
+                e.addIncorrectStrict(1);
+              } else {
+                e.addIncorrectPartial(1);
+              }              
+            } // else 
+          } // for k    
+          nrListAnnsMatchLenient += 1;
+          if(haveStrict) {
+            nrListAnnsMatchStrict += 1;
+            if(firstStrictIndex==0) {
+              nrListAnnsMatchStrictAt0 += 1;
+            }
           }
+          if(havePartial) {
+            nrListAnnsMatchPartial += 1;
+            if(firstPartialIndex==0) {
+              nrListAnnsMatchPartialAt0 += 1;
+            }
+          }
+        } else { 
+          // no strict or partial match found in the whole list
+          outputTsvLine4Matches(matchesTsvPrintStream,"list-matches", ll.getId(), document.getName(), 
+                typeSpec, responseSet.getName(), keys.size(), -1, -1, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
+          nrListAnnsNoMatch += 1;
         }
       } else {
         // no overlapping key annotation, just count this as a non-overlap 
-        
+        nrListAnnsWithoutKeys += 1;
+        outputTsvLine4Matches(matchesTsvPrintStream,"list-matches", ll.getId(), document.getName(), 
+                typeSpec, responseSet.getName(), 0, -1, -1, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
       }
     } // for one single candidate list ... 
+    
     // add the per-document stats objects to the global stats objects
     // add tmpEs to ...
     byRank4ListAcc.add(tmpEs);
     
-    // update other global counters 
-    
+
     
     
   }
   
+  
+  protected void outputTsvLine4Matches (
+          PrintStream out,
+          String evalType,
+          int annId, // annotation id of list annotation
+          String docName,
+          AnnotationTypeSpec typeSpec,
+          String setName,
+          int nrKeys, // number of overlapping key annotations (if 0 then haveStrict/PartialMatch = 0)
+          int rankOfStrictMatch,  // -1 if no match
+          int rankOfPartialMatch,   // -1 if no match
+          double scoreAtStrictMatch, // NaN if no score specified, -Inf if no match
+          double scoreAtPartialMatch // NaN if no score specified, -Inf if no match
+  ) {
+    if(out == null) return;
+    StringBuilder sb = new StringBuilder();
+    sb.append(expandedEvaluationId); sb.append("\t");
+    sb.append(evalType); sb.append("\t");
+    sb.append(annId); sb.append("\t");
+    if(docName == null) {
+      sb.append("[doc:all:micro]");
+    } else {
+      sb.append(docName);
+    }
+    sb.append("\t");
+    if(setName == null || setName.isEmpty()) {
+      sb.append(expandedResponseSetName);
+    } else {
+      sb.append(setName);
+    }
+    sb.append("\t");
+    if(typeSpec == null) {
+      sb.append("[type:all:micro]");
+    } else {
+      sb.append(typeSpec);
+    }
+    sb.append("\t");
+    sb.append(nrKeys); sb.append("\t");
+    sb.append(rankOfStrictMatch); sb.append("\t");
+    sb.append(rankOfPartialMatch); sb.append("\t");
+    sb.append(scoreAtStrictMatch); sb.append("\t");
+    sb.append(scoreAtPartialMatch); 
+    out.println(sb.toString());
+  }
+  
+  protected void outputTsvLine4MatchesHeader (PrintStream out) {
+    if(out==null) return;
+    StringBuilder sb = new StringBuilder();
+    sb.append("evaluationId"); sb.append("\t");
+    sb.append("evaluationType"); sb.append("\t");
+    sb.append("annotationId"); sb.append("\t");
+    sb.append("docName"); sb.append("\t");
+    sb.append("setName"); sb.append("\t");
+    sb.append("annotationType"); sb.append("\t");
+    sb.append("haveStrictMatch"); sb.append("\t");
+    sb.append("havePartialMatch"); sb.append("\t");
+    sb.append("nrKeys"); sb.append("\t");
+    sb.append("rankOfMatch"); sb.append("\t");
+    sb.append("scoreAtMatch");
+    out.println(sb.toString());
+  }
   
   
   /**
@@ -721,6 +861,11 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     }
     
     byRank4ListAcc = new ByRankEvalStatsTagging(ThresholdsOrRanksToUse.USE_RANKS_ALL);
+    
+    matchesTsvPrintStream = getOutputStream("matches");
+    outputTsvLine4MatchesHeader(matchesTsvPrintStream);
+    
+
     
   }
   
