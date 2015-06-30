@@ -605,7 +605,10 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     // add tmpEs to ...
     byRank4ListAcc.add(tmpEs);
     
-
+    // per document we only output the stats for rank 0
+    if(mainTsvPrintStream!=null) {
+      outputTsvLine("list-disamb-best", document.getName(), typeSpec, responseSet.getName(), tmpEs.get(0));
+    }
     
     
   }
@@ -664,11 +667,11 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     sb.append("docName"); sb.append("\t");
     sb.append("setName"); sb.append("\t");
     sb.append("annotationType"); sb.append("\t");
-    sb.append("haveStrictMatch"); sb.append("\t");
-    sb.append("havePartialMatch"); sb.append("\t");
     sb.append("nrKeys"); sb.append("\t");
-    sb.append("rankOfMatch"); sb.append("\t");
-    sb.append("scoreAtMatch");
+    sb.append("rankOfStrictMatch"); sb.append("\t");
+    sb.append("rankOfPartialMatch"); sb.append("\t");
+    sb.append("scoreAtStrictMatch"); sb.append("\t");
+    sb.append("scoreAtPartialMatch");
     out.println(sb.toString());
   }
   
@@ -894,7 +897,8 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     outputEvalStatsForType(System.out, allDocumentsStats, typeSpecNormal.toString(), expandedResponseSetName);
     if(mainTsvPrintStream != null) { 
       mainTsvPrintStream.println(
-              outputTsvLine("list-best", null, typeSpecNormal, getResponseASName(), allDocumentsStats)); }
+              outputTsvLine("list-best", null, typeSpecNormal, getResponseASName(), allDocumentsStats)); 
+    }
     if(evalStatsByThreshold != null) {
       for(double th : evalStatsByThreshold.getByThresholdEvalStats().navigableKeySet()) {
         outputEvalStatsForType(System.out, evalStatsByThreshold.get(th), typeSpecList.toString(), expandedResponseSetName);
@@ -907,10 +911,37 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
         outputEvalStatsForType(System.out, evalStatsByRank.get(rank), typeSpecList.toString(), expandedResponseSetName);
         if(mainTsvPrintStream != null) { 
           mainTsvPrintStream.println(
-                  outputTsvLine("list-rank", null, typeSpecList, expandedResponseSetName, evalStatsByRank.get(rank))); }
+                  outputTsvLine("list-rank", null, typeSpecList, expandedResponseSetName, evalStatsByRank.get(rank))); 
+        }
+      }      
+      for(int rank : byRank4ListAcc.getByRankEvalStats().navigableKeySet()) {
+        // TODO: need to first add eval type to that output before we can output this too
+        // outputEvalStatsForType(System.out, evalStatsByRank.get(rank), typeSpecList.toString(), expandedResponseSetName);
+        if(mainTsvPrintStream != null) { 
+          mainTsvPrintStream.println(
+                  outputTsvLine("list-disamb",null,typeSpecNormal, getResponseASName(), byRank4ListAcc.get(rank)));
+        }
       }      
     }
 
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists: "+r4(nrListAnns));
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists without target: "+r4(nrListAnnsWithoutKeys));
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists with target: "+r4(nrListAnnsWithKeys));
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists with target but no match: "+r4(nrListAnnsNoMatch));
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists with strict match: "+r4(nrListAnnsMatchStrict));
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists with strict match at 0: "+r4(nrListAnnsMatchStrictAt0));
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists with partial match: "+r4(nrListAnnsMatchPartial));
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists with partial match at 0: "+r4(nrListAnnsMatchPartialAt0));
+    
+    
   }
   
   
