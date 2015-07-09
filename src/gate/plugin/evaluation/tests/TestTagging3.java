@@ -54,7 +54,6 @@ public class TestTagging3 {
   ////////////////////////////
   private File pluginHome;
   private File testingDir;
-  private EvaluateTagging prListEval1;
   private static final Logger logger = Logger.getLogger(TestTagging1.class);
   @Before
   public void setup() throws GateException, IOException {
@@ -96,7 +95,7 @@ public class TestTagging3 {
   /////////////////////////
   
   @Test
-  public void testCorp1() throws ResourceInstantiationException, ExecutionException, PersistenceException, IOException {
+  public void testTagging3Corp1() throws ResourceInstantiationException, ExecutionException, PersistenceException, IOException {
     logger.debug("Running test testCorp1");
     File pipelineFile = new File(testingDir,"test-eval-corp1.xgapp");
     CorpusController controller = (CorpusController)PersistenceManager.loadObjectFromFile(pipelineFile);
@@ -153,7 +152,7 @@ public class TestTagging3 {
   }
   
   @Test
-  public void testCorp2() throws ResourceInstantiationException, ExecutionException, PersistenceException, IOException {
+  public void testTagging3Corp2() throws ResourceInstantiationException, ExecutionException, PersistenceException, IOException {
     logger.debug("Running test testCorp2");
     File pipelineFile = new File(testingDir,"test-eval-corp2.xgapp");
     CorpusController controller = (CorpusController)PersistenceManager.loadObjectFromFile(pipelineFile);

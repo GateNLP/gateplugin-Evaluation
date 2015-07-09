@@ -85,7 +85,7 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
    */
   public void add(ByRankEvalStatsTagging other) {
     if(!this.whichThresholds.equals(other.whichThresholds)) {
-      throw new GateRuntimeException("Cannot add if the thresholds settings do not match");
+      System.err.println("SERIOUS WARNING Cannot add if the thresholds settings do not match this="+this.whichThresholds+" other="+other.whichThresholds);
     }
     
     // Create an ordered set with all the rank thresholds from both this and other
@@ -123,9 +123,10 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
         // other object
         NavigableMap.Entry<Integer,EvalStatsTagging> otherLowerEntry = other.byRankEvalStats.lowerEntry(rank);
         if(otherLowerEntry == null) {
-          throw new GateRuntimeException("Cannot add stats if we have a rank and the other object does not have the same or lower rank, rank is "+rank);
+          System.err.println("ERROR: Cannot add stats if we have a rank and the other object does not have the same or lower rank, rank is "+rank);
+        } else {
+          thisES.add(otherLowerEntry.getValue());
         }
-        thisES.add(otherLowerEntry.getValue());
       } else {
         throw new GateRuntimeException("Odd error, this should never happen!");
       }
@@ -351,7 +352,7 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
     sb.append(getWhichThresholds());
     sb.append("\n");
     NavigableMap<Integer,EvalStatsTagging> map = getByRankEvalStats();
-    for(double th : map.navigableKeySet()) {
+    for(Integer th : map.navigableKeySet()) {
       sb.append(map.get(th));
       sb.append("\n");
     }

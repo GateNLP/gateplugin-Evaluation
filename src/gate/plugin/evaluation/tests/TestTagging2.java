@@ -107,8 +107,8 @@ public class TestTagging2 {
   /////////////////////////
   
   @Test
-  public void testListEval01() throws ResourceInstantiationException, ExecutionException {
-    logger.debug("Running test testListEval01");
+  public void testTagging2ListEval01() throws ResourceInstantiationException, ExecutionException {
+    logger.debug("Running test testTagging2ListEval01");
     Document doc = newD();
     AnnotationSet keys = doc.getAnnotations("Key");
     AnnotationSet resp = doc.getAnnotations("Resp");
@@ -165,8 +165,8 @@ public class TestTagging2 {
   }
 
   @Test
-  public void testListEval02() throws ResourceInstantiationException, ExecutionException {
-    logger.debug("Running test testListEval02");
+  public void testTagging2ListEval02() throws ResourceInstantiationException, ExecutionException {
+    logger.debug("Running test testTagging2ListEval02");
     Document doc = newD();
     AnnotationSet keys = doc.getAnnotations("Key");
     AnnotationSet resp = doc.getAnnotations("Resp");
@@ -243,9 +243,9 @@ public class TestTagging2 {
   }
 
   @Test
-  public void testListEval03() throws ResourceInstantiationException, ExecutionException {
+  public void testTagging2ListEval03() throws ResourceInstantiationException, ExecutionException {
     
-    logger.debug("Running test testListEval03");
+    logger.debug("Running test testTagging2ListEval03");
     Document doc1 = newD();
     AnnotationSet keys = doc1.getAnnotations("Key");
     AnnotationSet resp = doc1.getAnnotations("Resp");

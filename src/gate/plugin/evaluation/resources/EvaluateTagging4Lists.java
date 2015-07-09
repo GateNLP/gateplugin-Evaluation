@@ -148,6 +148,45 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     //
   }
   
+  /// API methods to access the stats data the PR calculates
+  
+  /**
+   * Return the evaluation statistics.
+   * @param type
+   * @return 
+   */
+  public EvalStatsTagging getEvalStatsTagging() { 
+    return allDocumentsStats; 
+  }
+  
+  /**
+   * Get the evaluation statistics by threshold.
+   * @param type
+   * @return 
+   */
+  public ByThEvalStatsTagging getByThEvalStatsTagging() {
+    return evalStatsByThreshold;
+  }
+  
+  /**
+   * Get the evaluation statistics by rank
+   * @param type
+   * @return 
+   */
+  public ByRankEvalStatsTagging getByRankEvalStatsTagging() {
+    return evalStatsByRank;
+  }
+  
+  /**
+   * Get the evaluation statistics by rank for disambiguation accuracy
+   * @param type
+   * @return 
+   */
+  public ByRankEvalStatsTagging getByRankEvalStats4ListAcc() {
+    return byRank4ListAcc;
+  }
+  
+  
   
   
   // This will be initialized at the start of the run and be incremented in the AnnotationDifferTagging
@@ -459,14 +498,22 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     //      have match: output overlap, x/y line
     //     increment our stats objects.
     
+    int nrTargets = keySet.size();
+    System.out.println("Number of targets found: "+nrTargets);
+    System.out.println("Number of candidate lists: "+candLists.size());
+    
+    // TODO: if we do not have responses (candidate lists), do it right!
+    
     ByRankEvalStatsTagging tmpEs = new ByRankEvalStatsTagging(ThresholdsOrRanksToUse.USE_RANKS_ALL);
     // find what the highest rank is over all the lists that do have a match for this document
     int maxRankTh = -1;
     for(CandidateList cl : candLists) {
+      System.out.println("Found a candidate list with candidates: "+cl.sizeAll());
       if(cl.sizeAll() > maxRankTh) {
         maxRankTh = cl.sizeAll();
       }
     }
+    System.out.println("Max Rank is: "+maxRankTh);
     // initialize the by threshold object with all thresholds we need
     for(int r = 0; r<= maxRankTh; r++) {
       tmpEs.put(r, new EvalStatsTagging4Rank(r));
@@ -550,11 +597,15 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
           // is reached, if any, then continue counting that until a strict match is reached, if 
           // any, then continue counting that.
           
+          // we go through all candidates for each list where we have at least a partial match 
+          // therefore the number of "targets" shown in the output is different from the actual
+          // targets, it is just the number of response lists that overlaps with at least one 
+          // actual target.
           boolean haveStrict = false;
           boolean havePartial = false;
           for (int k = 0; k < cl.sizeAll(); k++) {
             EvalStatsTagging e = tmpEs.get(k);
-            e.addTargets(1);
+            e.addTargets(nrTargets);
             e.addResponses(1);
             if (k == firstPartialIndex) {
               havePartial = true;
@@ -604,7 +655,9 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     // add the per-document stats objects to the global stats objects
     // add tmpEs to ...
     byRank4ListAcc.add(tmpEs);
-    
+    System.out.println("-----------------> tmpEs");
+    System.out.println(tmpEs);
+    System.out.println("<----------------- tmpEs");
     // per document we only output the stats for rank 0
     if(mainTsvPrintStream!=null) {
       outputTsvLine("list-disamb-best", document.getName(), typeSpec, responseSet.getName(), tmpEs.get(0));
@@ -675,24 +728,6 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     out.println(sb.toString());
   }
   
-  
-  /**
-   * Return the evaluation statistics.
-   * @param type
-   * @return 
-   */
-  public EvalStatsTagging getEvalStatsTagging() { 
-    return allDocumentsStats; 
-  }
-  
-  /**
-   * Get the evaluation statistics by threshold.
-   * @param type
-   * @return 
-   */
-  public ByThEvalStatsTagging getByThEvalStatsTagging() {
-    return evalStatsByThreshold;
-  }
   
   
   ////////////////////////////////////////////

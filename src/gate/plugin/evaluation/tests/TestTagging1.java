@@ -93,7 +93,7 @@ public class TestTagging1 {
   /////////////////////////
   
   @Test
-  public void testTagging01() {
+  public void testTagging1T01() {
     logger.debug("Running test testTagging01");
     // Get the differences, using the old method
     //AnnotationDifferOld annDiffer = new AnnotationDifferOld();
@@ -163,7 +163,7 @@ public class TestTagging1 {
   }
   
   @Test
-  public void testTaggingD01() throws ResourceInstantiationException {
+  public void testTagging1D01() throws ResourceInstantiationException {
     Document doc = newD();
     AnnotationSet t = addA(doc,"Keys",0,10,"M","x");
     AnnotationSet r = addA(doc,"Resp",0,10,"M","x");
@@ -184,7 +184,7 @@ public class TestTagging1 {
   }
   
   @Test
-  public void testTaggingD02() throws ResourceInstantiationException {
+  public void testTagging1D02() throws ResourceInstantiationException {
     Document doc = newD();
     AnnotationSet t = addA(doc,"Keys",0,10,"M","x");
     AnnotationSet r = addA(doc,"Resp",0,10,"M","y");
@@ -205,7 +205,7 @@ public class TestTagging1 {
   }
   
   @Test
-  public void testTaggingD03() throws ResourceInstantiationException {
+  public void testTagging1D03() throws ResourceInstantiationException {
     Document doc = newD();
     AnnotationSet t = addA(doc,"Keys",0,10,"M","x");
     addA(doc,"Resp",0,10,"M","x");
@@ -235,7 +235,7 @@ public class TestTagging1 {
   }
 
   @Test
-  public void testTaggingD04() throws ResourceInstantiationException {
+  public void testTagging1D04() throws ResourceInstantiationException {
     Document doc = newD();
     addA(doc,"Keys",0,10,"M","x");
     AnnotationSet t = addA(doc,"Keys",0,10,"M","y");
@@ -269,7 +269,7 @@ public class TestTagging1 {
 
   // Test P/R curve, 01
   @Test
-  public void testTaggingPR01() throws ResourceInstantiationException {
+  public void testTagging1PR01() throws ResourceInstantiationException {
     Document doc = newD();
     // add 2 targets to the keys
     addA(doc,"Keys",0, 10,"M",featureMap("id","x"));
@@ -299,7 +299,7 @@ public class TestTagging1 {
   
   // Test P/R curve, 02
   @Test
-  public void testTaggingPR02() throws ResourceInstantiationException {
+  public void testTagging1PR02() throws ResourceInstantiationException {
     Document doc = newD();
     // add 4 targets to the keys
     addA(doc,"Keys",0, 10,"M",featureMap("id","x"));
@@ -334,7 +334,7 @@ public class TestTagging1 {
   
   // Test P/R curve, 03
   @Test
-  public void testTaggingPR03() throws ResourceInstantiationException {
+  public void testTagging1PR03() throws ResourceInstantiationException {
     // same as 02, but with two different documents, and we check the 
     // combined statistics
     Document doc1 = newD();
@@ -376,7 +376,7 @@ public class TestTagging1 {
   
   // Test change indicator annotations
   @Test
-  public void testTaggingDiff01() throws ResourceInstantiationException {
+  public void testTagging1Diff01() throws ResourceInstantiationException {
     Document doc1 = newD();
     // here is how the annotations are placed in the key, response and reference sets:
     // ann1 is a correct partial for key2
@@ -420,7 +420,7 @@ public class TestTagging1 {
   }
   
   @Test
-  public void testTaggingDiff02() throws ResourceInstantiationException {
+  public void testTagging1Diff02() throws ResourceInstantiationException {
     Document doc1 = newD();
     // here is how the annotations are placed in the key, response and reference sets:
     // ann1 is a correct partial for key2
