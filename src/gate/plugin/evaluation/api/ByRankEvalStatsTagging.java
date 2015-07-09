@@ -70,25 +70,33 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
   /**
    * Add another ByThEvalStatsTagging object to this one.
    * The purpose of this method is to add a per-document object which already has the correct
-   * by-threshold stats to a global object. 
+   * by-rank threshold stats to a global object. 
+   * This works in the following way: if both this and the other stats object exists for rank k,
+   * then the other object gets added to this object.
+   * If this object does not have a stats object at some rank, but the other has one, then a
+   * new object is created for this object and it gets initialized with the values of the 
+   * object with the next lower rank before the other object was added. 
+   * If there is a stats object in this object without one in the other object, the next lower
+   * rank object from the other object gets added. 
+   * If some next-lower rank object needs to get added but it does not exist, this is an error.
+   * It is also an error if the set of ranks for both objects is different.
+   * 
    * @param other 
    */
   public void add(ByRankEvalStatsTagging other) {
-    // If the same threshold is in both, the stats in other get added to the stats in this for this
-    // threshold. If there is a stats object for a threshold in the other set but not in this set,
-    // then the stats object gets added to this set, with the next higher object of this set
-    // added to it.
-    // If there is a stats object in this set with no object in the other set, it gets incremented
-    // by the next higher set in the other set.
+    if(!this.whichThresholds.equals(other.whichThresholds)) {
+      throw new GateRuntimeException("Cannot add if the thresholds settings do not match");
+    }
     
-    // Create an ordered set with all the thresholds from both this and other
-    //System.out.println("DEBUG: adding other map to this map");
+    // Create an ordered set with all the rank thresholds from both this and other
     NavigableSet<Integer> allRanks = new TreeSet<Integer>();
-    //System.out.println("DEBUG: own ranks="+byRankEvalStats.keySet());
     allRanks.addAll(byRankEvalStats.keySet());
-    //System.out.println("DEBUG: other ranks="+other.getByRankEvalStats().keySet());
     allRanks.addAll(other.getByRankEvalStats().keySet());
-    for(int rank : allRanks) {
+    
+    // in order to prevent that counts are added twice, we process the thresholds starting 
+    // with the highest. That way, if we add some next-lower element of this it will not already
+    // have anything added by other.
+    for(int rank : allRanks.descendingSet()) {
       //System.out.println("DEBUG: merging rank="+rank);
       EvalStatsTagging thisES = byRankEvalStats.get(rank);
       EvalStatsTagging otherES = other.getByRankEvalStats().get(rank);
@@ -96,24 +104,28 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
         //System.out.println("DEBUG: same th in both, th="+th);
         thisES.add(otherES);
       } else if(otherES != null && thisES == null) {
-        //System.out.println("DEBUG: other exists, not in this, th="+th);        
-        EvalStatsTagging newES = new EvalStatsTagging4Rank(otherES);
-        // check if there is a next higher evalstats object in this map
-        //NavigableMap.Entry<Integer,EvalStatsTagging> thisLowerEntry = byRankEvalStats.lowerEntry(rank);
-        //if(thisLowerEntry != null) {
-          //System.out.println("DEBUG: next higher this exists, adding nexthigher th="+thisHigherEntry.getKey());
-          //newES.add(thisLowerEntry.getValue());
-        //}
+        // The other stats object exists, but this does not. In that case we create a new
+        // this object, initialized with the counts from the next lower this obejct and then 
+        // add the other object.
+        NavigableMap.Entry<Integer,EvalStatsTagging> thisLowerEntry = byRankEvalStats.lowerEntry(rank);
+        EvalStatsTagging newES = null;
+        if(thisLowerEntry == null) {
+          // if we do not have a lower rank entry, simply add from other: this could happen if we
+          // start with an empty this.
+          newES = new EvalStatsTagging4Rank(otherES);
+        } else {
+          newES = new EvalStatsTagging4Rank(thisLowerEntry.getValue());
+          newES.add(otherES);
+        }
         byRankEvalStats.put(rank, newES);
       } else if(otherES == null && thisES != null) {
-        //System.out.println("DEBUG: this exists, not in other, th="+th);
-        //EvalStatsTagging newES = new EvalStatsTagging4Rank(thisES);
-        //NavigableMap.Entry<Integer,EvalStatsTagging> otherLowerEntry = other.getByRankEvalStats().lowerEntry(rank);
-        //if(otherLowerEntry != null) {
-          //System.out.println("DEBUG: next higher other exists, adding nexthigher th="+otherHigherEntry.getKey());
-          //newES.add(otherLowerEntry.getValue());
-        //}
-        //byRankEvalStats.put(rank, newES);
+        // if the other stats object does not exist, then we need to add the next lower 
+        // other object
+        NavigableMap.Entry<Integer,EvalStatsTagging> otherLowerEntry = other.byRankEvalStats.lowerEntry(rank);
+        if(otherLowerEntry == null) {
+          throw new GateRuntimeException("Cannot add stats if we have a rank and the other object does not have the same or lower rank, rank is "+rank);
+        }
+        thisES.add(otherLowerEntry.getValue());
       } else {
         throw new GateRuntimeException("Odd error, this should never happen!");
       }
