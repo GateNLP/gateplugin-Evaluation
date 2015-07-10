@@ -419,9 +419,11 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       ByRankEvalStatsTagging tmpEs = new ByRankEvalStatsTagging(brk.getWhichThresholds());
       //System.out.println("DEBUG adding for rank "+rankThresholdToUse);
       //System.out.println("DEBUG: MAXVALUE evalstats="+ad.getEvalStatsTagging());
+      // NOTE: we cannot use brk.add(tmpEs) here since the tmpEs object is already the correct
+      // object for that rank with all values accumulated. 
       tmpEs.put(Integer.MAX_VALUE,ad.getEvalStatsTagging());
       //System.out.println("DEBUG before adding="+brk);
-      brk.add(tmpEs);   
+      brk.addNonCumulative(tmpEs);   
       //System.out.println("DEBUG after adding="+brk);
       if(!outputASListMaxName.isEmpty()) {
         AnnotationSet outSet = document.getAnnotations(outputASListMaxName);
