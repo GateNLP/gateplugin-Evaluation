@@ -111,7 +111,8 @@ public class TestTagging4 {
     parms.put("listType","L");
     parms.put("outputDirectoryString",".");
     parms.put("scoreFeatureName", "s");
-    parms.put("whichThresholds","USE_RANKS_11FROM0TO100");
+    //parms.put("whichThresholds","USE_RANKS_11FROM0TO100");
+    parms.put("whichThresholds","USE_TH11FROM0TO1");
     prListEval1 = (EvaluateTagging4Lists)Factory.createResource(EvaluateTagging4Lists.class.getCanonicalName(), parms);
     
     parms = Factory.newFeatureMap();

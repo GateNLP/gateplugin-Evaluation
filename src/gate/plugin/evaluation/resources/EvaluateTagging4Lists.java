@@ -373,7 +373,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
               annotationTypeSpecs);
       ByThEvalStatsTagging tmpEs = new ByThEvalStatsTagging(bth.getWhichThresholds());
       tmpEs.put(Double.NEGATIVE_INFINITY,ad.getEvalStatsTagging());
-      bth.add(tmpEs);      
+      bth.addNonCumulative(tmpEs);      
       if(!outputASListMaxName.isEmpty()) {
         AnnotationSet outSet = document.getAnnotations(outputASListMaxName);
         ad.addIndicatorAnnotations(outSet,"");

@@ -120,23 +120,25 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
         //System.out.println("DEBUG: same th in both, th="+th);
         thisES.add(otherES);
       } else if(otherES != null && thisES == null) {
-        EvalStatsTagging4Rank newES = otherES;
         if(cumulative) {
-        // The other stats object exists, but this does not. In that case we create a new
-        // this object, initialized with the counts from the next lower this obejct and then 
-        // add the other object.
-        NavigableMap.Entry<Integer,EvalStatsTagging4Rank> thisLowerEntry = byRankEvalStats.lowerEntry(rank);
-        if(thisLowerEntry == null) {
-          // if we do not have a lower rank entry, simply add from other: this could happen if we
-          // start with an empty this.
-          newES = new EvalStatsTagging4Rank(otherES);          
+          EvalStatsTagging4Rank newES = null;
+          // The other stats object exists, but this does not. In that case we create a new
+          // this object, initialized with the counts from the next lower this obejct and then 
+          // add the other object.
+          NavigableMap.Entry<Integer,EvalStatsTagging4Rank> thisLowerEntry = byRankEvalStats.lowerEntry(rank);
+          if(thisLowerEntry == null) {
+            // if we do not have a lower rank entry, simply add from other: this could happen if we
+            // start with an empty this.
+            newES = new EvalStatsTagging4Rank(otherES);          
+          } else {
+            newES = new EvalStatsTagging4Rank(thisLowerEntry.getValue());
+            newES.add(otherES);
+          }
+          newES.setRank(rank);
+          byRankEvalStats.put(rank, newES);
         } else {
-          newES = new EvalStatsTagging4Rank(thisLowerEntry.getValue());
-          newES.add(otherES);
+          byRankEvalStats.put(rank, new EvalStatsTagging4Rank(otherES));
         }
-        newES.setRank(rank);
-        }
-        byRankEvalStats.put(rank, newES);
       } else if(otherES == null && thisES != null) {
         // if the other stats object does not exist, then we need to add the next lower 
         // other object

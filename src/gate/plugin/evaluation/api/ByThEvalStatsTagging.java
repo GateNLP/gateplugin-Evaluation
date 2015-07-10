@@ -68,6 +68,14 @@ public class ByThEvalStatsTagging implements NavigableMap<Double,EvalStatsTaggin
    * @param other 
    */
   public void add(ByThEvalStatsTagging other) {
+    add(other,true);
+  }
+  
+  public void addNonCumulative(ByThEvalStatsTagging other) {
+    add(other,false);
+  }
+  
+  public void add(ByThEvalStatsTagging other, boolean cumulative) {
     // If the same threshold is in both, the stats in other get added to the stats in this for this
     // threshold. If there is a stats object for a threshold in the other set but not in this set,
     // then the stats object gets added to this set, with the next higher object of this set
@@ -88,15 +96,19 @@ public class ByThEvalStatsTagging implements NavigableMap<Double,EvalStatsTaggin
         //System.out.println("DEBUG: same th in both, th="+th);
         thisES.add(otherES);
       } else if(otherES != null && thisES == null) {
-        //System.out.println("DEBUG: other exists, not in this, th="+th);        
-        EvalStatsTagging newES = new EvalStatsTagging4Score(otherES);
-        // check if there is a next higher evalstats object in this map
-        NavigableMap.Entry<Double,EvalStatsTagging> thisHigherEntry = byThresholdEvalStats.higherEntry(th);
-        if(thisHigherEntry != null) {
-          //System.out.println("DEBUG: next higher this exists, adding nexthigher th="+thisHigherEntry.getKey());
-          newES.add(thisHigherEntry.getValue());
+        //System.out.println("DEBUG: other exists, not in this, th="+th);       
+        if(cumulative) {
+          EvalStatsTagging newES = new EvalStatsTagging4Score(otherES);
+          // check if there is a next higher evalstats object in this map
+          NavigableMap.Entry<Double,EvalStatsTagging> thisHigherEntry = byThresholdEvalStats.higherEntry(th);
+          if(thisHigherEntry != null) {
+            //System.out.println("DEBUG: next higher this exists, adding nexthigher th="+thisHigherEntry.getKey());
+            newES.add(thisHigherEntry.getValue());
+          }
+          byThresholdEvalStats.put(th, newES);
+        } else {
+          byThresholdEvalStats.put(th, new EvalStatsTagging4Score(otherES));
         }
-        byThresholdEvalStats.put(th, newES);
       } else if(otherES == null && thisES != null) {
         //System.out.println("DEBUG: this exists, not in other, th="+th);
         EvalStatsTagging newES = new EvalStatsTagging4Score(thisES);
