@@ -57,6 +57,8 @@ public class EvalStatsTagging4Rank extends EvalStatsTagging {
   
   public int getRank() { return rank; }
   
+  public void setRank(Integer rank) { this.rank = rank; }
+  
   
   // Default conversion to String simply prints all the counts and measures.
   @Override
@@ -84,6 +86,16 @@ public class EvalStatsTagging4Rank extends EvalStatsTagging {
     sb.append(rank); sb.append("\t");
     sb.append(super.getTSVLine());
     return sb.toString();
+  }
+  
+  public String toString4Debug() {
+    StringBuilder sb = new StringBuilder();
+    sb.append(rank); sb.append(": ");
+    sb.append(getTargets()); sb.append("/");
+    sb.append(getResponses()); sb.append("/");
+    sb.append(getCorrectStrict()); sb.append("/");
+    sb.append(getIncorrectStrict());
+    return sb.toString();    
   }
   
   

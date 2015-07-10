@@ -419,7 +419,7 @@ public class AnnotationDifferTagging {
     int highestRank = -1;
     if (thToUse == ThresholdsOrRanksToUse.USE_RANKS_ALL ) {
       for (CandidateList listOfCandList : responseCandidatesLists) {
-        int s = listOfCandList.size();
+        int s = listOfCandList.size()-1;
         if(s>highestRank) { highestRank = s; }
       }
     }

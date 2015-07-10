@@ -43,8 +43,8 @@ import java.util.TreeSet;
  * that already are in the data structure. This can be accomplished by using a "virtual" ES(+inf)
  * 
 */
-public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTagging> {
-  protected NavigableMap<Integer,EvalStatsTagging> byRankEvalStats = new TreeMap<Integer,EvalStatsTagging>();
+public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTagging4Rank> {
+  protected NavigableMap<Integer,EvalStatsTagging4Rank> byRankEvalStats = new TreeMap<Integer,EvalStatsTagging4Rank>();
   protected ThresholdsOrRanksToUse whichThresholds = ThresholdsOrRanksToUse.USE_RANKS_ALL;
   public ThresholdsOrRanksToUse getWhichThresholds() { return whichThresholds; }
   
@@ -107,21 +107,23 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
         // The other stats object exists, but this does not. In that case we create a new
         // this object, initialized with the counts from the next lower this obejct and then 
         // add the other object.
-        NavigableMap.Entry<Integer,EvalStatsTagging> thisLowerEntry = byRankEvalStats.lowerEntry(rank);
-        EvalStatsTagging newES = null;
+        NavigableMap.Entry<Integer,EvalStatsTagging4Rank> thisLowerEntry = byRankEvalStats.lowerEntry(rank);
+        EvalStatsTagging4Rank newES = null;
         if(thisLowerEntry == null) {
           // if we do not have a lower rank entry, simply add from other: this could happen if we
           // start with an empty this.
-          newES = new EvalStatsTagging4Rank(otherES);
+          newES = new EvalStatsTagging4Rank(otherES);          
         } else {
           newES = new EvalStatsTagging4Rank(thisLowerEntry.getValue());
           newES.add(otherES);
         }
+        newES.setRank(rank);
+        
         byRankEvalStats.put(rank, newES);
       } else if(otherES == null && thisES != null) {
         // if the other stats object does not exist, then we need to add the next lower 
         // other object
-        NavigableMap.Entry<Integer,EvalStatsTagging> otherLowerEntry = other.byRankEvalStats.lowerEntry(rank);
+        NavigableMap.Entry<Integer,EvalStatsTagging4Rank> otherLowerEntry = other.byRankEvalStats.lowerEntry(rank);
         if(otherLowerEntry == null) {
           System.err.println("ERROR: Cannot add stats if we have a rank and the other object does not have the same or lower rank, rank is "+rank);
         } else {
@@ -156,7 +158,7 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
 
   
   @Override
-  public NavigableMap.Entry<Integer,EvalStatsTagging> lowerEntry(Integer th) {
+  public NavigableMap.Entry<Integer,EvalStatsTagging4Rank> lowerEntry(Integer th) {
     return byRankEvalStats.lowerEntry(th);
   }
 
@@ -191,20 +193,20 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
   }
   
   
-  public NavigableMap<Integer,EvalStatsTagging> getByRankEvalStats() { return byRankEvalStats; }
+  public NavigableMap<Integer,EvalStatsTagging4Rank> getByRankEvalStats() { return byRankEvalStats; }
 
   @Override
-  public NavigableMap.Entry<Integer,EvalStatsTagging> higherEntry(Integer th) {
+  public NavigableMap.Entry<Integer,EvalStatsTagging4Rank> higherEntry(Integer th) {
     return byRankEvalStats.higherEntry(th);
   }
 
   @Override
-  public Entry<Integer, EvalStatsTagging> floorEntry(Integer key) {
+  public Entry<Integer, EvalStatsTagging4Rank> floorEntry(Integer key) {
     return byRankEvalStats.floorEntry(key);
   }
 
   @Override
-  public Entry<Integer, EvalStatsTagging> ceilingEntry(Integer key) {
+  public Entry<Integer, EvalStatsTagging4Rank> ceilingEntry(Integer key) {
     return byRankEvalStats.ceilingEntry(key);
   }
 
@@ -214,27 +216,27 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
   }
 
   @Override
-  public Entry<Integer, EvalStatsTagging> firstEntry() {
+  public Entry<Integer, EvalStatsTagging4Rank> firstEntry() {
     return byRankEvalStats.firstEntry();
   }
 
   @Override
-  public Entry<Integer, EvalStatsTagging> lastEntry() {
+  public Entry<Integer, EvalStatsTagging4Rank> lastEntry() {
     return byRankEvalStats.lastEntry();
   }
 
   @Override
-  public Entry<Integer, EvalStatsTagging> pollFirstEntry() {
+  public Entry<Integer, EvalStatsTagging4Rank> pollFirstEntry() {
     return byRankEvalStats.pollFirstEntry();
   }
 
   @Override
-  public Entry<Integer, EvalStatsTagging> pollLastEntry() {
+  public Entry<Integer, EvalStatsTagging4Rank> pollLastEntry() {
     return byRankEvalStats.pollFirstEntry();
   }
 
   @Override
-  public NavigableMap<Integer, EvalStatsTagging> descendingMap() {
+  public NavigableMap<Integer, EvalStatsTagging4Rank> descendingMap() {
     return byRankEvalStats.descendingMap();
   }
 
@@ -249,32 +251,32 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
   }
 
   @Override
-  public NavigableMap<Integer, EvalStatsTagging> subMap(Integer fromKey, boolean fromInclusive, Integer toKey, boolean toInclusive) {
+  public NavigableMap<Integer, EvalStatsTagging4Rank> subMap(Integer fromKey, boolean fromInclusive, Integer toKey, boolean toInclusive) {
     return byRankEvalStats.subMap(fromKey, fromInclusive, toKey, toInclusive);
   }
 
   @Override
-  public NavigableMap<Integer, EvalStatsTagging> headMap(Integer toKey, boolean inclusive) {
+  public NavigableMap<Integer, EvalStatsTagging4Rank> headMap(Integer toKey, boolean inclusive) {
     return byRankEvalStats.headMap(toKey, inclusive);
   }
 
   @Override
-  public NavigableMap<Integer, EvalStatsTagging> tailMap(Integer fromKey, boolean inclusive) {
+  public NavigableMap<Integer, EvalStatsTagging4Rank> tailMap(Integer fromKey, boolean inclusive) {
     return byRankEvalStats.tailMap(fromKey, inclusive);
   }
 
   @Override
-  public SortedMap<Integer, EvalStatsTagging> subMap(Integer fromKey, Integer toKey) {
+  public SortedMap<Integer, EvalStatsTagging4Rank> subMap(Integer fromKey, Integer toKey) {
     return byRankEvalStats.subMap(fromKey, toKey);
   }
 
   @Override
-  public SortedMap<Integer, EvalStatsTagging> headMap(Integer toKey) {
+  public SortedMap<Integer, EvalStatsTagging4Rank> headMap(Integer toKey) {
     return byRankEvalStats.headMap(toKey);
   }
 
   @Override
-  public SortedMap<Integer, EvalStatsTagging> tailMap(Integer fromKey) {
+  public SortedMap<Integer, EvalStatsTagging4Rank> tailMap(Integer fromKey) {
     return byRankEvalStats.tailMap(fromKey);
   }
 
@@ -294,12 +296,12 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
   }
 
   @Override
-  public Collection<EvalStatsTagging> values() {
+  public Collection<EvalStatsTagging4Rank> values() {
     return byRankEvalStats.values();
   }
 
   @Override
-  public Set<Entry<Integer, EvalStatsTagging>> entrySet() {
+  public Set<Entry<Integer, EvalStatsTagging4Rank>> entrySet() {
     return byRankEvalStats.entrySet();
   }
 
@@ -319,18 +321,18 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
   }
 
   @Override
-  public EvalStatsTagging get(Object key) {
+  public EvalStatsTagging4Rank get(Object key) {
     return byRankEvalStats.get(key);
   }
 
 
   @Override
-  public EvalStatsTagging remove(Object key) {
+  public EvalStatsTagging4Rank remove(Object key) {
     return byRankEvalStats.remove(key);
   }
 
   @Override
-  public void putAll(Map<? extends Integer, ? extends EvalStatsTagging> m) {
+  public void putAll(Map<? extends Integer, ? extends EvalStatsTagging4Rank> m) {
     byRankEvalStats.putAll(m);
   }
 
@@ -340,10 +342,17 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
   }
 
   @Override
-  public EvalStatsTagging put(Integer key, EvalStatsTagging value) {
-    return byRankEvalStats.put(key, value);
+  public EvalStatsTagging4Rank put(Integer key, EvalStatsTagging4Rank value) {
+      return byRankEvalStats.put(key, (EvalStatsTagging4Rank)value);
   }
 
+  public EvalStatsTagging4Rank put(Integer key, EvalStatsTagging value) {
+    if(value instanceof EvalStatsTagging4Rank) {
+      return byRankEvalStats.put(key, (EvalStatsTagging4Rank)value);
+    } else {
+      throw new ClassCastException("Cannot add a EvalStatsTagging to ByRankEvalStatsTagging if it is not a EvalStatsTagging4Rank");
+    }
+  }
   
   @Override
   public String toString() {
@@ -351,7 +360,7 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
     sb.append("Thresholds to use: ");
     sb.append(getWhichThresholds());
     sb.append("\n");
-    NavigableMap<Integer,EvalStatsTagging> map = getByRankEvalStats();
+    NavigableMap<Integer,EvalStatsTagging4Rank> map = getByRankEvalStats();
     for(Integer th : map.navigableKeySet()) {
       sb.append(map.get(th));
       sb.append("\n");
@@ -359,5 +368,17 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
     return sb.toString();
   }
   
+  public String toString4Debug() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("Thresholds to use: ");
+    sb.append(getWhichThresholds());
+    sb.append("\n");
+    NavigableMap<Integer,EvalStatsTagging4Rank> map = getByRankEvalStats();
+    for(Integer th : map.navigableKeySet()) {
+      sb.append(map.get(th).toString4Debug());
+      sb.append("\n");
+    }
+    return sb.toString();    
+  }
   
 }

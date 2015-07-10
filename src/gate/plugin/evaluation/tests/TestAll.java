@@ -19,9 +19,9 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-  TestTagging1.class,
-  TestTagging2.class,
-  TestTagging3.class,
+  //TestTagging1.class,
+  //TestTagging2.class,
+  //TestTagging3.class,
   TestTagging4.class
 })
 public class TestAll {

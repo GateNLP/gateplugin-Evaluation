@@ -418,8 +418,11 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
               annotationTypeSpecs);
       ByRankEvalStatsTagging tmpEs = new ByRankEvalStatsTagging(brk.getWhichThresholds());
       //System.out.println("DEBUG adding for rank "+rankThresholdToUse);
-      tmpEs.put(rankThresholdToUse,ad.getEvalStatsTagging());
+      //System.out.println("DEBUG: MAXVALUE evalstats="+ad.getEvalStatsTagging());
+      tmpEs.put(Integer.MAX_VALUE,ad.getEvalStatsTagging());
+      //System.out.println("DEBUG before adding="+brk);
       brk.add(tmpEs);   
+      //System.out.println("DEBUG after adding="+brk);
       if(!outputASListMaxName.isEmpty()) {
         AnnotationSet outSet = document.getAnnotations(outputASListMaxName);
         ad.addIndicatorAnnotations(outSet,"");
@@ -499,8 +502,8 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     //     increment our stats objects.
     
     int nrTargets = keySet.size();
-    System.out.println("Number of targets found: "+nrTargets);
-    System.out.println("Number of candidate lists: "+candLists.size());
+    //System.out.println("Number of targets found: "+nrTargets);
+    //System.out.println("Number of candidate lists: "+candLists.size());
     
     // TODO: if we do not have responses (candidate lists), do it right!
     
@@ -509,11 +512,11 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     int maxRankTh = -1;
     for(CandidateList cl : candLists) {
       System.out.println("Found a candidate list with candidates: "+cl.sizeAll());
-      if(cl.sizeAll() > maxRankTh) {
-        maxRankTh = cl.sizeAll();
+      if(cl.sizeAll()-1 > maxRankTh) {
+        maxRankTh = cl.sizeAll()-1;
       }
     }
-    System.out.println("Max Rank is: "+maxRankTh);
+    //System.out.println("Max Rank is: "+maxRankTh);
     // initialize the by threshold object with all thresholds we need
     for(int r = 0; r<= maxRankTh; r++) {
       tmpEs.put(r, new EvalStatsTagging4Rank(r));
@@ -605,7 +608,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
           boolean havePartial = false;
           for (int k = 0; k < cl.sizeAll(); k++) {
             EvalStatsTagging e = tmpEs.get(k);
-            e.addTargets(nrTargets);
+            e.addTargets(1);
             e.addResponses(1);
             if (k == firstPartialIndex) {
               havePartial = true;
@@ -625,6 +628,25 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
               }              
             } // else 
           } // for k    
+          // now continue to add the counts to any remaining entries for ranks which were not 
+          // present in this cl
+          for(int l=cl.sizeAll(); l<=maxRankTh; l++) {
+            EvalStatsTagging e = tmpEs.get(l);
+            e.addTargets(1);
+            e.addResponses(1);
+            if (haveStrict) { // already found a strict, go on counting that
+              e.addCorrectStrict(1);
+            } else if (havePartial) {
+              e.addCorrectPartial(1);
+            } else {
+              if (cl.get(l).coextensive(ll)) {
+                e.addIncorrectStrict(1);
+              } else {
+                e.addIncorrectPartial(1);
+              }              
+            } // else 
+            
+          }
           nrListAnnsMatchLenient += 1;
           if(haveStrict) {
             nrListAnnsMatchStrict += 1;
@@ -650,17 +672,19 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
         outputTsvLine4Matches(matchesTsvPrintStream,"list-matches", ll.getId(), document.getName(), 
                 typeSpec, responseSet.getName(), 0, -1, -1, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
       }
+      //System.out.println("tmpEs=\n"+tmpEs.toString4Debug()+"\n");
+
     } // for one single candidate list ... 
     
     // add the per-document stats objects to the global stats objects
     // add tmpEs to ...
     byRank4ListAcc.add(tmpEs);
-    System.out.println("-----------------> tmpEs");
-    System.out.println(tmpEs);
-    System.out.println("<----------------- tmpEs");
+    //System.out.println("-----------------> tmpEs");
+    //System.out.println(tmpEs);
+    //System.out.println("<----------------- tmpEs");
     // per document we only output the stats for rank 0
     if(mainTsvPrintStream!=null) {
-      outputTsvLine("list-disamb-best", document.getName(), typeSpec, responseSet.getName(), tmpEs.get(0));
+      mainTsvPrintStream.println(outputTsvLine("list-disamb-best", document.getName(), typeSpec, responseSet.getName(), tmpEs.get(0)));
     }
     
     
@@ -942,6 +966,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
                   outputTsvLine("list-score", null, typeSpecList, expandedResponseSetName, evalStatsByThreshold.get(th))); }
       }
     } else {
+      System.out.println("Keyset for list-rank: "+evalStatsByRank.keySet());
       for(int rank : evalStatsByRank.getByRankEvalStats().navigableKeySet()) {
         outputEvalStatsForType(System.out, evalStatsByRank.get(rank), typeSpecList.toString(), expandedResponseSetName);
         if(mainTsvPrintStream != null) { 
