@@ -513,7 +513,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     // find what the highest rank is over all the lists that do have a match for this document
     int maxRankTh = -1;
     for(CandidateList cl : candLists) {
-      System.out.println("Found a candidate list with candidates: "+cl.sizeAll());
+      //System.out.println("Found a candidate list with candidates: "+cl.sizeAll());
       if(cl.sizeAll()-1 > maxRankTh) {
         maxRankTh = cl.sizeAll()-1;
       }
@@ -968,7 +968,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
                   outputTsvLine("list-score", null, typeSpecList, expandedResponseSetName, evalStatsByThreshold.get(th))); }
       }
     } else {
-      System.out.println("Keyset for list-rank: "+evalStatsByRank.keySet());
+      //System.out.println("Keyset for list-rank: "+evalStatsByRank.keySet());
       for(int rank : evalStatsByRank.getByRankEvalStats().navigableKeySet()) {
         outputEvalStatsForType(System.out, evalStatsByRank.get(rank), typeSpecList.toString(), expandedResponseSetName);
         if(mainTsvPrintStream != null) { 
