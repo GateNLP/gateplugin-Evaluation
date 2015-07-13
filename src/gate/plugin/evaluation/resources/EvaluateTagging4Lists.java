@@ -359,6 +359,13 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
               expandedEdgeName, expandedScoreFeatureName, 
               bth.getWhichThresholds(), bth,
               annotationTypeSpecs);    
+      
+      /* 
+      
+      NOTE: this was the old attempt to add the extreme value to the stats object, but
+      this did not work correctly. Instead we now always add the extreme vale to the actual 
+      list of thresholds used above 
+      
       // now in addition evaluate for the the score -Inf and create a differ object that
       // contains the indicator annotations for this. 
       AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(keySet,
@@ -374,10 +381,21 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       ByThEvalStatsTagging tmpEs = new ByThEvalStatsTagging(bth.getWhichThresholds());
       tmpEs.put(Double.NEGATIVE_INFINITY,ad.getEvalStatsTagging());
       bth.addNonCumulative(tmpEs);      
+      */
       if(!outputASListMaxName.isEmpty()) {
         AnnotationSet outSet = document.getAnnotations(outputASListMaxName);
+        AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(keySet,
+              document.getAnnotations(expandedResponseSetName),
+              candLists,
+              featureSet,
+              featureComparison,
+              expandedEdgeName,
+              expandedScoreFeatureName,
+              Double.NEGATIVE_INFINITY,
+              null,
+              annotationTypeSpecs);
         ad.addIndicatorAnnotations(outSet,"");
-      }      
+      } 
     } else if(evaluate4RankTh) {
       AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(keySet,
               document.getAnnotations(expandedResponseSetName),
@@ -404,6 +422,14 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
               expandedEdgeName, expandedScoreFeatureName, 
               brk.getWhichThresholds(), brk,
               annotationTypeSpecs);     
+      
+      /* 
+      
+      NOTE: this was the old attempt to add the extreme value to the stats object, but
+      this did not work correctly. Instead we now always add the extreme vale to the actual 
+      list of thresholds used above 
+      
+      
       // now in addition also evaluate for rank max_value and create a differ object that
       // contains the indicator annotations for this.
       AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(keySet,
@@ -425,10 +451,21 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       //System.out.println("DEBUG before adding="+brk);
       brk.addNonCumulative(tmpEs);   
       //System.out.println("DEBUG after adding="+brk);
+      */
       if(!outputASListMaxName.isEmpty()) {
         AnnotationSet outSet = document.getAnnotations(outputASListMaxName);
+        AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(keySet,
+              document.getAnnotations(expandedResponseSetName),
+              candLists,
+              featureSet,
+              featureComparison,
+              expandedEdgeName,
+              expandedScoreFeatureName,
+              null,
+              Integer.MAX_VALUE,      // Instead of this, we should use an internal field so we can use -Inf etc.
+              annotationTypeSpecs);
         ad.addIndicatorAnnotations(outSet,"");
-      }      
+      } 
     }
 
     // Store the counts and measures as document feature values
@@ -976,15 +1013,16 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
                   outputTsvLine("list-rank", null, typeSpecList, expandedResponseSetName, evalStatsByRank.get(rank))); 
         }
       }      
+    }
       for(int rank : byRank4ListAcc.getByRankEvalStats().navigableKeySet()) {
         // TODO: need to first add eval type to that output before we can output this too
         // outputEvalStatsForType(System.out, evalStatsByRank.get(rank), typeSpecList.toString(), expandedResponseSetName);
+        System.err.println("Before writing list-disamb, stream is "+mainTsvPrintStream+" by rank object has thresholds: "+byRank4ListAcc.keySet());
         if(mainTsvPrintStream != null) { 
           mainTsvPrintStream.println(
                   outputTsvLine("list-disamb",null,typeSpecNormal, getResponseASName(), byRank4ListAcc.get(rank)));
         }
       }      
-    }
 
     System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
             "Number of lists: "+r4(nrListAnns));

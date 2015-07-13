@@ -372,13 +372,19 @@ public class AnnotationDifferTagging {
       thresholds.addAll(byThresholdEvalStats.getWhichThresholds().getThresholds());
     }
 
+    thresholds.add(Double.NEGATIVE_INFINITY); // add the extreme value always
+    
     // By increasing threshold, process the listAnnotations: 
     ByThEvalStatsTagging newMap = new ByThEvalStatsTagging();
     AnnotationDifferTagging tmpAD = new AnnotationDifferTagging();
-    tmpAD.createAdditionalData = false;
     for (double th : thresholds) {
       logger.debug("DEBUG: running differ for th " + th + " nr targets is " + targets.size() + " nr responseCands is " + responseCandidatesLists.size());
       // TODO!!! CHECK: can we ignore the annotation type specs here??? Because we handle lists?
+      if(th == Double.NEGATIVE_INFINITY) {
+        tmpAD.createAdditionalData = true;
+      } else {
+        tmpAD.createAdditionalData = false;        
+      }
       EvalStatsTagging es = tmpAD.calculateDiff(
               targets, listAnnotations, featureSet, fcmp, scoreFeature,
               th, null, responseCandidatesLists, typeSpecs);
@@ -436,6 +442,8 @@ public class AnnotationDifferTagging {
       thresholds.addAll(rankEvalStats.getWhichThresholds().getRanks());
     }
 
+    thresholds.add(Integer.MAX_VALUE); // add the extreme value always
+    
     // By increasing threshold, process the listAnnotations: 
     ByRankEvalStatsTagging newMap = new ByRankEvalStatsTagging();
     AnnotationDifferTagging tmpAD = new AnnotationDifferTagging();
@@ -443,7 +451,11 @@ public class AnnotationDifferTagging {
     for (int rank : thresholds) {
       logger.debug("DEBUG: running differ for th " + rank + " nr targets is " + targets.size() + " nr responseCands is " + responseCandidatesLists.size());
       // TODO!!! CHECK: can we ignore the annotation type specs here??? Because we handle lists?
-      
+      if(rank == Integer.MAX_VALUE) {
+        tmpAD.createAdditionalData = true;
+      } else {
+        tmpAD.createAdditionalData = false;        
+      }
       EvalStatsTagging es = tmpAD.calculateDiff(
               targets, listAnnotations, featureSet, fcmp, 
               scoreFeature,

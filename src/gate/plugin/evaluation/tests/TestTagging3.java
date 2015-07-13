@@ -10,10 +10,8 @@
  */
 package gate.plugin.evaluation.tests;
 
-import gate.AnnotationSet;
 import gate.CorpusController;
 import gate.Document;
-import gate.Factory;
 import gate.FeatureMap;
 import gate.Gate;
 import gate.ProcessingResource;
@@ -23,9 +21,7 @@ import org.junit.Test;
 import gate.util.GateException;
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import org.junit.Before;
-import static gate.Utils.*;
 import gate.creole.ExecutionException;
 import gate.persist.PersistenceException;
 import gate.plugin.evaluation.api.EvalStatsTagging;
@@ -34,12 +30,8 @@ import gate.plugin.evaluation.resources.EvaluateTagging4Lists;
 import static gate.plugin.evaluation.tests.TestUtils.*;
 import gate.util.GateRuntimeException;
 import gate.util.persistence.PersistenceManager;
-import java.io.OutputStreamWriter;
-import org.apache.log4j.Appender;
-import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PatternLayout;
 import static org.junit.Assert.*;
 
 /**

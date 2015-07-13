@@ -71,6 +71,11 @@ public class ByThEvalStatsTagging implements NavigableMap<Double,EvalStatsTaggin
     add(other,true);
   }
   
+  // NOTE: this was added at some point to add a separate byrank object that was calculated for
+  // just one threshold to an existing one, but it turns out this did not work correctly when 
+  // adding up the objects over documents ... not used at the moment.
+  // The current approach is to always include the separate threshold (-Inf or MAXINT) in the 
+  // full list of thresholds and not do it separately
   public void addNonCumulative(ByThEvalStatsTagging other) {
     add(other,false);
   }
