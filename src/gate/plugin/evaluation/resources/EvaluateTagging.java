@@ -380,7 +380,7 @@ public class EvaluateTagging extends EvaluateTaggingBase
       // a line for the response stats for that document
       mainTsvPrintStream.println(outputTsvLine("normal", document.getName(), typeSpec, expandedResponseSetName, es));
       if(res != null) {
-        mainTsvPrintStream.println(outputTsvLine("normal", document.getName(), typeSpec, expandedReferenceSetName, res));
+        mainTsvPrintStream.println(outputTsvLine("normal", document.getName(), typeSpec, expandedReferenceSetName,  res));
       }
     }
   }
@@ -558,7 +558,7 @@ public class EvaluateTagging extends EvaluateTaggingBase
         outputEvalStatsForType(System.out, allDocumentsReferenceStats.get(typeSpec.getKeyType()), typeSpec.toString(), expandedReferenceSetName);
         if(mainTsvPrintStream != null) { 
           mainTsvPrintStream.println(
-                  outputTsvLine("normal",null, typeSpec, expandedReferenceSetName, allDocumentsReferenceStats.get(typeSpec.getKeyType()))); }
+                  outputTsvLine("normal",null, typeSpec, expandedReferenceSetName,  allDocumentsReferenceStats.get(typeSpec.getKeyType()))); }
       }
       if(evalStatsByThreshold != null) {
         ByThEvalStatsTagging bthes = evalStatsByThreshold.get(typeSpec.getKeyType());

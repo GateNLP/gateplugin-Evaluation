@@ -32,7 +32,7 @@ package gate.plugin.evaluation.api;
  * 
  * @author Johann Petrak
  */
-public class EvalStatsTagging  {
+public abstract class EvalStatsTagging  {
   
   public EvalStatsTagging() {
     
@@ -295,6 +295,8 @@ public class EvalStatsTagging  {
    */
   public static String getTSVHeaders() {
     StringBuilder sb = new StringBuilder();
+    sb.append("thresholdType"); sb.append("\t");
+    sb.append("threshold"); sb.append("\t");
     sb.append("precisionStrict"); sb.append("\t");
     sb.append("recallStrict"); sb.append("\t");
     sb.append("F1Strict"); sb.append("\t");
@@ -368,7 +370,17 @@ public class EvalStatsTagging  {
     return sb.toString();
   }
   
+  /**
+   * True if the instance is for ranks.
+   * @return 
+   */
+  public boolean isRank() {
+    return (this instanceof EvalStatsTagging4Rank);
+  }
   
+  public boolean isScore() {
+    return (this instanceof EvalStatsTagging4Score);
+  }
   // TODO: can we add agreement measures based on SingleCorrectAccuracy?
   
   

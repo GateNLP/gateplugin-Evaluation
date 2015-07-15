@@ -69,20 +69,11 @@ public class EvalStatsTagging4Rank extends EvalStatsTagging {
     return sb.toString();
   }
 
-  /**
-   * Create a String in TSV format containing all the headers for all fields in this object.
-   * @return a String with all the headers of currently supported fields.
-   */
-  public static String getTSVHeaders() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("rank"); sb.append("\t");
-    sb.append(EvalStatsTagging.getTSVHeaders());
-    return sb.toString();
-  }
   
   @Override
   public String getTSVLine() {
     StringBuilder sb = new StringBuilder();
+    sb.append("rank"); sb.append("\t");
     sb.append(rank); sb.append("\t");
     sb.append(super.getTSVLine());
     return sb.toString();

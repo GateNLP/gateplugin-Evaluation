@@ -506,8 +506,9 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     }
     
     if(mainTsvPrintStream != null) {
-      // a line for the response stats for that document
-      mainTsvPrintStream.println(outputTsvLine("list-best", document.getName(), typeSpec, expandedResponseSetName, es));
+      // a line for the response stats for that document      
+      mainTsvPrintStream.println(outputTsvLine("list-best", document.getName(), typeSpec, 
+              expandedResponseSetName, es));
     }
     
     // Now handle the list accuracy and per-list P/R statistics. In the previous code, we wanted
@@ -723,7 +724,8 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     //System.out.println("<----------------- tmpEs");
     // per document we only output the stats for rank 0
     if(mainTsvPrintStream!=null) {
-      mainTsvPrintStream.println(outputTsvLine("list-disamb-best", document.getName(), typeSpec, responseSet.getName(), tmpEs.get(0)));
+      mainTsvPrintStream.println(outputTsvLine("list-disamb-best", document.getName(), typeSpec, 
+              responseSet.getName(), tmpEs.get(0)));
     }
     
     

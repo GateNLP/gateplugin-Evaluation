@@ -332,7 +332,6 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
       mainTsvPrintStream.print("docName"); mainTsvPrintStream.print("\t");
       mainTsvPrintStream.print("setName"); mainTsvPrintStream.print("\t");
       mainTsvPrintStream.print("annotationType"); mainTsvPrintStream.print("\t");
-      mainTsvPrintStream.print("Threshold"); mainTsvPrintStream.print("\t");
       mainTsvPrintStream.println(EvalStatsTagging.getTSVHeaders());
     }
     if(getAddDocumentFeatures() == null) { setAddDocumentFeatures(true); }
