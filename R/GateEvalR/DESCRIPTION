@@ -1,0 +1,20 @@
+Package: GateEvalR
+Title: Process Data Files Created by the GATE NLP Evaluation Plugin PRs
+Version: 0.6.0
+Authors@R: person("Johann", "Petrak", email = "johann.petrak@gmail.com", role = c("aut", "cre"))
+Description: This package provides support for loading and analyzing the data files that can optionally
+  be created by several PRs from the "Evaluation" plugin for the GATE NLP framework (<https://gate.ac.uk>).
+  The PRs create files in tab separated values format which can be read by R and used to create statistics,
+  plots, tables and other forms of useful output.
+Depends: R (>= 3.1.0)
+Imports: 
+  boot,
+  dplyr,
+  ggplot2
+License: LGPL-2.1
+LazyData: true
+Copyright: The University of Sheffield
+URL: https://github.com/johann-petrak/gateplugin-Evaluation
+BugReports: https://github.com/johann-petrak/gateplugin-Evaluation/issues
+Date: 2015-08-01
+Suggests: testthat
