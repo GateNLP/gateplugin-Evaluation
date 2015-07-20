@@ -1019,7 +1019,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
       for(int rank : byRank4ListAcc.getByRankEvalStats().navigableKeySet()) {
         // TODO: need to first add eval type to that output before we can output this too
         // outputEvalStatsForType(System.out, evalStatsByRank.get(rank), typeSpecList.toString(), expandedResponseSetName);
-        System.err.println("Before writing list-disamb, stream is "+mainTsvPrintStream+" by rank object has thresholds: "+byRank4ListAcc.keySet());
+        //System.err.println("Before writing list-disamb, stream is "+mainTsvPrintStream+" by rank object has thresholds: "+byRank4ListAcc.keySet());
         if(mainTsvPrintStream != null) { 
           mainTsvPrintStream.println(
                   outputTsvLine("list-disamb",null,typeSpecNormal, getResponseASName(), byRank4ListAcc.get(rank)));
