@@ -31,17 +31,33 @@ GateEval <- function(filename, evalId=NULL) {
   ids = dplyr::distinct(dplyr::select(data,evaluationId))
   evaltypes = dplyr::distinct(dplyr::select(data,evaluationType))
   ret = list(data=data,filename=filename,ids=ids$evaluationId,evaltypes=evaltypes$evaluationType)
-  class(ret) <- "GateEval"
+  ## now check if it is a "normal" tsv file or one with Detail information, if
+  ## it is the latter, make it a "GateEvalDetail" instance
+  ## The simple heuristic we use is by checking if there si a "rankOfStrictMatch" variable
+  if("rankOfStrictMatch" %in% colnames(data)) {
+    class(ret) <- c("GateEvalDetail","GateEval")
+  } else {
+    class(ret) <- "GateEval"
+  }
   return(ret)
 }
 
 #' @export
 print.GateEval <- function(x, useS4 = FALSE, ...) {
-  cat("EvalTaggingList from file ",x$filename,"\n")
+  cat("EvalTagging from file ",x$filename,"\n")
   cat("Evaluation ids: ",x$ids,"\n")
   cat("Evaluation types: ",x$evaltypes,"\n")
   return(invisible(x))
 }
+
+#' @export
+print.GateEvalDetail <- function(x, useS4 = FALSE, ...) {
+  cat("EvalTaggingDetail from file ",x$filename,"\n")
+  cat("Evaluation ids: ",x$ids,"\n")
+  cat("Evaluation types: ",x$evaltypes,"\n")
+  return(invisible(x))
+}
+
 
 #' Select one specific evaluation.
 #'

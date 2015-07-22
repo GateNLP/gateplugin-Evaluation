@@ -11,6 +11,8 @@ class_for_type <- function(type) {
     c("TaggingListRank","GateEval")
   } else if(type == "list-disamb") {
     c("TaggingListDisamb","GateEval")
+  } else if(type == "list-matches") {
+    c("TaggingDetailListMatches", "GateEvalDetail", "GateEval")
   } else {
     stop("No class known for evaluation type "+type)
   }
