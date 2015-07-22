@@ -27,10 +27,12 @@
 #' }
 GateEval <- function(filename, evalId=NULL) {
   df1 = read.delim(filename,encoding="UTF8", row.names=NULL, as.is=TRUE)
+  name = sub("\\.tsv","",basename(filename))
   data=dplyr::as.tbl(df1)
   ids = dplyr::distinct(dplyr::select(data,evaluationId))
   evaltypes = dplyr::distinct(dplyr::select(data,evaluationType))
-  ret = list(data=data,filename=filename,ids=ids$evaluationId,evaltypes=evaltypes$evaluationType)
+  ret = list(data=data,filename=filename,ids=ids$evaluationId,
+             evaltypes=evaltypes$evaluationType,name=name)
   ## now check if it is a "normal" tsv file or one with Detail information, if
   ## it is the latter, make it a "GateEvalDetail" instance
   ## The simple heuristic we use is by checking if there si a "rankOfStrictMatch" variable

@@ -103,7 +103,7 @@ bootPRF <- function(data) {
   ret$F1LenientCI99u = cis_tmp$basic[3,5]
 
   options(oldopts)
-  cat(" DONE.")
+  cat(" DONE.\n")
   return(ret)
 }
 
