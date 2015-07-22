@@ -1,32 +1,29 @@
-## Functions for the TaggingBasic class.
+## Functions for the TaggingListDisambBest class.
+## We only use the F columns (P/R/F are always identical because they all measure
+## disambiguation accuracy really)
 
-#' Print a TaggingBasic object.
+## NOTE: "best" means the best guess i.e. the guess at rank 0
+
+#' Print a TaggingListDisambBest object.
 #'
 #' @param x the object to print
 #' @param ...  additional parameters.
 #' @export
-print.TaggingBasic <- function(x,...) {
+print.TaggingListDisambBest <- function(x,...) {
   NextMethod("print")
-  cat("TaggingBasic, Ps/Rs/Fs Pl/Rl/Fl",
-      paste(sep="/",p_d(x$precisionStrict),p_d(x$recallStrict),p_d(x$F1Strict)),
-      paste(sep="/",p_d(x$precisionLenient),p_d(x$recallLenient),p_d(x$F1Lenient)),
+  cat("TaggingListDisambBest [micro averages not implemented yet]",
       "\n")
-  cat("Fs(99% CI): ",p_d(x$F1StrictCI99l),p_d(x$F1Strict),p_d(x$F1StrictCI99u),"\n")
-  cat("Fl(99% CI): ",p_d(x$F1LenientCI99l),p_d(x$F1Lenient),p_d(x$F1LenientCI99u),"\n")
+  cat("As(99% CI): ",p_d(x$accuracyStrictAt0CI99l),p_d(x$accuracyStrictAt0CI99u),"\n")
+  cat("Al(99% CI): ",p_d(x$accuracyLenientAt0CI99l),p_d(x$accuracyLenientAt0CI99u),"\n")
   return(invisible(x))
 }
 
-#' Initialize an object of type Tagging Basic
+#' Initialize an object of type TaggingListBest
 #'
 #' @param x the object to initialize
 #' @return the initialized object
-initializeObject.TaggingBasic <- function(x) {
-  obj <- dplyr::filter(x$data, docName == "[doc:all:micro]")
-  if(dim(obj)[1]!=1) {
-    stop("Odd TaggingBasic object: number of rows for doc:all:micro not 1 but ",dim(obj)[1],": \n",obj)
-  }
-  row=obj[1,]
-  x = add_list_to_list(x,row)
+initializeObject.TaggingListDisambBest <- function(x) {
+  ## NOTE: at the moment we do not have a micro average line for this!!
 
   ## calculate bootstrapping based CIs and add to the object.
   ## We always calculate CIs for 0.90, 0.95 and 0.99
@@ -34,21 +31,31 @@ initializeObject.TaggingBasic <- function(x) {
   ## TODO: make the number of samples configurable by some global options??
   ## the field names for the CIs are <originalName>CI90l, CI90u, CI95l etc
   ## The field names for the original bootstrapping result objects are <originalName>Boot
+  ## debug_beforeboot<<-x$data
   bootobjects=bootPRF(x$data)
   x = add_list_to_list(x,bootobjects)
+  x$accuracyStrictAt0CI99l = bootobjects$F1StrictCI99l
+  x$accuracyStrictAt0CI99u = bootobjects$F1StrictCI99u
+  x$accuracyLenientAt0CI99l = bootobjects$F1LenientCI99l
+  x$accuracyLenientAt0CI99u = bootobjects$F1LenientCI99u
   return(x)
 }
 
-#' Plot an object of type TaggingBasic
+#' Plot an object of type TaggingListDisambBest
 #'
-plot.TaggingBasic <- function(x, strict=TRUE, addstripchart=FALSE, ...) {
+#' This will plot a box plot of all the per-document F1 measures.
+#'
+#' @param x the object to plot
+#' @param strict if TRUE plot the strict measures, otherwise the lenient measures
+#' @param addstripchart if TRUE overlay the box plot with a strip chart
+plot.TaggingListDisambBest <- function(x, strict=TRUE, addstripchart=FALSE, ...) {
   obj = dplyr::filter(x$data,!grepl("^\\[.+\\]$",docName,perl=TRUE))
   if(strict) {
     f = obj$F1Strict
-    l = "F1.0 Strict"
+    l = "Accuracy Strict"
   } else {
     f = obj$F1Lenient
-    l = "F1.0 Lenient"
+    l = "Accuracy Lenient"
   }
   boxplot(f,ylab=l,...)
   if(addstripchart) {

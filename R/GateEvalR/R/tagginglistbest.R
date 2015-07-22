@@ -1,13 +1,13 @@
-## Functions for the TaggingBasic class.
+## Functions for the TaggingListBest class.
 
-#' Print a TaggingBasic object.
+#' Print a TaggingListBest object.
 #'
 #' @param x the object to print
 #' @param ...  additional parameters.
 #' @export
-print.TaggingBasic <- function(x,...) {
+print.TaggingListBest <- function(x,...) {
   NextMethod("print")
-  cat("TaggingBasic, Ps/Rs/Fs Pl/Rl/Fl",
+  cat("TaggingListBest, Ps/Rs/Fs Pl/Rl/Fl",
       paste(sep="/",p_d(x$precisionStrict),p_d(x$recallStrict),p_d(x$F1Strict)),
       paste(sep="/",p_d(x$precisionLenient),p_d(x$recallLenient),p_d(x$F1Lenient)),
       "\n")
@@ -16,14 +16,14 @@ print.TaggingBasic <- function(x,...) {
   return(invisible(x))
 }
 
-#' Initialize an object of type Tagging Basic
+#' Initialize an object of type TaggingListBest
 #'
 #' @param x the object to initialize
 #' @return the initialized object
-initializeObject.TaggingBasic <- function(x) {
+initializeObject.TaggingListBest <- function(x) {
   obj <- dplyr::filter(x$data, docName == "[doc:all:micro]")
   if(dim(obj)[1]!=1) {
-    stop("Odd TaggingBasic object: number of rows for doc:all:micro not 1 but ",dim(obj)[1],": \n",obj)
+    stop("Odd TaggingListBest object: number of rows for doc:all:micro not 1 but ",dim(obj)[1],": \n",obj)
   }
   row=obj[1,]
   x = add_list_to_list(x,row)
@@ -34,14 +34,16 @@ initializeObject.TaggingBasic <- function(x) {
   ## TODO: make the number of samples configurable by some global options??
   ## the field names for the CIs are <originalName>CI90l, CI90u, CI95l etc
   ## The field names for the original bootstrapping result objects are <originalName>Boot
+  ## debug_beforeboot<<-x$data
   bootobjects=bootPRF(x$data)
   x = add_list_to_list(x,bootobjects)
   return(x)
 }
 
-#' Plot an object of type TaggingBasic
+#' Plot an object of type TaggingListBest
 #'
-plot.TaggingBasic <- function(x, strict=TRUE, addstripchart=FALSE, ...) {
+#'
+plot.TaggingListBest <- function(x, strict=TRUE, addstripchart=FALSE, ...) {
   obj = dplyr::filter(x$data,!grepl("^\\[.+\\]$",docName,perl=TRUE))
   if(strict) {
     f = obj$F1Strict

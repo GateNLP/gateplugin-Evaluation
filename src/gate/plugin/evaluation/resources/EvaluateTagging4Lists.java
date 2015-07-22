@@ -992,8 +992,16 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     
     // TODO: think of a way of how to add the interpolated precision strict interpolated precision
     // lenient to the by thresholds lines!!!
-    AnnotationTypeSpec typeSpecNormal = new AnnotationTypeSpec(getExpandedKeyType(),getExpandedElementType());
-    AnnotationTypeSpec typeSpecList = new AnnotationTypeSpec(getExpandedKeyType(),getExpandedListType());
+    
+    // NOTE: cannot remember why we use the ListType for some and the ElementType for others here,
+    // the problem is that this will look as if we had different types in the result file and 
+    // will make the R package complain. So for now, until we remember what the motivation was,
+    // we only use one of the types here, and for now we choose to use the element type.
+    //AnnotationTypeSpec typeSpecNormal = new AnnotationTypeSpec(getExpandedKeyType(),getExpandedElementType());
+    //AnnotationTypeSpec typeSpecList   = new AnnotationTypeSpec(getExpandedKeyType(),getExpandedListType());
+    //AnnotationTypeSpec typeSpecList   = new AnnotationTypeSpec(getExpandedKeyType(),getExpandedElementType());
+    AnnotationTypeSpec typeSpecNormal = annotationTypeSpecs.getSpecs().get(0);
+    AnnotationTypeSpec typeSpecList   = annotationTypeSpecs.getSpecs().get(0);
     outputEvalStatsForType(System.out, allDocumentsStats, typeSpecNormal.toString(), expandedResponseSetName);
     if(mainTsvPrintStream != null) { 
       mainTsvPrintStream.println(

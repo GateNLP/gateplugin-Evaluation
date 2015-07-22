@@ -1,10 +1,20 @@
 
 p_d <- function(x) {
   if(typeof(x) == "double" || typeof(x) == "integer") {
+    if(x == 2147483647) {
+      return("MAX")
+    }
     return(paste(round(x,digits=3)))
   } else {
     return(x)
   }
+}
+
+#' Same as [] but if the index is NA, returns NA as the element
+#'
+getAt <- function(vector,index) {
+  if(is.na(index)) return(NA)
+  return(vector[index])
 }
 
 #' Add the elements of the second list to the first and return the result.

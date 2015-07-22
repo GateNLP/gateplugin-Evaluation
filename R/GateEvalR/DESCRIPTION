@@ -7,10 +7,11 @@ Description: This package provides support for loading and analyzing the data fi
   The PRs create files in tab separated values format which can be read by R and used to create statistics,
   plots, tables and other forms of useful output.
 Depends: R (>= 3.1.0)
-Imports: 
+Imports:
   boot,
   dplyr,
-  ggplot2
+  ggplot2,
+  gdata
 License: LGPL-2.1
 LazyData: true
 Copyright: The University of Sheffield

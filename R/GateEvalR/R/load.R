@@ -1,3 +1,18 @@
+## IMPORTANT TODOS:
+## = the constructor function needs to be able to find out which kind of file
+##   is read and use that too to create the appropriate type of object
+##   For now, in addition to GateEval, it may return an object of type
+##   GateEvalDetail
+## = implement print select etc for GateEvalDetail
+## = implement the appropriate subclass(es) for the GateEvalDetail we already have
+##   (accuracy of list-based tagging for disambiguation)
+## = check if GateEvalDetail can inherit from GateEval (so we can use NextMethod for
+##   the generic functions?) If that does not work currently we need to restructure
+##   the hierarchy so we have GateEval with subclasses GateEvalDetail and
+##   GateEvalAccum with the current functionality implemented for Accum.
+## = implement tagginglist functions for all list-based classes except the ones
+##   which inherit from GateEvalDetail
+
 #' Read a file as created by one of the Evaluation PRs
 #'
 #' @param filename The name of the file to read.
@@ -74,9 +89,7 @@ select <- function(x, ...) {
 select.GateEval <- function(x, evaluationId=NULL, evaluationType = NULL, annotationType = NULL) {
   obj <- x$data
   ret <- x
-  if(is.null(evaluationId) && is.null(evaluationType)) {
-    stop("evaluationId and evaluationType parameters cannot be both NULL")
-  }
+
   ## we limit separately by id and type so we can identify if the id or type
   ## refer to something that is not there ...
   if(!is.null(evaluationId)) {
@@ -95,6 +108,8 @@ select.GateEval <- function(x, evaluationId=NULL, evaluationType = NULL, annotat
   }
 
   if(!is.null(evaluationType)) {
+    ## TODO: check if it is a known evaluation type ... we do not allow
+    ## any others!!
     tmp <- evaluationType
     obj <- dplyr::filter(obj, evaluationType == tmp)
     if(dim(obj)[1] == 0) {
@@ -118,7 +133,12 @@ select.GateEval <- function(x, evaluationId=NULL, evaluationType = NULL, annotat
   ## check if we already have exactly one id, if not, we have an error
   ids = dplyr::distinct(dplyr::select(obj,annotationType))
   if(dim(ids)[1] != 1) {
-    stop("Not exactly one annotationType left but ",dim(ids)[1],": ",ids$annotationType)
+    ## TODO: for now we ignore this if the evaluation type starts with list-
+    ## It seems that we sometimes get things like Mention=Lookup and Mention=LookupList
+    ## This could be a big in the PR!
+    if(!gdata::startsWith(ret$evaltypes[1],"list-")) {
+      stop("Not exactly one annotationType left but ",dim(ids)[1],": ",ids$annotationType)
+    }
   }
   ret$annotationType=ids$annotationType
 
@@ -127,6 +147,7 @@ select.GateEval <- function(x, evaluationId=NULL, evaluationType = NULL, annotat
   ## This is done using a helper function, class_for_type(type)
   ret$data <- obj
   class(ret) <- class_for_type(evaluationType)
+  debug_preInit<<-ret
   ret = initializeObject(ret)
   return(ret)
 }
@@ -141,4 +162,21 @@ initializeObject <- function(x, ...) {
     cat("initializeObject not usable\n")
   }
   UseMethod("initializeObject",x)
+}
+
+
+summary.GateEval <- function(x,...) {
+  ## TODO: this should return an object that provides a useful summary for the
+  ## the evaluation. The object could in turn have a specialized print method
+  ## for showing that summary to the screen, but everything should be accesible
+  ## through named fields.
+  ret = x
+  class(ret) = "summary.GateEval"
+  ret
+}
+
+
+plot.GateEval <- function(x, ...) {
+  ##
+  invisible()
 }
