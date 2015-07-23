@@ -615,10 +615,10 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
           double scAtPartial = Double.NaN;
           if(!getExpandedScoreFeatureName().isEmpty()) {
             if(firstPartial != null) {
-              scAtPartial = (Double)firstPartial.getFeatures().get(getExpandedScoreFeatureName());
+              scAtPartial = AnnotationDifferTagging.object2Double(firstPartial.getFeatures().get(getExpandedScoreFeatureName()));
             }
             if(firstStrict != null) {
-              scAtStrict = (Double)firstStrict.getFeatures().get(getExpandedScoreFeatureName());
+              scAtStrict = AnnotationDifferTagging.object2Double(firstStrict.getFeatures().get(getExpandedScoreFeatureName()));
             }
           } 
           outputTsvLine4Matches(matchesTsvPrintStream,"list-matches", ll.getId(), document.getName(), 

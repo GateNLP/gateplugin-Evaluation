@@ -1749,12 +1749,14 @@ public class AnnotationDifferTagging {
     }
   }
 
-  private static double object2Double(Object tmp) {
+  public static double object2Double(Object tmp) {
     if (tmp == null) {
       return Double.NaN;
     } else {
       if (tmp instanceof Double) {
         return (Double) tmp;
+      } else if (tmp instanceof Float) {
+        return ((Float) tmp).doubleValue();
       } else if (tmp instanceof Number) {
         return ((Number) tmp).doubleValue();
       } else {
