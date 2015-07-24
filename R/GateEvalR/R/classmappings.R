@@ -9,6 +9,8 @@ class_for_type <- function(type) {
     c("TaggingListDisambBest","GateEval")
   } else if(type == "list-rank") {
     c("TaggingListRank","GateEval")
+  } else if(type == "list-score") {
+    c("TaggingListScore","GateEval")
   } else if(type == "list-disamb") {
     c("TaggingListDisamb","GateEval")
   } else if(type == "list-matches") {

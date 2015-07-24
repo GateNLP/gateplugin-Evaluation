@@ -16,19 +16,25 @@
 #'
 #' @param fileNames a vector of file names to read in
 #' @return an object that contains the list of evaluations
-GateEvalList <- function(fileNames,evaluationId=NULL,evaluationType=NULL,annotationType=NULL) {
+GateEvalList <- function(fileNames,evaluationType=NULL,evaluationId=NULL,annotationType=NULL) {
   instances = list()
   i = 1
   for(fileName in fileNames) {
-    tmp = GateEval(fileName)
-    inst = select(tmp,evaluationId,evaluationType,annotationType)
-    instances[[paste("eval",i,sep="")]] = inst
-    i = i + 1
+    tryCatch(
+      { tmp = select(GateEval(fileName),evaluationType,evaluationId,annotationType)
+        instances[[paste("eval",i,sep="")]] = tmp
+        i = i + 1
+      },
+      error = function(e) { 
+        print(paste("Error loading ",fileName,", ignored! ",e$message)) 
+      }
+    )
   }
   ret = list(datas=instances,fileNames=fileNames)
   class(ret) = "GateEvalList"
   ret
 }
+
 
 ## TODO
 print.GateEvalList = function(x,...) {

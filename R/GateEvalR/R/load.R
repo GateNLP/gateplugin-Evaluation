@@ -26,6 +26,7 @@
 #'   GateEval("thisid.tsv", evalId = "thisid")
 #' }
 GateEval <- function(filename, evalId=NULL) {
+  cat("Loading data from ",filename," ...\n")
   df1 = read.delim(filename,encoding="UTF8", row.names=NULL, as.is=TRUE)
   name = sub("\\.tsv","",basename(filename))
   data=dplyr::as.tbl(df1)
@@ -104,7 +105,7 @@ select <- function(x, ...) {
 #' @param annotationType A string the identifies the annotation type
 #' @return An object of some subclass of GateEval, depending on the kind of
 #' selected evaluation instance.
-select.GateEval <- function(x, evaluationId=NULL, evaluationType = NULL, annotationType = NULL) {
+select.GateEval <- function(x, evaluationType = NULL, evaluationId=NULL, annotationType = NULL) {
   obj <- x$data
   ret <- x
 
