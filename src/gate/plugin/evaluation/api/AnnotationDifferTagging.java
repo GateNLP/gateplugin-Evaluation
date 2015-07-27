@@ -1063,7 +1063,9 @@ public class AnnotationDifferTagging {
         case CORRECT_VALUE: {
           //logger.debug("DEBUG: add a correct strict one: "+bestChoice.getKey());
           if (createAdditionalData) {
-            correctStrictAnns.add(bestChoice.getResponse());
+            Annotation tmp = bestChoice.getResponse();
+            tmp.getFeatures().put("gate.plugin.evaluation.targetId", bestChoice.getKey().getId());
+            correctStrictAnns.add(tmp);
           }
           es.addCorrectStrict(1);
           bestChoice.setPairingType(CORRECT_TYPE);
@@ -1072,7 +1074,9 @@ public class AnnotationDifferTagging {
         case PARTIALLY_CORRECT_VALUE: {  // correct but only opverlap, not coextensive
           //logger.debug("DEBUG: add a correct partial one: "+bestChoice.getKey());
           if (createAdditionalData) {
-            correctPartialAnns.add(bestChoice.getResponse());
+            Annotation tmp = bestChoice.getResponse();
+            tmp.getFeatures().put("gate.plugin.evaluation.targetId", bestChoice.getKey().getId());
+            correctPartialAnns.add(tmp);
           }
           es.addCorrectPartial(1);
           bestChoice.setPairingType(PARTIALLY_CORRECT_TYPE);
@@ -1083,7 +1087,9 @@ public class AnnotationDifferTagging {
             es.addIncorrectStrict(1);
             bestChoice.setPairingType(MISMATCH_TYPE);
             if (createAdditionalData) {
-              incorrectStrictAnns.add(bestChoice.getResponse());
+              Annotation tmp = bestChoice.getResponse();
+              tmp.getFeatures().put("gate.plugin.evaluation.targetId", bestChoice.getKey().getId());
+              incorrectStrictAnns.add(tmp);
             }
           } else if (bestChoice.getKey() != null) {
             logger.debug("DEBUG: GOT a MISMATCH_VALUE (coext and not correct) with no key " + bestChoice);
@@ -1096,7 +1102,9 @@ public class AnnotationDifferTagging {
           if (bestChoice.getKey() != null && bestChoice.getResponse() != null) {
             es.addIncorrectPartial(1);
             if (createAdditionalData) {
-              incorrectPartialAnns.add(bestChoice.getResponse());
+              Annotation tmp = bestChoice.getResponse();
+              tmp.getFeatures().put("gate.plugin.evaluation.targetId", bestChoice.getKey().getId());
+              incorrectPartialAnns.add(tmp);
             }
             bestChoice.setPairingType(MISMATCH_TYPE);
           } else if (bestChoice.getKey() == null) {
@@ -1119,7 +1127,9 @@ public class AnnotationDifferTagging {
       List<Pairing> aList = keyChoices.get(i);
       if (aList == null || aList.isEmpty()) {
         if (createAdditionalData) {
-          trueMissingLenientAnns.add((keyList.get(i)));
+          Annotation tmp = keyList.get(i);
+          tmp.getFeatures().put("gate.plugin.evaluation.targetId", tmp.getId());
+          trueMissingLenientAnns.add(tmp);
         }
         Pairing choice = new Pairing(i, -1, WRONG_VALUE);
         choice.setPairingType(MISSING_TYPE);
