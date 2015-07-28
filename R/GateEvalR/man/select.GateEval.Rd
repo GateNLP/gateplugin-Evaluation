@@ -4,15 +4,15 @@
 \alias{select.GateEval}
 \title{Select a specific evaluation id and type from the initial evaluation object.}
 \usage{
-\method{select}{GateEval}(x, evaluationId = NULL, evaluationType = NULL,
+\method{select}{GateEval}(x, evaluationType = NULL, evaluationId = NULL,
   annotationType = NULL)
 }
 \arguments{
 \item{x}{The object created by GateEval}
 
-\item{evaluationId}{A string that identifies the desired evaluatiob Id}
-
 \item{evaluationType}{A string that identifies the desired evaluation type}
+
+\item{evaluationId}{A string that identifies the desired evaluatiob Id}
 
 \item{annotationType}{A string the identifies the annotation type}
 }
