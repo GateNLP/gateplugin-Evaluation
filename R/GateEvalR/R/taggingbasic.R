@@ -11,11 +11,11 @@ print.TaggingBasic <- function(x,...) {
       paste(sep="/",p_d(x$precisionStrict),p_d(x$recallStrict),p_d(x$F1Strict)),
       paste(sep="/",p_d(x$precisionLenient),p_d(x$recallLenient),p_d(x$F1Lenient)),
       "\n")
-  cat("Ps(99% CI): ",p_d(x$PrecisionStrictCI99l),p_d(x$PrecisionStrict),p_d(x$PrecisionStrictCI99u),"\n")
-  cat("Rs(99% CI): ",p_d(x$RecallStrictCI99l),p_d(x$RecallStrict),p_d(x$RecallStrictCI99u),"\n")
+  cat("Ps(99% CI): ",p_d(x$precisionStrictCI99l),p_d(x$precisionStrict),p_d(x$precisionStrictCI99u),"\n")
+  cat("Rs(99% CI): ",p_d(x$recallStrictCI99l),p_d(x$recallStrict),p_d(x$recallStrictCI99u),"\n")
   cat("Fs(99% CI): ",p_d(x$F1StrictCI99l),p_d(x$F1Strict),p_d(x$F1StrictCI99u),"\n")
-  cat("Pl(99% CI): ",p_d(x$PrecisionLenientCI99l),p_d(x$PrecisionLenient),p_d(x$PrecisionLenientCI99u),"\n")
-  cat("Rl(99% CI): ",p_d(x$RecallLenientCI99l),p_d(x$RecallLenient),p_d(x$RecallLenientCI99u),"\n")
+  cat("Pl(99% CI): ",p_d(x$precisionLenientCI99l),p_d(x$precisionLenient),p_d(x$precisionLenientCI99u),"\n")
+  cat("Rl(99% CI): ",p_d(x$recallLenientCI99l),p_d(x$recallLenient),p_d(x$recallLenientCI99u),"\n")
   cat("Fl(99% CI): ",p_d(x$F1LenientCI99l),p_d(x$F1Lenient),p_d(x$F1LenientCI99u),"\n")
   return(invisible(x))
 }
