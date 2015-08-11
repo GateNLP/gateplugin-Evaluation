@@ -1485,6 +1485,32 @@ public class AnnotationDifferTagging {
                 + (second.getKey() == null ? 0 : -1)
                 + (second.getResponse() == null ? 0 : -1);
       }
+      if (res == 0) {
+        // compare the offsets or the responses
+        if(first.getResponse() != null && second.getResponse() != null) {
+          res = first.getResponse().getStartNode().getOffset().compareTo(second.getResponse().getStartNode().getOffset());
+          if(res == 0) {
+            res = first.getResponse().getEndNode().getOffset().compareTo(second.getResponse().getEndNode().getOffset());
+          }
+          // if still equal, compare the annotation ids
+          if(res == 0) {
+            res = first.getResponse().getId().compareTo(second.getResponse().getId());
+          }
+        }        
+      }
+      if (res == 0) {
+        // compare the offsets or the keys
+        if(first.getKey() != null && second.getKey() != null) {
+          res = first.getKey().getStartNode().getOffset().compareTo(second.getKey().getStartNode().getOffset());
+          if(res == 0) {
+            res = first.getKey().getEndNode().getOffset().compareTo(second.getKey().getEndNode().getOffset());
+          }
+          // if still equal, compare the annotation ids
+          if(res == 0) {
+            res = first.getKey().getId().compareTo(second.getKey().getId());
+          }
+        }
+      }
       return res;
     }
   }

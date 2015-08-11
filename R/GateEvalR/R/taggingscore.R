@@ -35,7 +35,10 @@ initializeObject.TaggingScore <- function(x) {
 #' Plot an object of type TaggingScore
 #'
 #' @param show either "t" to show the threshold or "f" to show the f measure
-plot.TaggingScore <- function(x, strict=TRUE, show="t", ...) {
+plot.TaggingScore <- function(x, strict=TRUE, add.text="t", add.lines="l", ...) {
+  ## TODO: find out what is the best way to
+  ## show score/Fs/Fl at the point of maximum Fs/Fl?
+  ## show the score/Fs/Fl for points with a specific score, or the nth point?
   if(strict) {
     r = x$data$recallStrict
     p = x$data$precisionStrict
@@ -50,15 +53,24 @@ plot.TaggingScore <- function(x, strict=TRUE, show="t", ...) {
     ly = "Precision Lenient"
   }
   th=x$data$threshold
-  plot(r,p,xlab=lx,ylab=ly)
-  lines(r,p,type="l")
-  if(show=="t") {
-    text(r,p,labels=th,cex=0.7,pos=3,...)
-  } else if(show=="f") {
-    text(r,p,labels=f,cex=0.7,pos=3,...)
+  plot(r,p,xlab=lx,ylab=ly,...)
+  if(is.null(add.lines)) {
+    ## do nothing
+  } else if(add.lines=="l") {
+    lines(r,p,type="l")
   } else {
-    stop("Parameter show must be either 't' or 'f'")
+    stop("Parameter add.lines must be either NULL, or 'l'")
   }
+  if(is.null(add.text)) {
+    ## do nothing
+  } else if(add.text=="t") {
+    text(r,p,labels=th,cex=0.7,pos=3)
+  } else if(add.text=="f") {
+    text(r,p,labels=f,cex=0.7,pos=3)
+  } else {
+    stop("Parameter add.text must be either NULL (do not add), 't' (threshold) or 'f' (F-measure)")
+  }
+  invisible()
 }
 
 ## TODO: implement summary.TYPE and plot.TYPE
