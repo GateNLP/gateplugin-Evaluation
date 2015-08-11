@@ -880,6 +880,8 @@ public class AnnotationDifferTagging {
       singleCorrectStrictAnns = new AnnotationSetImpl(keyAnns.getDocument());
     }
     keyList = new ArrayList<Annotation>(keyAnns);
+    // sort to avoid non-determinism
+    Collections.sort(keyList,new OffsetAndMoreComparator(features));
     responseList = null;
     // If we do list processing, this records, for each response annotation, what the corresponding
     // index of the candidate list is. Since the responeList only contains annotations from those
@@ -897,7 +899,6 @@ public class AnnotationDifferTagging {
       // still has entries for the scoreThreshold. That candidate may get replaced later ...
       responseList = new ArrayList<Annotation>(responseAnns.size());
       int cidx = 0;
-      // TODO: if we do by rankThreshold evaluation, setRank(rankThreshold) instead!!!
       for (CandidateList cand : candidateLists) {
         if(rankThreshold != null) {
           cand.setRank(rankThreshold);
@@ -928,9 +929,11 @@ public class AnnotationDifferTagging {
           if (score >= scoreThreshold) {
             responseList.add(res);
           }
-        }
+        }        
       }
+      
     }
+    Collections.sort(responseList,new OffsetAndMoreComparator(features));
     //logger.debug("DEBUG: responseList size for scoreThreshold "+scoreThreshold+" is "+responseList.size());
 
     keyChoices = new ArrayList<List<Pairing>>(keyList.size());
@@ -1855,5 +1858,68 @@ public class AnnotationDifferTagging {
       gate.Utils.addAnn(outSet, ann, ann.getType() + suffix, fm);
     }
   }
+  
+  /**
+   * Comparator to sort annotations by offset (first starting, then ending), then by 
+   * the features in the features set, then by annotation id. 
+   */
+    public static class OffsetAndMoreComparator implements Comparator<Annotation> {
+
+    private List<String> features = null;
+
+    OffsetAndMoreComparator(Set<String> features) {
+      if(features != null) {
+        this.features = new ArrayList<String>(features);     
+        Collections.sort(this.features);  // we need to sort so we always compare features in the same order
+      }
+    }
+
+    @Override
+    public int compare(Annotation a1, Annotation a2) {
+      int result;
+
+      // compare start offsets
+      result = a1.getStartNode().getOffset().compareTo(
+              a2.getStartNode().getOffset());
+
+      // if start offsets are equal compare end offsets
+      if (result == 0) {
+        result = a1.getEndNode().getOffset().compareTo(
+                a2.getEndNode().getOffset());
+      } // if
+
+      if(result == 0) {
+        // we still cannot distinguish the annotations, try comparing by features, but only
+        // if we actually have features
+        if(features != null && !features.isEmpty()) {
+          // compare by each feature until we get something that is not equal, then return
+          // null is always < than some value
+          for(String feature : features) {
+            Object v1 = a1.getFeatures().get(feature);
+            Object v2 = a2.getFeatures().get(feature);
+            if(v1 == null && v2 == null) {
+              // result = 0;
+            } else if(v1 == null && v2 != null) {
+              return -1;
+            } else if(v2 != null && v2 == null) {
+              return 1;
+            } else {
+              if(v1 instanceof Comparable && v2 instanceof Comparable) {
+                result = ((Comparable)v1).compareTo((Comparable)v2);
+                if(result != 0) return result;
+              } else {
+                // result = 0;
+              }
+            }
+          } // for
+          // if we exit the for loop, than we did not return with result!=0, so result is still 0
+          // We need to compare the annotation Ids
+          return(a1.getId().compareTo(a2.getId()));
+        }
+      }
+      
+      return result;
+    }
+  } 
 
 }
