@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <CREOLE-DIRECTORY
   ID="gate.plugin.Evaluation"
-  VERSION="0.5"
+  VERSION="0.6"
   DESCRIPTION="Evaluation plugin"
   HELPURL="https://github.com/johann-petrak/gateplugin-Evaluation/wiki"
 >
