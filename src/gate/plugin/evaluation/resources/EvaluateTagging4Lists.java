@@ -724,8 +724,13 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     //System.out.println("<----------------- tmpEs");
     // per document we only output the stats for rank 0
     if(mainTsvPrintStream!=null) {
-      mainTsvPrintStream.println(outputTsvLine("list-disamb-best", document.getName(), typeSpec, 
+      EvalStatsTagging tmpEST = tmpEs.get(0);
+      if(tmpEST != null) {
+        mainTsvPrintStream.println(outputTsvLine("list-disamb-best", document.getName(), typeSpec, 
               responseSet.getName(), tmpEs.get(0)));
+      } else {
+        // TODO: should we log a warning here?
+      }
     }
     
     
