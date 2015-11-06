@@ -57,7 +57,9 @@ import org.apache.log4j.Logger;
         helpURL ="https://github.com/johann-petrak/gateplugin-Evaluation/wiki/EvaluateTagging-PR",
         comment = "Calculate P/R/F evalutation measures")
 public class EvaluateTagging extends EvaluateTaggingBase
-  implements ControllerAwarePR, CustomDuplication  {
+// TODO: need to properly implement this later!
+//  implements ControllerAwarePR, CustomDuplication  
+{
 
   ///////////////////
   /// PR PARAMETERS: all the ones common to Tagging and Tagging4Lists are in the TaggingBase class
@@ -651,9 +653,17 @@ public class EvaluateTagging extends EvaluateTaggingBase
     }
   }
 
+  // TODO: just deactivate this for now, we need to properly handle this later
+  // Right now, we need the PR not to complain!
+  /*
   @Override
   public Resource duplicate(Factory.DuplicationContext dc) throws ResourceInstantiationException {
-    throw new UnsupportedOperationException("At the moment, this PR may not be duplicated and must be run single-threaded"); 
+    // Instead of throwing an exception, just log a warning. This allows to still use 
+    // pipelines where the Evalation PR is included to get duplicated, and all is fine as 
+    // long the PR is not RUN in that situation!
+    System.err.println("WARNING: duplication does not work yet for the Evaluation PRs, Evaluation should not be run!");
+    // throw new UnsupportedOperationException("At the moment, this PR may not be duplicated and must be run single-threaded"); 
+    
     // TODO: duplicate such that all duplicates get a flag set which indicates that they are 
     // duplicates, and only the original has the flag not set.
     // Also, use a shared object to give all PRs access to everyone elses's statistics objects.
@@ -662,7 +672,8 @@ public class EvaluateTagging extends EvaluateTaggingBase
     // Finally, implement the controllerExecutionFinished() method such that only the original
     // will do the actual summarization: it will access all stats objects from all other PRs and
     // summarize them and 
+    
   }
-  
+  */
   
 }
