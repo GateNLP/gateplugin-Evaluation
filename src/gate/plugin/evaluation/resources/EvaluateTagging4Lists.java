@@ -65,7 +65,9 @@ import org.apache.log4j.Logger;
         name = "EvaluateTagging4Lists",
         helpURL ="https://github.com/johann-petrak/gateplugin-Evaluation/wiki/EvaluateTagging-PR",
         comment = "Calculate P/R/F evalutation measures for annotations with candidate lists")
-public class EvaluateTagging4Lists extends EvaluateTaggingBase implements ControllerAwarePR, CustomDuplication {
+public class EvaluateTagging4Lists extends EvaluateTaggingBase 
+  // implements ControllerAwarePR, CustomDuplication 
+{
   
   ///////////////////
   /// PR PARAMETERS 
@@ -832,6 +834,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     }
   }
 
+  /*
   @Override
   public Resource duplicate(Factory.DuplicationContext dc) throws ResourceInstantiationException {
     throw new UnsupportedOperationException("At the moment, this PR may not be duplicated and must be run single-threaded"); 
@@ -844,7 +847,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase implements Contro
     // will do the actual summarization: it will access all stats objects from all other PRs and
     // summarize them and 
   }
-  
+  */
   
   
 }

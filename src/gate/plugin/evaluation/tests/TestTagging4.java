@@ -197,19 +197,6 @@ public class TestTagging4 {
     prListEval1.setEvaluationId("TestTagging3aSc");
     controller.execute();
     
-    ByRankEvalStatsTagging byr = prListEval1.getByRankEvalStats4ListAcc();
-    ByThEvalStatsTagging   byt = prListEval1.getByThEvalStatsTagging();
-    
-    assertEquals("",0.75,byt.get(0.0).getFMeasureStrict(1.0),EPS4);
-    assertEquals("",0.75,byt.get(0.8).getFMeasureStrict(1.0),EPS4);
-    assertEquals("",0.25,byt.get(0.9).getFMeasureStrict(1.0),EPS4);
-    assertEquals("",0.00,byt.get(1.0).getFMeasureStrict(1.0),EPS4);
-    
-    assertEquals("",0.3333,byr.get(0).getFMeasureStrict(1.0),EPS4);
-    assertEquals("",0.6666,byr.get(1).getFMeasureStrict(1.0),EPS4);
-    assertEquals("",1.0000,byr.get(2).getFMeasureStrict(1.0),EPS4);
-    assertEquals("",1.0000,byr.get(5).getFMeasureStrict(1.0),EPS4);
-    
     prListEval1.setWhichThresholds(ThresholdsOrRanksToUse.USE_RANKS_11FROM0TO100);
     prListEval1.setEvaluationId("TestTagging3aRk");
     controller.execute();
