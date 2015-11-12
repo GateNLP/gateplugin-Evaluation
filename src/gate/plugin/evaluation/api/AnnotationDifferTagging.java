@@ -836,6 +836,9 @@ public class AnnotationDifferTagging {
   // correct strict or correct partial match was first encountered and otherwise set that rank 
   // to some special N/A value. This would be useful to calculate a statistic about the average
   // rank of the correct answer among those list which have a correct answer. 
+  // TODO: this should also record statistics about how often a target did not have a correct
+  // response because there was no response list and how often a target did not have a correct
+  // response because the response list did not contain the correct answer.
   private EvalStatsTagging calculateDiff(
           AnnotationSet keyAnns,
           AnnotationSet responseAnns,
@@ -949,6 +952,21 @@ public class AnnotationDifferTagging {
     es.addResponses(responseList.size());
 
     //1) try all possible pairings
+    // If we have candidate lists, we also want to roughly be able to find out eventually
+    // how many of the targets have true missing responses (strict and lenient) because
+    // there was no response at all versus because there were responses in the list, but none was correct. 
+    // To do this we use two arrays of the same size as the keylist and set a flag for each key
+    // if there is any annotation that matches strict and if there is any annotation that matches
+    // strict or partially. 
+    // We then count the number of keys that have a strict match or a lenient match at all. 
+    // This kind of counting the matches is different from how we do the missing responses below:
+    // in the "proper" way below, a match gets "used", so it can never count for two keys, but
+    // here we simply count how often a response could "potentially" be a chance for a correct
+    // response, or in other words, we count how many targets are certain to never get a correct
+    // response because there is simply no overlapping or coextensive response. 
+    boolean[] haveStrictResponse = new boolean[keyList.size()];
+    boolean[] haveLenientResponse = new boolean[keyList.size()];
+    for(int i=0; i<keyList.size(); i++) { haveStrictResponse[i] = false; haveLenientResponse[i] = false; }
     for (int i = 0; i < keyList.size(); i++) {
       for (int j = 0; j < responseList.size(); j++) {
         Annotation keyAnn = keyList.get(i);
@@ -982,6 +1000,8 @@ public class AnnotationDifferTagging {
             Annotation bestAnn = responseList.get(j);
             // We initialize responselist(i) with candList.get(0) so the above is identical to
             // Annotation bestAnn = candList.get(0);
+            boolean foundStrict = false;
+            boolean foundPartial = false;
             for (int c = 0; c < candList.size(); c++) {
               Annotation tmpResp = candList.get(c);
               //logger.debug("Checking annotation at index: " + c + ": " + tmpResp);
@@ -991,6 +1011,9 @@ public class AnnotationDifferTagging {
                   //logger.debug("Found correct match!!");
                   match = CORRECT_VALUE;
                   bestAnn = tmpResp;
+                  foundStrict = true;
+                  haveStrictResponse[i]=true;
+                  haveLenientResponse[i]=true;
                   break;
                 } else {
                   //logger.debug("Found a partial match, checking if we can add!");
@@ -999,6 +1022,8 @@ public class AnnotationDifferTagging {
                     //logger.debug("Found a partial match and adding!");
                     match = PARTIALLY_CORRECT_VALUE;
                     bestAnn = tmpResp;
+                    foundPartial = true;
+                    haveLenientResponse[i]=true;
                   }
                 }
               } else if (keyAnn.coextensive(tmpResp) && match == WRONG_VALUE) {
@@ -1027,6 +1052,8 @@ public class AnnotationDifferTagging {
             if (isAnnotationsMatch(keyAnn, resAnn, features, fcmp, false, typeSpecs)) {
               //we have a full match
               choice = new Pairing(i, j, CORRECT_VALUE);
+              haveStrictResponse[i]=true;
+              haveLenientResponse[i]=true;
             } else {
               //the two annotations are coextensive but don't match
               //we have a missmatch
@@ -1036,6 +1063,7 @@ public class AnnotationDifferTagging {
             //we have partial overlap -> PARTIALLY_CORRECT or WRONG
             if (isAnnotationsMatch(keyAnn, resAnn, features, fcmp, false, typeSpecs)) {
               choice = new Pairing(i, j, PARTIALLY_CORRECT_VALUE);
+              haveLenientResponse[i]=true;
             } else {
               choice = new Pairing(i, j, WRONG_VALUE);
             }
@@ -1051,6 +1079,21 @@ public class AnnotationDifferTagging {
       }//for j
     }//for i
 
+    int nTargetsWithStrictResponses = 0;
+    int nTargetsWithLenientResponses = 0;
+    for(int i=0; i<keyList.size(); i++) {
+      if(haveStrictResponse[i]) nTargetsWithStrictResponses++;
+      if(haveLenientResponse[i]) nTargetsWithLenientResponses++;
+    }
+    
+    // we are interested in the number of targets which do not have any strict response at all,
+    // and the targets which do not have any lenient response at all (not strict or partial).
+    // Then if we know the true missing strict, the number of lists with no responses will be
+    // the missing strict minus the number of targets without any strict response etc.
+    
+    es.addTargetsWithStrictResponses(nTargetsWithStrictResponses);
+    es.addTargetsWithLenientResponses(nTargetsWithLenientResponses);
+    
     //2) from all possible pairings, find the maximal set that also
     //maximises the total score
     Collections.sort(possibleChoices, new PairingScoreComparator());

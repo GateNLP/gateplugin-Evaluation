@@ -54,7 +54,8 @@ public abstract class EvalStatsTagging  {
     nIncorrectPartial = other.nIncorrectPartial;
     nSingleCorrectStrict = other.nSingleCorrectStrict;
     nSingleCorrectPartial = other.nSingleCorrectPartial;
-    
+    nTargetsWithStrictResponses = other.nTargetsWithStrictResponses;
+    nTargetsWithLenientResponses = other.nTargetsWithLenientResponses;
   }
   
   // increment this EvalStatsTagging object with the counts from another one
@@ -67,6 +68,8 @@ public abstract class EvalStatsTagging  {
     nIncorrectPartial += other.nIncorrectPartial;
     nSingleCorrectStrict += other.nSingleCorrectStrict;
     nSingleCorrectPartial += other.nSingleCorrectPartial;
+    nTargetsWithStrictResponses += other.nTargetsWithStrictResponses;
+    nTargetsWithLenientResponses += other.nTargetsWithLenientResponses;
   }
   
   public void addTargets(int n) { nTargets += n; }
@@ -77,6 +80,8 @@ public abstract class EvalStatsTagging  {
   public void addSingleCorrectPartial(int n) { nSingleCorrectPartial += n; }
   public void addIncorrectStrict(int n) { nIncorrectStrict += n; }
   public void addIncorrectPartial(int n) {nIncorrectPartial += n; }
+  public void addTargetsWithStrictResponses(int n) { nTargetsWithStrictResponses += n; }
+  public void addTargetsWithLenientResponses(int n) { nTargetsWithLenientResponses += n; }
   
   // TARGETS the "gold" or "key" annotations.
   protected int nTargets;
@@ -85,6 +90,15 @@ public abstract class EvalStatsTagging  {
   // RESPONSES: the annotations that should match the targets a perfectly as possible
   protected int nResponses;
   public int getResponses() { return nResponses; }
+  
+  
+  protected int nTargetsWithStrictResponses;
+  public int getTargetsWithStrictResponses() { return nTargetsWithStrictResponses; }
+  public int getTargetsWithNoStrictResponses() { return nTargets - nTargetsWithStrictResponses; }
+
+  protected int nTargetsWithLenientResponses;
+  public int getTargetsWithLenientResponses() { return nTargetsWithLenientResponses; }
+  public int getTargetsWithNoLenientResponses() { return nTargets - nTargetsWithLenientResponses; }
   
   // CORRECT
   // responses that are coextensive and equal
@@ -277,6 +291,8 @@ public abstract class EvalStatsTagging  {
     sb.append("Incorrect Strict: "); sb.append(getIncorrectStrict()); sb.append("\n");
     sb.append("Missing Strict: "); sb.append(getMissingStrict()); sb.append("\n");
     sb.append("True Missing Strict: "); sb.append(getTrueMissingStrict()); sb.append("\n");
+    sb.append("True Missing No Response Strict: "); 
+      sb.append(getTrueMissingStrict()-getTargetsWithNoStrictResponses()); sb.append("\n");
     sb.append("Spurious Strict: "); sb.append(getSpuriousStrict()); sb.append("\n");
     sb.append("True Spurious Strict: "); sb.append(getTrueSpuriousStrict()); sb.append("\n");
     sb.append("Correct Partial: "); sb.append(getCorrectPartial()); sb.append("\n");
@@ -284,6 +300,8 @@ public abstract class EvalStatsTagging  {
     sb.append("Incorrect Partial: "); sb.append(getIncorrectPartial()); sb.append("\n");
     sb.append("Missing Lenient: "); sb.append(getMissingLenient()); sb.append("\n");
     sb.append("True Missing Lenient: "); sb.append(getTrueMissingLenient()); sb.append("\n");
+    sb.append("True Missing No Response Lenient: "); 
+      sb.append(getTrueMissingLenient()-getTargetsWithNoLenientResponses()); sb.append("\n");
     sb.append("Spurious Lenient: "); sb.append(getSpuriousLenient()); sb.append("\n");
     sb.append("True Spurious Lenient: "); sb.append(getTrueSpuriousLenient()); sb.append("\n");
     return sb.toString();
