@@ -247,7 +247,7 @@ public abstract class EvalStatsTagging  {
       }
     } else {
       assert(nTargetsWithStrictResponses>=nCorrectStrict);
-      return nCorrectStrict/(double)nTargetsWithStrictResponses;
+      return nCorrectStrict/(double)nTargetsWithLenientResponses;
     }    
   }
   
