@@ -1023,10 +1023,16 @@ public class AnnotationDifferTagging {
                     haveLenientResponse[i]=true;
                   }
                 }
-              } else if (keyAnn.coextensive(tmpResp) && match == WRONG_VALUE) {
-                //logger.debug("Found a MISMATCH");
-                match = MISMATCH_VALUE;
-                bestAnn = tmpResp;
+              } else if(keyAnn.coextensive(tmpResp)) {
+                if(match == WRONG_VALUE) {
+                  bestAnn = tmpResp;
+                  match = MISMATCH_VALUE;
+                  //logger.debug("Found a MISMATCH");
+                }
+                haveStrictResponse[i]=true;
+                haveLenientResponse[i]=true;
+              } else if(keyAnn.overlaps(tmpResp)) {
+                haveLenientResponse[i]=true;
               } else {
                 // if we get here then 
                 // = there is certainly no match
@@ -1055,6 +1061,8 @@ public class AnnotationDifferTagging {
               //the two annotations are coextensive but don't match
               //we have a missmatch
               choice = new Pairing(i, j, MISMATCH_VALUE);
+              haveStrictResponse[i]=true;
+              haveLenientResponse[i]=true;              
             }
           } else if (keyAnn.overlaps(resAnn)) {
             //we have partial overlap -> PARTIALLY_CORRECT or WRONG
@@ -1063,6 +1071,7 @@ public class AnnotationDifferTagging {
               haveLenientResponse[i]=true;
             } else {
               choice = new Pairing(i, j, WRONG_VALUE);
+              haveLenientResponse[i]=true;
             }
           }
         }
