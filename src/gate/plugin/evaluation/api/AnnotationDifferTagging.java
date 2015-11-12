@@ -836,9 +836,6 @@ public class AnnotationDifferTagging {
   // correct strict or correct partial match was first encountered and otherwise set that rank 
   // to some special N/A value. This would be useful to calculate a statistic about the average
   // rank of the correct answer among those list which have a correct answer. 
-  // TODO: this should also record statistics about how often a target did not have a correct
-  // response because there was no response list and how often a target did not have a correct
-  // response because the response list did not contain the correct answer.
   private EvalStatsTagging calculateDiff(
           AnnotationSet keyAnns,
           AnnotationSet responseAnns,
