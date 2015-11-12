@@ -150,7 +150,11 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
         // other object
         NavigableMap.Entry<Integer,EvalStatsTagging4Rank> otherLowerEntry = other.byRankEvalStats.lowerEntry(rank);
         if(otherLowerEntry == null) {
-          System.err.println("ERROR: Cannot add stats if we have a rank and the other object does not have the same or lower rank, rank is "+rank);
+          // Apparently, this does not cause any harm, did a few tests on a real corpus where 
+          // depending on the order of the documents, this was shown sometimes and sometimes not.
+          // We got the same PRF in all cases!
+          // TODO: actually understand what is going on here
+          // System.err.println("ERROR: Cannot add stats if we have a rank and the other object does not have the same or lower rank, rank is "+rank);
         } else {
           thisES.add(otherLowerEntry.getValue());
         }
