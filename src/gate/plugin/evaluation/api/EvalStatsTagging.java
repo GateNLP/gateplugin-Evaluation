@@ -153,10 +153,23 @@ public abstract class EvalStatsTagging  {
   // A true missing strict is a target for which no correct strict or incorrect strict response
   // exists;
   public int getTrueMissingStrict() { return nTargets - nCorrectStrict - nIncorrectStrict; }
+  
+  // This is mainly for lists and gives the number of true missings which are not missing
+  // because there was not response list at all. Rather the true missings which did have responses,
+  // but no correct response was among them.
+  public int getTrueMissingInResponsesStrict() { 
+    return getTrueMissingStrict() - getTargetsWithNoStrictResponses(); 
+  }
+  
   // A true missing lenient is a target for which no strict or partial incorrect or correct 
   // response exists;
   public int getTrueMissingLenient() { return getTrueMissingStrict() - nCorrectPartial - nIncorrectPartial;  }
   // NOTE: a true missing partial does not make sense since it would essentially equal a correct partial
+
+  public int getTrueMissingInResponsesLenient() { 
+    return getTrueMissingLenient() - getTargetsWithNoLenientResponses(); 
+  }
+  
   
   // TRUE SPURIOUS: we define this to be a response for which not even an incorrect target exists.
   public int getTrueSpuriousStrict() { return nResponses - nCorrectStrict - nIncorrectStrict; }
@@ -291,8 +304,7 @@ public abstract class EvalStatsTagging  {
     sb.append("Incorrect Strict: "); sb.append(getIncorrectStrict()); sb.append("\n");
     sb.append("Missing Strict: "); sb.append(getMissingStrict()); sb.append("\n");
     sb.append("True Missing Strict: "); sb.append(getTrueMissingStrict()); sb.append("\n");
-    sb.append("True Missing No Response Strict: "); 
-      sb.append(getTrueMissingStrict()-getTargetsWithNoStrictResponses()); sb.append("\n");
+    sb.append("True Missing In Responses Strict: "); sb.append(getTrueMissingInResponsesStrict()); sb.append("\n");
     sb.append("Spurious Strict: "); sb.append(getSpuriousStrict()); sb.append("\n");
     sb.append("True Spurious Strict: "); sb.append(getTrueSpuriousStrict()); sb.append("\n");
     sb.append("Correct Partial: "); sb.append(getCorrectPartial()); sb.append("\n");
@@ -300,8 +312,7 @@ public abstract class EvalStatsTagging  {
     sb.append("Incorrect Partial: "); sb.append(getIncorrectPartial()); sb.append("\n");
     sb.append("Missing Lenient: "); sb.append(getMissingLenient()); sb.append("\n");
     sb.append("True Missing Lenient: "); sb.append(getTrueMissingLenient()); sb.append("\n");
-    sb.append("True Missing No Response Lenient: "); 
-      sb.append(getTrueMissingLenient()-getTargetsWithNoLenientResponses()); sb.append("\n");
+    sb.append("True Missing In Responses Lenient: "); sb.append(getTrueMissingInResponsesLenient()); sb.append("\n");
     sb.append("Spurious Lenient: "); sb.append(getSpuriousLenient()); sb.append("\n");
     sb.append("True Spurious Lenient: "); sb.append(getTrueSpuriousLenient()); sb.append("\n");
     return sb.toString();
