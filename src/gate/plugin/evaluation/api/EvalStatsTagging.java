@@ -234,6 +234,18 @@ public abstract class EvalStatsTagging  {
     }
   }
   
+  public double getRecallInResponsesStrict() {
+    if(nTargetsWithStrictResponses == 0) {
+      if(nResponses == 0) {
+        return 1.0;
+      } else {
+        return 0.0;        
+      }
+    } else {
+      return nCorrectStrict/(double)nTargetsWithStrictResponses;
+    }    
+  }
+  
   public double getRecallLenient() {
     if(nTargets == 0) {
       if(nResponses == 0) {
@@ -243,6 +255,18 @@ public abstract class EvalStatsTagging  {
       }
     } else {
       return getCorrectLenient()/(double)nTargets;
+    }    
+  }
+
+  public double getRecallInResponsesLenient() {
+    if(nTargetsWithLenientResponses == 0) {
+      if(nResponses == 0) {
+        return 1.0;
+      } else {
+        return 0.0;        
+      }
+    } else {
+      return getCorrectLenient()/(double)nTargetsWithLenientResponses;
     }    
   }
   
@@ -315,6 +339,8 @@ public abstract class EvalStatsTagging  {
     sb.append("True Missing In Responses Lenient: "); sb.append(getTrueMissingInResponsesLenient()); sb.append("\n");
     sb.append("Spurious Lenient: "); sb.append(getSpuriousLenient()); sb.append("\n");
     sb.append("True Spurious Lenient: "); sb.append(getTrueSpuriousLenient()); sb.append("\n");
+    sb.append("Recall In Responses Strict: "); sb.append(getRecallInResponsesStrict()); sb.append("\n");
+    sb.append("Recall In Responses Lenient: "); sb.append(getRecallInResponsesLenient()); sb.append("\n");
     return sb.toString();
   }
 
