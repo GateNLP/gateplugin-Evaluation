@@ -154,11 +154,13 @@ public abstract class EvalStatsTagging  {
   // exists;
   public int getTrueMissingStrict() { return nTargets - nCorrectStrict - nIncorrectStrict; }
   
-  // This is mainly for lists and gives the number of true missings which are not missing
-  // because there was not response list at all. Rather the true missings which did have responses,
+  // This is mainly for lists and gives the number of missings which are not missing
+  // because there was not response list at all. Rather the missings which did have responses,
   // but no correct response was among them.
+  // In other words, this is the number of targets which do have a strict response but the
+  // response is not a strict correct one
   public int getTrueMissingInResponsesStrict() { 
-    return getTrueMissingStrict() - getTargetsWithNoStrictResponses(); 
+    return nTargetsWithStrictResponses - nCorrectStrict; 
   }
   
   // A true missing lenient is a target for which no strict or partial incorrect or correct 
@@ -166,8 +168,10 @@ public abstract class EvalStatsTagging  {
   public int getTrueMissingLenient() { return getTrueMissingStrict() - nCorrectPartial - nIncorrectPartial;  }
   // NOTE: a true missing partial does not make sense since it would essentially equal a correct partial
 
+  // This is the number of targets which do have a strict or lenient response, but the response
+  // is not a correct strict or correct partial one.
   public int getTrueMissingInResponsesLenient() { 
-    return getTrueMissingLenient() - getTargetsWithNoLenientResponses(); 
+    return nTargetsWithLenientResponses - nCorrectStrict - nCorrectPartial;
   }
   
   
@@ -242,6 +246,7 @@ public abstract class EvalStatsTagging  {
         return 0.0;        
       }
     } else {
+      assert(nTargetsWithStrictResponses>=nCorrectStrict);
       return nCorrectStrict/(double)nTargetsWithStrictResponses;
     }    
   }
@@ -266,6 +271,7 @@ public abstract class EvalStatsTagging  {
         return 0.0;        
       }
     } else {
+      assert(nTargetsWithLenientResponses>=getCorrectLenient());
       return getCorrectLenient()/(double)nTargetsWithLenientResponses;
     }    
   }
