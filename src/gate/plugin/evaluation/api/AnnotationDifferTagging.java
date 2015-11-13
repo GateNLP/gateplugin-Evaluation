@@ -912,7 +912,8 @@ public class AnnotationDifferTagging {
         }
         cidx++;
       }
-      logger.debug("DEBUG: response list size is now: " + responseList.size());
+      //logger.debug("DEBUG: response list size is now: " + responseList.size());
+      //System.err.println("DEBUG: respListSize="+responseList.size()+" candIndicesSize="+candidateIndices.size());
     } else {
 
       // if we do not need to process the candidate lists, check if we need to process for 
@@ -933,7 +934,16 @@ public class AnnotationDifferTagging {
       }
       
     }
-    Collections.sort(responseList,new OffsetAndMoreComparator(features));
+    // We only sort if we have actual single responses, if we have response lists, then
+    // sorting would mess up the indices of the corresponding candidate lists we have
+    // created earlier. 
+    // Also since this sorts on the features, it does not make a lot of sense if we 
+    // just have one candidate from the list. 
+    // TODO: check out why we sort here, maybe there is a good way to also sort when we 
+    // have lists?
+    if(candidateLists == null) {
+      Collections.sort(responseList,new OffsetAndMoreComparator(features));
+    }
     //logger.debug("DEBUG: responseList size for scoreThreshold "+scoreThreshold+" is "+responseList.size());
 
     keyChoices = new ArrayList<List<Pairing>>(keyList.size());
@@ -992,15 +1002,16 @@ public class AnnotationDifferTagging {
           }
 
           if (keyAnn.overlaps(candList.getListAnnotation())) {
+            //System.out.println("DEBUG: comparing key="+debugAnnAsString(keyAnn,i)+" respList="+debugAnnAsString(candList.getListAnnotation(),j));
             // find the best matching annotation and remember which kind of match we had
             int match = WRONG_VALUE;
             Annotation bestAnn = responseList.get(j);
             // We initialize responselist(i) with candList.get(0) so the above is identical to
             // Annotation bestAnn = candList.get(0);
-            boolean foundStrict = false;
-            boolean foundPartial = false;
+            boolean foundOverlap = false;
             for (int c = 0; c < candList.size(); c++) {
               Annotation tmpResp = candList.get(c);
+              //System.out.println("DEBUG: pairing key="+debugAnnAsString(keyAnn,i)+" respAnn="+debugAnnAsString(tmpResp,j)+" best="+debugAnnAsString(bestAnn,j));
               //logger.debug("Checking annotation at index: " + c + ": " + tmpResp);
               if (isAnnotationsMatch(keyAnn, tmpResp, features, fcmp, true, typeSpecs)) {
                 // if we are coextensive, then we can stop: can't get any better!
@@ -1008,7 +1019,7 @@ public class AnnotationDifferTagging {
                   //logger.debug("Found correct match!!");
                   match = CORRECT_VALUE;
                   bestAnn = tmpResp;
-                  foundStrict = true;
+                  foundOverlap = true;
                   haveStrictResponse[i]=true;
                   haveLenientResponse[i]=true;
                   break;
@@ -1019,12 +1030,13 @@ public class AnnotationDifferTagging {
                     //logger.debug("Found a partial match and adding!");
                     match = PARTIALLY_CORRECT_VALUE;
                     bestAnn = tmpResp;
-                    foundPartial = true;
+                    foundOverlap = true;
                     haveLenientResponse[i]=true;
                   }
                 }
               } else if(keyAnn.coextensive(tmpResp)) {
                 if(match == WRONG_VALUE) {
+                  foundOverlap = true;
                   bestAnn = tmpResp;
                   match = MISMATCH_VALUE;
                   //logger.debug("Found a MISMATCH");
@@ -1032,8 +1044,11 @@ public class AnnotationDifferTagging {
                 haveStrictResponse[i]=true;
                 haveLenientResponse[i]=true;
               } else if(keyAnn.overlaps(tmpResp)) {
+                match = WRONG_VALUE;
                 haveLenientResponse[i]=true;
+                foundOverlap = true;
               } else {
+                System.err.println("EvaluationPlugin:AnnotationDifferTagging:DEBUG: we are in the odd else, match is "+match);
                 // if we get here then 
                 // = there is certainly no match
                 // = the annotation may be overlapping, or if it is coextensive, than
@@ -1042,10 +1057,18 @@ public class AnnotationDifferTagging {
                 //logger.debug("Found ODD: match=" + match);
               }
             } // for
-            logger.debug("Took best match from index "+j+" was "+match);
+            //logger.debug("Took best match from index "+j+" was "+match);
             responseList.set(j, bestAnn);
-            choice = new Pairing(i, j, match);
+            // only create a choice if the target and at least one response ann overlapped!
+            // otherwise the choice stays null and will not be used later
+            if(foundOverlap) {
+              //System.err.println("DEBUG setting choice to "+i+"/"+j+" best="+debugAnnAsString(bestAnn, j));
+              choice = new Pairing(i, j, match);
+            } else {
+              //System.err.println("DEBUG: no overlap found");
+            }
           }
+
         } else {
 
           resAnn = responseList.get(j);
@@ -1078,6 +1101,7 @@ public class AnnotationDifferTagging {
 
         //add the new choice if any
         if (choice != null) {
+          //System.out.println("DEBUG Adding choice: key="+debugAnnAsString(choice.getKey(),i)+" resp="+debugAnnAsString(choice.getResponse(),j)+" type="+choice.typeAsString());
           addPairing(choice, i, keyChoices);
           addPairing(choice, j, responseChoices);
           possibleChoices.add(choice);
@@ -1152,6 +1176,9 @@ public class AnnotationDifferTagging {
         }
         case WRONG_VALUE: { // overlapping and not correct
           if (bestChoice.getKey() != null && bestChoice.getResponse() != null) {
+            if(!bestChoice.getKey().overlaps(bestChoice.getResponse())) {
+              //System.err.println("ASSERTION ERROR: Key and Response do not overlap: key="+debugAnnAsString(bestChoice.getKey(),-1)+" resp="+debugAnnAsString(bestChoice.getResponse(),-1));
+            }
             es.addIncorrectPartial(1);
             if (createAdditionalData) {
               Annotation tmp = bestChoice.getResponse();
@@ -1352,6 +1379,30 @@ public class AnnotationDifferTagging {
       scoreCalculated = false;
     }
 
+    public String typeAsString() {
+      StringBuilder sb = new StringBuilder();
+      switch (getPairingType()) {
+        case CORRECT_TYPE:
+          sb.append("CORRECT");
+          break;
+        case PARTIALLY_CORRECT_TYPE:
+          sb.append("PARTIAL");
+          break;
+        case MISSING_TYPE:
+          sb.append("MISSING");
+          break;
+        case SPURIOUS_TYPE:
+          sb.append("SPURIOUS");
+          break;
+        case MISMATCH_TYPE:
+          sb.append("INCORRECT");
+          break;
+        default:
+          sb.append("UNKNOWN:");
+          sb.append(getPairingType());
+      }
+      return sb.toString();
+    }
     public String toString() {
       StringBuilder sb = new StringBuilder();
       switch (getPairingType()) {
@@ -1996,5 +2047,19 @@ public class AnnotationDifferTagging {
       return result;
     }
   } 
+    
+  public String debugAnnAsString(Annotation ann,int i)   {
+    StringBuilder sb = new StringBuilder();
+    sb.append(ann.getType());
+    sb.append(":");
+    sb.append(Utils.start(ann));
+    sb.append("-");
+    sb.append(Utils.end(ann));
+    sb.append("(");
+    sb.append(i);
+    sb.append(")");
+    return sb.toString();
+  }
+    
 
 }
