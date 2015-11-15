@@ -40,6 +40,7 @@ import gate.plugin.evaluation.api.EvalStatsTagging4Score;
 import gate.plugin.evaluation.api.ThresholdsOrRanksToUse;
 import gate.plugin.evaluation.api.ThresholdsToUse;
 import gate.util.GateRuntimeException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -65,9 +66,7 @@ import org.apache.log4j.Logger;
         name = "EvaluateTagging4Lists",
         helpURL ="https://github.com/johann-petrak/gateplugin-Evaluation/wiki/EvaluateTagging-PR",
         comment = "Calculate P/R/F evalutation measures for annotations with candidate lists")
-public class EvaluateTagging4Lists extends EvaluateTaggingBase 
-  // implements ControllerAwarePR, CustomDuplication 
-{
+public class EvaluateTagging4Lists extends EvaluateTaggingBase implements ControllerAwarePR, CustomDuplication {
   
   ///////////////////
   /// PR PARAMETERS 
@@ -149,6 +148,45 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
     //
   }
   
+  /// API methods to access the stats data the PR calculates
+  
+  /**
+   * Return the evaluation statistics.
+   * @param type
+   * @return 
+   */
+  public EvalStatsTagging getEvalStatsTagging() { 
+    return allDocumentsStats; 
+  }
+  
+  /**
+   * Get the evaluation statistics by threshold.
+   * @param type
+   * @return 
+   */
+  public ByThEvalStatsTagging getByThEvalStatsTagging() {
+    return evalStatsByThreshold;
+  }
+  
+  /**
+   * Get the evaluation statistics by rank
+   * @param type
+   * @return 
+   */
+  public ByRankEvalStatsTagging getByRankEvalStatsTagging() {
+    return evalStatsByRank;
+  }
+  
+  /**
+   * Get the evaluation statistics by rank for disambiguation accuracy
+   * @param type
+   * @return 
+   */
+  public ByRankEvalStatsTagging getByRankEvalStats4ListAcc() {
+    return byRank4ListAcc;
+  }
+  
+  
   
   
   // This will be initialized at the start of the run and be incremented in the AnnotationDifferTagging
@@ -184,6 +222,18 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
   protected String outputASListMaxName;
   protected String outputASListThName;
 
+
+  protected PrintStream matchesTsvPrintStream;
+  
+  int nrListAnns = 0;
+  int nrListAnnsWithKeys = 0;
+  int nrListAnnsWithoutKeys = 0;
+  int nrListAnnsNoMatch = 0;
+  int nrListAnnsMatchLenient = 0;
+  int nrListAnnsMatchStrict = 0;
+  int nrListAnnsMatchPartial = 0;
+  int nrListAnnsMatchStrictAt0 = 0;
+  int nrListAnnsMatchPartialAt0 = 0;
   
   @Override
   public void execute() throws ExecutionException {
@@ -309,6 +359,13 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
               expandedEdgeName, expandedScoreFeatureName, 
               bth.getWhichThresholds(), bth,
               annotationTypeSpecs);    
+      
+      /* 
+      
+      NOTE: this was the old attempt to add the extreme value to the stats object, but
+      this did not work correctly. Instead we now always add the extreme vale to the actual 
+      list of thresholds used above 
+      
       // now in addition evaluate for the the score -Inf and create a differ object that
       // contains the indicator annotations for this. 
       AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(keySet,
@@ -323,11 +380,22 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
               annotationTypeSpecs);
       ByThEvalStatsTagging tmpEs = new ByThEvalStatsTagging(bth.getWhichThresholds());
       tmpEs.put(Double.NEGATIVE_INFINITY,ad.getEvalStatsTagging());
-      bth.add(tmpEs);      
+      bth.addNonCumulative(tmpEs);      
+      */
       if(!outputASListMaxName.isEmpty()) {
         AnnotationSet outSet = document.getAnnotations(outputASListMaxName);
+        AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(keySet,
+              document.getAnnotations(expandedResponseSetName),
+              candLists,
+              featureSet,
+              featureComparison,
+              expandedEdgeName,
+              expandedScoreFeatureName,
+              Double.NEGATIVE_INFINITY,
+              null,
+              annotationTypeSpecs);
         ad.addIndicatorAnnotations(outSet,"");
-      }      
+      } 
     } else if(evaluate4RankTh) {
       AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(keySet,
               document.getAnnotations(expandedResponseSetName),
@@ -354,6 +422,14 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
               expandedEdgeName, expandedScoreFeatureName, 
               brk.getWhichThresholds(), brk,
               annotationTypeSpecs);     
+      
+      /* 
+      
+      NOTE: this was the old attempt to add the extreme value to the stats object, but
+      this did not work correctly. Instead we now always add the extreme vale to the actual 
+      list of thresholds used above 
+      
+      
       // now in addition also evaluate for rank max_value and create a differ object that
       // contains the indicator annotations for this.
       AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(keySet,
@@ -368,12 +444,28 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
               annotationTypeSpecs);
       ByRankEvalStatsTagging tmpEs = new ByRankEvalStatsTagging(brk.getWhichThresholds());
       //System.out.println("DEBUG adding for rank "+rankThresholdToUse);
-      tmpEs.put(rankThresholdToUse,ad.getEvalStatsTagging());
-      brk.add(tmpEs);   
+      //System.out.println("DEBUG: MAXVALUE evalstats="+ad.getEvalStatsTagging());
+      // NOTE: we cannot use brk.add(tmpEs) here since the tmpEs object is already the correct
+      // object for that rank with all values accumulated. 
+      tmpEs.put(Integer.MAX_VALUE,ad.getEvalStatsTagging());
+      //System.out.println("DEBUG before adding="+brk);
+      brk.addNonCumulative(tmpEs);   
+      //System.out.println("DEBUG after adding="+brk);
+      */
       if(!outputASListMaxName.isEmpty()) {
         AnnotationSet outSet = document.getAnnotations(outputASListMaxName);
+        AnnotationDifferTagging ad = AnnotationDifferTagging.calculateEvalStatsTagging4List(keySet,
+              document.getAnnotations(expandedResponseSetName),
+              candLists,
+              featureSet,
+              featureComparison,
+              expandedEdgeName,
+              expandedScoreFeatureName,
+              null,
+              Integer.MAX_VALUE,      // Instead of this, we should use an internal field so we can use -Inf etc.
+              annotationTypeSpecs);
         ad.addIndicatorAnnotations(outSet,"");
-      }      
+      } 
     }
 
     // Store the counts and measures as document feature values
@@ -414,8 +506,9 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
     }
     
     if(mainTsvPrintStream != null) {
-      // a line for the response stats for that document
-      mainTsvPrintStream.println(outputTsvLine("list-best", document.getName(), typeSpec, expandedResponseSetName, es));
+      // a line for the response stats for that document      
+      mainTsvPrintStream.println(outputTsvLine("list-best", document.getName(), typeSpec, 
+              expandedResponseSetName, es));
     }
     
     // Now handle the list accuracy and per-list P/R statistics. In the previous code, we wanted
@@ -448,22 +541,32 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
     //      have match: output overlap, x/y line
     //     increment our stats objects.
     
+    int nrTargets = keySet.size();
+    //System.out.println("Number of targets found: "+nrTargets);
+    //System.out.println("Number of candidate lists: "+candLists.size());
+    
+    // TODO: if we do not have responses (candidate lists), do it right!
+    
     ByRankEvalStatsTagging tmpEs = new ByRankEvalStatsTagging(ThresholdsOrRanksToUse.USE_RANKS_ALL);
     // find what the highest rank is over all the lists that do have a match for this document
-    int maxRankTh = -1;
+    int maxRankTh = 0; // always create a stats object for rank 0, if all else fails this will remain empty (no counts).
     for(CandidateList cl : candLists) {
-      if(cl.sizeAll() > maxRankTh) {
-        maxRankTh = cl.sizeAll();
+      //System.out.println("Found a candidate list with candidates: "+cl.sizeAll());
+      if(cl.sizeAll()-1 > maxRankTh) {
+        maxRankTh = cl.sizeAll()-1;
       }
     }
+    //System.out.println("Max Rank is: "+maxRankTh);
     // initialize the by threshold object with all thresholds we need
     for(int r = 0; r<= maxRankTh; r++) {
       tmpEs.put(r, new EvalStatsTagging4Rank(r));
     }
     for(CandidateList cl : candLists) {
       Annotation ll = cl.getListAnnotation();
+      nrListAnns += 1;
       AnnotationSet keys = Utils.getOverlappingAnnotations(keySet, ll);
       if(keys.size() > 0) {
+        nrListAnnsWithKeys += 1;
         // this is an overlap: we now need to check if any element in the list, if it still
         // overlaps any of the key anns, is actually a strict or partial match, and which
         // rank/score we have at the first (in order of decreasing preference) strict/partial match.
@@ -508,6 +611,21 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
         // if we do have any match (strict or partial) then record the match by threshold in 
         // the stats objects for this document
         if(firstPartial != null || firstStrict != null) {
+          double scAtStrict = Double.NaN;
+          double scAtPartial = Double.NaN;
+          if(!getExpandedScoreFeatureName().isEmpty()) {
+            if(firstPartial != null) {
+              scAtPartial = AnnotationDifferTagging.object2Double(firstPartial.getFeatures().get(getExpandedScoreFeatureName()));
+            }
+            if(firstStrict != null) {
+              scAtStrict = AnnotationDifferTagging.object2Double(firstStrict.getFeatures().get(getExpandedScoreFeatureName()));
+            }
+          } 
+          outputTsvLine4Matches(matchesTsvPrintStream,"list-matches", ll.getId(), document.getName(), 
+                typeSpec, responseSet.getName(), keys.size(), firstStrictIndex, firstPartialIndex, 
+                scAtStrict, scAtPartial);
+          
+          
           // since there is a partial or strict match, we update the stats objects.
           // This is done in the following way: for all candidates from 0 up until the first match,
           // an incorrectStrict or incorrectPartial is counted, once a correct strict is reached,
@@ -522,6 +640,10 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
           // is reached, if any, then continue counting that until a strict match is reached, if 
           // any, then continue counting that.
           
+          // we go through all candidates for each list where we have at least a partial match 
+          // therefore the number of "targets" shown in the output is different from the actual
+          // targets, it is just the number of response lists that overlaps with at least one 
+          // actual target.
           boolean haveStrict = false;
           boolean havePartial = false;
           for (int k = 0; k < cl.sizeAll(); k++) {
@@ -545,44 +667,132 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
                 e.addIncorrectPartial(1);
               }              
             } // else 
-          } // for k     
+          } // for k    
+          // now continue to add the counts to any remaining entries for ranks which were not 
+          // present in this cl
+          for(int l=cl.sizeAll(); l<=maxRankTh; l++) {
+            EvalStatsTagging e = tmpEs.get(l);
+            e.addTargets(1);
+            e.addResponses(1);
+            if (haveStrict) { // already found a strict, go on counting that
+              e.addCorrectStrict(1);
+            } else if (havePartial) {
+              e.addCorrectPartial(1);
+            } else {
+              if (cl.get(l).coextensive(ll)) {
+                e.addIncorrectStrict(1);
+              } else {
+                e.addIncorrectPartial(1);
+              }              
+            } // else 
+            
+          }
+          nrListAnnsMatchLenient += 1;
+          if(haveStrict) {
+            nrListAnnsMatchStrict += 1;
+            if(firstStrictIndex==0) {
+              nrListAnnsMatchStrictAt0 += 1;
+            }
+          }
+          if(havePartial) {
+            nrListAnnsMatchPartial += 1;
+            if(firstPartialIndex==0) {
+              nrListAnnsMatchPartialAt0 += 1;
+            }
+          }
         } else { 
           // no strict or partial match found in the whole list
+          outputTsvLine4Matches(matchesTsvPrintStream,"list-matches", ll.getId(), document.getName(), 
+                typeSpec, responseSet.getName(), keys.size(), -1, -1, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
+          nrListAnnsNoMatch += 1;
         }
       } else {
         // no overlapping key annotation, just count this as a non-overlap 
-        
+        nrListAnnsWithoutKeys += 1;
+        outputTsvLine4Matches(matchesTsvPrintStream,"list-matches", ll.getId(), document.getName(), 
+                typeSpec, responseSet.getName(), 0, -1, -1, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
       }
+      //System.out.println("tmpEs=\n"+tmpEs.toString4Debug()+"\n");
+
     } // for one single candidate list ... 
+    
     // add the per-document stats objects to the global stats objects
     // add tmpEs to ...
     byRank4ListAcc.add(tmpEs);
-    
-    // update other global counters 
-    
+    //System.out.println("-----------------> tmpEs");
+    //System.out.println(tmpEs);
+    //System.out.println("<----------------- tmpEs");
+    // per document we only output the stats for rank 0
+    if(mainTsvPrintStream!=null) {
+      mainTsvPrintStream.println(outputTsvLine("list-disamb-best", document.getName(), typeSpec, 
+              responseSet.getName(), tmpEs.get(0)));
+    }
     
     
   }
   
   
-  
-  /**
-   * Return the evaluation statistics.
-   * @param type
-   * @return 
-   */
-  public EvalStatsTagging getEvalStatsTagging() { 
-    return allDocumentsStats; 
+  protected void outputTsvLine4Matches (
+          PrintStream out,
+          String evalType,
+          int annId, // annotation id of list annotation
+          String docName,
+          AnnotationTypeSpec typeSpec,
+          String setName,
+          int nrKeys, // number of overlapping key annotations (if 0 then haveStrict/PartialMatch = 0)
+          int rankOfStrictMatch,  // -1 if no match
+          int rankOfPartialMatch,   // -1 if no match
+          double scoreAtStrictMatch, // NaN if no score specified, -Inf if no match
+          double scoreAtPartialMatch // NaN if no score specified, -Inf if no match
+  ) {
+    if(out == null) return;
+    StringBuilder sb = new StringBuilder();
+    sb.append(expandedEvaluationId); sb.append("\t");
+    sb.append(evalType); sb.append("\t");
+    sb.append(annId); sb.append("\t");
+    if(docName == null) {
+      sb.append("[doc:all:micro]");
+    } else {
+      sb.append(docName);
+    }
+    sb.append("\t");
+    if(setName == null || setName.isEmpty()) {
+      sb.append(expandedResponseSetName);
+    } else {
+      sb.append(setName);
+    }
+    sb.append("\t");
+    if(typeSpec == null) {
+      sb.append("[type:all:micro]");
+    } else {
+      sb.append(typeSpec);
+    }
+    sb.append("\t");
+    sb.append(nrKeys); sb.append("\t");
+    sb.append(rankOfStrictMatch); sb.append("\t");
+    sb.append(rankOfPartialMatch); sb.append("\t");
+    sb.append(scoreAtStrictMatch); sb.append("\t");
+    sb.append(scoreAtPartialMatch); 
+    out.println(sb.toString());
   }
   
-  /**
-   * Get the evaluation statistics by threshold.
-   * @param type
-   * @return 
-   */
-  public ByThEvalStatsTagging getByThEvalStatsTagging() {
-    return evalStatsByThreshold;
+  protected void outputTsvLine4MatchesHeader (PrintStream out) {
+    if(out==null) return;
+    StringBuilder sb = new StringBuilder();
+    sb.append("evaluationId"); sb.append("\t");
+    sb.append("evaluationType"); sb.append("\t");
+    sb.append("annotationId"); sb.append("\t");
+    sb.append("docName"); sb.append("\t");
+    sb.append("setName"); sb.append("\t");
+    sb.append("annotationType"); sb.append("\t");
+    sb.append("nrKeys"); sb.append("\t");
+    sb.append("rankOfStrictMatch"); sb.append("\t");
+    sb.append("rankOfPartialMatch"); sb.append("\t");
+    sb.append("scoreAtStrictMatch"); sb.append("\t");
+    sb.append("scoreAtPartialMatch");
+    out.println(sb.toString());
   }
+  
   
   
   ////////////////////////////////////////////
@@ -755,6 +965,11 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
     
     byRank4ListAcc = new ByRankEvalStatsTagging(ThresholdsOrRanksToUse.USE_RANKS_ALL);
     
+    matchesTsvPrintStream = getOutputStream("matches");
+    outputTsvLine4MatchesHeader(matchesTsvPrintStream);
+    
+
+    
   }
   
   
@@ -777,12 +992,21 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
     
     // TODO: think of a way of how to add the interpolated precision strict interpolated precision
     // lenient to the by thresholds lines!!!
-    AnnotationTypeSpec typeSpecNormal = new AnnotationTypeSpec(getExpandedKeyType(),getExpandedElementType());
-    AnnotationTypeSpec typeSpecList = new AnnotationTypeSpec(getExpandedKeyType(),getExpandedListType());
+    
+    // NOTE: cannot remember why we use the ListType for some and the ElementType for others here,
+    // the problem is that this will look as if we had different types in the result file and 
+    // will make the R package complain. So for now, until we remember what the motivation was,
+    // we only use one of the types here, and for now we choose to use the element type.
+    //AnnotationTypeSpec typeSpecNormal = new AnnotationTypeSpec(getExpandedKeyType(),getExpandedElementType());
+    //AnnotationTypeSpec typeSpecList   = new AnnotationTypeSpec(getExpandedKeyType(),getExpandedListType());
+    //AnnotationTypeSpec typeSpecList   = new AnnotationTypeSpec(getExpandedKeyType(),getExpandedElementType());
+    AnnotationTypeSpec typeSpecNormal = annotationTypeSpecs.getSpecs().get(0);
+    AnnotationTypeSpec typeSpecList   = annotationTypeSpecs.getSpecs().get(0);
     outputEvalStatsForType(System.out, allDocumentsStats, typeSpecNormal.toString(), expandedResponseSetName);
     if(mainTsvPrintStream != null) { 
       mainTsvPrintStream.println(
-              outputTsvLine("list-best", null, typeSpecNormal, getResponseASName(), allDocumentsStats)); }
+              outputTsvLine("list-best", null, typeSpecNormal, getResponseASName(), allDocumentsStats)); 
+    }
     if(evalStatsByThreshold != null) {
       for(double th : evalStatsByThreshold.getByThresholdEvalStats().navigableKeySet()) {
         outputEvalStatsForType(System.out, evalStatsByThreshold.get(th), typeSpecList.toString(), expandedResponseSetName);
@@ -791,14 +1015,43 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
                   outputTsvLine("list-score", null, typeSpecList, expandedResponseSetName, evalStatsByThreshold.get(th))); }
       }
     } else {
+      //System.out.println("Keyset for list-rank: "+evalStatsByRank.keySet());
       for(int rank : evalStatsByRank.getByRankEvalStats().navigableKeySet()) {
         outputEvalStatsForType(System.out, evalStatsByRank.get(rank), typeSpecList.toString(), expandedResponseSetName);
         if(mainTsvPrintStream != null) { 
           mainTsvPrintStream.println(
-                  outputTsvLine("list-rank", null, typeSpecList, expandedResponseSetName, evalStatsByRank.get(rank))); }
+                  outputTsvLine("list-rank", null, typeSpecList, expandedResponseSetName, evalStatsByRank.get(rank))); 
+        }
       }      
     }
+      for(int rank : byRank4ListAcc.getByRankEvalStats().navigableKeySet()) {
+        // TODO: need to first add eval type to that output before we can output this too
+        // outputEvalStatsForType(System.out, evalStatsByRank.get(rank), typeSpecList.toString(), expandedResponseSetName);
+        //System.err.println("Before writing list-disamb, stream is "+mainTsvPrintStream+" by rank object has thresholds: "+byRank4ListAcc.keySet());
+        if(mainTsvPrintStream != null) { 
+          mainTsvPrintStream.println(
+                  outputTsvLine("list-disamb",null,typeSpecNormal, getResponseASName(), byRank4ListAcc.get(rank)));
+        }
+      }      
 
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists: "+r4(nrListAnns));
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists without target: "+r4(nrListAnnsWithoutKeys));
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists with target: "+r4(nrListAnnsWithKeys));
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists with target but no match: "+r4(nrListAnnsNoMatch));
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists with strict match: "+r4(nrListAnnsMatchStrict));
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists with strict match at 0: "+r4(nrListAnnsMatchStrictAt0));
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists with partial match: "+r4(nrListAnnsMatchPartial));
+    System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
+            "Number of lists with partial match at 0: "+r4(nrListAnnsMatchPartialAt0));
+    
+    
   }
   
   
@@ -834,7 +1087,6 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
     }
   }
 
-  /*
   @Override
   public Resource duplicate(Factory.DuplicationContext dc) throws ResourceInstantiationException {
     throw new UnsupportedOperationException("At the moment, this PR may not be duplicated and must be run single-threaded"); 
@@ -847,7 +1099,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
     // will do the actual summarization: it will access all stats objects from all other PRs and
     // summarize them and 
   }
-  */
+  
   
   
 }
