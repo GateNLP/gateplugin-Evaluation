@@ -1038,21 +1038,21 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
       }      
 
     System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
-            "Number of lists: "+r4(nrListAnns));
+            " Number of lists: "+r4(nrListAnns));
     System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
-            "Number of lists without target: "+r4(nrListAnnsWithoutKeys));
+            " Number of lists without target: "+r4(nrListAnnsWithoutKeys));
     System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
-            "Number of lists with target: "+r4(nrListAnnsWithKeys));
+            " Number of lists with target: "+r4(nrListAnnsWithKeys));
     System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
-            "Number of lists with target but no match: "+r4(nrListAnnsNoMatch));
+            " Number of lists with target but no match: "+r4(nrListAnnsNoMatch));
     System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
-            "Number of lists with strict match: "+r4(nrListAnnsMatchStrict));
+            " Number of lists with strict match: "+r4(nrListAnnsMatchStrict));
     System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
-            "Number of lists with strict match at 0: "+r4(nrListAnnsMatchStrictAt0));
+            " Number of lists with strict match at 0: "+r4(nrListAnnsMatchStrictAt0));
     System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
-            "Number of lists with partial match: "+r4(nrListAnnsMatchPartial));
+            " Number of lists with partial match: "+r4(nrListAnnsMatchPartial));
     System.out.println(expandedEvaluationId+" set="+expandedResponseSetName+", type="+typeSpecNormal.toString()+
-            "Number of lists with partial match at 0: "+r4(nrListAnnsMatchPartialAt0));
+            " Number of lists with partial match at 0: "+r4(nrListAnnsMatchPartialAt0));
     
     
   }
