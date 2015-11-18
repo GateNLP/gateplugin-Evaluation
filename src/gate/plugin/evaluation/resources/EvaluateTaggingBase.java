@@ -324,16 +324,6 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
       nilTreatment = NilTreatment.NO_NILS;
     }
     
-    mainTsvPrintStream = getOutputStream(null);
-    // Output the initial header line
-    if(mainTsvPrintStream != null) {
-      mainTsvPrintStream.print("evaluationId"); mainTsvPrintStream.print("\t");
-      mainTsvPrintStream.print("evaluationType"); mainTsvPrintStream.print("\t");
-      mainTsvPrintStream.print("docName"); mainTsvPrintStream.print("\t");
-      mainTsvPrintStream.print("setName"); mainTsvPrintStream.print("\t");
-      mainTsvPrintStream.print("annotationType"); mainTsvPrintStream.print("\t");
-      mainTsvPrintStream.println(EvalStatsTagging.getTSVHeaders());
-    }
     if(getAddDocumentFeatures() == null) { setAddDocumentFeatures(true); }
 
   }

@@ -732,6 +732,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
     }
     
     
+    
   }
   
   
@@ -971,6 +972,15 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
     matchesTsvPrintStream = getOutputStream("matches");
     outputTsvLine4MatchesHeader(matchesTsvPrintStream);
     
+    mainTsvPrintStream = getOutputStream(null);    
+    if(mainTsvPrintStream != null) {
+      mainTsvPrintStream.print("evaluationId"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("evaluationType"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("docName"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("setName"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("annotationType"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.println(EvalStatsTagging.getTSVHeaders());
+    }
 
     
   }

@@ -531,6 +531,15 @@ public class EvaluateTagging extends EvaluateTaggingBase
     featurePrefixResponse = initialFeaturePrefixResponse + getExpandedEvaluationId() + "." + getResponseASName() + "." ;
     featurePrefixReference = initialFeaturePrefixReference + getExpandedEvaluationId() + "." + getReferenceASName() + ".";
     
+    mainTsvPrintStream = getOutputStream(null);
+    if(mainTsvPrintStream != null) {
+      mainTsvPrintStream.print("evaluationId"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("evaluationType"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("docName"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("setName"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.print("annotationType"); mainTsvPrintStream.print("\t");
+      mainTsvPrintStream.println(EvalStatsTagging.getTSVHeaders());
+    }
     
 
   }
