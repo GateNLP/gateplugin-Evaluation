@@ -446,7 +446,7 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
             suf = "PM";
           } 
           AnnotationSet outSet = document.getAnnotations(outputASResName);
-          Utils.addAnn(outSet, keyAnn, keyAnn.getType()+suf, Utils.toFeatureMap(keyAnn.getFeatures()));
+          Utils.addAnn(outSet, keyAnn, keyAnn.getType()+"_"+suf, Utils.toFeatureMap(keyAnn.getFeatures()));
         }      
         
         // TODO: maybe replace MAX_VALUE with -1 for the tsv output.
