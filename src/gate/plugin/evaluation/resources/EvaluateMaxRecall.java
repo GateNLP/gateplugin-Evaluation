@@ -727,9 +727,11 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
     System.out.println(evaluationId+" MaxRecall Recall In Responses Lenient: "+r4(recall(nTargetsWithList,nCorrectLenient)));
     System.out.println(evaluationId+" Targets: "+nTargets);
     System.out.println(evaluationId+" Targets without responses: "+(nTargets-nTargetsWithList));
+    System.out.println(evaluationId+" Targets with strict or partial match: "+nCorrectLenient);
     System.out.println(evaluationId+" Targets with strict match: "+nCorrectStrict);
     System.out.println(evaluationId+" Targets with only partial match: "+(nCorrectLenient-nCorrectStrict));
     System.out.println(evaluationId+" Targets with responses: "+nTargetsWithList);  
+    System.out.println(evaluationId+" Targets with responses but no strict or partial match: "+(nTargetsWithList-nCorrectLenient));  
     System.out.println(evaluationId+" Lists: "+nResponseLists);
     System.out.println(evaluationId+" Lists with target: "+nResponseListsWithTarget);
     System.out.println(evaluationId+" Spurious lists (no target): "+(nResponseLists-nResponseListsWithTarget));
