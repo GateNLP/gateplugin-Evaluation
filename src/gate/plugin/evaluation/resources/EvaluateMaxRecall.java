@@ -438,14 +438,15 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
           //  _NM : we had a response list but no match at all
           //  _SM : we found a strict match somewhere
           //  _PM : we found a partial match but no strict match
+          //  _NR : there is not even a response list
           String suf = "NM";
           if(strictMatchIndex < Integer.MAX_VALUE) {
             suf = "SM";
           } else if(lenientMatchIndex < Integer.MAX_VALUE) {
             suf = "PM";
-          }
+          } 
           AnnotationSet outSet = document.getAnnotations(outputASResName);
-          Utils.addAnn(outSet, keyAnn, keyAnn.getType()+"_NR", Utils.toFeatureMap(keyAnn.getFeatures()));
+          Utils.addAnn(outSet, keyAnn, keyAnn.getType()+suf, Utils.toFeatureMap(keyAnn.getFeatures()));
         }      
         
         // TODO: maybe replace MAX_VALUE with -1 for the tsv output.
