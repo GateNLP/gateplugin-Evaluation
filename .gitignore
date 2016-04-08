@@ -1,5 +1,7 @@
 *.class
 
+*.zip
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -22,6 +24,11 @@ hs_err_pid*
 #*
 *~
 *.bak
+
+## tsv files are the results of tests or running evaluations, we generally do not want to check them in
+*.tsv
+
+/R/*.tar.gz
 
 # test output
 testsout/
