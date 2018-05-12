@@ -1,15 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <gate.util.persistence.GateApplication>
   <urlList class="gate.util.persistence.CollectionPersistence">
     <localList>
       <gate.util.persistence.PersistenceManager-URLHolder>
         <urlString>$relpath$../../Evaluation/</urlString>
       </gate.util.persistence.PersistenceManager-URLHolder>
-      <gate.util.persistence.PersistenceManager-URLHolder>
-        <urlString>$gatehome$plugins/ANNIE/</urlString>
-      </gate.util.persistence.PersistenceManager-URLHolder>
-      <gate.util.persistence.PersistenceManager-URLHolder>
-        <urlString>$gatehome$plugins/Tools/</urlString>
-      </gate.util.persistence.PersistenceManager-URLHolder>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>annie</artifact>
+        <version>8.5-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>tools</artifact>
+        <version>8.5-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
     </localList>
     <collectionType>java.util.ArrayList</collectionType>
   </urlList>
@@ -42,15 +47,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -58,7 +63,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -89,15 +94,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -105,7 +110,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -136,15 +141,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -152,7 +157,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -183,15 +188,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -199,7 +204,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -230,15 +235,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -246,7 +251,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -277,15 +282,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -293,7 +298,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -324,15 +329,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -340,7 +345,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -371,15 +376,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -387,7 +392,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -418,15 +423,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -434,7 +439,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -465,15 +470,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -481,7 +486,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -512,15 +517,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -528,7 +533,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -559,15 +564,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -575,7 +580,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -606,15 +611,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -622,7 +627,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -653,15 +658,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -669,7 +674,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -700,15 +705,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -716,7 +721,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -747,15 +752,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -763,7 +768,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -794,15 +799,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -810,7 +815,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -841,15 +846,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -857,7 +862,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -888,15 +893,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -904,7 +909,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -935,15 +940,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -951,7 +956,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -982,15 +987,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -998,7 +1003,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1029,15 +1034,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1045,7 +1050,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1076,15 +1081,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1092,7 +1097,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1123,15 +1128,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1139,7 +1144,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1170,15 +1175,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1186,7 +1191,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1217,15 +1222,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1233,7 +1238,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1264,15 +1269,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1280,7 +1285,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1311,15 +1316,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1327,7 +1332,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1358,15 +1363,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1374,7 +1379,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1405,15 +1410,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1421,7 +1426,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1452,15 +1457,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1468,7 +1473,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1499,15 +1504,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1515,7 +1520,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1546,15 +1551,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1562,7 +1567,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1593,15 +1598,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1609,7 +1614,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1640,15 +1645,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1656,7 +1661,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1687,15 +1692,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1703,7 +1708,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1734,15 +1739,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1750,7 +1755,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1781,15 +1786,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1797,7 +1802,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1828,15 +1833,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1844,7 +1849,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1875,15 +1880,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1891,7 +1896,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1922,15 +1927,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1938,7 +1943,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -1969,15 +1974,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -1985,7 +1990,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2016,15 +2021,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2032,7 +2037,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2063,15 +2068,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2079,7 +2084,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2110,15 +2115,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2126,7 +2131,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2157,15 +2162,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2173,7 +2178,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2204,15 +2209,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2220,7 +2225,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2251,15 +2256,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2267,7 +2272,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2298,15 +2303,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2314,7 +2319,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2345,15 +2350,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2361,7 +2366,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2392,15 +2397,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2408,7 +2413,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2439,15 +2444,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2455,7 +2460,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2486,15 +2491,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2502,7 +2507,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2533,15 +2538,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2549,7 +2554,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2580,15 +2585,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2596,7 +2601,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2627,15 +2632,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2643,7 +2648,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2674,15 +2679,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2690,7 +2695,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2721,15 +2726,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2737,7 +2742,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2768,15 +2773,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2784,7 +2789,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2815,15 +2820,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2831,7 +2836,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2862,15 +2867,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2878,7 +2883,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2909,15 +2914,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2925,7 +2930,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -2956,15 +2961,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -2972,7 +2977,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3003,15 +3008,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3019,7 +3024,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3050,15 +3055,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3066,7 +3071,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3097,15 +3102,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3113,7 +3118,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3144,15 +3149,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3160,7 +3165,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3191,15 +3196,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3207,7 +3212,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3238,15 +3243,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3254,7 +3259,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3285,15 +3290,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3301,7 +3306,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3332,15 +3337,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3348,7 +3353,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3379,15 +3384,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3395,7 +3400,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3426,15 +3431,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3442,7 +3447,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3473,15 +3478,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3489,7 +3494,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3520,15 +3525,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3536,7 +3541,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3567,15 +3572,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3583,7 +3588,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3614,15 +3619,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3630,7 +3635,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3661,15 +3666,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3677,7 +3682,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3708,15 +3713,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3724,7 +3729,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3755,15 +3760,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3771,7 +3776,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3802,15 +3807,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3818,7 +3823,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3849,15 +3854,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3865,7 +3870,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3896,15 +3901,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3912,7 +3917,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3943,15 +3948,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -3959,7 +3964,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -3990,15 +3995,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4006,7 +4011,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4037,15 +4042,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4053,7 +4058,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4084,15 +4089,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4100,7 +4105,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4131,15 +4136,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4147,7 +4152,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4178,15 +4183,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4194,7 +4199,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4225,15 +4230,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4241,7 +4246,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4272,15 +4277,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4288,7 +4293,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4319,15 +4324,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4335,7 +4340,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4366,15 +4371,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4382,7 +4387,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4413,15 +4418,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4429,7 +4434,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4460,15 +4465,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4476,7 +4481,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4507,15 +4512,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4523,7 +4528,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4554,15 +4559,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4570,7 +4575,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4601,15 +4606,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4617,7 +4622,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4648,15 +4653,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4664,7 +4669,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4695,15 +4700,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4711,7 +4716,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4742,15 +4747,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4758,7 +4763,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4789,15 +4794,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4805,7 +4810,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4836,15 +4841,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4852,7 +4857,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4883,15 +4888,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4899,7 +4904,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4930,15 +4935,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4946,7 +4951,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -4977,15 +4982,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -4993,7 +4998,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5024,15 +5029,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5040,7 +5045,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5071,15 +5076,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5087,7 +5092,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5118,15 +5123,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5134,7 +5139,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5165,15 +5170,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5181,7 +5186,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5212,15 +5217,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5228,7 +5233,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5259,15 +5264,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5275,7 +5280,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5306,15 +5311,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5322,7 +5327,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5353,15 +5358,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5369,7 +5374,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5400,15 +5405,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5416,7 +5421,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5447,15 +5452,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5463,7 +5468,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5494,15 +5499,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5510,7 +5515,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5541,15 +5546,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5557,7 +5562,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5588,15 +5593,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5604,7 +5609,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5635,15 +5640,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5651,7 +5656,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5682,15 +5687,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5698,7 +5703,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5729,15 +5734,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5745,7 +5750,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5776,15 +5781,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5792,7 +5797,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5823,15 +5828,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5839,7 +5844,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5870,15 +5875,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5886,7 +5891,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5917,15 +5922,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5933,7 +5938,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -5964,15 +5969,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -5980,7 +5985,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -6011,15 +6016,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -6027,7 +6032,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -6058,15 +6063,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -6074,7 +6079,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -6105,15 +6110,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -6121,7 +6126,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -6152,15 +6157,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -6168,7 +6173,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -6199,15 +6204,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -6215,7 +6220,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -6246,15 +6251,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -6262,7 +6267,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -6293,15 +6298,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -6309,7 +6314,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -6340,15 +6345,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -6356,7 +6361,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -6387,15 +6392,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -6403,7 +6408,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -6434,15 +6439,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -6450,7 +6455,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -6481,15 +6486,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -6497,7 +6502,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -6528,15 +6533,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -6544,7 +6549,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -6557,7 +6562,7 @@
         <localMap>
           <entry>
             <string>documentsList</string>
-            <null/>
+            <null />
           </entry>
         </localMap>
       </initParams>
@@ -6566,35 +6571,35 @@
       <localList>
         <gate.util.persistence.AnalyserRunningStrategyPersistence>
           <runMode>1</runMode>
-          <featureName></featureName>
-          <featureValue></featureValue>
+          <featureName />
+          <featureValue />
           <pr class="gate.util.persistence.PRPersistence">
             <runtimeParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
               <localMap>
                 <entry>
                   <string>nilValue</string>
-                  <string></string>
+                  <string />
                 </entry>
                 <entry>
                   <string>scoreFeatureName</string>
-                  <string></string>
+                  <string />
                 </entry>
                 <entry>
                   <string>document</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>featureNames</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>corpus</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>referenceASName</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>featureComparison</string>
@@ -6606,7 +6611,7 @@
                 </entry>
                 <entry>
                   <string>responseASName</string>
-                  <string></string>
+                  <string />
                 </entry>
                 <entry>
                   <string>evaluationId</string>
@@ -6614,11 +6619,11 @@
                 </entry>
                 <entry>
                   <string>featureNameNilCluster</string>
-                  <string></string>
+                  <string />
                 </entry>
                 <entry>
                   <string>outputASPrefix</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>outputDirectoryUrl</string>
@@ -6632,11 +6637,11 @@
                 </entry>
                 <entry>
                   <string>containmentType</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>containingASNameAndType</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>whichThresholds</string>
@@ -6660,18 +6665,18 @@
             <resourceName>EvaluateTagging:corp1:orig</resourceName>
             <initParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
+              <localMap />
             </initParams>
             <features class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
+              <localMap />
             </features>
           </pr>
         </gate.util.persistence.AnalyserRunningStrategyPersistence>
         <gate.util.persistence.AnalyserRunningStrategyPersistence>
           <runMode>1</runMode>
-          <featureName></featureName>
-          <featureValue></featureValue>
+          <featureName />
+          <featureValue />
           <pr class="gate.util.persistence.PRPersistence">
             <runtimeParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
@@ -6691,7 +6696,7 @@
                 </entry>
                 <entry>
                   <string>corpus</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>setsToRemove</string>
@@ -6704,11 +6709,11 @@
                 </entry>
                 <entry>
                   <string>annotationTypes</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>document</string>
-                  <null/>
+                  <null />
                 </entry>
               </localMap>
             </runtimeParams>
@@ -6716,18 +6721,18 @@
             <resourceName>DeleteRenamed</resourceName>
             <initParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
+              <localMap />
             </initParams>
             <features class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
+              <localMap />
             </features>
           </pr>
         </gate.util.persistence.AnalyserRunningStrategyPersistence>
         <gate.util.persistence.AnalyserRunningStrategyPersistence>
           <runMode>1</runMode>
-          <featureName></featureName>
-          <featureValue></featureValue>
+          <featureName />
+          <featureValue />
           <pr class="gate.util.persistence.PRPersistence">
             <runtimeParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
@@ -6738,7 +6743,7 @@
                 </entry>
                 <entry>
                   <string>textTagName</string>
-                  <string></string>
+                  <string />
                 </entry>
                 <entry>
                   <string>transferAllUnlessFound</string>
@@ -6746,7 +6751,7 @@
                 </entry>
                 <entry>
                   <string>document</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>copyAnnotations</string>
@@ -6758,7 +6763,7 @@
                 </entry>
                 <entry>
                   <string>inputASName</string>
-                  <string></string>
+                  <string />
                 </entry>
                 <entry>
                   <string>annotationTypes</string>
@@ -6778,45 +6783,45 @@
             <resourceName>CopyAndRename</resourceName>
             <initParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
+              <localMap />
             </initParams>
             <features class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
+              <localMap />
             </features>
           </pr>
         </gate.util.persistence.AnalyserRunningStrategyPersistence>
         <gate.util.persistence.AnalyserRunningStrategyPersistence>
           <runMode>1</runMode>
-          <featureName></featureName>
-          <featureValue></featureValue>
+          <featureName />
+          <featureValue />
           <pr class="gate.util.persistence.PRPersistence">
             <runtimeParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
               <localMap>
                 <entry>
                   <string>nilValue</string>
-                  <string></string>
+                  <string />
                 </entry>
                 <entry>
                   <string>scoreFeatureName</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>document</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>featureNames</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>corpus</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>referenceASName</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>featureComparison</string>
@@ -6836,11 +6841,11 @@
                 </entry>
                 <entry>
                   <string>featureNameNilCluster</string>
-                  <string></string>
+                  <string />
                 </entry>
                 <entry>
                   <string>outputASPrefix</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>outputDirectoryUrl</string>
@@ -6858,7 +6863,7 @@
                 </entry>
                 <entry>
                   <string>containingASNameAndType</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>whichThresholds</string>
@@ -6882,11 +6887,11 @@
             <resourceName>EvaluateTagging:corp1:renamed</resourceName>
             <initParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
+              <localMap />
             </initParams>
             <features class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
+              <localMap />
             </features>
           </pr>
         </gate.util.persistence.AnalyserRunningStrategyPersistence>
@@ -6895,10 +6900,10 @@
     </strategiesList>
     <prList class="gate.util.persistence.CollectionPersistence">
       <localList>
-        <gate.util.persistence.PRPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence/pr"/>
-        <gate.util.persistence.PRPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[2]/pr"/>
-        <gate.util.persistence.PRPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[3]/pr"/>
-        <gate.util.persistence.PRPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[4]/pr"/>
+        <gate.util.persistence.PRPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence/pr" />
+        <gate.util.persistence.PRPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[2]/pr" />
+        <gate.util.persistence.PRPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[3]/pr" />
+        <gate.util.persistence.PRPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[4]/pr" />
       </localList>
       <collectionType>java.util.ArrayList</collectionType>
     </prList>
@@ -6906,11 +6911,12 @@
     <resourceName>test-eval-corp1</resourceName>
     <initParams class="gate.util.persistence.MapPersistence">
       <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-      <localMap/>
+      <localMap />
     </initParams>
     <features class="gate.util.persistence.MapPersistence">
       <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-      <localMap/>
+      <localMap />
     </features>
   </application>
 </gate.util.persistence.GateApplication>
+

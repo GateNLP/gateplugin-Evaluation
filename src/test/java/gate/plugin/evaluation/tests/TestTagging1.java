@@ -20,11 +20,13 @@ import gate.creole.ResourceInstantiationException;
 import gate.plugin.evaluation.api.AnnotationDifferTagging;
 import gate.plugin.evaluation.api.EvalStatsTagging;
 import org.junit.Test;
+import gate.test.GATEPluginTests;
+
 
 import gate.util.GateException;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
+import java.net.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -45,7 +47,7 @@ import org.apache.log4j.PatternLayout;
  * 
  * @author Johann Petrak
  */
-public class TestTagging1 {
+public class TestTagging1 extends GATEPluginTests {
 
   ////////////////////////////
   // Initialization
@@ -56,7 +58,7 @@ public class TestTagging1 {
   private File testingDir;
   private static final Logger logger = Logger.getLogger(TestTagging1.class);
   @Before
-  public void setup() throws GateException, IOException {
+  public void setup() throws GateException, MalformedURLException {
     
     logger.setLevel(Level.DEBUG);
     Logger rootLogger = Logger.getRootLogger();
@@ -69,16 +71,9 @@ public class TestTagging1 {
     rootLogger.addAppender(appender);
     
     if(!Gate.isInitialised()) {
-      if(System.getProperty("gate.home") != null) {
-        Gate.setGateHome(new File(System.getProperty("gate.home")));
-      }
-      Gate.runInSandbox(true);
       Gate.init();
     }
     pluginHome = new File(".");
-    pluginHome = pluginHome.getCanonicalFile();
-    Gate.getCreoleRegister().registerDirectories(
-              pluginHome.toURI().toURL());
     testingDir = new File(pluginHome,"test");
     URL doc1Url = new File(testingDir,"doc1.xml").toURI().toURL();
     URL doc2Url = new File(testingDir,"doc2.xml").toURI().toURL();

@@ -20,6 +20,7 @@ import gate.Gate;
 import gate.ProcessingResource;
 import gate.creole.ResourceInstantiationException;
 import org.junit.Test;
+import gate.test.GATEPluginTests;
 
 import gate.util.GateException;
 import java.io.File;
@@ -46,7 +47,7 @@ import static org.junit.Assert.*;
  * 
  * @author Johann Petrak
  */
-public class TestTagging4 {
+public class TestTagging4 extends GATEPluginTests {
 
   ////////////////////////////
   // Initialization
@@ -71,24 +72,11 @@ public class TestTagging4 {
     logger.setLevel(Level.DEBUG);
 
     if(!Gate.isInitialised()) {
-      if(System.getProperty("gate.home") != null) {
-        Gate.setGateHome(new File(System.getProperty("gate.home")));
-      }
-      Gate.runInSandbox(false);
       Gate.init();
     }
-    File home = Gate.getGateHome();
-    if(home==null) {
-      throw new GateRuntimeException("GATE home is not set, cannot run test");
-    } else {
-      System.out.println("GATE home is "+home);
-    }
-    // load the plugin
     pluginHome = new File(".");
     pluginHome = pluginHome.getCanonicalFile();
     testingDir = new File(pluginHome,"test");
-    Gate.getCreoleRegister().registerDirectories(
-              pluginHome.toURI().toURL());
     
     // TODO: create a PR, change PR so we can access all the list-based data structures via the 
     // API, then print AND retrieve them and check for correct values in the tests!

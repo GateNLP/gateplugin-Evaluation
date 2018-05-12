@@ -17,6 +17,7 @@ import gate.FeatureMap;
 import gate.Gate;
 import gate.creole.ResourceInstantiationException;
 import org.junit.Test;
+import gate.test.GATEPluginTests;
 
 import gate.util.GateException;
 import java.io.File;
@@ -42,7 +43,7 @@ import static org.junit.Assert.*;
  * 
  * @author Johann Petrak
  */
-public class TestTagging2 {
+public class TestTagging2 extends GATEPluginTests {
 
   ////////////////////////////
   // Initialization
@@ -69,18 +70,12 @@ public class TestTagging2 {
     rootLogger.addAppender(appender);
     
     if(!Gate.isInitialised()) {
-      if(System.getProperty("gate.home") != null) {
-        Gate.setGateHome(new File(System.getProperty("gate.home")));
-      }
-      Gate.runInSandbox(true);
       Gate.init();
     }
     // load the plugin
     pluginHome = new File(".");
     pluginHome = pluginHome.getCanonicalFile();
     testingDir = new File(pluginHome,"test");
-    Gate.getCreoleRegister().registerDirectories(
-              pluginHome.toURI().toURL());
     // create a number of pre-configured PR instances
     FeatureMap parms = Factory.newFeatureMap();
     parms.put("listType", "L");
