@@ -42,7 +42,7 @@ public class AnnotationDifferClassification {
   /** Cohen's kappa. */
   private float kappaCohen = 0;
   
-  /** Scott's pi or Siegel & Castellan's kappa */
+  /** Scott's pi or Siegel &amp; Castellan's kappa */
   private float kappaPi = 0;
   
   private boolean isCalculatedKappas = false;
@@ -88,7 +88,7 @@ public class AnnotationDifferClassification {
   /**
    * Kappa is defined as the observed agreements minus the agreement
    * expected by chance.
-   * The Siegel & Castellan’s Kappa is based on the assumption that all the
+   * The Siegel &amp; Castellan’s Kappa is based on the assumption that all the
    * annotators have the same distribution.
    * @return a number between -1 and 1. 1 means perfect agreements.
    */

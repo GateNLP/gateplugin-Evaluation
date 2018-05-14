@@ -50,7 +50,7 @@ public enum ThresholdsOrRanksToUse {
   public List<Integer> getRanks() { return theRanks; }
   /**
    * If this returns null, we use the ranks.
-   * @return 
+   * @return  TODO
    */
   public ThresholdsToUse getThresholdsToUse() { return equivalentThresholdsToUse; }
 }

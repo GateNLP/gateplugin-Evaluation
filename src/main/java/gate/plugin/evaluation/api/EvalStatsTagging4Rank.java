@@ -19,7 +19,7 @@ import gate.util.GateRuntimeException;
  or score threshold. This is a double value such the the stats object
  represents the numbers if the evaluation was carried out with that 
  threshold, i.e. a response is only considered if the score of the response
- is >= the threshold. If the threshold is NaN then the stats object is not
+ is greater or equal than the threshold. If the threshold is NaN then the stats object is not
  * associated with a threshold (usually that means it is a stats object that
  * represents all responses found).
  * 
@@ -42,8 +42,8 @@ public class EvalStatsTagging4Rank extends EvalStatsTagging {
   /**
    * Create a copy of an existing EvalPRFStats object.
    * This can be used to get an exact copy of the EvalPRFStats object passed to the constructor.
-   * <p>
-   * @param other 
+   * 
+   * @param other  TODO
    */
   // Why we did not implement clone(): http://www.artima.com/intv/bloch13.html
   public EvalStatsTagging4Rank(EvalStatsTagging other) {

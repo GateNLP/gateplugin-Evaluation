@@ -20,7 +20,8 @@ public class AnnotationTypeSpecs {
 
   /**
    * Create an instance of this class from the PR parameter.
-   * @param types
+   * 
+   * @param types TODO
    */
   public AnnotationTypeSpecs(List<String> types) {
     HashSet<String> seen = new HashSet<String>();

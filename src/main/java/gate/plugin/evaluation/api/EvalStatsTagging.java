@@ -41,8 +41,8 @@ public abstract class EvalStatsTagging  {
   /**
    * Create a copy of an existing EvalPRFStats object.
    * This can be used to get an exact copy of the EvalPRFStats object passed to the constructor.
-   * <p>
-   * @param other 
+   * 
+   * @param other  TODO
    */
   // Why we did not implement clone(): http://www.artima.com/intv/bloch13.html
   public EvalStatsTagging(EvalStatsTagging other) {
@@ -433,7 +433,8 @@ public abstract class EvalStatsTagging  {
   
   /**
    * True if the instance is for ranks.
-   * @return 
+   * 
+   * @return  TODO
    */
   public boolean isRank() {
     return (this instanceof EvalStatsTagging4Rank);

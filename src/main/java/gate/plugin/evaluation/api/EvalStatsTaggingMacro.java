@@ -26,16 +26,16 @@ public class EvalStatsTaggingMacro extends EvalStatsTagging {
     }
   }
   
-  protected List<Double> precisionStrictVals = new ArrayList<Double>();
-  protected List<Double> precisionLenientVals = new ArrayList<Double>();
-  protected List<Double> recallStrictVals = new ArrayList<Double>();
-  protected List<Double> recallLenientVals = new ArrayList<Double>();
-  protected List<Double> fMeasureStrictVals = new ArrayList<Double>();
-  protected List<Double> fMeasureLenientVals = new ArrayList<Double>();
-  protected List<Double> singleCorrectAccuracyStrictVals = new ArrayList<Double>();
-  protected List<Double> singleCorrectAccuracyLenientVals = new ArrayList<Double>();
-  protected List<Integer> targetsVals = new ArrayList<Integer>();
-  protected List<Integer> responsesVals = new ArrayList<Integer>();
+  protected List<Double> precisionStrictVals = new ArrayList<>();
+  protected List<Double> precisionLenientVals = new ArrayList<>();
+  protected List<Double> recallStrictVals = new ArrayList<>();
+  protected List<Double> recallLenientVals = new ArrayList<>();
+  protected List<Double> fMeasureStrictVals = new ArrayList<>();
+  protected List<Double> fMeasureLenientVals = new ArrayList<>();
+  protected List<Double> singleCorrectAccuracyStrictVals = new ArrayList<>();
+  protected List<Double> singleCorrectAccuracyLenientVals = new ArrayList<>();
+  protected List<Integer> targetsVals = new ArrayList<>();
+  protected List<Integer> responsesVals = new ArrayList<>();
   
   
   @Override
@@ -104,8 +104,8 @@ public class EvalStatsTaggingMacro extends EvalStatsTagging {
   
   /**
    * At the moment we only allow to calculate the FMeasure for beta 1.0. 
-   * @param beta
-   * @return 
+   * @param beta TODO
+   * @return  TODO
    */
   @Override
   public double getFMeasureStrict(double beta) {
@@ -122,8 +122,8 @@ public class EvalStatsTaggingMacro extends EvalStatsTagging {
   
   /**
    * At the moment we only allow to calculate the FMeasure for beta 1.0. 
-   * @param beta
-   * @return 
+   * @param beta TODO
+   * @return  TODO
    */
   @Override
   public double getFMeasureLenient(double beta) {
@@ -142,7 +142,7 @@ public class EvalStatsTaggingMacro extends EvalStatsTagging {
   /**
    * Return the number of EvalStatsTagging objects from which this macro average object was 
    * built.
-   * @return 
+   * @return TODO
    */
   public int getN() {
     return precisionLenientVals.size();
@@ -150,8 +150,8 @@ public class EvalStatsTaggingMacro extends EvalStatsTagging {
   
   /** 
    * Calculate the average over the values.
-   * @param values
-   * @return 
+   * @param values TODO
+   * @return  TODO
    */
   protected double averageOf(List<Double> values) {
     double sum = 0.0;

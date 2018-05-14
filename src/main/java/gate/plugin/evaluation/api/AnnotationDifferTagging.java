@@ -33,9 +33,9 @@ import org.apache.log4j.Logger;
  * A class for finding the differences between two annotation sets and calculating the counts needed
  * to obtain precision, recall, f-measure and other statistics.
  *
- * This is loosely based on the {@link gate.util.AnnotationDifferTagging} class but has been heavily
+ * This is loosely based on the gate.util.AnnotationDifferTagging class but has been heavily
  * modified. One important change is that all the counts and the methods for calculating measures
- * from the counts are kept in a separate object of type {@link EvalStatsTagging}.
+ * from the counts are kept in a separate object of type EvalStatsTagging.
  * <p>
  * This class is mainly for finding the optimal matchings between the target and response sets and
  * for storing the response and target annotations that correspond to correct, incorrect, missing or
@@ -57,9 +57,9 @@ import org.apache.log4j.Logger;
  * {@link ByThEvalStatsTagging} object for a set of thresholds.
  * <p>
  * This class also allows to choose between two ways of comparing annotations by the values of one
- * or more features: if {@link FeatureComparison.FEATURES_EQUALITY} is used, then all the features
+ * or more features: if FeatureComparison.FEATURES_EQUALITY is used, then all the features
  * specified must have identical values in in the target and response annotation. If
- * {@link FeatureComparison.FEATURES_SUBSUMPTION} is used, then only those features from the
+ * FeatureComparison.FEATURES_SUBSUMPTION is used, then only those features from the
  * specified feature list which do occur in the target annotation must match in the response
  * annotation.
  * <p>
@@ -100,7 +100,7 @@ public class AnnotationDifferTagging {
   /**
    * Returns the set of features for this differ. If no features were used, returns an empty set.
    *
-   * @return
+   * @return the set of features to use
    */
   public Set<String> getFeatureSet() {
     return features;
@@ -111,7 +111,7 @@ public class AnnotationDifferTagging {
   /**
    * Returns the feature comparison method name for this differ.
    *
-   * @return
+   * @return the feature comparison to use
    */
   public FeatureComparison getFeatureComparison() {
     return featureComparison;
@@ -133,8 +133,8 @@ public class AnnotationDifferTagging {
    * @param responses A set of annotations for which we asses how well they match the targets. A
    * response strictly matches a target if it a) is coextensive with the target, b) the types are
    * equal and c) they features match according to the features list and comparison method.
-   * @param features TODO
-   * @param fcm
+   * @param features features to use
+   * @param fcm feature comparison to use
    * @param annotationTypeSpecs an AnnotationTypeSpecs instance or null if key and response types
    * should be equal
    */
@@ -162,13 +162,13 @@ public class AnnotationDifferTagging {
    * <p>
    * If the thresholdFeature is empty or null no statistics by threshold will be calculated.
    *
-   * @param targets
-   * @param responses
-   * @param features
-   * @param fcmp
-   * @param scoreFeature
-   * @param thresholdValue
-   * @param annotationTypeSpecs
+   * @param targets target annotation set
+   * @param responses response annotation set
+   * @param features set of features to use
+   * @param fcmp feature comparison to use
+   * @param scoreFeature name of the score feature
+   * @param thresholdValue the threshold value
+   * @param annotationTypeSpecs annotation type specification instance
    */
   public AnnotationDifferTagging(
           AnnotationSet targets,
@@ -199,15 +199,15 @@ public class AnnotationDifferTagging {
    * ByThEvalStatsTagging statistics are added to the existing statistics and the modified object is
    * returned.
    *
-   * @param targets
-   * @param responses
-   * @param featureSet
-   * @param fcmp
-   * @param scoreFeature
-   * @param thToUse
-   * @param existingByThresholdEvalStats
-   * @param annotationTypeSpecs
-   * @return
+   * @param targets target annotation set
+   * @param responses response annotation set
+   * @param featureSet set of feature names to use
+   * @param fcmp feature comparison to use
+   * @param scoreFeature score feature name
+   * @param thToUse threshold to use
+   * @param existingByThresholdEvalStats existing eval stats instance
+   * @param annotationTypeSpecs annotation type specification instance
+   * @return new or updated stats instance
    */
   public static ByThEvalStatsTagging calculateByThEvalStatsTagging(
           AnnotationSet targets,
@@ -277,11 +277,15 @@ public class AnnotationDifferTagging {
   /**
    * Create a list of candidate response lists for carrying out list-based evaluations.
    *
-   * @param candidatesSet
-   * @param listAnnotations
-   * @param edgeFeature
-   * @param scoreFeature
-   * @return
+   * @param candidatesSet annotation set for the candidate annotations
+   * @param listAnnotations annotation set for the list annotations
+   * @param edgeFeature feature name for the feature containing the ids of the candidates
+   * @param scoreFeature score feature name
+   * @param elementType TODO
+   * @param filterNils TODO
+   * @param nilValue TODO
+   * @param idFeature TODO
+   * @return candidate list
    */
   // TODO: this method maybe should also gather statistics about how many candidate lists end up 
   // having 0 or 1 candidates only. 
@@ -290,7 +294,7 @@ public class AnnotationDifferTagging {
           boolean filterNils, String nilValue, String idFeature) {
     // for each response, create an actual sorted list of candidate annotations and also store the 
     // minimum and maximum score.
-    List<CandidateList> responseCandidates = new ArrayList<CandidateList>(listAnnotations.size());
+    List<CandidateList> responseCandidates = new ArrayList<>(listAnnotations.size());
     for (Annotation ann : listAnnotations) {
       CandidateList cl = new CandidateList(candidatesSet, ann, edgeFeature, scoreFeature,
               elementType, filterNils, nilValue, idFeature);
@@ -305,21 +309,21 @@ public class AnnotationDifferTagging {
   /**
    * TODO!!!!
    *
-   * @param targets
-   * @param listAnnotations
-   * @param responseCandidatesLists
-   * @param featureSet
-   * @param fcmp
-   * @param listIdFeature
-   * @param scoreFeature
-   * @param thToUse
-   * @param existingByThresholdEvalStats
-   * @return
+   * @param targets target annotation set
+   * @param listAnnotations list annotation set
+   * @param responseCandidatesLists list of candidates
+   * @param featureSet set of features
+   * @param fcmp feature comparison instance
+   * @param listIdFeature name of the id feature
+   * @param scoreFeature score feature name 
+   * @param thToUse threshold to use
+   * @param existingByThresholdEvalStats some existing stats instance
+   * @param typeSpecs TODO
+   * @return new or updated stats object
    */
   public static ByThEvalStatsTagging calculateListByThEvalStatsTagging(
           AnnotationSet targets,
           AnnotationSet listAnnotations,
-          //AnnotationSet candidates,
           List<CandidateList> responseCandidatesLists,
           Set<String> featureSet,
           FeatureComparison fcmp,
@@ -396,6 +400,21 @@ public class AnnotationDifferTagging {
     return byThresholdEvalStats;
   }
 
+  /**
+   * TODO!
+   * 
+   * @param targets TODO
+   * @param listAnnotations TODO
+   * @param responseCandidatesLists TODO
+   * @param featureSet TODO
+   * @param fcmp TODO
+   * @param listIdFeature TODO
+   * @param scoreFeature TODO
+   * @param thToUse TODO
+   * @param existingByRankEvalStats TODO
+   * @param typeSpecs TODO
+   * @return TODO
+   */
   public static ByRankEvalStatsTagging calculateListByRankEvalStatsTagging(
           AnnotationSet targets,
           AnnotationSet listAnnotations,
@@ -471,16 +490,17 @@ public class AnnotationDifferTagging {
   /**
    * TODO!!!
    *
-   * @param targets
-   * @param listAnnotations
-   * @param responseCandidatesLists
-   * @param featureSet
-   * @param fcmp
-   * @param listIdFeature
-   * @param scoreFeature
-   * @param scoreThreshold
-   * @param annotationTypeSpecs
-   * @return
+   * @param targets TODO
+   * @param listAnnotations TODO
+   * @param responseCandidatesLists TODO
+   * @param featureSet TODO
+   * @param fcmp TODO
+   * @param listIdFeature TODO
+   * @param scoreFeature TODO
+   * @param scoreThreshold TODO
+   * @param rankThreshold TODO
+   * @param annotationTypeSpecs TODO
+   * @return TODO
    */
   public static AnnotationDifferTagging calculateEvalStatsTagging4List(
           AnnotationSet targets,
@@ -519,38 +539,74 @@ public class AnnotationDifferTagging {
           trueSpuriousLenientAnns,
           targetAnns;
 
+  /**
+   * TODO
+   * @return TODO
+   */
   public AnnotationSet getCorrectStrictAnnotations() {
     return correctStrictAnns;
   }
 
+  /**
+   * TODO
+   * @return TODO
+   */
   public AnnotationSet getCorrectPartialAnnotations() {
     return correctPartialAnns;
   }
 
+  /**
+   * TODO
+   * @return TODO
+   */
   public AnnotationSet getIncorrectStrictAnnotations() {
     return incorrectStrictAnns;
   }
 
+  /**
+   * TODO
+   * @return TODO
+   */
   public AnnotationSet getIncorrectPartialAnnotations() {
     return incorrectPartialAnns;
   }
 
+  /**
+   * TODO
+   * @return TODO
+   */
   public AnnotationSet getTrueMissingLenientAnnotations() {
     return trueMissingLenientAnns;
   }
 
+  /**
+   * TODO
+   * @return TODO
+   */
   public AnnotationSet getTrueSpuriousLenientAnnotations() {
     return trueSpuriousLenientAnns;
   }
 
+  /**
+   * TODO
+   * @return TODO
+   */
   public AnnotationSet getSingleCorrectStrictAnnotations() {
     return singleCorrectStrictAnns;
   }
 
+  /** 
+   * TODO 
+   * @return TODO
+   */
   public AnnotationSet getSingleCorrectPartialAnnotations() {
     return singleCorrectPartialAnns;
   }
 
+  /**
+   * TODO
+   * @return TODO
+   */ 
   public AnnotationSet getTargetAnnotations() {
     return targetAnns;
   }
@@ -564,8 +620,8 @@ public class AnnotationDifferTagging {
    * response set. The indicator annotations for the reference set will have the suffix _R so e.g. a
    * strictly correct response for the annotation type Mention will get annotated as Mention_CS_R
    *
-   * @param outSet
-   * @param prefix
+   * @param outSet TODO
+   * @param prefix TODO
    */
   public void addIndicatorAnnotations(AnnotationSet outSet, String prefix) {
     if (prefix == null) {
@@ -591,10 +647,10 @@ public class AnnotationDifferTagging {
    * <p>
    * It is possible to only pass one of the two table objects.
    *
-   * @param responses
-   * @param reference
-   * @param tableStrict
-   * @param tableLenient
+   * @param responses TODO
+   * @param reference TODO
+   * @param tableStrict TODO
+   * @param tableLenient TODO
    */
   public static void addChangesToContingenyTables(
           AnnotationDifferTagging responses,
@@ -674,9 +730,9 @@ public class AnnotationDifferTagging {
   /**
    * Add the annotations that indicate changes between responses.
    *
-   * @param outSet
-   * @param responses
-   * @param reference
+   * @param outSet TODO
+   * @param responses TODO
+   * @param reference TODO
    */
   // NOTE: at the moment we only use the feature set/feature comparison strategy from the 
   // response set and do not check if it is the same as for the reference set. Calculating
@@ -801,16 +857,6 @@ public class AnnotationDifferTagging {
   }
 
   // TODO!!!: the following is for calculating McNemar's test
-  /**
-   * This returns a 2x2 contingency table with the counts for both correct, both incorrect and
-   * different correctness. This method only makes sense if the correctness and incorrectness can be
-   * established reasonably i.e. if there is a feature for checking the correctness of a response.
-   * TODO: two methods for lenient and strict!!
-   *
-   * @param responseDiffer
-   * @param referenceDiffer
-   * @return
-   */
   //public static ContingencyTableInteger getPairedCorrectnessCountsStrict(
   //  ContingencyTableInteger toIncrement, AnnotationDifferTagging responseDiffer, AnnotationDifferTagging referenceDiffer) {
   //  
@@ -1289,10 +1335,13 @@ public class AnnotationDifferTagging {
    * identical values in the key and response annotation. If it is FEATURES_SUBSUMPTION, it returns
    * true if the response features subsume the key features limited to the features list.
    *
-   * @param key
-   * @param response
-   * @param features
-   * @return
+   * @param key TODO
+   * @param response TODO
+   * @param features TODO
+   * @param fcmp TODO
+   * @param is4List TODO
+   * @param typeSpecs TODO
+   * @return TODO
    */
   public static boolean isAnnotationsMatch(Annotation key, Annotation response, Set<String> features,
           FeatureComparison fcmp, boolean is4List, AnnotationTypeSpecs typeSpecs) {
@@ -1379,6 +1428,10 @@ public class AnnotationDifferTagging {
       scoreCalculated = false;
     }
 
+    /**
+     * TODO
+     * @return TODO
+     */
     public String typeAsString() {
       StringBuilder sb = new StringBuilder();
       switch (getPairingType()) {
@@ -1403,6 +1456,7 @@ public class AnnotationDifferTagging {
       }
       return sb.toString();
     }
+    @Override
     public String toString() {
       StringBuilder sb = new StringBuilder();
       switch (getPairingType()) {
@@ -1432,6 +1486,10 @@ public class AnnotationDifferTagging {
       return sb.toString();
     }
 
+    /**
+     * TODO
+     * @return TODO
+     */
     public int getScore() {
       if (scoreCalculated) {
         return score;
@@ -1441,14 +1499,26 @@ public class AnnotationDifferTagging {
       }
     }
 
+    /**
+     * TODO
+     * @return TODO
+     */
     public int getKeyIndex() {
       return this.keyIndex;
     }
 
+    /**
+     * TODO
+     * @return TODO
+     */
     public int getResponseIndex() {
       return this.responseIndex;
     }
 
+    /**
+     * TODO
+     * @return TODO
+     */
     public int getValue() {
       return this.value;
     }
@@ -1771,7 +1841,8 @@ public class AnnotationDifferTagging {
      * After initialization it is the number of all candidates that were annotations (ids which
      * do not point to annotations are discarded) which match the element type if it was given, 
      * which is identical to sizeAll()
-     * @return 
+     * 
+     * @return TODO 
      */
     public int size() {
       return theSize;
@@ -1779,7 +1850,8 @@ public class AnnotationDifferTagging {
     
     /**
      * Return the number of all candidates, irrespective of the threshold.
-     * @return 
+     * 
+     * @return TODO 
      */
     public int sizeAll() {
       return cands.size();
@@ -1795,9 +1867,9 @@ public class AnnotationDifferTagging {
 
     /**
      * Set the score threshold. After this the value returned by size() will be adjusted to only
-     * include those elements with a score >= the given score.
+     * include those elements with a score greater or equal the given score.
      *
-     * @param th
+     * @param th TODO
      */
     public void setThreshold(double th) {
       if (scoreFeature == null) {
@@ -1916,10 +1988,10 @@ public class AnnotationDifferTagging {
    * what kind of conversion was attempted, e.g. when converting from a string, it could be a
    * NumberFormatException).
    *
-   * @param fm
-   * @param key
-   * @param defaultValue
-   * @return
+   * @param fm TODO
+   * @param key TODO
+   * @param defaultValue TODO
+   * @return TODO
    */
   public static double getFeatureDouble(FeatureMap fm, String key, double defaultValue) {
     Object value = fm.get(key);
