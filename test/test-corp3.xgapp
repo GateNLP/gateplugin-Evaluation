@@ -2,11 +2,6 @@
 <gate.util.persistence.GateApplication>
   <urlList class="gate.util.persistence.CollectionPersistence">
     <localList>
-      <gate.creole.Plugin-Maven>
-        <group>uk.ac.gate</group>
-        <artifact>evaluation</artifact>
-        <version>0.8-SNAPSHOT</version>
-      </gate.creole.Plugin-Maven>
     </localList>
     <collectionType>java.util.ArrayList</collectionType>
   </urlList>

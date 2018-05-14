@@ -77,7 +77,6 @@ public class TestTagging3 extends GATEPluginTests {
   @Test
   public void testTagging3Corp1() throws ResourceInstantiationException, ExecutionException, PersistenceException, IOException {
     logger.debug("Running test testCorp1");
-    if(false) { // for now disable this test 
     File pipelineFile = new File(testingDir,"test-eval-corp1.xgapp");
     CorpusController controller = (CorpusController)PersistenceManager.loadObjectFromFile(pipelineFile);
     // access the PRs that are in the controller
@@ -129,13 +128,11 @@ public class TestTagging3 extends GATEPluginTests {
     assertEquals("precision strict",0.9740740,es_Drug.getPrecisionStrict(),EPS4);
     assertEquals("recall lenient",0.6743589,es_Drug.getRecallStrict(),EPS4);
     assertEquals("f1.0 strict",0.796969,es_Drug.getFMeasureStrict(1.0),EPS4);
-    }
   }
   
   @Test
   public void testTagging3Corp2() throws ResourceInstantiationException, ExecutionException, PersistenceException, IOException {
     logger.debug("Running test testCorp2");
-    if (false) {
     File pipelineFile = new File(testingDir,"test-eval-corp2.xgapp");
     CorpusController controller = (CorpusController)PersistenceManager.loadObjectFromFile(pipelineFile);
     // access the PRs that are in the controller
@@ -238,14 +235,6 @@ public class TestTagging3 extends GATEPluginTests {
     assertEquals("recall lenient",0.48126801152738,es_list_default.getRecallLenient(),EPS4);
     assertEquals("f1.0 lenient",0.56181665264929,es_list_default.getFMeasureLenient(1.0),EPS4);
     // assertEquals("accuracy lenient",0,es_score.getSingleCorrectAccuracyLenient(),EPS4); // BUG?
-
-    
-    
-    
-    
-    // 
-
-   } 
   }  
   
 }
