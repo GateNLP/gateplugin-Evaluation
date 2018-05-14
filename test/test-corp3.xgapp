@@ -1,9 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <gate.util.persistence.GateApplication>
   <urlList class="gate.util.persistence.CollectionPersistence">
     <localList>
-      <gate.util.persistence.PersistenceManager-URLHolder>
-        <urlString>$relpath$../../Evaluation/</urlString>
-      </gate.util.persistence.PersistenceManager-URLHolder>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate</group>
+        <artifact>evaluation</artifact>
+        <version>0.8-SNAPSHOT</version>
+      </gate.creole.Plugin-Maven>
     </localList>
     <collectionType>java.util.ArrayList</collectionType>
   </urlList>
@@ -36,15 +39,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -52,7 +55,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -83,15 +86,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -99,7 +102,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -130,15 +133,15 @@
               </entry>
               <entry>
                 <string>sourceUrlEndOffset</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>stringContent</string>
-                <string></string>
+                <string />
               </entry>
               <entry>
                 <string>mimeType</string>
-                <null/>
+                <null />
               </entry>
               <entry>
                 <string>encoding</string>
@@ -146,7 +149,7 @@
               </entry>
               <entry>
                 <string>sourceUrlStartOffset</string>
-                <null/>
+                <null />
               </entry>
             </localMap>
           </initParams>
@@ -159,7 +162,7 @@
         <localMap>
           <entry>
             <string>documentsList</string>
-            <null/>
+            <null />
           </entry>
         </localMap>
       </initParams>
@@ -168,39 +171,39 @@
       <localList>
         <gate.util.persistence.AnalyserRunningStrategyPersistence>
           <runMode>1</runMode>
-          <featureName></featureName>
-          <featureValue></featureValue>
+          <featureName />
+          <featureValue />
           <pr class="gate.util.persistence.PRPersistence">
             <runtimeParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
               <localMap>
                 <entry>
                   <string>nilValue</string>
-                  <string></string>
+                  <string />
                 </entry>
                 <entry>
                   <string>scoreFeatureName</string>
-                  <string></string>
+                  <string />
                 </entry>
                 <entry>
                   <string>document</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>featureNames</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>corpus</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>referenceASName</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>outputDirectoryString</string>
-                  <string></string>
+                  <string />
                 </entry>
                 <entry>
                   <string>featureComparison</string>
@@ -212,19 +215,19 @@
                 </entry>
                 <entry>
                   <string>responseASName</string>
-                  <string></string>
+                  <string />
                 </entry>
                 <entry>
                   <string>evaluationId</string>
-                  <string></string>
+                  <string />
                 </entry>
                 <entry>
                   <string>outputASPrefix</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>outputDirectoryUrl</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>keyASName</string>
@@ -236,7 +239,7 @@
                 </entry>
                 <entry>
                   <string>containingASNameAndType</string>
-                  <null/>
+                  <null />
                 </entry>
                 <entry>
                   <string>whichThresholds</string>
@@ -262,11 +265,11 @@
             <resourceName>EvaluateTagging_0002B</resourceName>
             <initParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
+              <localMap />
             </initParams>
             <features class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap/>
+              <localMap />
             </features>
           </pr>
         </gate.util.persistence.AnalyserRunningStrategyPersistence>
@@ -275,7 +278,7 @@
     </strategiesList>
     <prList class="gate.util.persistence.CollectionPersistence">
       <localList>
-        <gate.util.persistence.PRPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence/pr"/>
+        <gate.util.persistence.PRPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence/pr" />
       </localList>
       <collectionType>java.util.ArrayList</collectionType>
     </prList>
@@ -283,11 +286,12 @@
     <resourceName>test-corp3</resourceName>
     <initParams class="gate.util.persistence.MapPersistence">
       <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-      <localMap/>
+      <localMap />
     </initParams>
     <features class="gate.util.persistence.MapPersistence">
       <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-      <localMap/>
+      <localMap />
     </features>
   </application>
 </gate.util.persistence.GateApplication>
+
