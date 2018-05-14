@@ -1131,7 +1131,7 @@ public class AnnotationDifferTagging {
     finalChoices = new ArrayList<Pairing>();
 
     while (!possibleChoices.isEmpty()) {
-      Pairing bestChoice = (Pairing) possibleChoices.remove(0);
+      Pairing bestChoice =  possibleChoices.remove(0);
       // TODO: 
       bestChoice.consume();
       finalChoices.add(bestChoice);
@@ -1728,6 +1728,8 @@ public class AnnotationDifferTagging {
       if (!(val instanceof List<?>)) {
         throw new GateRuntimeException("The listIdFeature for a list annotation does not contain a list: " + listAnn);
       }
+      // We are aware of the unchecked conversion, no need to warn!
+      @SuppressWarnings("unchecked")
       List<Integer> ids = (List<Integer>) val;
       logger.debug("DEBUG: processing list annotation " + listAnn);
       logger.debug("DEBUG: id list is " + ids);
@@ -2031,7 +2033,12 @@ public class AnnotationDifferTagging {
               return 1;
             } else {
               if(v1 instanceof Comparable && v2 instanceof Comparable) {
-                result = ((Comparable)v1).compareTo((Comparable)v2);
+                @SuppressWarnings("unchecked")
+                Comparable<Object> tmpv1 = (Comparable<Object>)v1;
+                @SuppressWarnings("unchecked")
+                Comparable<Object> tmpv2 = (Comparable<Object>)v2;
+                result = tmpv1.compareTo(tmpv2);
+                // result = ((Comparable)v1).compareTo((Comparable)v2);
                 if(result != 0) return result;
               } else {
                 // result = 0;

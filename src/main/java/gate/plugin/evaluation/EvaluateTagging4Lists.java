@@ -64,12 +64,13 @@ import org.apache.log4j.Logger;
  */
 @CreoleResource(
         name = "EvaluateTagging4Lists",
-        helpURL ="https://github.com/johann-petrak/gateplugin-Evaluation/wiki/EvaluateTagging-PR",
+        helpURL ="https://github.com/GateNLP/gateplugin-Evaluation/wiki/EvaluateTagging-PR",
         comment = "Calculate P/R/F evalutation measures for annotations with candidate lists")
 public class EvaluateTagging4Lists extends EvaluateTaggingBase 
   implements ControllerAwarePR
   //, CustomDuplication 
 {
+  public final static long serialVersionUID = 1L;
   
   ///////////////////
   /// PR PARAMETERS 

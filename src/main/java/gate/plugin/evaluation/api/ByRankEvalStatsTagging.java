@@ -372,7 +372,7 @@ public class ByRankEvalStatsTagging implements NavigableMap<Integer,EvalStatsTag
 
   @Override
   public EvalStatsTagging4Rank put(Integer key, EvalStatsTagging4Rank value) {
-      return byRankEvalStats.put(key, (EvalStatsTagging4Rank)value);
+      return byRankEvalStats.put(key, value);
   }
 
   public EvalStatsTagging4Rank put(Integer key, EvalStatsTagging value) {

@@ -45,12 +45,14 @@ import org.apache.log4j.Logger;
  */
 @CreoleResource(
         name = "EvaluateMaxRecall",
-        helpURL ="https://github.com/johann-petrak/gateplugin-Evaluation/wiki/EvaluateMaxRecall-PR",
+        helpURL ="https://github.com/GateNLP/gateplugin-Evaluation/wiki/EvaluateMaxRecall-PR",
         comment = "Calculate maximum recall for annotations with candidate lists")
 public class EvaluateMaxRecall extends EvaluateTaggingBase 
   implements ControllerAwarePR
   //, CustomDuplication 
 {
+
+  public final static long serialVersionUID = 1L;
   
   ///////////////////
   /// PR PARAMETERS 

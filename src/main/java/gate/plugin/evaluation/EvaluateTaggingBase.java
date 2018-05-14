@@ -56,6 +56,8 @@ import org.apache.log4j.Logger;
 public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser 
   implements ControllerAwarePR {
 
+  public final static long serialVersionUID = 1L;
+
   // NOTE: this implements ControllerAwarePR so that we can pass around an instance 
   // of EvaluateTaggingBase which is either EvaluateTagging or EvaluateTagging4Lists
   // and still invoke the controller callbacks or execute on that instance.
