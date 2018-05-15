@@ -110,7 +110,7 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   @CreoleParameter (comment="How the responses are restricted to the annotations of the containingASNameAndType",defaultValue="OVERLAPPING")
   @Optional
   @RunTime
-  public void setContainmentType(ContainmentType ct) { ct = containmentType; }
+  public void setContainmentType(ContainmentType ct) { containmentType = ct; }
   public ContainmentType getContainmentType() { return containmentType; }
   
   // TODO: clarify the exact meaning of this parameter when a) the list is empty, for 

@@ -912,7 +912,7 @@ public class AnnotationDifferTagging {
     EvalStatsTagging es;
     if (rankThreshold != null) {
       es = new EvalStatsTagging4Rank(rankThreshold);
-      if (scoreThreshold != null && scoreThreshold != Double.NaN) {
+      if (scoreThreshold != null && Double.isNaN(scoreThreshold)) {
         throw new GateRuntimeException("Score threshold must be null or NaN if rank threshold is given");
       }
     } else {
@@ -2110,7 +2110,7 @@ public class AnnotationDifferTagging {
               // result = 0;
             } else if(v1 == null && v2 != null) {
               return -1;
-            } else if(v2 != null && v2 == null) {
+            } else if(v1 != null && v2 == null) {
               return 1;
             } else {
               if(v1 instanceof Comparable && v2 instanceof Comparable) {

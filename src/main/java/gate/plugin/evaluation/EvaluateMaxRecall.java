@@ -327,9 +327,10 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
         keySet = selectOverlappingBy(keySet,containingSet,ct);
       }
       // if we have a reference set, we need to apply the same filtering to that one too
-      if(referenceSet != null) {
-        referenceSet = selectOverlappingBy(referenceSet,containingSet,ct);
-      }
+      // TODO: not used later, so commented out for now
+      //if(referenceSet != null) {
+      //  referenceSet = selectOverlappingBy(referenceSet,containingSet,ct);
+      //}
     } // have a containing set and type
     
     boolean filterNils = false;
