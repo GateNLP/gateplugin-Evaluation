@@ -12,7 +12,7 @@
   <artifactId>evaluation</artifactId>
   <version>0.8-SNAPSHOT</version>
   <name>Evaluation</name>
-  <description>A plugin for the GATE NLP framework for evaluating annotations against a gold standard.</description>
+  <description>A plugin for the GATE NLP framework for evaluating annotations against a gold standard</description>
   <url>https://github.com/GateNLP/gateplugin-Evaluation</url>
   <licenses>
     <license>
