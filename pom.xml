@@ -10,9 +10,9 @@
   <!-- The Maven coordinates of this plugin -->
   <groupId>uk.ac.gate.plugins</groupId>
   <artifactId>evaluation</artifactId>
-  <version>0.8-SNAPSHOT</version>
+  <version>0.8</version>
   <name>Evaluation</name>
-  <description>A plugin for the GATE NLP framework for evaluating annotations against a gold standard</description>
+  <description>A plugin for the GATE NLP framework for evaluating annotations against a gold standard.</description>
   <url>https://github.com/GateNLP/gateplugin-Evaluation</url>
   <licenses>
     <license>
