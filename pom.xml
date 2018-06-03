@@ -1,19 +1,31 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>uk.ac.gate</groupId>
-    <artifactId>gate-plugin-base</artifactId>
-    <version>8.5-SNAPSHOT</version>
-    <relativePath/>
-  </parent>
-  <!-- The Maven coordinates of this plugin -->
   <groupId>uk.ac.gate.plugins</groupId>
   <artifactId>evaluation</artifactId>
   <version>0.8-SNAPSHOT</version>
   <name>Evaluation</name>
   <description>A plugin for the GATE NLP framework for evaluating annotations against a gold standard.</description>
-  <url>https://github.com/GateNLP/gateplugin-Evaluation</url>
+  <url>https://github.com/GateNLP/gateplugin-Evaluation/wiki</url>
+  <developers>
+    <developer>
+      <name>Johann Petrak</name>
+      <email>johann.petrak@gmail.com</email>
+      <organization>GATE Team</organization>
+      <organizationUrl>https://gate.ac.uk</organizationUrl>
+    </developer>
+    <developer>
+      <name>GATE Team</name>
+      <email>gate-developers@lists.sourceforge.net</email>
+      <organization>GATE Team</organization>
+      <organizationUrl>https://gate.ac.uk</organizationUrl>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/GateNLP/gateplugin-Evaluation.git</connection>
+    <developerConnection>scm:git:git@github.com:GateNLP/gateplugin-Evaluation.git</developerConnection>
+    <url>https://github.com/GateNLP/gateplugin-Evaluation</url>
+  </scm>
+  <packaging>jar</packaging>
   <licenses>
     <license>
       <name>GNU Lesser General Public License (LGPL), Version 3</name>
@@ -21,6 +33,13 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  <parent>
+    <groupId>uk.ac.gate</groupId>
+    <artifactId>gate-plugin-base</artifactId>
+    <version>8.5-SNAPSHOT</version>
+    <relativePath/>
+  </parent>
   <dependencies>
   </dependencies>
+  <modelVersion>4.0.0</modelVersion>
 </project>
