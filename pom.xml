@@ -6,6 +6,10 @@
   <name>Evaluation</name>
   <description>A plugin for the GATE NLP framework for evaluating annotations against a gold standard.</description>
   <url>https://github.com/GateNLP/gateplugin-Evaluation/wiki</url>
+  <organization>
+    <name>GATE Team</name>
+    <url>http://gate.ac.uk</url>
+  </organization>
   <developers>
     <developer>
       <name>Johann Petrak</name>
