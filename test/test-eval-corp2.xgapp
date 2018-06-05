@@ -1,19 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <gate.util.persistence.GateApplication>
   <urlList class="gate.util.persistence.CollectionPersistence">
     <localList>
       <gate.creole.Plugin-Maven>
         <group>uk.ac.gate.plugins</group>
+        <artifact>evaluation</artifact>
+        <version>0.8-alpha1</version>
+        <downloadListeners/>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
         <artifact>annie</artifact>
-        <version>8.5-SNAPSHOT</version>
+        <version>8.5</version>
       </gate.creole.Plugin-Maven>
       <gate.creole.Plugin-Maven>
         <group>uk.ac.gate.plugins</group>
         <artifact>tools</artifact>
-        <version>8.5-SNAPSHOT</version>
+        <version>8.5</version>
       </gate.creole.Plugin-Maven>
     </localList>
-    <collectionType>java.util.ArrayList</collectionType>
+    <collectionType>java.util.Collections$UnmodifiableSet</collectionType>
   </urlList>
   <application class="gate.util.persistence.ConditionalSerialAnalyserControllerPersistence">
     <corpus class="gate.util.persistence.CorpusPersistence">
@@ -25,42 +30,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc1.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -72,42 +53,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc10.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -119,42 +76,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc11.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -166,42 +99,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc12.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -213,42 +122,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc13.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -260,42 +145,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc14.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -307,42 +168,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc15.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -354,42 +191,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc16.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -401,42 +214,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc17.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -448,42 +237,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc18.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -495,42 +260,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc19.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -542,42 +283,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc2.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -589,42 +306,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc20.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -636,42 +329,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc3.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -683,42 +352,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc4.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -730,42 +375,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc5.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -777,42 +398,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc6.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -824,42 +421,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc7.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -871,42 +444,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc8.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -918,42 +467,18 @@
             <mapType>gate.util.SimpleFeatureMapImpl</mapType>
             <localMap>
               <entry>
+                <string>encoding</string>
+                <string>UTF-8</string>
+              </entry>
+              <entry>
                 <string>sourceUrl</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
                   <urlString>$relpath$corp2/doc9.xml</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>
-                <string>preserveOriginalContent</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>collectRepositioningInfo</string>
-                <boolean>false</boolean>
-              </entry>
-              <entry>
-                <string>markupAware</string>
-                <boolean>true</boolean>
-              </entry>
-              <entry>
-                <string>sourceUrlEndOffset</string>
-                <null />
-              </entry>
-              <entry>
                 <string>stringContent</string>
-                <string />
-              </entry>
-              <entry>
-                <string>mimeType</string>
-                <null />
-              </entry>
-              <entry>
-                <string>encoding</string>
-                <string>UTF-8</string>
-              </entry>
-              <entry>
-                <string>sourceUrlStartOffset</string>
-                <null />
+                <string></string>
               </entry>
             </localMap>
           </initParams>
@@ -963,35 +488,36 @@
       <resourceName>corp2</resourceName>
       <initParams class="gate.util.persistence.MapPersistence">
         <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-        <localMap>
-          <entry>
-            <string>documentsList</string>
-            <null />
-          </entry>
-        </localMap>
+        <localMap/>
       </initParams>
     </corpus>
     <strategiesList class="gate.util.persistence.CollectionPersistence">
       <localList>
         <gate.util.persistence.AnalyserRunningStrategyPersistence>
           <runMode>1</runMode>
-          <featureName />
-          <featureValue />
-          <pr class="gate.util.persistence.PRPersistence">
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
             <runtimeParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
               <localMap>
                 <entry>
-                  <string>nilValue</string>
-                  <string />
+                  <string>responseASName</string>
+                  <string>Shef</string>
+                </entry>
+                <entry>
+                  <string>evaluationId</string>
+                  <string>corp2-normal</string>
+                </entry>
+                <entry>
+                  <string>outputDirectoryUrl</string>
+                  <gate.util.persistence.PersistenceManager-URLHolder>
+                    <urlString>$relpath$</urlString>
+                  </gate.util.persistence.PersistenceManager-URLHolder>
                 </entry>
                 <entry>
                   <string>scoreFeatureName</string>
-                  <string />
-                </entry>
-                <entry>
-                  <string>document</string>
-                  <null />
+                  <string></string>
                 </entry>
                 <entry>
                   <string>featureNames</string>
@@ -1003,63 +529,12 @@
                   </gate.util.persistence.CollectionPersistence>
                 </entry>
                 <entry>
-                  <string>corpus</string>
-                  <null />
+                  <string>containmentType</string>
+                  <null/>
                 </entry>
                 <entry>
                   <string>referenceASName</string>
                   <string>Ref</string>
-                </entry>
-                <entry>
-                  <string>featureComparison</string>
-                  <gate.plugin.evaluation.api.FeatureComparison>FEATURE_EQUALITY</gate.plugin.evaluation.api.FeatureComparison>
-                </entry>
-                <entry>
-                  <string>nilTreatment</string>
-                  <gate.plugin.evaluation.api.NilTreatment>NO_NILS</gate.plugin.evaluation.api.NilTreatment>
-                </entry>
-                <entry>
-                  <string>evaluationId</string>
-                  <string>corp2-normal</string>
-                </entry>
-                <entry>
-                  <string>responseASName</string>
-                  <string>Shef</string>
-                </entry>
-                <entry>
-                  <string>outputASPrefix</string>
-                  <null />
-                </entry>
-                <entry>
-                  <string>outputDirectoryUrl</string>
-                  <gate.util.persistence.PersistenceManager-URLHolder>
-                    <urlString>$relpath$../test/</urlString>
-                  </gate.util.persistence.PersistenceManager-URLHolder>
-                </entry>
-                <entry>
-                  <string>keyASName</string>
-                  <string>Key</string>
-                </entry>
-                <entry>
-                  <string>containmentType</string>
-                  <null />
-                </entry>
-                <entry>
-                  <string>containingASNameAndType</string>
-                  <null />
-                </entry>
-                <entry>
-                  <string>whichThresholds</string>
-                  <gate.plugin.evaluation.api.ThresholdsToUse>USE_ALL</gate.plugin.evaluation.api.ThresholdsToUse>
-                </entry>
-                <entry>
-                  <string>annotationTypes</string>
-                  <gate.util.persistence.CollectionPersistence>
-                    <localList>
-                      <string>Mention</string>
-                    </localList>
-                    <collectionType>java.util.ArrayList</collectionType>
-                  </gate.util.persistence.CollectionPersistence>
                 </entry>
               </localMap>
             </runtimeParams>
@@ -1067,33 +542,39 @@
             <resourceName>EvaluateTagging:corp2-normal</resourceName>
             <initParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap />
+              <localMap/>
             </initParams>
             <features class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap />
+              <localMap/>
             </features>
           </pr>
         </gate.util.persistence.AnalyserRunningStrategyPersistence>
         <gate.util.persistence.AnalyserRunningStrategyPersistence>
           <runMode>1</runMode>
-          <featureName />
-          <featureValue />
-          <pr class="gate.util.persistence.PRPersistence">
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
             <runtimeParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
               <localMap>
                 <entry>
-                  <string>nilValue</string>
-                  <string />
+                  <string>responseASName</string>
+                  <string>Shef</string>
+                </entry>
+                <entry>
+                  <string>evaluationId</string>
+                  <string>corp2-score</string>
+                </entry>
+                <entry>
+                  <string>outputDirectoryUrl</string>
+                  <gate.util.persistence.PersistenceManager-URLHolder>
+                    <urlString>$relpath$</urlString>
+                  </gate.util.persistence.PersistenceManager-URLHolder>
                 </entry>
                 <entry>
                   <string>scoreFeatureName</string>
                   <string>score</string>
-                </entry>
-                <entry>
-                  <string>document</string>
-                  <null />
                 </entry>
                 <entry>
                   <string>featureNames</string>
@@ -1105,63 +586,16 @@
                   </gate.util.persistence.CollectionPersistence>
                 </entry>
                 <entry>
-                  <string>corpus</string>
-                  <null />
-                </entry>
-                <entry>
-                  <string>referenceASName</string>
-                  <null />
-                </entry>
-                <entry>
-                  <string>featureComparison</string>
-                  <gate.plugin.evaluation.api.FeatureComparison>FEATURE_EQUALITY</gate.plugin.evaluation.api.FeatureComparison>
-                </entry>
-                <entry>
-                  <string>nilTreatment</string>
-                  <gate.plugin.evaluation.api.NilTreatment>NO_NILS</gate.plugin.evaluation.api.NilTreatment>
-                </entry>
-                <entry>
-                  <string>evaluationId</string>
-                  <string>corp2-score</string>
-                </entry>
-                <entry>
-                  <string>responseASName</string>
-                  <string>Shef</string>
-                </entry>
-                <entry>
-                  <string>outputASPrefix</string>
-                  <null />
-                </entry>
-                <entry>
-                  <string>outputDirectoryUrl</string>
-                  <gate.util.persistence.PersistenceManager-URLHolder>
-                    <urlString>$relpath$../test/</urlString>
-                  </gate.util.persistence.PersistenceManager-URLHolder>
-                </entry>
-                <entry>
-                  <string>keyASName</string>
-                  <string>Key</string>
-                </entry>
-                <entry>
                   <string>containmentType</string>
-                  <null />
+                  <null/>
                 </entry>
                 <entry>
                   <string>containingASNameAndType</string>
-                  <string />
+                  <string></string>
                 </entry>
                 <entry>
                   <string>whichThresholds</string>
                   <gate.plugin.evaluation.api.ThresholdsToUse>USE_ALLROUNDED</gate.plugin.evaluation.api.ThresholdsToUse>
-                </entry>
-                <entry>
-                  <string>annotationTypes</string>
-                  <gate.util.persistence.CollectionPersistence>
-                    <localList>
-                      <string>Mention</string>
-                    </localList>
-                    <collectionType>java.util.ArrayList</collectionType>
-                  </gate.util.persistence.CollectionPersistence>
                 </entry>
               </localMap>
             </runtimeParams>
@@ -1169,37 +603,47 @@
             <resourceName>EvaluateTagging:corp2-score</resourceName>
             <initParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap />
+              <localMap/>
             </initParams>
             <features class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap />
+              <localMap/>
             </features>
           </pr>
         </gate.util.persistence.AnalyserRunningStrategyPersistence>
         <gate.util.persistence.AnalyserRunningStrategyPersistence>
           <runMode>1</runMode>
-          <featureName />
-          <featureValue />
+          <featureName></featureName>
+          <featureValue></featureValue>
           <pr class="gate.util.persistence.PRPersistence">
             <runtimeParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
               <localMap>
                 <entry>
-                  <string>scoreThreshold</string>
-                  <string />
+                  <string>responseASName</string>
+                  <string></string>
                 </entry>
                 <entry>
-                  <string>nilValue</string>
-                  <string />
+                  <string>evaluationId</string>
+                  <string>corp2-list-default</string>
+                </entry>
+                <entry>
+                  <string>edgeFeatureName</string>
+                  <string>ids</string>
+                </entry>
+                <entry>
+                  <string>outputDirectoryUrl</string>
+                  <gate.util.persistence.PersistenceManager-URLHolder>
+                    <urlString>$relpath$</urlString>
+                  </gate.util.persistence.PersistenceManager-URLHolder>
                 </entry>
                 <entry>
                   <string>scoreFeatureName</string>
                   <string>score</string>
                 </entry>
                 <entry>
-                  <string>document</string>
-                  <null />
+                  <string>keyASName</string>
+                  <string>Key4List</string>
                 </entry>
                 <entry>
                   <string>featureNames</string>
@@ -1209,64 +653,6 @@
                     </localList>
                     <collectionType>java.util.ArrayList</collectionType>
                   </gate.util.persistence.CollectionPersistence>
-                </entry>
-                <entry>
-                  <string>corpus</string>
-                  <null />
-                </entry>
-                <entry>
-                  <string>rankThreshold</string>
-                  <string />
-                </entry>
-                <entry>
-                  <string>referenceASName</string>
-                  <string />
-                </entry>
-                <entry>
-                  <string>listType</string>
-                  <string>LookupList</string>
-                </entry>
-                <entry>
-                  <string>featureComparison</string>
-                  <gate.plugin.evaluation.api.FeatureComparison>FEATURE_EQUALITY</gate.plugin.evaluation.api.FeatureComparison>
-                </entry>
-                <entry>
-                  <string>nilTreatment</string>
-                  <gate.plugin.evaluation.api.NilTreatment>NO_NILS</gate.plugin.evaluation.api.NilTreatment>
-                </entry>
-                <entry>
-                  <string>evaluationId</string>
-                  <string>corp2-list-default</string>
-                </entry>
-                <entry>
-                  <string>responseASName</string>
-                  <string />
-                </entry>
-                <entry>
-                  <string>outputASPrefix</string>
-                  <null />
-                </entry>
-                <entry>
-                  <string>outputDirectoryUrl</string>
-                  <gate.util.persistence.PersistenceManager-URLHolder>
-                    <urlString>$relpath$../test/</urlString>
-                  </gate.util.persistence.PersistenceManager-URLHolder>
-                </entry>
-                <entry>
-                  <string>edgeFeatureName</string>
-                  <string>ids</string>
-                </entry>
-                <entry>
-                  <string>keyASName</string>
-                  <string>Key4List</string>
-                </entry>
-                <entry>
-                  <string>containmentType</string>
-                  <gate.plugin.evaluation.api.ContainmentType>OVERLAPPING</gate.plugin.evaluation.api.ContainmentType>
-                </entry>
-                <entry>
-                  <string>containingASNameAndType</string>
-                  <null />
                 </entry>
                 <entry>
                   <string>whichThresholds</string>
@@ -1277,8 +663,8 @@
                   <string>Lookup</string>
                 </entry>
                 <entry>
-                  <string>elementType</string>
-                  <string>Lookup</string>
+                  <string>referenceASName</string>
+                  <string></string>
                 </entry>
               </localMap>
             </runtimeParams>
@@ -1286,11 +672,11 @@
             <resourceName>EvaluateTagging4Lists:corp2-list</resourceName>
             <initParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap />
+              <localMap/>
             </initParams>
             <features class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-              <localMap />
+              <localMap/>
             </features>
           </pr>
         </gate.util.persistence.AnalyserRunningStrategyPersistence>
@@ -1299,9 +685,9 @@
     </strategiesList>
     <prList class="gate.util.persistence.CollectionPersistence">
       <localList>
-        <gate.util.persistence.PRPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence/pr" />
-        <gate.util.persistence.PRPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[2]/pr" />
-        <gate.util.persistence.PRPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[3]/pr" />
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[2]/pr"/>
+        <gate.util.persistence.PRPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[3]/pr"/>
       </localList>
       <collectionType>java.util.ArrayList</collectionType>
     </prList>
@@ -1309,12 +695,11 @@
     <resourceName>test-eval-corp2</resourceName>
     <initParams class="gate.util.persistence.MapPersistence">
       <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-      <localMap />
+      <localMap/>
     </initParams>
     <features class="gate.util.persistence.MapPersistence">
       <mapType>gate.util.SimpleFeatureMapImpl</mapType>
-      <localMap />
+      <localMap/>
     </features>
   </application>
 </gate.util.persistence.GateApplication>
-
