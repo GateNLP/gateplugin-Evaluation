@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <groupId>uk.ac.gate.plugins</groupId>
   <artifactId>evaluation</artifactId>
-  <version>0.9-SNAPSHOT</version><!-- PLUGINVERSION -->
+  <version>0.9</version><!-- PLUGINVERSION -->
   <name>Evaluation</name>
   <description>GATE plugin that provides processing resources for evaluating annotations 
     against a gold standard and calculate statistics like precision, recall or F-measure.</description>
@@ -41,9 +41,14 @@
   <parent>
     <groupId>uk.ac.gate</groupId>
     <artifactId>gate-plugin-base</artifactId>
-    <version>8.5</version>
+    <version>8.6</version>
     <relativePath/>
   </parent>
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <gate-core.version>8.6</gate-core.version>
+  </properties>
   <dependencies>
   </dependencies>
   <modelVersion>4.0.0</modelVersion>
