@@ -5,7 +5,7 @@
       <gate.creole.Plugin-Maven>
         <group>uk.ac.gate.plugins</group>
         <artifact>evaluation</artifact>
-        <version>0.9-SNAPSHOT</version>
+        <version>0.9</version>
       </gate.creole.Plugin-Maven>
     </localList>
     <collectionType>java.util.ArrayList</collectionType>
