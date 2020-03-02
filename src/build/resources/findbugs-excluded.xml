@@ -17,6 +17,16 @@
          Yes I want to write that static field
          -->
          <Bug pattern="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" />
+         <Bug pattern="SE_BAD_FIELD_STORE" />
+         <Bug pattern="SE_COMPARATOR_SHOULD_BE_SERIALIZABLE" />
+         <Bug pattern="DM_CONVERT_CASE" />
+         <Bug pattern="UPM - UPM_UNCALLED_PRIVATE_METHOD" />
+         <Bug pattern="UrF - URF_UNREAD_FIELD" />
+         <Bug pattern="RV - RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT" />
+         <Bug pattern="DLS - DLS_DEAD_LOCAL_STORE" />
+         <Bug pattern="DLS - DLS_DEAD_LOCAL_STORE_OF_NULL" />
+         <Bug pattern="NP - NP_NULL_ON_SOME_PATH_MIGHT_BE_INFEASIBLE" />
+
       </Or>
    </Match>
 
