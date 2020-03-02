@@ -25,5 +25,6 @@ package gate.plugin.evaluation.api;
  */
 public enum FeatureComparison {
   FEATURE_EQUALITY,
+  FEATURE_EQUALITY_AS_STRING,
   FEATURE_SUBSUMPTION
 }

@@ -1381,7 +1381,7 @@ public class AnnotationDifferTagging {
       if (features.isEmpty()) {
         return true;
       } else {
-        if (fcmp.equals(FeatureComparison.FEATURE_EQUALITY)) {
+        if (fcmp == FeatureComparison.FEATURE_EQUALITY || fcmp == FeatureComparison.FEATURE_EQUALITY_AS_STRING) {
           // need to check if the features in the feature list all have the same value in both
           // annotations
           FeatureMap fmk = key.getFeatures();
@@ -1396,7 +1396,14 @@ public class AnnotationDifferTagging {
             if (o2 == null && o1 != null) {
               return false;
             }
-            return o1.equals(o2);
+            if (o1 == null && o2 == null) {
+              return true;
+            }
+            if (fcmp == FeatureComparison.FEATURE_EQUALITY_AS_STRING) {
+              return o1.toString().equals(o2.toString());
+            } else {
+              return o1.equals(o2);
+            }
           }
           return true;
         } else {

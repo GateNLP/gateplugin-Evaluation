@@ -37,7 +37,6 @@ import gate.plugin.evaluation.api.EvalStatsTagging;
 import gate.plugin.evaluation.api.EvalStatsTagging4Rank;
 import gate.plugin.evaluation.api.EvalStatsTagging4Score;
 import gate.plugin.evaluation.api.FeatureComparison;
-import gate.plugin.evaluation.api.ThresholdsToUse;
 import gate.util.Files;
 import gate.util.GateRuntimeException;
 import java.io.File;
@@ -46,13 +45,9 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 
@@ -84,8 +79,9 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   public String getExpandedKeyASName() { return Utils.replaceVariablesInString(getKeyASName()); }
   
   protected String responseASName;
-  @CreoleParameter (comment="The name of the annotation set that contains the response annotations",defaultValue ="Response")
+  @CreoleParameter (comment="The name of the annotation set that contains the response annotations, missing=default set",defaultValue ="Response")
   @RunTime
+  @Optional
   public void setResponseASName(String name) { responseASName = name; }
   public String getResponseASName() { return responseASName; }
   public String getExpandedResponseASName() { return Utils.replaceVariablesInString(getResponseASName()); }
