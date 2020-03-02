@@ -162,8 +162,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
   
   /**
    * Return the evaluation statistics.
-   * @param type
-   * @return 
+   * @return todo
    */
   public EvalStatsTagging getEvalStatsTagging() { 
     return allDocumentsStats; 
@@ -171,8 +170,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
   
   /**
    * Get the evaluation statistics by threshold.
-   * @param type
-   * @return 
+   * @return todo
    */
   public ByThEvalStatsTagging getByThEvalStatsTagging() {
     return evalStatsByThreshold;
@@ -180,8 +178,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
   
   /**
    * Get the evaluation statistics by rank
-   * @param type
-   * @return 
+   * @return todo
    */
   public ByRankEvalStatsTagging getByRankEvalStatsTagging() {
     return evalStatsByRank;
@@ -189,8 +186,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
   
   /**
    * Get the evaluation statistics by rank for disambiguation accuracy
-   * @param type
-   * @return 
+   * @return todo
    */
   public ByRankEvalStatsTagging getByRankEvalStats4ListAcc() {
     return byRank4ListAcc;
@@ -821,7 +817,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
     // NOTE: this method only gets invoked if feature names is non-null and contains at least
     // one element (does not make sense to invoke it otherwise!)
     String idFeature = getFeatureNames().get(0);
-    Set<Annotation> nils = new HashSet<Annotation>();
+    Set<Annotation> nils = new HashSet<>();
     for (Annotation ann : set) {
       Object val = ann.getFeatures().get(idFeature);
       String valStr = val == null ? "" : val.toString();
@@ -837,6 +833,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
 
   // This needs to run as part of the first execute, since at the moment, the parametrization
   // does not work correctly with the controller callbacks. 
+  @Override
   protected void initializeForRunning() {
     //System.out.println("DEBUG: reinitializing");
     super.initializeForRunning();
@@ -924,7 +921,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
     // be left null. Otherwise the list will get converted to a set.
     // Convert the feature list into a set
     if(featureNames != null) {
-      if(0 == featureNames.size()) {
+      if(featureNames.isEmpty()) {
         throw new GateRuntimeException("Need at least one feature for list evaluation");
       }
       for(String t : getFeatureNames()) {
@@ -932,7 +929,7 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
           throw new GateRuntimeException("List of feature names to use contains a null or empty type name!");
         }      
       }
-      Set<String> featureNameSet = new HashSet<String>();
+      Set<String> featureNameSet = new HashSet<>();
       featureNameSet.addAll(featureNames);
       // check if we have duplicate entries in the featureNames
       if(featureNameSet.size() != featureNames.size()) {
@@ -942,11 +939,11 @@ public class EvaluateTagging4Lists extends EvaluateTaggingBase
       throw new GateRuntimeException("Need at least one feature for list evaluation");
     }
     
-    List<String> types = new ArrayList<String>();
+    List<String> types = new ArrayList<>();
     types.add(getExpandedKeyType()+"="+getExpandedListType());
     annotationTypeSpecs = new AnnotationTypeSpecs(types);
     
-    types = new ArrayList<String>();
+    types = new ArrayList<>();
     types.add(getExpandedKeyType()+"="+getExpandedElementType());
     annotationTypeSpecs4Best = new AnnotationTypeSpecs(types);
     

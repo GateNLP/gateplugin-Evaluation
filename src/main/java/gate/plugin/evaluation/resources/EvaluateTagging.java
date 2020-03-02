@@ -164,8 +164,8 @@ public class EvaluateTagging extends EvaluateTaggingBase
     AnnotationSet responseSet = null;
     AnnotationSet referenceSet = null;
     
-    HashSet<String> keyTypes = new HashSet<String>();
-    HashSet<String> responseTypes = new HashSet<String>();
+    HashSet<String> keyTypes = new HashSet<>();
+    HashSet<String> responseTypes = new HashSet<>();
     keyTypes.addAll(annotationTypeSpecs.getKeyTypes());
     responseTypes.addAll(annotationTypeSpecs.getResponseTypes());
     if(getAnnotationTypes().size() > 1) {
@@ -193,10 +193,10 @@ public class EvaluateTagging extends EvaluateTaggingBase
   /**
    * Do the evaluation for one typeSpec, described by a AnnotationTypeSpec instance.
    * If typeSpec is null, create the evaluation over all types.
-   * @param keySet
-   * @param responseSet
-   * @param referenceSet
-   * @param typeSpec 
+   * @param keySet value
+   * @param responseSet value
+   * @param referenceSet value
+   * @param typeSpec  value
    */
   protected void evaluateForType(
           AnnotationSet keySet, AnnotationSet responseSet, AnnotationSet referenceSet,
@@ -399,8 +399,8 @@ public class EvaluateTagging extends EvaluateTaggingBase
    * Return the evaluation statistics for the given typeSpec or over all types if an empty String is
  passed.
    * If a typeSpec name is passed which was not used for the evaluation, null is returned.
-   * @param type
-   * @return 
+   * @param type value
+   * @return  value
    */
   public EvalStatsTagging getEvalStatsTagging(String type) { 
     // if there was only one typeSpec specified, then the typeSpec-specific evalstats is also the 
@@ -417,8 +417,8 @@ public class EvaluateTagging extends EvaluateTaggingBase
  passed.
    * If a typeSpec name is passed which was not used for the evaluation, null is returned. If no reference
  set was specified, null is returned.
-   * @param type
-   * @return 
+   * @param type todo
+   * @return todo
    */
   public EvalStatsTagging getEvalStatsTaggingReference(String type) {
     if(getReferenceASName() == null || getReferenceASName().isEmpty()) {
@@ -436,8 +436,8 @@ public class EvaluateTagging extends EvaluateTaggingBase
   /**
    * Get the evaluation statistics by threshold for the given typeSpec or over all types if an empty
  String is passed.
-   * @param type
-   * @return 
+   * @param type todo
+   * @return todo
    */
   public ByThEvalStatsTagging getByThEvalStatsTagging(String type) {
     // if there was only one typeSpec specified, then the typeSpec-specific evalstats is also the 
@@ -456,7 +456,7 @@ public class EvaluateTagging extends EvaluateTaggingBase
   
   /**
    * Return a new set with all the NIL annotations removed.
-   * @param set 
+   * @param set  todo
    */
   private AnnotationSet removeNilAnns(AnnotationSet set) {
     String nilStr = "";
@@ -464,7 +464,7 @@ public class EvaluateTagging extends EvaluateTaggingBase
     // NOTE: this method only gets invoked if feature names is non-null and contains at least
     // one element (does not make sense to invoke it otherwise!)
     String idFeature = getFeatureNames().get(0);
-    Set<Annotation> nils = new HashSet<Annotation>();
+    Set<Annotation> nils = new HashSet<>();
     for (Annotation ann : set) {
       Object val = ann.getFeatures().get(idFeature);
       String valStr = val == null ? "" : val.toString();
@@ -478,22 +478,23 @@ public class EvaluateTagging extends EvaluateTaggingBase
   }
   
   
+  @Override
   protected void initializeForRunning() {
     super.initializeForRunning();
     //System.out.println("DEBUG: running tagging initialize");
 
-    List<String> typesPlusEmpty = new ArrayList<String>();
+    List<String> typesPlusEmpty = new ArrayList<>();
     if(getAnnotationTypes().size() > 1) {
       typesPlusEmpty.add("");
     }
 
     //create the data structure that hold an evalstats object over all documents for each typeSpec 
-    allDocumentsStats = new HashMap<String, EvalStatsTagging>();
+    allDocumentsStats = new HashMap<>();
     
     // if we also have a reference set, create the data structure that holds an evalstats object
     // over all documents for each typeSpec. This is left null if no reference set is specified!    
     if(!expandedReferenceSetName.isEmpty()) {
-      allDocumentsReferenceStats = new HashMap<String, EvalStatsTagging>();
+      allDocumentsReferenceStats = new HashMap<>();
       correctnessTableStrict = new ContingencyTableInteger(2, 2);
       correctnessTableLenient = new ContingencyTableInteger(2, 2);
       correctnessTableLenient.setName(expandedEvaluationId+"-"+expandedReferenceSetName+"/"+expandedResponseSetName+"(lenient)");
@@ -517,7 +518,7 @@ public class EvaluateTagging extends EvaluateTaggingBase
     
     
     if(!expandedScoreFeatureName.isEmpty()) {
-      evalStatsByThreshold = new HashMap<String, ByThEvalStatsTagging>();
+      evalStatsByThreshold = new HashMap<>();
       doScoreEvaluation = true;
     }
     

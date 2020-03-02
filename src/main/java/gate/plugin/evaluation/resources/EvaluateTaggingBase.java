@@ -217,7 +217,7 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   protected String featurePrefixReference;
   
   
-  protected static final Logger logger = Logger.getLogger(EvaluateTaggingBase.class);
+  protected final Logger logger = Logger.getLogger(EvaluateTaggingBase.class);
   
   
   
@@ -229,12 +229,12 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
   protected PrintStream mainTsvPrintStream;
   
   /** 
-   * Create and open an print stream to the file where the Tsv rows should get written to.
-   * If no output directory was specified, this returns null.
+   * Create and open an print stream to the file where the Tsv rows should get written to.If no output directory was specified, this returns null.
    * Otherwise it returns a stream that writes to a file in the output directory that has
-   * the name "EvaluateTagging-ID.tsv" where "ID" is the value of the evaluationId parameter.
-   * If the evaluationId parameter is not set, the file name is "EvaluateTagging.tsv".
-   * @return 
+ the name "EvaluateTagging-ID.tsv" where "ID" is the value of the evaluationId parameter.
+ If the evaluationId parameter is not set, the file name is "EvaluateTagging.tsv".
+   * @param suffix suffix
+   * @return stream
    */
   protected PrintStream getOutputStream(String suffix) {
     if(expandedOutputDirectoryUrl==null) {
@@ -344,9 +344,10 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
    * Filter the annotations in the set toFilter and select only those which 
    * overlap with any annotation in set by.
    * 
-   * @param toFilter
-   * @param by
-   * @return 
+   * @param toFilterSet todo
+   * @param bySet todo
+   * @param how todo
+   * @return  todo
    */
   protected static AnnotationSet selectOverlappingBy(AnnotationSet toFilterSet, AnnotationSet bySet, ContainmentType how) {
     if(toFilterSet.isEmpty()) return toFilterSet;
@@ -374,12 +375,12 @@ public abstract class EvaluateTaggingBase extends AbstractLanguageAnalyser
    * the given annotation type, and the given document name. 
    * If an null/empty annotation type is passed, the type "[type:all:micro]" is used instead.
    * If a null document name is passed, the name "[doc:all:micro]" is used instead.
-   * @param evalType
-   * @param docName
-   * @param typeSpec
-   * @param setName
-   * @param es
-   * @return 
+   * @param evalType todo
+   * @param docName todo
+   * @param typeSpec todo
+   * @param setName todo
+   * @param es todo
+   * @return  todo
    */
   protected String outputTsvLine(
           String evalType,

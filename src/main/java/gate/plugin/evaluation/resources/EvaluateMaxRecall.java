@@ -38,7 +38,6 @@ import gate.plugin.evaluation.api.AnnotationDifferTagging;
 import gate.plugin.evaluation.api.AnnotationDifferTagging.CandidateList;
 import gate.plugin.evaluation.api.AnnotationTypeSpec;
 import gate.plugin.evaluation.api.AnnotationTypeSpecs;
-import gate.plugin.evaluation.api.EvalStatsTagging;
 import gate.util.GateRuntimeException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -125,22 +124,24 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
   private int nTargets;
   /**
    * Number of total targets over all processed documents
-   * @return 
+   * @return  value
    */
   public int getTargets() { return nTargets; }
 
   private int nTargetsWithList;
   /**
    * Number of total targets that have at least one non-empty response list 
+   * @return value
    */
   public int getTargetsWithList() { return nTargetsWithList; }
   
   private List<Integer> nCorrectStrictByRank;
   /**
    * Number of correct strict responses for a target at rank i
+   * @return value
    */
   public List<Integer> getCorrectStrictByRank() { 
-    return new ArrayList<Integer>(nCorrectStrictByRank); 
+    return new ArrayList<>(nCorrectStrictByRank); 
   }
 
   // convenience method to increment the count for a specific 
@@ -190,7 +191,7 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
    * @return 
    */
   private List<Integer> getCorrectLenientByRank() {
-    return new ArrayList<Integer>(nCorrectLenientByRank);
+    return new ArrayList<>(nCorrectLenientByRank);
   }
   
   private int nCorrectStrict;
@@ -210,7 +211,7 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
   }
   
   public List<Double> getMaxRecallStrictByRank() {
-    List<Double> ret = new ArrayList<Double>(nCorrectStrictByRank.size());
+    List<Double> ret = new ArrayList<>(nCorrectStrictByRank.size());
     int sum = 0;
     for(int corr : nCorrectStrictByRank) {
       sum += corr;
@@ -220,7 +221,7 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
   }
   
   public List<Double> getMaxRecallLenientByRank() {
-    List<Double> ret = new ArrayList<Double>(nCorrectLenientByRank.size());
+    List<Double> ret = new ArrayList<>(nCorrectLenientByRank.size());
     int sum = 0;
     for(int corr : nCorrectLenientByRank) {
       sum += corr;
@@ -240,7 +241,7 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
   }
 
   public List<Double> getMaxRecallLenient4ListByRank() {
-    List<Double> ret = new ArrayList<Double>(nCorrectLenientByRank.size());
+    List<Double> ret = new ArrayList<>(nCorrectLenientByRank.size());
     int sum = 0;
     for(int corr : nCorrectLenientByRank) {
       sum += corr;
@@ -273,7 +274,7 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
   protected static final String initialFeaturePrefixResponse = "evaluateTagging4Lists.response.";
   protected static final String initialFeaturePrefixReference = "evaluateTagging4Lists.reference.";
   
-  protected static final Logger logger = Logger.getLogger(EvaluateMaxRecall.class);
+  protected final Logger logger = Logger.getLogger(EvaluateMaxRecall.class);
   
   protected PrintStream maxrecallTsvPrintStream;
     
@@ -365,7 +366,7 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
     nDocResponseLists += candLists.size();
     
     // This set is used to record the listAnns that do have a target so we can count them later
-    Set<Annotation> listAnnsWithTarget = new HashSet<Annotation>(listAnns.size());
+    Set<Annotation> listAnnsWithTarget = new HashSet<>(listAnns.size());
     
     for(Annotation keyAnn : keySet.inDocumentOrder()) {
       // each key annotation is a target so count it
@@ -548,7 +549,7 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
     // NOTE: this method only gets invoked if feature names is non-null and contains at least
     // one element (does not make sense to invoke it otherwise!)
     String idFeature = getFeatureNames().get(0);
-    Set<Annotation> nils = new HashSet<Annotation>();
+    Set<Annotation> nils = new HashSet<>();
     for (Annotation ann : set) {
       Object val = ann.getFeatures().get(idFeature);
       String valStr = val == null ? "" : val.toString();
@@ -597,7 +598,7 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
     // be left null. Otherwise the list will get converted to a set.
     // Convert the feature list into a set
     if(featureNames != null) {
-      if(0 == featureNames.size()) {
+      if(featureNames.isEmpty()) {
         throw new GateRuntimeException("Need at least one feature for list evaluation");
       }
       for(String t : getFeatureNames()) {
@@ -605,7 +606,7 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
           throw new GateRuntimeException("List of feature names to use contains a null or empty type name!");
         }      
       }
-      Set<String> featureNameSet = new HashSet<String>();
+      Set<String> featureNameSet = new HashSet<>();
       featureNameSet.addAll(featureNames);
       // check if we have duplicate entries in the featureNames
       if(featureNameSet.size() != featureNames.size()) {
@@ -615,11 +616,11 @@ public class EvaluateMaxRecall extends EvaluateTaggingBase
       throw new GateRuntimeException("Need at least one feature for list evaluation");
     }
     
-    List<String> types = new ArrayList<String>();
+    List<String> types = new ArrayList<>();
     types.add(getExpandedKeyType()+"="+getExpandedListType());
     annotationTypeSpecs = new AnnotationTypeSpecs(types);
     
-    types = new ArrayList<String>();
+    types = new ArrayList<>();
     types.add(getExpandedKeyType()+"="+getExpandedElementType());
     annotationTypeSpecs4Best = new AnnotationTypeSpecs(types);
     
