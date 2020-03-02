@@ -4,7 +4,8 @@
   <artifactId>evaluation</artifactId>
   <version>0.10-SNAPSHOT</version><!-- PLUGINVERSION -->
   <name>Evaluation</name>
-  <description>GATE plugin that provides processing resources for evaluating annotations 
+  <description>GATE plugin that provides processing resources for evaluating 
+  annotations 
     against a gold standard and calculate statistics like precision, recall or F-measure.</description>
   <url>https://github.com/GateNLP/gateplugin-Evaluation/wiki</url>
   <organization>
