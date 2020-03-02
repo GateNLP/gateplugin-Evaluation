@@ -26,7 +26,9 @@
          <Bug pattern="DLS_DEAD_LOCAL_STORE" />
          <Bug pattern="DLS_DEAD_LOCAL_STORE_OF_NULL" />
          <Bug pattern="NP_NULL_ON_SOME_PATH_MIGHT_BE_INFEASIBLE" />
-
+         <Bug pattern="UCF_USELESS_CONTROL_FLOW" />
+         <Bug pattern="FE_FLOATING_POINT_EQUALITY" />
+         <Bug pattern="RI_REDUNDANT_INTERFACES" />
       </Or>
    </Match>
 
